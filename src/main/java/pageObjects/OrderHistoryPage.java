@@ -26,7 +26,6 @@ public class OrderHistoryPage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	OrderSuccessPage orderSuccess = new OrderSuccessPage();
 	
-	//String orderNum = orderSuccess.getOrderNumber();
 	
 	/**
 	 * Constructor to initialize page objects

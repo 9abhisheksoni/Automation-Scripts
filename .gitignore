@@ -1,7 +1,11 @@
 /target/
-
 /.classpath
-
-#Folders
-
-/test-output
+*/target/*
+*.classpath
+*.project
+*.DS_Store
+test-output/
+target/
+*.log
+*.class
+screenshots/

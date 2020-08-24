@@ -24,8 +24,8 @@ import cucumber.api.Scenario;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import utilities.DateTimeHelper;
 
-@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/features/Test.feature", glue = "stepdefinition", format = {
-		"pretty", "json:target/cucumber.json" }, tags = { "@Smoke" }, plugin = {
+@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/features", glue = "stepdefinition", format = {
+		"pretty", "json:target/cucumber.json" }, tags = { "@TabbyPayInInstallments,@TabbyPayLater" }, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html" }, dryRun = false)
 
 public class CucumberRunner extends AbstractTestNGCucumberTests {
