@@ -48,4 +48,15 @@ public class Login {
        loginPage.clickOnMerchantLogin();
     }
 
+    
+
+    @When("^User enters magento valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
+    public void user_enters_magento_valid_login_details_username_and_password_in_the_login_popup(String magentoUser, String magentoPwd) throws Throwable {
+           loginPage.enterMagnetoUserandPwd(magentoUser, magentoPwd);
+    }
+    
+    @When("^User clicks on magento login button$")
+    public void user_clicks_on_magento_login_button() throws Throwable {
+       loginPage.clickOnMagentoLogin();
+    }
 }
