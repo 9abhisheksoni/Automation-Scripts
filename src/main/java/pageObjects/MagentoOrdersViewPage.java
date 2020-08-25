@@ -87,8 +87,8 @@ public class MagentoOrdersViewPage extends CucumberRunner {
 	}
 	
 	
-	public void enterOrderID(String orderID) {
-		commonMethods.sendKeys(txtOrderID, orderID);
+	public void enterOrderID() {
+		commonMethods.sendKeys(txtOrderID, browserFactory.getOrderNumber());
 		log.info("Order ID is entered");
 	}
 	

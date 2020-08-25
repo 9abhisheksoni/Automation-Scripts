@@ -86,8 +86,25 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	private WebElement chkSendEmailCopy;	
 	
 	@FindBy(xpath = "//span[contains(text(),'Submit Shipment')]")
-	private WebElement btnSubmitShipment;
+	private WebElement btnSubmitShipment;	
 	
+	@FindBy(xpath = "//h1[@class='page-title']")
+	private WebElement lblNewInvoice;
+	
+	@FindBy(xpath = "//div[contains(text(),'The invoice has been created.')]")
+	private WebElement lblInvoiceCreated;
+	
+	@FindBy(xpath = "//th[contains(text(),'Invoiced')]")
+	private WebElement lblInvoiced;
+	
+	@FindBy(xpath = "//div[contains(text(),'The shipment has been created.')]")
+	private WebElement lblShipmentCreated;
+	
+	@FindBy(xpath = "//th[contains(text(),'Shipped')]")
+	private WebElement lblShipped;
+	
+	@FindBy(xpath = "//span[contains(text(),'Order & Account Information')]")
+	private WebElement lblOrderInfo;
 	
 	/**
 	 * WebElement declaration ends here
@@ -95,11 +112,11 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	
 	
 	
-	public void verifyOrderID(String orderID) {
-		if(commonMethods.getAttribute(divOrderID, "innerHTML").contains(orderID)) {
-			log.info("Order id " +orderID+ " matches");
+	public void verifyOrderID() {
+		if(commonMethods.getAttribute(divOrderID, "innerHTML").contains(browserFactory.getOrderNumber())) {
+			log.info("Order id " +browserFactory.getOrderNumber()+ " matches");
 		} else {
-			log.info("Order id " +orderID+ " doesn't matches");
+			log.info("Order id " +browserFactory.getOrderNumber()+ " doesn't matches");
 		}		
 	}
 	
@@ -179,6 +196,7 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	public void selectCarrierCustom() {
 		commonMethods.SelectUsingValue(drpdwnCarreir, "custom");
 		log.info("Carrier is selected as custom");
+		this.enterCarrierTitle();
 	}
 	
 	public void selectCarrierDhl() {
@@ -216,9 +234,9 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 		log.info("Carrier Title is entered as 6thstreet");
 	}
 	
-	public void enterTrackingNumber() {
-		commonMethods.sendKeys(txtNumber, "st1234");
-		log.info("Carrier Title is entered as st1234");
+	public void enterTrackingNumber(String trackingNum) {
+		commonMethods.sendKeys(txtNumber, trackingNum);
+		log.info("Carrier Title is entered as : "+trackingNum);
 	}
 	
 	public void clickDeleteIcon() {
@@ -237,6 +255,52 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	public void clickSubmitShipment() {
 		commonMethods.click(btnSubmitShipment);
 		log.info("Submit Shipment button clicked");
+	}
+	
+	public void verifyInvoicePage() {
+		waitHelper.waitForElementVisible(btnSubmitInvoice);
+		if(commonMethods.getAttribute(lblNewInvoice, "innerHTML").contains("New Invoice")) {
+			log.info("Invoce page is displayed");
+		} else {
+			log.info("Invoce page is not displayed");
+		}		
+	}
+	
+	
+	public void verifyInvoiceCreationStatus() {
+		waitHelper.waitForElementInVisiblity(lblInvoiced);
+		if(commonMethods.getAttribute(lblInvoiceCreated, "innerHTML").contains("The invoice has been created")) {
+			log.info("Invoice creation is success");
+		} else {
+			log.info("Invoice creation failed");
+		}		
+	}
+	
+	public void verifyOrderDetailsPage() {
+		waitHelper.waitForElementInVisiblity(lblOrderInfo);
+		if(commonMethods.getAttribute(divOrderID, "innerHTML").contains(browserFactory.getOrderNumber())) {
+			log.info("Order details page is displayed");
+		} else {
+			log.info("Order details page is not displayed");
+		}		
+	}
+	
+	public void verifyShipmentCreationStatus() {
+		waitHelper.waitForElementInVisiblity(lblShipped);
+		if(commonMethods.getAttribute(lblShipmentCreated, "innerHTML").contains("The shipment has been created")) {
+			log.info("Shipment creation is success");
+		} else {
+			log.info("Shipment creation failed");
+		}		
+	}
+	
+	public void verifyShipmentPage() {
+		waitHelper.waitForElementInVisiblity(lblShipped);
+		if(commonMethods.isElementPresent(btnSubmitShipment)) {
+			log.info("Shipment page is displayed");
+		} else {
+			log.info("Shipment page is not displayed");
+		}		
 	}
 	
 }
