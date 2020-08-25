@@ -65,6 +65,16 @@ public class LoginPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	private WebElement btnMerchantLogin;
+	//////////////////
+	@FindBy(xpath = "//input[@id='username']")
+	private WebElement txtMagentoUser;
+
+	@FindBy(xpath = "//input[@type='password']")
+	private WebElement txtMagentoPwd;
+
+	@FindBy(xpath = "//button[@class='action-login action-primary']")
+	private WebElement btnMagentoLogin;
+
 
 	/**
 	 * WebElement declaration ends here
@@ -148,4 +158,22 @@ public class LoginPage extends CucumberRunner {
 		log.info("clicked merchant login");
 	}
 
+	
+	////////////////
+	
+	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
+		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);
+
+		log.info("entered magento details");
+	}
+
+	public void inputMagentoEmailandPwd(String magentoUserType, String magentoPwdType) {
+		commonMethods.clearAndSendKeys(this.txtMagentoUser, jsonReader.getUserName(magentoUserType));
+		commonMethods.clearAndSendKeys(this.txtMagentoPwd, jsonReader.getPassword(magentoPwdType));
+	}
+
+	public void clickOnMagentoLogin() {
+		commonMethods.click(btnMagentoLogin);
+		log.info("clicked magento login");
+	}
 }

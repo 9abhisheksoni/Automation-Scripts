@@ -18,6 +18,10 @@
 			"merchantuser": {
 				"username": "arjun.kapoor@6thstreet.com",
 				"password": "Arjun9811"
+			},
+			"magentouser": {
+				"username": "shubha.r",
+				"password": "shubha@444"
 			}
 		},
 		"creditcard": {

@@ -81,5 +81,12 @@ public class Checkout {
 			throws Throwable {
 		orderSuccess.listMerchantOrderDetails(country, status);
 	}
+////////////
+	
+	@When("^Launch Admin Magento URL \"([^\"]*)\"$")
+	public void launch_Admin_Magento_URL(String URL) throws Throwable {
 
+		orderSuccess.controlT();
+		orderSuccess.launchURL(URL);
+	}
 }
