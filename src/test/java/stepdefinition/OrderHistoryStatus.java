@@ -1,6 +1,7 @@
 package stepdefinition;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -39,8 +40,14 @@ public class OrderHistoryStatus {
 		historyPage.verifyOrderHistoryPage();
 	}
 
-	@Then("^verify order status$")
-	public void verify_order_status() {
+	@Then("^verify order status in history to be \"([^\"]*)\"$")
+	public void verify_order_status_in_history_to_be(String orderStatus) {
+		Assert.assertTrue(historyPage.getOrderStatus().equalsIgnoreCase(orderStatus));
 		log.info(historyPage.getOrderStatus());	   
+	}
+	
+	@Then("^click on view order$")
+	public void click_on_view_order() {
+		historyPage.clickViewOrder();
 	}
 }
