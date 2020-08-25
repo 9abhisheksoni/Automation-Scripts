@@ -183,5 +183,6 @@ public class LoginPage extends CucumberRunner {
 			commonMethods.click(btnIncomingMessageCls);
 			waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 		}
+		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 	}
 }
