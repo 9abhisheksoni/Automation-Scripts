@@ -1,6 +1,7 @@
 /target/
 /.classpath
 */target/*
+!cucumber.json
 *.classpath
 *.project
 *.DS_Store
