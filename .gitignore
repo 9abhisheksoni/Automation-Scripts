@@ -1,7 +1,12 @@
 /target/
-
 /.classpath
-
-#Folders
-
-/test-output
+*/target/*
+!cucumber.json
+*.classpath
+*.project
+*.DS_Store
+test-output/
+target/
+*.log
+*.class
+screenshots/

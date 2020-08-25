@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
@@ -283,4 +284,13 @@ public class GenericHelper extends CucumberRunner {
   
        
     }
+
+	public WebElement getElement(String locator) {
+		return browserFactory.getDriver().findElement(By.xpath(locator));
+	}
+
+	public boolean isEnabled(WebElement element) {
+		log.info("returning state of web element");
+		return element.isEnabled();
+	}
 }
