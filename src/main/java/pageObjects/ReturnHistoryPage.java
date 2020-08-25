@@ -114,11 +114,11 @@ public class ReturnHistoryPage extends CucumberRunner {
 
 	public void SelectAnItemForReturn(String itemID, String reason) {
 		WebElement itemRadioState = genericHelper
-				.getElement("//span[text()='" + itemID + "']/ancestor::div[2]/preceding-sibling::div[2]//div/input");
+				.getElement("//span[contains(text()='" + itemID + "')]/ancestor::div[2]/preceding-sibling::div[2]//div/input");
 		WebElement itemRadio = genericHelper
 				.getElement("//span[text()='" + itemID + "']/ancestor::div[2]/preceding-sibling::div[2]//div/label");
-		WebElement itemReason = genericHelper.getElement("//span[text()='" + itemID
-				+ "']/ancestor::div[@class='row details_row']/following-sibling::fieldset//select");
+		WebElement itemReason = genericHelper.getElement("//span[contains(text()='" + itemID
+				+ "')]/ancestor::div[@class='row details_row']/following-sibling::fieldset//select");
 		if (genericHelper.isEnabled(itemRadioState)) {
 			commonMethods.click(itemRadio);
 			commonMethods.SelectUsingVisibleText(itemReason, reason);
@@ -134,8 +134,7 @@ public class ReturnHistoryPage extends CucumberRunner {
 	}
 
 	public void clickOnViewReturnForOrder() {
-		String ordernumber = "500225298";
-		// String ordernumber = browserFactory.getOrderNumber();
+		String ordernumber = browserFactory.getOrderNumber();
 		WebElement ele = genericHelper.getElement("//td/a[text()='" + ordernumber
 				+ "']/ancestor::tr/td[contains(@class,'actions')]/a[@class='action view']");
 		commonMethods.click(ele);

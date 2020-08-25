@@ -2,15 +2,21 @@ package stepdefinition;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.LoginPage;
 import pageObjects.MagentoDashboardPage;
 import pageObjects.MagentoOrdersDetailPage;
 import pageObjects.MagentoOrdersViewPage;
+import pageObjects.OrderSuccessPage;
+import pageObjects.PaymentPage;
 
 public class InvoceAndShipment {
 	
 	MagentoDashboardPage dashboardPage=new MagentoDashboardPage();
 	MagentoOrdersViewPage orderViewPage=new MagentoOrdersViewPage();
 	MagentoOrdersDetailPage orderDetailsPage=new MagentoOrdersDetailPage();
+	OrderSuccessPage orderSuccess = new OrderSuccessPage();
+	LoginPage loginPage = new LoginPage();
+	PaymentPage paymentPage = new PaymentPage();
 	
 	@When("^user clicks on sales module$")
 	public void user_clicks_on_sales_module()  {
@@ -144,5 +150,32 @@ public class InvoceAndShipment {
 	@Then("^shipment should be created$")
 	public void shipment_should_be_created()  {
 		orderDetailsPage.verifyShipmentCreationStatus();
+	}
+	
+	@When("^User enters magento valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
+	public void user_enters_magento_valid_login_details_username_and_password_in_the_login_popup(String magentoUser,
+			String magentoPwd) {
+		loginPage.enterMagnetoUserandPwd(magentoUser, magentoPwd);
+	}
+
+	@When("^User clicks on magento login button$")
+	public void user_clicks_on_magento_login_button() {
+		loginPage.clickOnMagentoLogin();
+	}
+	
+	@When("^Launch Admin Magento URL \"([^\"]*)\"$")
+	public void launch_Admin_Magento_URL(String URL) {
+		orderSuccess.controlT();
+		orderSuccess.launchURL(URL);
+	}
+	
+	@Then("^user should be landed into Magento dashboard$")
+	public void user_should_be_landed_into_Magento_dashboard() {
+		loginPage.waitForMagentoDashBoard();
+	}
+	
+	@When("^Verify the Payment Method in Magento as \"([^\"]*)\"$")
+	public void verify_the_Payment_Method_in_Magento_as(String paymentMethod) {
+	   paymentPage.verifyPaymentMethod(paymentMethod);
 	}
 }

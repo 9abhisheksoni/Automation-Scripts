@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,10 +69,10 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn']")
 	private WebElement btnCcPlaceOrder;
-	
+
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
 	private WebElement btnTabbyPayLaterPlaceOrder;
-	
+
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_installments']")
 	private WebElement btnTabbyPayInInstallmentsPlaceOrder;
 
@@ -127,6 +129,9 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[contains(@class,'Button__primary')]")
 	private WebElement btnTabbyBuyNow;
+
+	@FindBy(xpath = "//div[@class='order-payment-method-title']")
+	private List<WebElement> txtPaymentType;
 
 	/**
 	 * WebElement declaration ends here
@@ -204,17 +209,21 @@ public class PaymentPage extends CucumberRunner {
 
 	public void fillTabbyForm(String phone, String email, String otp) {
 		genericHelper.switchToFrame(frameTabby);
-		commonMethods.click(lnkTabbyPhoneEdit);
+		if (commonMethods.isElementPresent(lnkTabbyPhoneEdit)) {
+			commonMethods.click(lnkTabbyPhoneEdit);
+		}
 		commonMethods.clearAndSendKeys(txtTabbyPhone, phone);
-		commonMethods.click(lnkTabbyEmailEdit);
+		if (commonMethods.isElementPresent(lnkTabbyEmailEdit)) {
+			commonMethods.click(lnkTabbyEmailEdit);
+		}
 		commonMethods.clearAndSendKeys(txtTabbyEmail, email);
 		if (commonMethods.getAttribute(chkTabbyTerms, "checked") == null) {
 			commonMethods.click(chkTabbyTerms);
-		} 
+		}
 		commonMethods.click(btnTabbyCompleteOrder);
 		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
 		commonMethods.click(btnBrowse);
-		String filePath =System.getProperty("user.dir")+"\\src\\main\\resources\\data\\tabbyData\\id_tabby.jpg";
+		String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\data\\tabbyData\\id_tabby.jpg";
 		genericHelper.fileUpload(filePath);
 		commonMethods.click(btnTabbyBuyNow);
 		genericHelper.switchToDefaulContent();
@@ -259,14 +268,26 @@ public class PaymentPage extends CucumberRunner {
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.moveToElementAndClick(btnCodPlaceOrder);
-		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")){
+		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
 			commonMethods.moveToElementAndClick(btnCcPlaceOrder);
-		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")){
+		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.moveToElementAndClick(btnTabbyPayLaterPlaceOrder);
 		} else {
 			commonMethods.moveToElementAndClick(btnTabbyPayInInstallmentsPlaceOrder);
 		}
 		log.info("clicked on place order");
+	}
+
+	public void verifyPaymentMethod(String paymentMethod) {
+		String paymentType;
+
+		for (int i = 0; i < txtPaymentType.size(); i++) {
+			paymentType = commonMethods.getAttribute(txtPaymentType.get(i), "innerText").trim().replace("-", "");
+			if (paymentType.toUpperCase().contains(paymentMethod.toUpperCase())) {
+				log.info("Payment type is: " + paymentType);
+				break;
+			}
+		}
 	}
 
 }

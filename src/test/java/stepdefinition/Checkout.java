@@ -65,28 +65,20 @@ public class Checkout {
 	}
 
 	@When("^Launch Tabby Merchant URL \"([^\"]*)\"$")
-	public void launch_Tabby_Merchant_URL(String URL) throws Throwable {
+	public void launch_Tabby_Merchant_URL(String URL) {
 
 		orderSuccess.controlT();
 		orderSuccess.launchURL(URL);
 	}
 
 	@When("^User inputs tabby order number in merchant page$")
-	public void user_inputs_tabby_order_number_in_merchant_page() throws Throwable {
+	public void user_inputs_tabby_order_number_in_merchant_page() {
 		orderSuccess.inputmerchantOrder();
 	}
 
 	@When("^Verify country \"([^\"]*)\" status \"([^\"]*)\" order$")
-	public void verify_country_status_order(String country, String status)
-			throws Throwable {
+	public void verify_country_status_order(String country, String status) {
 		orderSuccess.listMerchantOrderDetails(country, status);
 	}
-////////////
-	
-	@When("^Launch Admin Magento URL \"([^\"]*)\"$")
-	public void launch_Admin_Magento_URL(String URL) throws Throwable {
 
-		orderSuccess.controlT();
-		orderSuccess.launchURL(URL);
-	}
 }

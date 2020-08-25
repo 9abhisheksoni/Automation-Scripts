@@ -21,17 +21,20 @@ Feature: 6thstreet.com - Registered User Place Order and returns
     And user clicks on my account top menu
     And user selects order history option
     Then order history page is displayed
-    Then verify order status
+    Then verify order status in history to be "processing"
+	And click on view order
+	Then Verify order status in details to be "processing"
+	Then Verify order payment in details to be "Pay in installments"
     When Launch Tabby Merchant URL "<MerchantURL>"
     When User enters merchant valid login details "merchantuser" username and "merchantuser" password in the login popup
     And User clicks on merchant login button
     And User inputs tabby order number in merchant page
     Then Verify country "ARE" status "New" order
-    When User enters merchant valid login details "magentouser" username and "magentouser" password in the login popup
-    And User clicks on magento login button
+    When Launch Admin Magento URL "<MagentoURL>"
+	When User enters magento valid login details "magentouser" username and "magentouser" password in the login popup 
+	And User clicks on magento login button
     Then user should be landed into Magento dashboard
     When user clicks on sales module
-    And user clicks on sales module
     And user clicks on order sub module
     Then user should be landed into Orders page
     When user clicks on Filters button
@@ -40,6 +43,7 @@ Feature: 6thstreet.com - Registered User Place Order and returns
     Then Search result should be displayed
     When user clicks on view link
     And user is in order details page
+    And Verify the Payment Method in Magento as "Pay in installments"
     And user clicks on Invoice button
     Then user should be redirected to Invoice page
     When user slects payment capture method as "capture offline"
@@ -52,7 +56,16 @@ Feature: 6thstreet.com - Registered User Place Order and returns
     And user enters carrier tracking number as "12345"
     And user clicks on submit shipment
     Then shipment should be created
+    And user clicks on my account top menu
+	And user selects order history option
+	Then order history page is displayed
+	Then verify order status in history to be "processing"
+	And click on view order
+	And user clicks on return an item
+	And user returns "<Product>" item with reason "Unsuitable Fit" and resolution as "Tabby Refund"
+	And user clicks on view returns
+	Then user return reason should be "Unsuitable Fit"
     
     Examples:  
-		| MerchantURL                 |Product |CountrySize|Size|Qty|
-		| https://merchant.tabby.ai/auth |DSW425730-230-NUDE |EU|41|1|
+		| MagentoURL    | MerchantURL                 |Product |CountrySize|Size|Qty|
+		|https://6thadmin-stage.6tst.com/sixadmin| https://merchant.tabby.ai/auth |DSW425730-230-NUDE |EU|41|1|

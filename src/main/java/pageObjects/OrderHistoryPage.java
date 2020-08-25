@@ -25,8 +25,7 @@ public class OrderHistoryPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
 	OrderSuccessPage orderSuccess = new OrderSuccessPage();
-	
-	
+
 	/**
 	 * Constructor to initialize page objects
 	 **/
@@ -34,62 +33,56 @@ public class OrderHistoryPage extends CucumberRunner {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
 
-	
 	/**
 	 * WebElement declaration starts here
 	 **/
-	
+
 	@FindBy(xpath = "//div[@class='order-history-title' and .='Order History']")
 	private WebElement lblOrderHistory;
-	
+
 	@FindBy(xpath = "//a[@class='id-link']/span[contains(.,'Order')]")
 	private List<WebElement> lnkOrderNumbers;
-	
+
 	@FindBy(xpath = "//div[@class='top-order-details']/span")
 	private List<WebElement> lblOrderStatus;
-	
+
 	@FindBy(xpath = "//a[@class='view']")
 	private List<WebElement> imgViewOrder;
-	
-	
-	
+
 	/**
 	 * WebElement declaration ends here
 	 **/
-	
+
 	public void verifyOrderHistoryPage() {
 		waitHelper.waitForElementVisible(lblOrderHistory);
 		log.info("Order History page is displayed");
 	}
-	
+
 	public String getOrderStatus() {
-		String orderStatus="Order Not found!";
-		for(int i=0;i<lnkOrderNumbers.size();i++) {
-			//if(commonMethods.getText(lnkOrderNumbers.get(i)).contains(browserFactory.getOrderNumber()))
-			if(commonMethods.getText(lnkOrderNumbers.get(i)).contains("500225298")) {	
-				String orderNumber = Integer.toString(new StringUtility().getIntValue(commonMethods.getText(lnkOrderNumbers.get(i))));
-				orderStatus=commonMethods.getAttribute(lblOrderStatus.get(i), "innerHTML").replace(" ","").replace("-", "");
-				log.info("Order number "+orderNumber+" found in order history, order status is : "+orderStatus );
+		String orderStatus = "Order Not found!";
+		for (int i = 0; i < lnkOrderNumbers.size(); i++) {
+			if (commonMethods.getText(lnkOrderNumbers.get(i)).contains(browserFactory.getOrderNumber())) {
+				String orderNumber = Integer
+						.toString(new StringUtility().getIntValue(commonMethods.getText(lnkOrderNumbers.get(i))));
+				orderStatus = commonMethods.getAttribute(lblOrderStatus.get(i), "innerHTML").replace(" ", "")
+						.replace("-", "");
+				log.info("Order number " + orderNumber + " found in order history, order status is : " + orderStatus);
 				break;
-			}
-			else {
-				log.info("Order number"+ browserFactory.getOrderNumber() + "doesn't exist in order history");
+			} else {
+				log.info("Order number" + browserFactory.getOrderNumber() + "doesn't exist in order history");
 			}
 		}
 		return orderStatus;
 	}
-	
+
 	public void clickViewOrder() {
-		for(int i=0;i<lnkOrderNumbers.size();i++) {
-		//	if(commonMethods.getText(lnkOrderNumbers.get(i)).contains(browserFactory.getOrderNumber())) 
-			if(commonMethods.getText(lnkOrderNumbers.get(i)).contains("500225298")) {				
-				log.info("Order number"+ browserFactory.getOrderNumber() + " found in order history, order status is ");
+		for (int i = 0; i < lnkOrderNumbers.size(); i++) {
+			if (commonMethods.getText(lnkOrderNumbers.get(i)).contains(browserFactory.getOrderNumber())) {
+				log.info(
+						"Order number" + browserFactory.getOrderNumber() + " found in order history, order status is ");
 				commonMethods.click(imgViewOrder.get(i));
 			}
-				
+
 		}
 	}
 }
-
-
-	

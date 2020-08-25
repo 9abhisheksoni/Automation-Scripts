@@ -22,8 +22,6 @@ public class OrderDetails {
 
 	@Then("^Verify order payment in details to be \"([^\"]*)\"$")
 	public void verify_order_payment_in_details_to_be(String payment) {
-		System.out.println(orderDetailsPage.getOrderPaymentType());
-		System.out.println(payment);
 		Assert.assertTrue(orderDetailsPage.getOrderPaymentType().equalsIgnoreCase(payment));
 	}
 	
