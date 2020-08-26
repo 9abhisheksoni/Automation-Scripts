@@ -307,20 +307,33 @@ public class GenericHelper extends CucumberRunner {
 		}
 	}
 
-	private String getWindowOfUrl(String baseurl) {
+	public String getWindowOfUrl(String url) {
 		log.info("Returning Parent");
-		String parentWindow = "";
+		String window = "";
 		Set<String> handle = browserFactory.getDriver().getWindowHandles();
 		Iterator<String> it = handle.iterator();
 		while (it.hasNext()) {
 			browserFactory.getDriver().switchTo().window(it.next());
 			String currenturl = browserFactory.getDriver().getCurrentUrl();
-			boolean baseUrlPresent = currenturl.contains(baseurl);
+			boolean baseUrlPresent = currenturl.contains(url);
 			boolean adminUrlPresent = currenturl.contains("admin");
 			if (baseUrlPresent && !adminUrlPresent) {
-				parentWindow = browserFactory.getDriver().getWindowHandle();
+				window = browserFactory.getDriver().getWindowHandle();
+				break;
+			} else if (adminUrlPresent) {
+				window = browserFactory.getDriver().getWindowHandle();
+				break;
+			} else {
+				window = browserFactory.getDriver().getWindowHandle();
 			}
 		}
-		return parentWindow;
+		return window;
+	}
+	
+	public void switchToBaseWindow() {
+		log.info("close All Windows Except Parent");
+		String baseurl = new Config().getBaseUrl();
+		String mainwindow = this.getWindowOfUrl(baseurl);
+		browserFactory.getDriver().switchTo().window(mainwindow);
 	}
 }

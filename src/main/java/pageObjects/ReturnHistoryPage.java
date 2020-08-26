@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 
 public class ReturnHistoryPage extends CucumberRunner {
@@ -18,6 +19,7 @@ public class ReturnHistoryPage extends CucumberRunner {
 	 **/
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
+	WaitHelper waitHelper = new WaitHelper();
 	private Logger log = Logger.getLogger(ReturnHistoryPage.class.getName());
 
 	/**
@@ -63,6 +65,9 @@ public class ReturnHistoryPage extends CucumberRunner {
 
 	@FindBy(xpath = "//td[contains(@class,'shipping')]/a")
 	private List<WebElement> lblShippingOrderIDs;
+
+	@FindBy(xpath = "//div[@class='return-statement']")
+	private WebElement lblReturnHistory;
 
 	/**
 	 * WebElement declaration ends here
@@ -117,7 +122,8 @@ public class ReturnHistoryPage extends CucumberRunner {
 				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1)
 						+ "')]/ancestor::div[2]/preceding-sibling::div[2]//div/input");
 		WebElement itemRadio = genericHelper
-				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1) + "')]/ancestor::div[2]/preceding-sibling::div[2]//div/label");
+				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1)
+						+ "')]/ancestor::div[2]/preceding-sibling::div[2]//div/label");
 		WebElement itemReason = genericHelper
 				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1)
 						+ "')]/ancestor::div[@class='row details_row']/following-sibling::fieldset//select");
@@ -143,10 +149,24 @@ public class ReturnHistoryPage extends CucumberRunner {
 		commonMethods.click(ele);
 		log.info("clicked view returns");
 	}
-	
+
 	public String getReturnId() {
 		String ordernumber = browserFactory.getOrderNumber();
-		WebElement ele = genericHelper.getElement("//td/a[text()='"+ordernumber+"']/../preceding-sibling::td[contains(@class,'return_id')]/a");
+		WebElement ele = genericHelper.getElement(
+				"//td/a[text()='" + ordernumber + "']/../preceding-sibling::td[contains(@class,'return_id')]/a");
 		return commonMethods.getText(ele);
 	}
+
+	public void verifyReturnHistoryPage() {
+		waitHelper.waitForElementVisible(lblReturnHistory);
+		log.info("Order History page is displayed");
+	}
+
+	public String getReturnStatusInHistory() {
+		String ordernumber = browserFactory.getOrderNumber();
+		WebElement ele = genericHelper
+				.getElement("//td/a[text()='" + ordernumber + "']/../following-sibling::td[contains(@class,'status')]");
+		return commonMethods.getText(ele);
+	}
+
 }

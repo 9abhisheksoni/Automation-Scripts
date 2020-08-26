@@ -50,6 +50,9 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//a[@class='top-link-order-history-link' and .='Order History']")
 	private WebElement optionOrderHistory;
+	
+	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
+	private WebElement optionReturnHistory;
 
 	/**
 	 * WebElement declaration ends here
@@ -84,5 +87,10 @@ public class HomePage extends CucumberRunner {
 	public void selectOrderHistory() {
 		commonMethods.click(optionOrderHistory);
 		log.info("Order history is selected");
+	}
+
+	public void clickReturnAnOrder() {
+		commonMethods.click(optionReturnHistory);
+		log.info("Return history is selected");
 	}
 }
