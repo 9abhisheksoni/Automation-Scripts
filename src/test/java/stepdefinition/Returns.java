@@ -39,4 +39,9 @@ public class Returns {
 	public void user_return_reason_should_be_and_resolution_should_be(String reason) {
 		Assert.assertTrue(returnDetailsPage.getReturnReason().equalsIgnoreCase(reason));
 	}
+	
+	@Then("^the return status should be \"([^\"]*)\"$")
+	public void the_return_status_should_be(String status) {
+		Assert.assertTrue(returnDetailsPage.getReturnStatus().equalsIgnoreCase(status));
+	}
 }

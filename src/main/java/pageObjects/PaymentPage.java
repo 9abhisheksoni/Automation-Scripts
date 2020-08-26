@@ -170,9 +170,8 @@ public class PaymentPage extends CucumberRunner {
 		String cvv = json.getCVV(cardType);
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
 			commonMethods.click(radioCreditCardPayment);
+			waitHelper.staticWait(5000);
 		}
 		genericHelper.switchToFrame(frameCreditCard);
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
@@ -191,20 +190,10 @@ public class PaymentPage extends CucumberRunner {
 
 	public void payUsingCOD() {
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
 			commonMethods.click(radioCodPayment);
 			log.info("Payment method selected as :COD");
 		}
 
-	}
-
-	public void payUsingTabbyPayLater(String phone, String email, String otp) {
-		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
-			commonMethods.click(radioTabbyPayLater);
-		}
-		fillTabbyForm(phone, email, otp);
-		log.info("paid using tabby paylater");
 	}
 
 	public void fillTabbyForm(String phone, String email, String otp) {
@@ -230,17 +219,8 @@ public class PaymentPage extends CucumberRunner {
 		log.info("entered values in tabby form ");
 	}
 
-	public void payUsingTabbyPayInInstallments(String phone, String email, String otp) {
-		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
-			commonMethods.click(radioTabbyPayInInstallments);
-		}
-		log.info("selected using tabby pay in installments ");
-	}
-
 	public void payUsingTabbyPayLater() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
 			commonMethods.click(radioTabbyPayLater);
 		}
 		log.info("selected using tabby pay later ");
@@ -248,7 +228,6 @@ public class PaymentPage extends CucumberRunner {
 
 	public void payUsingTabbyPayInInstallments() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
-			waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
 			commonMethods.click(radioTabbyPayInInstallments);
 		}
 	}
@@ -263,7 +242,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void clickOnPlaceOrder() {
-		waitHelper.waitForSpinnerInvisibility(checkoutAddressPage.checkoutSpinner);
+		waitHelper.staticWait(5000);
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {

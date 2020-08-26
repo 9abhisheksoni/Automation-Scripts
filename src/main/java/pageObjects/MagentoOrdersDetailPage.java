@@ -288,7 +288,7 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	
 	public void verifyOrderDetailsPage() {
 		waitHelper.waitForElementVisible(lblOrderInfo);
-		if(commonMethods.getAttribute(divOrderID, "innerHTML").contains("500225310")){//(commonMethods.getAttribute(divOrderID, "innerHTML").contains(browserFactory.getOrderNumber())) {
+		if(commonMethods.getAttribute(divOrderID, "innerHTML").contains(browserFactory.getOrderNumber())){
 			log.info("Order details page is displayed");
 		} else {
 			log.info("Order details page is not displayed");

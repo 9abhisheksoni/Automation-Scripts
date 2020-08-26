@@ -35,12 +35,12 @@ public class InvoceAndShipment {
 
 	@When("^user clicks on Filters button$")
 	public void user_clicks_on_Filters_button() throws Throwable {
+		orderViewPage.clickClearAllFilters();
 		orderViewPage.clickFilters();
 	}
 
 	@When("^user enters the order ID$")
 	public void user_enters_the_order_ID()  {
-		orderViewPage.clickClearAllFilters();
 		orderViewPage.enterOrderID();
 	}
 

@@ -160,7 +160,6 @@ public class LoginPage extends CucumberRunner {
 		log.info("clicked merchant login");
 	}
 
-	////////////////
 
 	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
 		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);

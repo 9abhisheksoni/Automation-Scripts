@@ -62,7 +62,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='button action continue primary']")
 	private WebElement btnDeliveryAddress;
 
-	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask']")
+	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
 	WebElement checkoutSpinner;
 
 	@FindBy(xpath = "//input[@id = 'shipping-save-in-address-book' and @type='checkbox']")
@@ -140,7 +140,7 @@ public class ShippingPage extends CucumberRunner {
 		}
 		try {
 			if (commonMethods.isElementPresent(radioSavedShippingAddress.get(0))) {
-				waitHelper.waitForSpinnerInvisibility(checkoutSpinner);
+				waitHelper.staticWait(5000);
 			}
 		} catch (Exception e) {
 			log.info("no saved address present");
@@ -152,12 +152,7 @@ public class ShippingPage extends CucumberRunner {
 	public void selectSavedAddress(String country) {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(currCountry)) {
-				try {
-					log.info("Waiting for spinner disappear");
-					Thread.sleep(6000);
-				} catch (Exception e) {
-					log.info("spinner not displayed");
-				}
+				waitHelper.staticWait(5000);
 				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
 				log.info("Clicked UAE address radio button");
 				this.clickDeliverToAddress();

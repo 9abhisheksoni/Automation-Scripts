@@ -114,11 +114,13 @@ public class ReturnHistoryPage extends CucumberRunner {
 
 	public void SelectAnItemForReturn(String itemID, String reason) {
 		WebElement itemRadioState = genericHelper
-				.getElement("//span[contains(text()='" + itemID + "')]/ancestor::div[2]/preceding-sibling::div[2]//div/input");
+				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1)
+						+ "')]/ancestor::div[2]/preceding-sibling::div[2]//div/input");
 		WebElement itemRadio = genericHelper
-				.getElement("//span[text()='" + itemID + "']/ancestor::div[2]/preceding-sibling::div[2]//div/label");
-		WebElement itemReason = genericHelper.getElement("//span[contains(text()='" + itemID
-				+ "')]/ancestor::div[@class='row details_row']/following-sibling::fieldset//select");
+				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1) + "')]/ancestor::div[2]/preceding-sibling::div[2]//div/label");
+		WebElement itemReason = genericHelper
+				.getElement("//span[contains(text(),'" + itemID.substring(0, itemID.indexOf('-') - 1)
+						+ "')]/ancestor::div[@class='row details_row']/following-sibling::fieldset//select");
 		if (genericHelper.isEnabled(itemRadioState)) {
 			commonMethods.click(itemRadio);
 			commonMethods.SelectUsingVisibleText(itemReason, reason);
@@ -135,9 +137,16 @@ public class ReturnHistoryPage extends CucumberRunner {
 
 	public void clickOnViewReturnForOrder() {
 		String ordernumber = browserFactory.getOrderNumber();
+		browserFactory.setReturnNumber(this.getReturnId());
 		WebElement ele = genericHelper.getElement("//td/a[text()='" + ordernumber
 				+ "']/ancestor::tr/td[contains(@class,'actions')]/a[@class='action view']");
 		commonMethods.click(ele);
 		log.info("clicked view returns");
+	}
+	
+	public String getReturnId() {
+		String ordernumber = browserFactory.getOrderNumber();
+		WebElement ele = genericHelper.getElement("//td/a[text()='"+ordernumber+"']/../preceding-sibling::td[contains(@class,'return_id')]/a");
+		return commonMethods.getText(ele);
 	}
 }

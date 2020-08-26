@@ -66,6 +66,7 @@ public class MagentoOrdersViewPage extends CucumberRunner {
 	 * **/
 	
 	public void clickClearAllFilters() {
+		waitHelper.waitForSpinnerInvisibility(new ShippingPage().checkoutSpinner);;
 		if(commonMethods.isElementPresent(btnClearFilters)) {
 			commonMethods.click(btnClearFilters);
 			log.info("clicked Clear all filters button");
@@ -91,13 +92,11 @@ public class MagentoOrdersViewPage extends CucumberRunner {
 	
 	
 	public void enterOrderID() {
-		//commonMethods.sendKeys(txtOrderID, browserFactory.getOrderNumber());
-		commonMethods.clearAndSendKeys(txtOrderID, "500225310");
+		commonMethods.clearAndSendKeys(txtOrderID, browserFactory.getOrderNumber());
 		log.info("Order ID is entered");		
 	}
 	
 	public void clickApplyFilters() {
-		//commonMethods.sendKeys(btnApplyFilters, Keys.ENTER);
 		waitHelper.waitForElementToBeClickable(btnApplyFilters);
 		waitHelper.staticWait(2000);
 		commonMethods.click(btnApplyFilters);
