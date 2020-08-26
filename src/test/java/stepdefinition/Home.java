@@ -20,6 +20,6 @@ public class Home {
 
 	@When("^user goes to main window$")
 	public void user_goes_to_main_window()  {
-	    genericHelper.closeAllWindowsExceptParent();
+	    genericHelper.switchToBaseWindow();
 	}
 }

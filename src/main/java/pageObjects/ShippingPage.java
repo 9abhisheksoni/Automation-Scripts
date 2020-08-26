@@ -60,7 +60,7 @@ public class ShippingPage extends CucumberRunner {
 	private WebElement txtPhoneNumber;
 
 	@FindBy(xpath = "//button[@class='button action continue primary']")
-	private WebElement btnDeliveryAddress;
+	private WebElement btnDeliverToAddress;
 
 	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
 	WebElement checkoutSpinner;
@@ -76,6 +76,10 @@ public class ShippingPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@class='action secondary action-hide-popup']")
 	private WebElement btnCancelAddressPopUp;
+	
+	
+	@FindBy(xpath = "//h1/following-sibling::button[@class='action-close']")
+	private WebElement iconCancelAddressPopUp;
 
 	@FindBy(xpath = "//div[@class='shipping-address-item selected-item']")
 	private WebElement sectionSelectedAddress;
@@ -85,17 +89,17 @@ public class ShippingPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='shipping-address-items']//div/input")
 	private List<WebElement> radioSavedShippingAddress;
-
+	
+	@FindBy(xpath = "//div[@class='preventAddress mage-error']")
+	private WebElement msgSavedShippingAddressError;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
 
 	public void clickNewAddress() {
-		waitHelper.waitForSpinnerInvisibility(checkoutSpinner);
-		if (commonMethods.isElementPresent(sectionSaveAddresses)) {
-			waitHelper.waitForElementVisible(btnDeliveryAddress);
 			commonMethods.click(btnNewAddress);
-		}
+			this.clickSaveAddressCheckbox();
 	}
 
 	public void enterFirstName(String country) {
@@ -135,36 +139,62 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void clickDeliverToAddress() {
-		if (commonMethods.isElementPresent(btnSaveAddress)) {
-			commonMethods.click(btnSaveAddress);
-		}
-		try {
-			if (commonMethods.isElementPresent(radioSavedShippingAddress.get(0))) {
-				waitHelper.staticWait(5000);
-			}
-		} catch (Exception e) {
-			log.info("no saved address present");
-		}
-		commonMethods.click(btnDeliveryAddress);
+		commonMethods.click(btnDeliverToAddress);
 		log.info("Delivered to this adrress button is clicked");
 	}
 
 	public void selectSavedAddress(String country) {
+		if(listSavedShippingAddress.size()>0) {
+			this.submitSavedAddress(country);
+		}  else {
+			log.info("Enter address manually");
+			this.submitShippingAddress(country);
+			this.clickDeliverToAddress();
+		}
+	}
+	
+	private void submitSavedAddress(String country) {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
-			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(currCountry)) {
-				waitHelper.staticWait(5000);
+			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
+				log.info("Selecting a saved address radio");
 				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
 				log.info("Clicked UAE address radio button");
-				this.clickDeliverToAddress();
 				break;
-			} else {
-				this.clickNewAddress();
-				this.submitShippingAddress(country);
+			} else if (i==listSavedShippingAddress.size()-1) {
+				log.info("no saved address for selected country");
+				this.saveNewAddress(country);
 			}
-		}
-
+		} 
+		waitHelper.waitForSpinnerInvisibility(checkoutSpinner);
+		this.clickDeliverToAddress();
 	}
 
+	private CharSequence getCurrentCountry() {
+		String url = genericHelper.getCurrentUrl();
+		String country = "";
+		if (url.contains("-ae")) {
+			country = "United Arab Emirates";
+		} else if (url.contains("-sa")) {
+			country = "Saudi Arabia";
+		} else if (url.contains("-kw")) {
+			country = "Kuwait";
+		}else if (url.contains("-qa")) {
+			country = "Qatar";
+		}else if (url.contains("-om")) {
+			country = "Oman";
+		}else if (url.contains("-bh")) {
+			country = "Bahrain";
+		}
+		return country;
+	}
+
+	private void saveNewAddress(String country) {
+		this.clickNewAddress();
+		this.clickSaveAddressCheckbox();
+		this.submitShippingAddress(country);
+		commonMethods.click(btnSaveAddress);
+	}
+	
 	public void submitShippingAddress(String country) {
 		this.enterFirstName(country);
 		this.enterLastName(country);
@@ -173,14 +203,11 @@ public class ShippingPage extends CucumberRunner {
 		this.selectArea(country);
 		this.selectCarrierCode(country);
 		this.enterPhoneNumber(country);
-		this.clickDeliverToAddress();
 	}
 
 	public void clickSaveAddressCheckbox() {
-		if (commonMethods.isElementPresent(sectionSaveAddresses)) {
 			commonMethods.click(chkSaveAddressCheckbox);
 			log.info("clicked saved address checkbox");
-		}
 	}
 
 	public void clickCancelButton() {

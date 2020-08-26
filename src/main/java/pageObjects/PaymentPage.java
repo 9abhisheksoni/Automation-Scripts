@@ -145,23 +145,25 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public String checkGetActivePayment() {
-		waitHelper.waitForSpinnerInvisibility(new ShippingPage().checkoutSpinner);
+		String paymentMethod="";
 		if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
-			return "creditCardPayment";
+			paymentMethod = "creditCardPayment";
 		} else if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
-			return "creditCardPayment";
+			paymentMethod = "creditCardPayment";
 		} else if (commonMethods.getAttribute(divCodPayment, "class").contains("active")) {
-			return "codPayment";
+			paymentMethod = "codPayment";
 		} else if (commonMethods.getAttribute(divTabbyPayLater, "class").contains("active")) {
-			return "tabbyPayLater";
+			paymentMethod = "tabbyPayLater";
 		} else if (commonMethods.getAttribute(divTabbyPayInInstallments, "class").contains("active")) {
-			return "tabbyPayInInstallments";
+			paymentMethod = "tabbyPayInInstallments";
 		} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("active")) {
-			return "savedCardsPayment";
+			paymentMethod = "savedCardsPayment";
 		} else {
 			log.info("===No active payment methods, hence returning null!!!===");
-			return null;
+			paymentMethod = null;
 		}
+		waitHelper.waitForSpinnerInvisibility(new ShippingPage().checkoutSpinner);
+		return paymentMethod;
 	}
 
 	public void payUsingCreditCard(String cardType) {
@@ -242,7 +244,6 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void clickOnPlaceOrder() {
-		waitHelper.staticWait(5000);
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {

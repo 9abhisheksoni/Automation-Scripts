@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -108,6 +109,21 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//h1[@class='page-title' and .='New Shipment']")
 	private WebElement lblNewShipment;
+	
+	@FindBy(xpath = "//a[@id='sales_order_view_tabs_order_rma']/span")
+	private WebElement lblReturns;
+	
+	@FindBy(xpath = "//tbody//td[contains(@class,'col-rma-number')]")
+	private WebElement txtReturnID;
+	
+	@FindBy(xpath = "//tbody/tr/td[contains(@class,'col-actions')]/a")
+	private WebElement lnkViewReturn;
+	
+	@FindBy(xpath = "//select[@name='rma_status']")
+	private WebElement drpdwnReturnStatus;
+	
+	@FindBy(xpath = "//button[@id='save']")
+	private WebElement btnSave;
 	
 	/**
 	 * WebElement declaration ends here
@@ -311,6 +327,36 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 		} else {
 			log.info("Shipment page is not displayed");
 		}		
+	}
+	
+	public void clickOnReturnsTab() {
+		commonMethods.moveToElementAndClick(lblReturns);
+		log.info("clicked on returs tab");
+	}
+	
+	public String getReturnID() {
+		log.info("Returning return ID from magento");
+		return commonMethods.getText(txtReturnID);
+	}
+	
+	public void verifyMagentoReturnIDAgainstFrontEnd() {
+		log.info("verifying return ID from magento");
+		Assert.assertTrue(this.getReturnID().equalsIgnoreCase(browserFactory.getReturnNumber()));
+	}
+	
+	public void clickOnViewReturns() {
+		commonMethods.moveToElementAndClick(lnkViewReturn);
+		log.info("clicked on view returns link");
+	}
+	
+	public void changeReturnStatus(String status) {
+		commonMethods.SelectUsingVisibleText(drpdwnReturnStatus, status);
+		log.info("Changed return status to "+status);
+	}
+	
+	public void clickOnSave() {
+		commonMethods.moveToElementAndClick(btnSave);
+		log.info("clicked on save in magento");
 	}
 	
 }

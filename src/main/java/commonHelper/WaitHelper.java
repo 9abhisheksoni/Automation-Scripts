@@ -104,6 +104,7 @@ public class WaitHelper extends CucumberRunner {
 		try {
 			log.info("Waiting for spinner disappear");
 			if(new GenericHelper().isDisplayed(spinner)) {
+			staticWait(3000);
 			this.waitForElementInVisiblity(spinner);
 			}
 		} catch (Exception e) {
