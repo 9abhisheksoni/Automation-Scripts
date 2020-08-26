@@ -110,7 +110,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user clicks on my account top menu
 		And user selects order history option
 		Then order history page is displayed
-		Then verify order status
+		Then verify order status in history to be "processing"
 		When Launch Tabby Merchant URL "<MerchantURL>"
 		When User enters merchant valid login details "merchantuser" username and "merchantuser" password in the login popup 
 		And User clicks on merchant login button
@@ -142,7 +142,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user clicks on my account top menu
 		And user selects order history option
 		Then order history page is displayed
-		Then verify order status
+		Then verify order status in history to be "processing"
 		When Launch Tabby Merchant URL "<MerchantURL>"
 		When User enters merchant valid login details "merchantuser" username and "merchantuser" password in the login popup 
 		And User clicks on merchant login button

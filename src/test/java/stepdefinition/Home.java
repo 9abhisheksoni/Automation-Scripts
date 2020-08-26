@@ -1,10 +1,12 @@
 package stepdefinition;
 
+import commonHelper.GenericHelper;
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
 
 public class Home {
 	HomePage homePage = new HomePage();
+	GenericHelper genericHelper = new GenericHelper();
 	
 	@When("^Home page is displayed$")
 	public void home_page_is_displayed() {
@@ -16,4 +18,8 @@ public class Home {
 		homePage.searchProduct(productID);
 	}
 
+	@When("^user goes to main window$")
+	public void user_goes_to_main_window()  {
+	    genericHelper.closeAllWindowsExceptParent();
+	}
 }

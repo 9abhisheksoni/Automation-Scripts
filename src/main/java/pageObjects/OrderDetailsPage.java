@@ -53,7 +53,7 @@ public class OrderDetailsPage extends CucumberRunner {
 		log.info("Clicked on return to Order History Page");
 	}
 	
-	public void returnAnItem() {
+	public void clickOnReturnAnItem() {
 		commonMethods.click(btnRetunAnItem);
 		log.info("Clicked on return an item");
 	}

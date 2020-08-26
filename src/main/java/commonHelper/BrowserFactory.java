@@ -13,6 +13,7 @@ public class BrowserFactory {
 	ThreadLocal<String> country = new ThreadLocal<String>();
 	ThreadLocal<String> language = new ThreadLocal<String>();
 	ThreadLocal<String> ordernumber = new ThreadLocal<String>();
+	ThreadLocal<String> returnnumber = new ThreadLocal<String>();
 
 	private Logger log = Logger.getLogger(BrowserFactory.class.getName());
 
@@ -94,8 +95,20 @@ public class BrowserFactory {
 	
 	/**Setting value of order instance**/
 	public final void setOrder(String order) {
-		log.info("Setting Execution language " + order);
+		log.info("Setting Return Order instance" + order);
 		ordernumber.set(order);
+	}
+	
+	/**returning value of return instance**/
+	public String getReturnNumber() {
+		log.info("Returning returnOrder Instance");
+		return returnnumber.get();
+	}
+	
+	/**Setting value of return instance**/
+	public final void setReturnNumber(String returnID) {
+		log.info("Setting Return Order instance " + returnID);
+		returnnumber.set(returnID);
 	}
 }
 

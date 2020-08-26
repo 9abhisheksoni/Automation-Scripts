@@ -15,7 +15,7 @@ public class Config {
 
 	Properties config;
 	private final Logger log = Logger.getLogger(Config.class.getName());
-	Properties prop;
+	private Properties prop;
 	private String filepath;
 
 	/** This methods creates config object **/
@@ -187,6 +187,11 @@ public class Config {
 		String keyValue = key.substring(key.indexOf("_") + 1);
 		DataHandlers data = new DataHandlers();
 		data.setNewCellValue(sheet, keyValue, value);
+	}
+
+	public String getBaseUrl() {
+		log.info("Getting base url");
+		return createConfigObject().getProperty("BaseURL");
 	}
 
 }

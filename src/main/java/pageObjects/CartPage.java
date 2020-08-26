@@ -68,7 +68,6 @@ public class CartPage extends CucumberRunner {
 			commonMethods.click(iconCart);
 			commonMethods.moveToElementAndClick(btnMiniCartViewBag);
 			while (genericHelper.isElementPresent(iconRemove)) {
-				waitHelper.waitForElementVisible(iconRemove);
 				commonMethods.click(iconRemove);
 				log.info("remove icon clicked");
 			}

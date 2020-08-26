@@ -24,7 +24,7 @@ import cucumber.api.Scenario;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import utilities.DateTimeHelper;
 
-@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/features", glue = "stepdefinition", format = {
+@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/features/TabbyRma.feature", glue = "stepdefinition", format = {
 		"pretty", "json:target/cucumber.json" }, tags = { "@TabbyPayInInstallments,@TabbyPayLater" }, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html" }, dryRun = false)
 

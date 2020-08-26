@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 
+import base.Config;
 import testRunner.CucumberRunner;
 
 public class GenericHelper extends CucumberRunner {
@@ -229,9 +230,9 @@ public class GenericHelper extends CucumberRunner {
 		log.info("Switching to default window ");
 		browserFactory.getDriver().switchTo().defaultContent();
 	}
-	
+
 	/** Verifying whether element is present **/
-	public  boolean isElementPresnt(WebElement ele) {
+	public boolean isElementPresnt(WebElement ele) {
 		int waitTime = 10;
 		Boolean s = false;
 		log.info("Verifying element is present in dom");
@@ -257,33 +258,31 @@ public class GenericHelper extends CucumberRunner {
 		log.info("getting current page url");
 		return browserFactory.getDriver().getCurrentUrl();
 	}
-	
-	
+
 	/** uploading file **/
-	public void fileUpload (String path) {
-        StringSelection strSelection = new StringSelection(path);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(strSelection, null);
-        Robot robot;
+	public void fileUpload(String path) {
+		StringSelection strSelection = new StringSelection(path);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(strSelection, null);
+		Robot robot;
 		try {
 			robot = new Robot();
-			 robot.delay(300);
-		        robot.keyPress(KeyEvent.VK_ENTER);
-		        robot.keyRelease(KeyEvent.VK_ENTER);
-		        robot.keyPress(KeyEvent.VK_CONTROL);
-		        robot.keyPress(KeyEvent.VK_V);
-		        robot.keyRelease(KeyEvent.VK_V);
-		        robot.keyRelease(KeyEvent.VK_CONTROL);
-		        robot.keyPress(KeyEvent.VK_ENTER);
-		        robot.delay(200);
-		        robot.keyRelease(KeyEvent.VK_ENTER);
-		        log.info("file uploaded successfully");
+			robot.delay(300);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_V);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.delay(200);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			log.info("file uploaded successfully");
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-  
-       
-    }
+
+	}
 
 	public WebElement getElement(String locator) {
 		return browserFactory.getDriver().findElement(By.xpath(locator));
@@ -292,5 +291,36 @@ public class GenericHelper extends CucumberRunner {
 	public boolean isEnabled(WebElement element) {
 		log.info("returning state of web element");
 		return element.isEnabled();
+	}
+
+	public void closeAllWindowsExceptParent() {
+		log.info("close All Windows Except Parent");
+		String baseurl = new Config().getBaseUrl();
+		Set<String> handle = browserFactory.getDriver().getWindowHandles();
+		String mainwindow = this.getWindowOfUrl(baseurl);
+		handle.remove(mainwindow);
+		Iterator<String> it = handle.iterator();
+		while (it.hasNext()) {
+			browserFactory.getDriver().switchTo().window(it.next());
+			browserFactory.getDriver().close();
+			browserFactory.getDriver().switchTo().window(mainwindow);
+		}
+	}
+
+	private String getWindowOfUrl(String baseurl) {
+		log.info("Returning Parent");
+		String parentWindow = "";
+		Set<String> handle = browserFactory.getDriver().getWindowHandles();
+		Iterator<String> it = handle.iterator();
+		while (it.hasNext()) {
+			browserFactory.getDriver().switchTo().window(it.next());
+			String currenturl = browserFactory.getDriver().getCurrentUrl();
+			boolean baseUrlPresent = currenturl.contains(baseurl);
+			boolean adminUrlPresent = currenturl.contains("admin");
+			if (baseUrlPresent && !adminUrlPresent) {
+				parentWindow = browserFactory.getDriver().getWindowHandle();
+			}
+		}
+		return parentWindow;
 	}
 }

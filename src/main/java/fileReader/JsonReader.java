@@ -51,6 +51,9 @@ public class JsonReader {
 			user = (JSONObject) userdata.get("guestuser");
 		} else if (userType.equalsIgnoreCase("merchantuser")) {
 			user = (JSONObject) userdata.get("merchantuser");
+		}
+			else if (userType.equalsIgnoreCase("magentouser")) {
+				user = (JSONObject) userdata.get("magentouser");
 		} else {
 			try {
 				throw new Exception("Invalid User Type Requested");

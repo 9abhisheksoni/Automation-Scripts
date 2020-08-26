@@ -67,6 +67,7 @@ public class HomePage extends CucumberRunner {
 
 	public void waitForBannerLoading() {
 		try {
+			waitHelper.waitForElementVisible(imgHomePage);
 			waitHelper.staticWait(5000);
 			waitHelper.waitForElementInVisiblity(new CartPage().lblCartCount);
 		} catch (Exception e) {
