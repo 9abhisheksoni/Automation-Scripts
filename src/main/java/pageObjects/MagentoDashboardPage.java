@@ -29,7 +29,7 @@ public class MagentoDashboardPage extends CucumberRunner {
 	@FindBy(xpath = "//a/span[.='Sales']")
 	private WebElement lnkSales;
 	
-	@FindBy(xpath = "//a[@href='https://6thadmin-stage.6tst.com/sixadmin/sales/order/index/key/1e14b4b5447f2184dd4c85fbc08feea191ee472b2db13843fba0dfd3defc262a/']/span[.='Orders']")
+	@FindBy(xpath = "(//a/span[.='Orders'])[1]")
 	private WebElement lnkOrders;
 	
 	/**

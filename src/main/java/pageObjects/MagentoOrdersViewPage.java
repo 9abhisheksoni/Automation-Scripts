@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -74,6 +75,7 @@ public class MagentoOrdersViewPage extends CucumberRunner {
 	}
 	
 	public void verifyOrdersFiltersPageIsDisplayed() {
+		waitHelper.waitForElementToBeClickable(btnFilters);
 		if(commonMethods.isElementPresent(btnFilters)) {
 			log.info("Orders Filter page is displayed");
 		} else {
@@ -82,17 +84,22 @@ public class MagentoOrdersViewPage extends CucumberRunner {
 	}
 	
 	public void clickFilters() {
-		commonMethods.click(btnFilters);
+		//waitHelper.waitForElementToBeClickable(btnFilters);
+		commonMethods.sendKeys(btnFilters, Keys.ENTER);
 		log.info("clicked Filters button");
 	}
 	
 	
 	public void enterOrderID() {
-		commonMethods.sendKeys(txtOrderID, browserFactory.getOrderNumber());
-		log.info("Order ID is entered");
+		//commonMethods.sendKeys(txtOrderID, browserFactory.getOrderNumber());
+		commonMethods.clearAndSendKeys(txtOrderID, "500225310");
+		log.info("Order ID is entered");		
 	}
 	
 	public void clickApplyFilters() {
+		//commonMethods.sendKeys(btnApplyFilters, Keys.ENTER);
+		waitHelper.waitForElementToBeClickable(btnApplyFilters);
+		waitHelper.staticWait(2000);
 		commonMethods.click(btnApplyFilters);
 		log.info("clicked Apply Filters button");
 	}
