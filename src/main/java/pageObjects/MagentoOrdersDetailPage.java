@@ -125,6 +125,9 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@id='save']")
 	private WebElement btnSave;
 	
+	@FindBy(xpath = "//button[@class='action-default scalable']/span[.='Create Returns']")
+	private WebElement btnCreateReturn;
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
@@ -359,4 +362,12 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 		log.info("clicked on save in magento");
 	}
 	
+	public void clickCreateReturns() {
+		if(commonMethods.isElementPresent(btnCreateReturn)) {
+			commonMethods.click(btnCreateReturn);
+			log.info("Create returns button is clicked");
+		} else {
+			log.info("Create returns button is not present");
+		}
+	}
 }
