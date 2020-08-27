@@ -128,6 +128,7 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='action-default scalable']/span[.='Create Returns']")
 	private WebElement btnCreateReturn;
 	
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
@@ -139,14 +140,6 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 			log.info("Order id " +browserFactory.getOrderNumber()+ " matches");
 		} else {
 			log.info("Order id " +browserFactory.getOrderNumber()+ " doesn't matches");
-		}		
-	}
-	
-	public void verifyOrderStatus(String orderStatus) {
-		if(commonMethods.getAttribute(lblOrderStatus, "innerHTML").contains(orderStatus)) {
-			log.info("Order status " +orderStatus+ " matches");
-		} else {
-			log.info("Order status " +orderStatus+ " doesn't matches");
 		}		
 	}
 	
@@ -369,5 +362,10 @@ public class MagentoOrdersDetailPage extends CucumberRunner {
 		} else {
 			log.info("Create returns button is not present");
 		}
+	}
+
+	public String getOrderStatus() {
+		log.info("Create returning Magento Order Status");
+		return commonMethods.getText(lblOrderStatus);
 	}
 }

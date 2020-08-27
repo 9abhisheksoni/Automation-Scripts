@@ -84,7 +84,7 @@ public class Config {
 		String baseURL = prop.getProperty("BaseURL");
 		String siteUrl;
 		String appender;
-		if (baseURL.contains("stage")||baseURL.contains("6tst")) {
+		if (baseURL.contains("stage") || baseURL.contains("6tst")) {
 			appender = "-";
 		} else {
 			appender = ".";
@@ -192,6 +192,30 @@ public class Config {
 	public String getBaseUrl() {
 		log.info("Getting base url");
 		return createConfigObject().getProperty("BaseURL");
+	}
+
+	/** This methods returns site url from property file **/
+	public String getMagentoURL(String MagentoURL) {
+		checkToCreateProp();
+		log.info("getting base URL from property file");
+		MagentoURL = prop.getProperty("MagentoURL");
+		return MagentoURL;
+	}
+
+	/** This methods returns site url from property file **/
+	public String getMerchantURL(String MerchantURL) {
+		checkToCreateProp();
+		log.info("getting base URL from property file");
+		MerchantURL = prop.getProperty("MerchantURL");
+		return MerchantURL;
+	}
+	
+	/** This methods returns Tabby ID file name from property file **/
+	public String getTabbyFileName() {
+		checkToCreateProp();
+		log.info("getting tabby file name from property file");
+		System.out.println("----"+prop.getProperty("TabbyID"));
+		return prop.getProperty("TabbyID");
 	}
 
 }

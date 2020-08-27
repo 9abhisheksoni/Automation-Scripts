@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.Config;
+import pageObjects.ShippingPage;
 import testRunner.CucumberRunner;
 
 public class WaitHelper extends CucumberRunner {
@@ -100,11 +101,11 @@ public class WaitHelper extends CucumberRunner {
 	}
 
 	/** Waiting for spinner invisibility **/
-	public void waitForSpinnerInvisibility(WebElement spinner) {
+	public void waitForSpinnerInvisibility() {
+		WebElement spinner = new ShippingPage().checkoutSpinner;
 		try {
 			log.info("Waiting for spinner disappear");
 			if(new GenericHelper().isDisplayed(spinner)) {
-			staticWait(3000);
 			this.waitForElementInVisiblity(spinner);
 			}
 		} catch (Exception e) {

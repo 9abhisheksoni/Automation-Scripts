@@ -57,10 +57,10 @@
 				"firstname": "ksafirstname",
 				"lastname": "ksalastname",
 				"street": "ksastreet",
-				"city": "ksacity",
-				"area": "ksaarea",
-				"careercode": "ksacareercode",
-				"contactnumber": "ksacontactnumber"
+				"city": "Abha",
+				"area": "Ad Dabab",
+				"careercode": "50",
+				"contactnumber": "8888888"
 			},
 			"kw": {
 				"firstname": "kwfirstname",

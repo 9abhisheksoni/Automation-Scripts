@@ -1,5 +1,8 @@
 package stepdefinition;
 
+import org.junit.Assert;
+
+import base.Config;
 import commonHelper.GenericHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,6 +22,7 @@ public class InvoiceAndShipment {
 	LoginPage loginPage = new LoginPage();
 	PaymentPage paymentPage = new PaymentPage();
 	GenericHelper genericHelper = new GenericHelper();
+	Config config = new Config();
 
 	@When("^user clicks on sales module$")
 	public void user_clicks_on_sales_module() {
@@ -161,9 +165,9 @@ public class InvoiceAndShipment {
 	}
 
 	@When("^Launch Admin Magento URL \"([^\"]*)\"$")
-	public void launch_Admin_Magento_URL(String URL) {
+	public void launch_Admin_Magento_URL(String MagentoURL) throws Throwable {
 		orderSuccess.controlT();
-		orderSuccess.launchURL(URL);
+		orderSuccess.launchURL(config.getMagentoURL(MagentoURL));
 	}
 
 	@Then("^user should be landed into Magento dashboard$")
@@ -205,5 +209,16 @@ public class InvoiceAndShipment {
 	public void click_on_save_in_magento() {
 		magentoOrderDetailsPage.clickOnSave();
 	}
+	
+	@Then("^Verify Magento Order Status to be \"([^\"]*)\"$")
+	public void verify_Magento_Order_Status_to_be(String status) {
+		Assert.assertTrue(status.equalsIgnoreCase(magentoOrderDetailsPage.getOrderStatus()));
+	}
+	
+	@When("^Clicks on order cancel in Magento$")
+	public void clicks_on_order_cancel_in_Magento() {
+	   paymentPage.clickOrderCancelMagento();
+	}
+
 
 }
