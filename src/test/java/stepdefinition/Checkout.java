@@ -27,11 +27,6 @@ public class Checkout {
 		shippingPage.selectSavedAddress(uae);
 	}
 
-	@When("^guest user enters the valid details for \"([^\"]*)\" shipping address$")
-	public void guest_user_enters_the_valid_details_for_shipping_address(String uae) {
-		shippingPage.submitShippingAddress(uae);
-	}
-
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
 		if (payment.equalsIgnoreCase("COD")) {
@@ -66,7 +61,6 @@ public class Checkout {
 
 	@When("^Launch Tabby Merchant URL \"([^\"]*)\"$")
 	public void launch_Tabby_Merchant_URL(String URL) {
-
 		orderSuccess.controlT();
 		orderSuccess.launchURL(URL);
 	}

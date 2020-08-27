@@ -1,11 +1,11 @@
 
 *.classpath
 target/*
-!cucumber.json
 *.classpath
 *.project
 *.DS_Store
 test-output/*
-logs/*
+logs/*.log
 *.class
 screenshots/*
+!screenshots

@@ -10,7 +10,7 @@ import pageObjects.MagentoOrdersViewPage;
 import pageObjects.OrderSuccessPage;
 import pageObjects.PaymentPage;
 
-public class MagentoPages {
+public class InvoiceAndShipment {
 
 	MagentoDashboardPage dashboardPage = new MagentoDashboardPage();
 	MagentoOrdersViewPage orderViewPage = new MagentoOrdersViewPage();
