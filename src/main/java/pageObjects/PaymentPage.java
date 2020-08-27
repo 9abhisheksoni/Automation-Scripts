@@ -1,14 +1,15 @@
 package pageObjects;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Config;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.ResourceHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
@@ -131,7 +132,17 @@ public class PaymentPage extends CucumberRunner {
 	private WebElement btnTabbyBuyNow;
 
 	@FindBy(xpath = "//div[@class='order-payment-method-title']")
-	private List<WebElement> txtPaymentType;
+	private WebElement txtPaymentType;
+
+	@FindBy(xpath = "//button[@id='order-view-cancel-button']")
+	private WebElement btnOrderViewCancel;
+
+	@FindBy(xpath = "//button[@class='action-primary action-accept']")
+	private WebElement btnCancelOkAccept;
+
+	@FindBy(xpath = "//span[@id='order_status']")
+	private WebElement txtOrderStatusMagento;
+
 
 	/**
 	 * WebElement declaration ends here
@@ -145,7 +156,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public String checkGetActivePayment() {
-		String paymentMethod="";
+		String paymentMethod = "";
 		if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
 			paymentMethod = "creditCardPayment";
 		} else if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
@@ -162,7 +173,6 @@ public class PaymentPage extends CucumberRunner {
 			log.info("===No active payment methods, hence returning null!!!===");
 			paymentMethod = null;
 		}
-		waitHelper.waitForSpinnerInvisibility(new ShippingPage().checkoutSpinner);
 		return paymentMethod;
 	}
 
@@ -173,7 +183,7 @@ public class PaymentPage extends CucumberRunner {
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
 			commonMethods.click(radioCreditCardPayment);
-			waitHelper.staticWait(5000);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 		genericHelper.switchToFrame(frameCreditCard);
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
@@ -193,6 +203,7 @@ public class PaymentPage extends CucumberRunner {
 	public void payUsingCOD() {
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
+			waitHelper.waitForSpinnerInvisibility();
 			log.info("Payment method selected as :COD");
 		}
 
@@ -214,7 +225,7 @@ public class PaymentPage extends CucumberRunner {
 		commonMethods.click(btnTabbyCompleteOrder);
 		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
 		commonMethods.click(btnBrowse);
-		String filePath = System.getProperty("user.dir") + "\\src\\main\\resources\\data\\tabbyData\\id_tabby.jpg";
+		String filePath = new ResourceHelper().getFilepath(new Config().getTabbyFileName());
 		genericHelper.fileUpload(filePath);
 		commonMethods.click(btnTabbyBuyNow);
 		genericHelper.switchToDefaulContent();
@@ -224,6 +235,7 @@ public class PaymentPage extends CucumberRunner {
 	public void payUsingTabbyPayLater() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.click(radioTabbyPayLater);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 		log.info("selected using tabby pay later ");
 	}
@@ -231,6 +243,7 @@ public class PaymentPage extends CucumberRunner {
 	public void payUsingTabbyPayInInstallments() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
 			commonMethods.click(radioTabbyPayInInstallments);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -259,15 +272,37 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void verifyPaymentMethod(String paymentMethod) {
-		String paymentType;
+		String paymentType = commonMethods.getText(txtPaymentType);
+		log.info("Payment type is: " + paymentType);
+		Assert.assertTrue(paymentType.contains(paymentMethod));
+	}
 
-		for (int i = 0; i < txtPaymentType.size(); i++) {
-			paymentType = commonMethods.getAttribute(txtPaymentType.get(i), "innerText").trim().replace("-", "");
-			if (paymentType.toUpperCase().contains(paymentMethod.toUpperCase())) {
-				log.info("Payment type is: " + paymentType);
-				break;
-			}
+	/*
+	 * This method is used to verify the order status in the Magento
+	 */
+	public void orderStatusMagento(String status) {
+		String eleStatus;
+		if (commonMethods.isElementPresent(txtOrderStatusMagento)) {
+			eleStatus = commonMethods.getText(txtOrderStatusMagento);
+			if (eleStatus.equalsIgnoreCase(status))
+				log.info("Order status is " + eleStatus + " as expected");
+			else
+				log.info("Order status is " + eleStatus + "not as expected");
 		}
+	}
+
+	/*
+	 * This method is used to click order Cancel in the Magento
+	 */
+	public void clickOrderCancelMagento() {
+		if (btnOrderViewCancel.isDisplayed()) {
+			commonMethods.click(btnOrderViewCancel);
+			log.info("Clicked on Cancel button in magento");
+		} else {
+			log.info("Cancel button is not present as order is already cancelled or shipped");
+		}
+		waitHelper.waitForElementVisible(btnCancelOkAccept);
+		commonMethods.click(btnCancelOkAccept);
 	}
 
 }

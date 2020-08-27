@@ -159,6 +159,8 @@ public class MagentoRmaPage extends CucumberRunner {
 		waitHelper.waitForElementVisible(lblRmaCreationConfirmation);
 		if(commonMethods.getAttribute(lblRmaCreationConfirmation, "innerHTML").contains("You submitted the RMA request")) {
 			log.info("RMA creation from Magento is success");
+			WebElement ele = genericHelper.getElement("//td[text()='"+browserFactory.getOrderNumber()+"']/../td[contains(@class,' col-rma-number')]");
+			browserFactory.setReturnNumber(commonMethods.getText(ele));
 		} else {
 			log.info("Failed to create RMA from Magento!!!");
 		}

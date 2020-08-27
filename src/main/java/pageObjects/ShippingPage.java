@@ -63,7 +63,7 @@ public class ShippingPage extends CucumberRunner {
 	private WebElement btnDeliverToAddress;
 
 	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
-	WebElement checkoutSpinner;
+	public	WebElement checkoutSpinner;
 
 	@FindBy(xpath = "//input[@id = 'shipping-save-in-address-book' and @type='checkbox']")
 	private WebElement chkSaveAddressCheckbox;
@@ -165,7 +165,7 @@ public class ShippingPage extends CucumberRunner {
 				this.saveNewAddress(country);
 			}
 		} 
-		waitHelper.waitForSpinnerInvisibility(checkoutSpinner);
+		waitHelper.waitForSpinnerInvisibility();
 		this.clickDeliverToAddress();
 	}
 
@@ -216,4 +216,5 @@ public class ShippingPage extends CucumberRunner {
 			log.info("clicked cancel save address popup");
 		}
 	}
+	
 }

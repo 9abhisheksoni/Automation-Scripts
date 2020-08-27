@@ -24,7 +24,9 @@ public class ResourceHelper {
 				filePath = getBaseResourcePath() + "/src/main/resources/data/Excel/" + config.getExcelFileName();
 			} else if (fileName.toUpperCase().contains("JSON")) {
 				filePath = getBaseResourcePath() + "/src/main/resources/data/Json/" + config.getJsonFileName();
-
+				log.info("The requested file path for file name " + fileName + " is " + filePath);
+			} else if (fileName.toUpperCase().contains("JPG")) {
+				filePath = getBaseResourcePath() + "\\src\\main\\resources\\data\\tabbyData\\" + config.getTabbyFileName();
 				log.info("The requested file path for file name " + fileName + " is " + filePath);
 			}
 		} catch (Exception e) {

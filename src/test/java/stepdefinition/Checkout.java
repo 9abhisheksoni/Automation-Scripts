@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import base.Config;
+import commonHelper.WaitHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import fileReader.JsonReader;
@@ -15,6 +17,8 @@ public class Checkout {
 	OrderSuccessPage orderSuccess = new OrderSuccessPage();
 	JsonReader json = new JsonReader();
 	OrderHistoryPage historyPage = new OrderHistoryPage();
+	WaitHelper waitHelper = new WaitHelper();
+	Config config = new Config();
 
 	@When("^User click on New Address$")
 	public void user_click_on_New_Address() {
@@ -29,6 +33,7 @@ public class Checkout {
 
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
+		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("COD")) {
 			paymentPage.payUsingCOD();
 		} else if (payment.equalsIgnoreCase("CC_VISA")) {
@@ -62,7 +67,7 @@ public class Checkout {
 	@When("^Launch Tabby Merchant URL \"([^\"]*)\"$")
 	public void launch_Tabby_Merchant_URL(String URL) {
 		orderSuccess.controlT();
-		orderSuccess.launchURL(URL);
+		orderSuccess.launchURL(config.getMerchantURL(URL));
 	}
 
 	@When("^User inputs tabby order number in merchant page$")
