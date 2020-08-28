@@ -142,19 +142,25 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@id='order_status']")
 	private WebElement txtOrderStatusMagento;
-	
+
 	@FindBy(xpath = "//div[contains(@class,'IdConfirm__field')]/input")
 	private WebElement txtTabbyFullName;
-	
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[2]")
 	private WebElement txtTabbyID;
-	
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[3]")
 	private WebElement txtTabbyNationality;
-	
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
-	
+
+	@FindBy(xpath = "//input[contains(@class,'storecredit')]")
+	private WebElement chkStoreCreditToggle;
+
+	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
+	private WebElement chkClubApparelToggle;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -181,7 +187,7 @@ public class PaymentPage extends CucumberRunner {
 		} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("active")) {
 			paymentMethod = "savedCardsPayment";
 		} else {
-			log.info("===No active payment methods, hence returning null!!!===");
+			log.info("No active payment methods, hence returning null!!!");
 			paymentMethod = null;
 		}
 		return paymentMethod;
@@ -238,18 +244,18 @@ public class PaymentPage extends CucumberRunner {
 		commonMethods.click(btnTabbyCompleteOrder);
 		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
 		if (browserFactory.getCountry().equalsIgnoreCase("UAE")) {
-		commonMethods.click(btnBrowse);
-		String filePath = new ResourceHelper().getFilepath(new Config().getTabbyFileName());
-		genericHelper.fileUpload(filePath);
+			commonMethods.click(btnBrowse);
+			String filePath = new ResourceHelper().getFilepath(new Config().getTabbyFileName());
+			genericHelper.fileUpload(filePath);
 		} else if (browserFactory.getCountry().equalsIgnoreCase("KSA")) {
-		commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
-		commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
-		commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
-		commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
+			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
+			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
+			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
+			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);
 		if (browserFactory.getCountry().equalsIgnoreCase("KSA")) {
-		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
+			commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
 		}
 		genericHelper.switchToDefaulContent();
 		log.info("entered values in tabby form ");
@@ -326,6 +332,58 @@ public class PaymentPage extends CucumberRunner {
 		}
 		waitHelper.waitForElementVisible(btnCancelOkAccept);
 		commonMethods.click(btnCancelOkAccept);
+	}
+
+	private boolean isStoreCreditActive() {
+		boolean result;
+		if (genericHelper.isElementPresent(chkStoreCreditToggle)) {
+			log.info("Return store credit state");
+			result = commonMethods.isSelected(chkStoreCreditToggle);
+		} else {
+			log.info("Storecredit element not displayed");
+			result = false;
+		}
+		return result;
+	}
+
+	private boolean isClubApparelPointsActive() {
+		boolean result;
+		if (genericHelper.isElementPresent(chkClubApparelToggle)) {
+			log.info("Return store credit state");
+			result = commonMethods.isSelected(chkClubApparelToggle);
+		} else {
+			log.info("Storecredit element not displayed");
+			result = false;
+		}
+		return result;
+	}
+
+	public void turnOffStoreCredit() {
+		log.info("turning store credit off if present");
+		if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+			commonMethods.click(chkStoreCreditToggle);
+		}
+	}
+
+	public void turnOffCAPoints() {
+		log.info("turning CA credit off if present");
+		if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
+			commonMethods.click(chkClubApparelToggle);
+		}
+	}
+
+	public void turnOnStoreCredit() {
+		log.info("turning store credit ON if present");
+		if (!this.isStoreCreditActive()) {
+			commonMethods.click(chkStoreCreditToggle);
+		}
+	}
+
+	public void turnOnCAPoints() {
+		log.info("turning CA credit ON if present");
+		if (!this.isClubApparelPointsActive()) {
+			commonMethods.click(chkClubApparelToggle);
+		}
 	}
 
 }

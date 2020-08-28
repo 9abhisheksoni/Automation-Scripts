@@ -99,7 +99,12 @@ public class ShippingPage extends CucumberRunner {
 
 	public void clickNewAddress() {
 			commonMethods.click(btnNewAddress);
-			this.clickSaveAddressCheckbox();
+			this.deSelectSaveAddressCheckbox();
+	}
+	
+	public void clickNewAddressToSave() {
+		commonMethods.click(btnNewAddress);
+		this.selectSaveAddressCheckbox();
 	}
 
 	public void enterFirstName(String country) {
@@ -191,7 +196,7 @@ public class ShippingPage extends CucumberRunner {
 
 	private void saveNewAddress(String country) {
 		this.clickNewAddress();
-		this.clickSaveAddressCheckbox();
+		this.deSelectSaveAddressCheckbox();
 		this.submitShippingAddress(country);
 		commonMethods.click(btnSaveAddress);
 	}
@@ -206,13 +211,27 @@ public class ShippingPage extends CucumberRunner {
 		this.enterPhoneNumber(country);
 	}
 
-	public void clickSaveAddressCheckbox() {
+	public void selectSaveAddressCheckbox() {
+			if (!commonMethods.isSelected(chkSaveAddressCheckbox)) {
 			commonMethods.click(chkSaveAddressCheckbox);
-			log.info("clicked saved address checkbox");
+			log.info("save address checkbox is selected");
+			} else {
+				log.info("Save address checkbox already selected");
+			}
 	}
+	
+	public void deSelectSaveAddressCheckbox() {
+		if (commonMethods.isSelected(chkSaveAddressCheckbox)) {
+		commonMethods.click(chkSaveAddressCheckbox);
+		log.info("deselected saved address checkbox");
+		} else {
+			log.info("Save address checkbox already deselected");
+		}
+}
 
 	public void clickCancelButton() {
 		if (commonMethods.isElementPresent(btnSaveAddress)) {
+			waitHelper.waitForSpinnerInvisibility();
 			commonMethods.click(btnCancelAddressPopUp);
 			log.info("clicked cancel save address popup");
 		}
