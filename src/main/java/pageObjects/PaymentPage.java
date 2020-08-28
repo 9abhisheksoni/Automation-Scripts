@@ -142,8 +142,19 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@id='order_status']")
 	private WebElement txtOrderStatusMagento;
-
-
+	
+	@FindBy(xpath = "//div[contains(@class,'IdConfirm__field')]/input")
+	private WebElement txtTabbyFullName;
+	
+	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[2]")
+	private WebElement txtTabbyID;
+	
+	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[3]")
+	private WebElement txtTabbyNationality;
+	
+	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
+	private WebElement txtTabbyDOB;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -211,23 +222,35 @@ public class PaymentPage extends CucumberRunner {
 
 	public void fillTabbyForm(String phone, String email, String otp) {
 		genericHelper.switchToFrame(frameTabby);
-		if (commonMethods.isElementPresent(lnkTabbyPhoneEdit)) {
-			commonMethods.click(lnkTabbyPhoneEdit);
-		}
+		/*
+		 * if (commonMethods.isElementPresent(lnkTabbyPhoneEdit)) {
+		 * commonMethods.click(lnkTabbyPhoneEdit); }
+		 */
 		commonMethods.clearAndSendKeys(txtTabbyPhone, phone);
-		if (commonMethods.isElementPresent(lnkTabbyEmailEdit)) {
-			commonMethods.click(lnkTabbyEmailEdit);
-		}
+		/*
+		 * if (commonMethods.isElementPresent(lnkTabbyEmailEdit)) {
+		 * commonMethods.click(lnkTabbyEmailEdit); }
+		 */
 		commonMethods.clearAndSendKeys(txtTabbyEmail, email);
 		if (commonMethods.getAttribute(chkTabbyTerms, "checked") == null) {
 			commonMethods.click(chkTabbyTerms);
 		}
 		commonMethods.click(btnTabbyCompleteOrder);
 		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
+		if (browserFactory.getCountry().equalsIgnoreCase("UAE")) {
 		commonMethods.click(btnBrowse);
 		String filePath = new ResourceHelper().getFilepath(new Config().getTabbyFileName());
 		genericHelper.fileUpload(filePath);
+		} else if (browserFactory.getCountry().equalsIgnoreCase("KSA")) {
+		commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
+		commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
+		commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
+		commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
+		}
 		commonMethods.click(btnTabbyBuyNow);
+		if (browserFactory.getCountry().equalsIgnoreCase("KSA")) {
+		commonMethods.clearAndSendKeys(txtTabbyOTP, otp);
+		}
 		genericHelper.switchToDefaulContent();
 		log.info("entered values in tabby form ");
 	}

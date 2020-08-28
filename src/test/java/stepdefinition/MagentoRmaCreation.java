@@ -1,7 +1,6 @@
 package stepdefinition;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

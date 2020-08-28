@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,7 +51,7 @@ public class CartPage extends CucumberRunner {
 	private WebElement iconCart;
 	
 	@FindBy(xpath="//div[@class='remove_cart']//span[@class='cart_icon_remove']")
-	private WebElement iconRemove;
+	private List<WebElement> iconRemove;
 	
 	/**
 	 * WebElement declaration ends here
@@ -67,8 +69,9 @@ public class CartPage extends CucumberRunner {
 		if (commonMethods.isElementPresent(lblCartCount)) {
 			commonMethods.click(iconCart);
 			commonMethods.moveToElementAndClick(btnMiniCartViewBag);
-			while (genericHelper.isElementPresent(iconRemove)) {
-				commonMethods.click(iconRemove);
+			int removeiconCount = iconRemove.size();
+			for(int i=0;i<removeiconCount;i++) {
+				commonMethods.click(iconRemove.get(0));
 				log.info("remove icon clicked");
 			}
 		}

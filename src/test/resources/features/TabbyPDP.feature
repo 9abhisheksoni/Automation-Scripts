@@ -11,7 +11,7 @@ Feature: 6thstreet.com - Tabby Widget on PDP
 	
 	 Examples:  
 		|Product |CountrySize|Size|Qty|
-		|Cognac DSW-434842|EU|41|1|
+		|DSW425728-230-NUDE|EU|41|1|
 
 		
 		

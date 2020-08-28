@@ -214,7 +214,6 @@ public class Config {
 	public String getTabbyFileName() {
 		checkToCreateProp();
 		log.info("getting tabby file name from property file");
-		System.out.println("----"+prop.getProperty("TabbyID"));
 		return prop.getProperty("TabbyID");
 	}
 

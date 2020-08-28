@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="tests" thread-count="2">
 	<test name="UAEEN">
 		<parameter name="browser" value="Chrome" />
-		<parameter name="country" value="UAE" />
+		<parameter name="country" value="KSA" />
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.CucumberRunner" />

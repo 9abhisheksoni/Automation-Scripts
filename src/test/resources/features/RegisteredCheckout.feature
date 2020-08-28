@@ -13,7 +13,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "10Y" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -24,8 +24,8 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		Then Verify order payment in details to be "Cash on delivery"
 		
 	Examples:  
-		| URL                 |Product                   |CountrySize|Size|Qty|
-		| SixthStreetUAEENurl |LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 
 	@Smoke @CreditCardPayment @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
@@ -40,7 +40,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "10Y" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -51,8 +51,8 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		Then Verify order payment in details to be "Pay by Credit / Debit Card"
 		
 	Examples:  
-		| URL                 |Product                   |CountrySize|Size|Qty|
-		| SixthStreetUAEENurl |LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 	@CreditCardPayment @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using master credit card 
@@ -67,7 +67,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "10Y" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "CC_Master" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -78,8 +78,8 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		Then Verify order payment in details to be "Pay by Credit / Debit Card"
 		
 	Examples:  
-		| URL                 |Product                   |CountrySize|Size|Qty|
-		| SixthStreetUAEENurl |LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 	
 	@CreditCardPayment @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using amex credit card 
@@ -94,7 +94,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "10Y" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "CC_Amex" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -105,8 +105,8 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		Then Verify order payment in details to be "Pay by Credit / Debit Card"
 		
 	Examples:  
-		| URL                 |Product                   |CountrySize|Size|Qty|
-		| SixthStreetUAEENurl |LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 		
 	@TabbyPayInInstallments @RegisteredUser 
@@ -122,7 +122,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "41" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -134,7 +134,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And click on view order 
 		Then Verify order status in details to be "Processing" 
 		Then Verify order payment in details to be "Pay in installments" 
-		When Launch Tabby Merchant URL "<MerchantURL>" 
+		When Launch Tabby Merchant URL "MerchantURL" 
 		When User enters merchant valid login details "merchantuser" username and "merchantuser" password in the login popup 
 		And User clicks on merchant login button 
 		And User inputs tabby order number in merchant page 
@@ -142,7 +142,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		
 	Examples:  
 		| MerchantURL                 |Product |CountrySize|Size|Qty|
-		| https://merchant.tabby.ai/auth |DSW425730-230-NUDE |EU|41|1|
+		| https://merchant.tabby.ai/auth |DSW425728-230-NUDE|EU|41|1|
 		
 	@Smoke @TabbyPayLater @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
@@ -157,7 +157,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects countrySize as "EU", size as "41" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -169,13 +169,13 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And click on view order 
 		Then Verify order status in details to be "Processing" 
 		Then Verify order payment in details to be "Pay Later" 
-		When Launch Tabby Merchant URL "<MerchantURL>" 
+		When Launch Tabby Merchant URL "MerchantURL" 
 		When User enters merchant valid login details "merchantuser" username and "merchantuser" password in the login popup 
 		And User clicks on merchant login button 
 		And User inputs tabby order number in merchant page 
 		Then Verify country "ARE" status "New" order 
 		
 	Examples:  
-		| MerchantURL                 |Product |CountrySize|Size|Qty|
-		| https://merchant.tabby.ai/auth |DSW425730-230-NUDE |EU|41|1|
+		|Product |CountrySize|Size|Qty|
+		|DSW425728-230-NUDE|EU|41|1|
 	
