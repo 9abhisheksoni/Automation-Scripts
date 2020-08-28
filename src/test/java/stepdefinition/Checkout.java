@@ -25,10 +25,10 @@ public class Checkout {
 		shippingPage.clickNewAddress();
 	}
 
-	@When("^user enters the valid details for \"([^\"]*)\" shipping address$")
-	public void user_enters_the_valid_details_for_shipping_address(String uae) {
+	@When("^user enters the valid details for shipping address$")
+	public void user_enters_the_valid_details_for_shipping_address() {
 		shippingPage.clickCancelButton();
-		shippingPage.selectSavedAddress(uae);
+		shippingPage.selectSavedAddress();
 	}
 
 	@When("^user selects payment option as \"([^\"]*)\"$")

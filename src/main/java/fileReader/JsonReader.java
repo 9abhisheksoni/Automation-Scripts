@@ -232,5 +232,29 @@ public class JsonReader {
 		log.info("Getting email for tabby payment");
 		return (String) this.getTabbyDetails().get("otp");
 	}
+	
+	/** this method returns tabby payment username **/
+	public String getTabbyFullName() {
+		log.info("Getting fullname for tabby payment");
+		return (String) this.getTabbyDetails().get("fullname");
+	}
+	
+	/** this method returns tabby payment ksaid **/
+	public String getTabbyID() {
+		log.info("Getting id for tabby payment");
+		return (String) this.getTabbyDetails().get("id");
+	}
+	
+	/** this method returns tabby payment nationality **/
+	public String getTabbyNationality() {
+		log.info("Getting nationality for tabby payment");
+		return (String) this.getTabbyDetails().get("nationality");
+	}
+	
+	/** this method returns tabby payment DOB **/
+	public String getTabbyDOB() {
+		log.info("Getting date of birth for tabby payment");
+		return (String) this.getTabbyDetails().get("dob");
+	}
 
 }

@@ -41,7 +41,11 @@
 		"tabbyPayment": {
 			"email": "successful.payment@tabby.ai",
 			"phone": "500000001",
-			"otp": "8888"
+			"otp": "888888",
+			"fullname": "test",
+			"id": "1111111111",
+			"nationality": "Saudi Arabia",
+			"dob": "12021989"
 		},
 		"addresses": {
 			"uae": {
@@ -56,10 +60,10 @@
 			"ksa": {
 				"firstname": "ksafirstname",
 				"lastname": "ksalastname",
-				"street": "ksastreet",
-				"city": "Abha",
-				"area": "Ad Dabab",
-				"careercode": "50",
+				"street": "688 9th A Main Road",
+				"city": "Badaya",
+				"area": "Al Wusta",
+				"careercode": "54",
 				"contactnumber": "8888888"
 			},
 			"kw": {

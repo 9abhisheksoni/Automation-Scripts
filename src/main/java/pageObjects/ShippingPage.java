@@ -143,7 +143,8 @@ public class ShippingPage extends CucumberRunner {
 		log.info("Delivered to this adrress button is clicked");
 	}
 
-	public void selectSavedAddress(String country) {
+	public void selectSavedAddress() {
+		String country = browserFactory.getCountry().toLowerCase();
 		if(listSavedShippingAddress.size()>0) {
 			this.submitSavedAddress(country);
 		}  else {

@@ -13,7 +13,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
 	And user selects countrySize as "EU", size as "41" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for "uae" shipping address 
+	And user enters the valid details for shipping address 
 	And user selects payment option as "TabbyPayInInstallments" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -95,7 +95,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     
     Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425730-230-NUDE |EU|41|1|
+		|DSW425728-230-NUDE|EU|41|1|
 		
 	
 	@TabbyPayLater @RegisteredUser @Smoke
@@ -111,7 +111,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
 	And user selects countrySize as "EU", size as "41" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for "uae" shipping address 
+	And user enters the valid details for shipping address 
 	And user selects payment option as "TabbyPayLater" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -193,7 +193,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     
     Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425730-230-NUDE |EU|41|1|
+		|DSW425728-230-NUDE|EU|41|1|
 		
 	@TabbyPayInInstallments @RegisteredUser 
   Scenario Outline: TS_TabbyRMA_03 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayInInstallments
@@ -208,7 +208,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     And user selects countrySize as "EU", size as "41"
     And user clicks on ADDTOBAG button
     And user navigates to shopping bag page and clicks on proceedToCheckout button
-    And user enters the valid details for "uae" shipping address
+    And user enters the valid details for shipping address
     And user selects payment option as "TabbyPayInInstallments"
     And user clicks on place order button
     And user fills all tabby details
@@ -300,7 +300,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     
     Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425730-230-NUDE |EU|41|1|	
+		|DSW425728-230-NUDE|EU|41|1|	
 	
 	@TabbyPayLater @RegisteredUser 
   Scenario Outline: TS_TabbyRMA_04 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayLater
@@ -315,7 +315,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     And user selects countrySize as "EU", size as "41"
     And user clicks on ADDTOBAG button
     And user navigates to shopping bag page and clicks on proceedToCheckout button
-    And user enters the valid details for "uae" shipping address
+    And user enters the valid details for shipping address
     And user selects payment option as "TabbyPayLater"
     And user clicks on place order button
     And user fills all tabby details
@@ -407,4 +407,4 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
     
     Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425730-230-NUDE |EU|41|1|	
+		|DSW425728-230-NUDE|EU|41|1|	
