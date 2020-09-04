@@ -13,6 +13,7 @@ import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
 
+
 public class ShippingPage extends CucumberRunner {
 
 	/**
@@ -144,7 +145,8 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void clickDeliverToAddress() {
-		commonMethods.moveToElementAndClick(btnDeliverToAddress);
+		waitHelper.waitForSpinnerInvisibility();
+		commonMethods.click(btnDeliverToAddress);
 		log.info("Delivered to this adrress button is clicked");
 	}
 
@@ -176,19 +178,19 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	private CharSequence getCurrentCountry() {
-		String url = genericHelper.getCurrentUrl();
+		String env = browserFactory.getCountry();
 		String country = "";
-		if (url.contains("-ae")) {
+		if (env.equalsIgnoreCase("UAE")) {
 			country = "United Arab Emirates";
-		} else if (url.contains("-sa")) {
+		} else if (env.equalsIgnoreCase("KSA")) {
 			country = "Saudi Arabia";
-		} else if (url.contains("-kw")) {
+		} else if (env.equalsIgnoreCase("KW")) {
 			country = "Kuwait";
-		}else if (url.contains("-qa")) {
+		}else if (env.equalsIgnoreCase("QA")) {
 			country = "Qatar";
-		}else if (url.contains("-om")) {
+		}else if (env.equalsIgnoreCase("OM")) {
 			country = "Oman";
-		}else if (url.contains("-bh")) {
+		}else if (env.equalsIgnoreCase("BH")) {
 			country = "Bahrain";
 		}
 		return country;
