@@ -35,6 +35,17 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath = "//tr[@class='totals shipping excl']")
 	private WebElement lblOrderSummary;
 	
+	//added element
+	@FindBy(xpath = "//span[contains(text(),'Link your Club Apparel account to earn')]")
+	private WebElement lblLinkCa;
+	
+	@FindBy(xpath = "//tr[@class='totals-tax']")
+	private WebElement lblTax;
+	
+	@FindBy(xpath = "//tr[@class='totals sub']")
+	private WebElement lblSubTotal;
+	//
+	
 	@FindBy(xpath = "//button[@class='action primary checkout']")
 	private WebElement btnCheckout;
 	
@@ -59,7 +70,15 @@ public class CartPage extends CucumberRunner {
 	
 	
 	public void clickCheckout() {
-		waitHelper.waitForElementVisible(lblOrderSummary);
+		try {
+			waitHelper.waitForElementVisible(lblSubTotal);
+		}catch(Exception e) {
+			try {
+				waitHelper.waitForElementVisible(lblLinkCa);
+			}catch(Exception excep) {
+				waitHelper.waitForElementVisible(lblTax);
+			}			
+		}		
 		commonMethods.click(btnCheckout);
 		log.info("clicked checkout button in cart page");
 	}	

@@ -144,7 +144,7 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void clickDeliverToAddress() {
-		commonMethods.click(btnDeliverToAddress);
+		commonMethods.moveToElementAndClick(btnDeliverToAddress);
 		log.info("Delivered to this adrress button is clicked");
 	}
 
@@ -163,7 +163,7 @@ public class ShippingPage extends CucumberRunner {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
-				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
+				commonMethods.click(radioSavedShippingAddress.get(i));
 				log.info("Clicked UAE address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
