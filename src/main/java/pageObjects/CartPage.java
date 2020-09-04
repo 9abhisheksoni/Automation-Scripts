@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -59,7 +60,10 @@ public class CartPage extends CucumberRunner {
 	
 	
 	public void clickCheckout() {
-		waitHelper.waitForElementVisible(lblOrderSummary);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Do you want to proceed? ");
+		String input = sc.nextLine();
+		// waitHelper.waitForElementVisible(lblOrderSummary); // The label 'Shipping' is not visible in the Cart page through automation
 		commonMethods.click(btnCheckout);
 		log.info("clicked checkout button in cart page");
 	}	

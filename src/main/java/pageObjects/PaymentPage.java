@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.Scanner;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -286,6 +288,13 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void clickOnPlaceOrder() {
+		//**** On selecting any option Loading Spinner appears. Wait till that spinner disappears. *****//
+		waitHelper.waitForElementToBeClickable(btnCodPlaceOrder);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Do you want to proceed? ");
+		String input = sc.nextLine();
+		
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {

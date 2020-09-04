@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -171,6 +172,10 @@ public class ShippingPage extends CucumberRunner {
 				this.saveNewAddress(country);
 			}
 		} 
+		
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Do you want to proceed");
+		String input = sc.nextLine();
 		waitHelper.waitForSpinnerInvisibility();
 		this.clickDeliverToAddress();
 	}

@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import java.util.Scanner;
+
 import base.Config;
 import commonHelper.WaitHelper;
 import cucumber.api.java.en.Then;
@@ -33,6 +35,9 @@ public class Checkout {
 
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Do you want to proceed? ");
+		String input = sc.nextLine();
 		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("COD")) {
 			paymentPage.payUsingCOD();
@@ -47,6 +52,7 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
+		
 	}
 
 	@When("^user fills all tabby details$")
