@@ -48,6 +48,9 @@ public class ConfigReader {
 		
 		else if (URL.equalsIgnoreCase("SixthStreetKSAurl"))
 			url = properties.getProperty("SixthStreetKSAurl");
+		
+		else if (URL.equalsIgnoreCase("UatUaeURL"))
+			url = properties.getProperty("UatUaeURL");
 
 		if (url != null)
 			return url;

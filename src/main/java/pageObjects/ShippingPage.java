@@ -14,6 +14,7 @@ import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
 
+
 public class ShippingPage extends CucumberRunner {
 
 	/**
@@ -166,7 +167,7 @@ public class ShippingPage extends CucumberRunner {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
 				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
-				log.info("Clicked UAE address radio button");
+				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
 				log.info("no saved address for selected country");

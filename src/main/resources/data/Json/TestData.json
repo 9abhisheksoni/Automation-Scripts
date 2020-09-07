@@ -22,6 +22,10 @@
 			"magentouser": {
 				"username": "shubha.r",
 				"password": "shubha@444"
+			},
+			"uatvaliduser": {
+				"username": "tommy.qatester1@gmail.com",
+				"password": "test@12345"
 			}
 		},
 		"creditcard": {
