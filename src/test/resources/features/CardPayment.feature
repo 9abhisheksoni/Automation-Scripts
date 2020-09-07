@@ -17,7 +17,9 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
-		And user clicks on my account top menu 
+		And user clicks on my account top menu
+		And user selects order history option 
+		Then order history page is displayed 
 		Then verify order status in history to be "Payment_success" 
 		And click on view order 
 		Then Verify order status in details to be "Payment Success" 

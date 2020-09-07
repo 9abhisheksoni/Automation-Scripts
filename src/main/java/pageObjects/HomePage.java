@@ -53,6 +53,26 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
 	private WebElement optionReturnHistory;
+	
+	//
+	@FindBy(xpath = "//div[@id='toggleSignup']")
+    private WebElement btnSignUp;
+    
+    @FindBy(xpath = "//input[@name='firstname']")
+    private WebElement txtFirstName;
+    
+    @FindBy(xpath = "//input[@name='lastname']")
+    private WebElement txtLastName;
+    
+    @FindBy(xpath = "//input[@id='email_address']")
+    private WebElement txtEmailID;
+    
+    @FindBy(xpath = "//input[@id='popup_password']")
+    private WebElement txtPwd;
+    
+    @FindBy(xpath = "//button[@ID='yopeso_register']")
+    private WebElement btnCreateAccount;
+
 
 	/**
 	 * WebElement declaration ends here
@@ -93,4 +113,23 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(optionReturnHistory);
 		log.info("Return history is selected");
 	}
+	
+    public void createAccount(String firstName, String lastName, String email, String pwd) {
+        
+        
+        waitHelper.waitForElementVisible(btnSignUp);
+        commonMethods.click(btnSignUp);
+//            waitHelper.waitForElementVisible(txtFirstName);
+        commonMethods.clearAndSendKeys(txtFirstName, firstName);
+        //waitHelper.waitForElementVisible(txtLastName);
+        commonMethods.clearAndSendKeys(txtLastName, lastName);
+//            waitHelper.waitForElementVisible(txtEmailID);
+        commonMethods.clearAndSendKeys(txtEmailID, email);
+//            waitHelper.waitForElementVisible(txtPwd);
+        commonMethods.clearAndSendKeys(txtPwd, pwd);
+        waitHelper.waitForElementVisible(btnCreateAccount);
+        commonMethods.click(btnCreateAccount);
+        
+}
+
 }

@@ -56,6 +56,10 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@id='tabby-promo-close']")
 	private WebElement btnTabbyPromoClose;
+	
+	//
+	@FindBy(xpath = "//button[@title='Proceed to Checkout']")
+	private WebElement btnCheckout;
 
 	/**
 	 * WebElement declaration ends here
@@ -63,19 +67,30 @@ public class PDPPage extends CucumberRunner {
 
 	public void selectSizeCountry(String country) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.SelectUsingValue(drpdwnCountry, country);
-		log.info("Selected size country " + country);
+		if(!(country.isEmpty())) {			
+			commonMethods.SelectUsingValue(drpdwnCountry, country);
+			log.info("Selected size country " + country);
+		} else {
+			log.info("Selected product is simple product,  size is not required");
+		}
+		
 	}
 
 	public void chooseSize(String size) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.SelectUsingVisibleText(drpdwnSize, size);
-		log.info("Selected size " + size);
+		if(!(size.isEmpty())) {			
+			commonMethods.SelectUsingVisibleText(drpdwnSize, size);
+			log.info("Selected size " + size);
+		} else {
+			log.info("Selected product is simple product, size is not required");
+		}
+		
 	}
 
 	public void clickAddToBag() {
 		commonMethods.click(btnAddToBag);
 		log.info("clicked on add to bag");
+		waitHelper.waitForElementVisible(btnCheckout);
 	}
 	
 	/**

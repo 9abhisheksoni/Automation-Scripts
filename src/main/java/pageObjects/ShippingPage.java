@@ -165,8 +165,8 @@ public class ShippingPage extends CucumberRunner {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
-				commonMethods.click(radioSavedShippingAddress.get(i));
-				log.info("Clicked UAE address radio button");
+				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
+				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
 				log.info("no saved address for selected country");

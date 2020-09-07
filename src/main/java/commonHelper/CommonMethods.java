@@ -477,7 +477,7 @@ public class CommonMethods extends CucumberRunner {
 
 	/** This method moves to element and clicks **/
 	public void moveToElementAndClick(WebElement element) {
-		log.info("Move to element and clicking " + element);
+		log.info("Moving to element and clicking " + element);
 		Actions action = new Actions(browserFactory.getDriver());
 		action.moveToElement(element).click().build().perform();
 	}
