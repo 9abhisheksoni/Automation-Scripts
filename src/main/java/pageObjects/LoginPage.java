@@ -98,6 +98,7 @@ public class LoginPage extends CucumberRunner {
 		log.info("login or registered label in header clicked");
 	}
 
+	
 	public void inputUserName(String userType) {
 		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
 		log.info("entered user email");
@@ -119,8 +120,13 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void enterLoginDetails(String username, String password) {
-		this.inputUserName(username);
-		this.inputPassword(password);
+		/*
+		 * // this.inputUserName(username); // this.inputPassword(password);
+		 */		
+		commonMethods.clearAndSendKeys(this.txtUserName, username);
+		log.info("entered user email");
+		commonMethods.clearAndSendKeys(this.txtPassword, password);
+		log.info("entered user password");
 		log.info("Entered user credentials");
 	}
 
