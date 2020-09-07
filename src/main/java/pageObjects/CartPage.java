@@ -33,7 +33,7 @@ public class CartPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 * **/
-	@FindBy(xpath = "//tr[@class='totals shipping excl']")
+	@FindBy(xpath = "//tr[@class='totals shipping excl' or @class='totals-tax']")
 	private WebElement lblOrderSummary;
 	
 	@FindBy(xpath = "//button[@class='action primary checkout']")

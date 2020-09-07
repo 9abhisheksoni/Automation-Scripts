@@ -1,0 +1,11 @@
+
+*.classpath
+target/*
+*.classpath
+*.project
+*.DS_Store
+test-output/*
+logs/*.log
+*.class
+screenshots/*
+!screenshots
