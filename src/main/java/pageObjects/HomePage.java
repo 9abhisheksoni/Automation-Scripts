@@ -54,7 +54,6 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
 	private WebElement optionReturnHistory;
 	
-	//
 	@FindBy(xpath = "//div[@id='toggleSignup']")
     private WebElement btnSignUp;
     
@@ -115,17 +114,11 @@ public class HomePage extends CucumberRunner {
 	}
 	
     public void createAccount(String firstName, String lastName, String email, String pwd) {
-        
-        
         waitHelper.waitForElementVisible(btnSignUp);
         commonMethods.click(btnSignUp);
-//            waitHelper.waitForElementVisible(txtFirstName);
         commonMethods.clearAndSendKeys(txtFirstName, firstName);
-        //waitHelper.waitForElementVisible(txtLastName);
         commonMethods.clearAndSendKeys(txtLastName, lastName);
-//            waitHelper.waitForElementVisible(txtEmailID);
         commonMethods.clearAndSendKeys(txtEmailID, email);
-//            waitHelper.waitForElementVisible(txtPwd);
         commonMethods.clearAndSendKeys(txtPwd, pwd);
         waitHelper.waitForElementVisible(btnCreateAccount);
         commonMethods.click(btnCreateAccount);

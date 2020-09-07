@@ -184,4 +184,21 @@ public class LoginPage extends CucumberRunner {
 		}
 		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 	}
+	
+	public void inputUserNameFromFeature(String userName) {
+		commonMethods.clearAndSendKeys(this.txtUserName, userName);
+		log.info("entered user email");
+	}
+	
+	public void inputPasswordFromFeature(String password) {
+		commonMethods.clearAndSendKeys(this.txtPassword, password);
+		log.info("entered user password");
+	}
+	
+		public void enterLoginDetailsFromFeature(String username, String password) {
+		this.inputUserNameFromFeature(username);
+		this.inputPasswordFromFeature(password);
+		log.info("Entered user credentials");
+	}
+	
 }

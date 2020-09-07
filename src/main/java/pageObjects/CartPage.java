@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
@@ -97,5 +98,9 @@ public class CartPage extends CucumberRunner {
 				log.info("remove icon clicked");
 			}
 		}
+	}
+	
+	public void isMyBagPageLoaded() {
+		Assert.assertTrue(genericHelper.isDisplayed(btnCheckout));
 	}
 }
