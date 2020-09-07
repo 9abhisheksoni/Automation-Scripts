@@ -77,6 +77,15 @@ public class LoginPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@class='action-close']")
 	private WebElement btnIncomingMessageCls;
+	
+	@FindBy (xpath = "//input[@id='email']")
+	private WebElement txtCheckoutSandboxEmail;
+	
+	@FindBy (xpath = "//input[@id='password']")
+	private WebElement txtCheckoutSandboxPwd;
+	
+	@FindBy (xpath = "//button[@id='login-btn']")
+	private WebElement btnCheckoutSandboxLogin;
 
 	/**
 	 * WebElement declaration ends here
@@ -101,6 +110,16 @@ public class LoginPage extends CucumberRunner {
 	public void inputUserName(String userType) {
 		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
 		log.info("entered user email");
+	}
+	
+	public void inputUserNameFromFeature(String userName) {
+		commonMethods.clearAndSendKeys(this.txtUserName, userName);
+		log.info("entered user email");
+	}
+	
+	public void inputPasswordFromFeature(String password) {
+		commonMethods.clearAndSendKeys(this.txtPassword, password);
+		log.info("entered user password");
 	}
 
 	public void inputPassword(String userType) {
@@ -128,6 +147,12 @@ public class LoginPage extends CucumberRunner {
 		this.enterLoginDetails(username, password);
 		this.clickLoginButton();
 		log.info("login submitted");
+	}
+	
+	public void enterLoginDetailsFromFeature(String username, String password) {
+		this.inputUserNameFromFeature(username);
+		this.inputPasswordFromFeature(password);
+		log.info("Entered user credentials");
 	}
 
 	public void enterGuestEmail(String email) {
@@ -183,5 +208,21 @@ public class LoginPage extends CucumberRunner {
 			waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 		}
 		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
+	}
+	
+	public void inputCheckoutSandboxEmailandPwd(String checkoutEmailType, String checkoutPwdType) {
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxEmail, jsonReader.getUserName(checkoutEmailType));
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxPwd, jsonReader.getPassword(checkoutPwdType));
+	}
+	
+	public void enterCheckoutSandboxUserandPwd(String checkoutEmail, String checkoutPwd) {
+		this.inputCheckoutSandboxEmailandPwd(checkoutEmail, checkoutPwd);
+
+		log.info("entered Checkout Sandbox details");
+	}
+	
+	public void clickOnCheckoutSandboxLogin() {
+		commonMethods.click(btnCheckoutSandboxLogin);
+		log.info("clicked Checkout Sandbox login");
 	}
 }

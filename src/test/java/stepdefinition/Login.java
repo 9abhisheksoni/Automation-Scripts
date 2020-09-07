@@ -13,6 +13,11 @@ public class Login {
 		loginPage.clickOnLoginOrRegisterOption();
 	}
 
+	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup from feature$")
+	public void user_enters_valid_login_details_and_in_the_login_popup_from_feature(String username, String password) {
+		loginPage.enterLoginDetailsFromFeature(username, password);
+	}
+	
 	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
 	public void user_enters_valid_login_details_and_in_the_login_popup(String username, String password) {
 		loginPage.enterLoginDetails(username, password);
@@ -47,6 +52,16 @@ public class Login {
 	@When("^User clicks on merchant login button$")
 	public void user_clicks_on_merchant_login_button() {
 		loginPage.clickOnMerchantLogin();
+	}
+	
+	@When("^User enters Checkout Sandbox valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
+	public void user_enters_Checkout_Sandbox_valid_login_details_username_and_password_in_the_login_page(String checkoutEmail, String checkoutPwd) {
+		loginPage.enterCheckoutSandboxUserandPwd(checkoutEmail, checkoutPwd);
+	}
+
+	@When("^User clicks on Checkout Sandbox login button$")
+	public void user_clicks_on_Checkout_Sandbox_login_button() {
+		loginPage.clickOnCheckoutSandboxLogin();
 	}
 
 }

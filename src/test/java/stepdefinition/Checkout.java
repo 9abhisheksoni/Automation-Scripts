@@ -79,5 +79,12 @@ public class Checkout {
 	public void verify_country_status_order(String country, String status) {
 		orderSuccess.listMerchantOrderDetails(country, status);
 	}
+	
+	@When("^Launch Checkout Sandbox URL \"([^\"]*)\"$")
+	public void launch_Checkout_Sandbox_URL(String URL) {
+		orderSuccess.controlT();
+		orderSuccess.launchURL(config.getCheckoutSandboxURL(URL));
+
+	}
 
 }

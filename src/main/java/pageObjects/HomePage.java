@@ -53,7 +53,7 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
 	private WebElement optionReturnHistory;
-
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -93,4 +93,5 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(optionReturnHistory);
 		log.info("Return history is selected");
 	}
+	
 }

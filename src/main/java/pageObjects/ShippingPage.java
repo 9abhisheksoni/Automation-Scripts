@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -170,7 +171,7 @@ public class ShippingPage extends CucumberRunner {
 				log.info("no saved address for selected country");
 				this.saveNewAddress(country);
 			}
-		} 
+		} 		
 		waitHelper.waitForSpinnerInvisibility();
 		this.clickDeliverToAddress();
 	}

@@ -1,8 +1,10 @@
 package pageObjects;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -75,5 +77,9 @@ public class CartPage extends CucumberRunner {
 				log.info("remove icon clicked");
 			}
 		}
+	}
+	
+	public void isMyBagPageLoaded() {
+		Assert.assertTrue(genericHelper.isDisplayed(btnCheckout));
 	}
 }
