@@ -111,16 +111,6 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
 		log.info("entered user email");
 	}
-	
-	public void inputUserNameFromFeature(String userName) {
-		commonMethods.clearAndSendKeys(this.txtUserName, userName);
-		log.info("entered user email");
-	}
-	
-	public void inputPasswordFromFeature(String password) {
-		commonMethods.clearAndSendKeys(this.txtPassword, password);
-		log.info("entered user password");
-	}
 
 	public void inputPassword(String userType) {
 		commonMethods.clearAndSendKeys(this.txtPassword, jsonReader.getPassword(userType));
@@ -148,13 +138,7 @@ public class LoginPage extends CucumberRunner {
 		this.clickLoginButton();
 		log.info("login submitted");
 	}
-	
-	public void enterLoginDetailsFromFeature(String username, String password) {
-		this.inputUserNameFromFeature(username);
-		this.inputPasswordFromFeature(password);
-		log.info("Entered user credentials");
-	}
-
+	 
 	public void enterGuestEmail(String email) {
 		this.inputGuestUserEmail(email);
 		log.info("entered guest email");
@@ -208,6 +192,22 @@ public class LoginPage extends CucumberRunner {
 			waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 		}
 		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
+	}
+		
+	public void inputUserNameFromFeature(String userName) {
+		commonMethods.clearAndSendKeys(this.txtUserName, userName);
+		log.info("entered user email");
+	}
+	
+	public void inputPasswordFromFeature(String password) {
+		commonMethods.clearAndSendKeys(this.txtPassword, password);
+		log.info("entered user password");
+	}
+
+	public void enterLoginDetailsFromFeature(String username, String password) {
+		this.inputUserNameFromFeature(username);
+		this.inputPasswordFromFeature(password);
+		log.info("Entered user credentials");
 	}
 	
 	public void inputCheckoutSandboxEmailandPwd(String checkoutEmailType, String checkoutPwdType) {

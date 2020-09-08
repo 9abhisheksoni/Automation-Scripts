@@ -165,7 +165,7 @@ public class ShippingPage extends CucumberRunner {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
 				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
-				log.info("Clicked UAE address radio button");
+				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
 				log.info("no saved address for selected country");
@@ -177,19 +177,19 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	private CharSequence getCurrentCountry() {
-		String url = genericHelper.getCurrentUrl();
+		String env = browserFactory.getCountry();
 		String country = "";
-		if (url.contains("-ae")) {
+		if (env.equalsIgnoreCase("UAE")) {
 			country = "United Arab Emirates";
-		} else if (url.contains("-sa")) {
+		} else if (env.equalsIgnoreCase("KSA")) {
 			country = "Saudi Arabia";
-		} else if (url.contains("-kw")) {
+		} else if (env.equalsIgnoreCase("KW")) {
 			country = "Kuwait";
-		}else if (url.contains("-qa")) {
+		}else if (env.equalsIgnoreCase("QA")) {
 			country = "Qatar";
-		}else if (url.contains("-om")) {
+		}else if (env.equalsIgnoreCase("OM")) {
 			country = "Oman";
-		}else if (url.contains("-bh")) {
+		}else if (env.equalsIgnoreCase("BH")) {
 			country = "Bahrain";
 		}
 		return country;

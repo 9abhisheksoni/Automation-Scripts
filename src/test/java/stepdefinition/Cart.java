@@ -1,7 +1,5 @@
 package stepdefinition;
 
-import org.junit.Assert;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import pageObjects.CartPage;

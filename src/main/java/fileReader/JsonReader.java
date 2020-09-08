@@ -53,10 +53,11 @@ public class JsonReader {
 			user = (JSONObject) userdata.get("merchantuser");
 		} else if (userType.equalsIgnoreCase("magentouser")) {
 			user = (JSONObject) userdata.get("magentouser");
+		} else if (userType.equalsIgnoreCase("uatvaliduser")) { //added
+			user = (JSONObject) userdata.get("uatvaliduser");//
 		} else if (userType.equalsIgnoreCase("checkoutsandboxuser")) {
 			user = (JSONObject) userdata.get("checkoutsandboxuser");
-		} 
-		else {
+		} else {
 			try {
 				throw new Exception("Invalid User Type Requested");
 			} catch (Exception e) {

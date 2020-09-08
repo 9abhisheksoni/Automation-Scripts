@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.Scanner;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -68,8 +70,8 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout button default']")
 	private WebElement btnCodPlaceOrder;
 
-	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn']")
-	private WebElement btnCcPlaceOrder;
+	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']")//updated
+	private WebElement btnCcPlaceOrder;//
 
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
 	private WebElement btnTabbyPayLaterPlaceOrder;
@@ -286,12 +288,18 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void clickOnPlaceOrder() {
+
+		int count=0;
+
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.moveToElementAndClick(btnCodPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			commonMethods.moveToElementAndClick(btnCcPlaceOrder);
+			while(commonMethods.isElementPresent(btnCcPlaceOrder)) {				
+				commonMethods.moveToElementAndClick(btnCcPlaceOrder);
+				System.out.println("No of times clicked:" + (++count));
+			}			
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.moveToElementAndClick(btnTabbyPayLaterPlaceOrder);
 		} else {

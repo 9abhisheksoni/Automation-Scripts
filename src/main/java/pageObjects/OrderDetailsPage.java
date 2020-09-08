@@ -64,7 +64,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	}
 	
 	public String getOrderStatus() {
-		log.info("Returning Order Status");
+		log.info("Returning Order Status of ordrer details page");
 		String orderStatusContent = commonMethods.getAttribute(lblOrderStatus,"innerHTML").toUpperCase();
 		String orderStatus="";
 		if (orderStatusContent.contains("Payment_success".toUpperCase())||orderStatusContent.contains("Payment Success".toUpperCase())){
@@ -81,6 +81,7 @@ public class OrderDetailsPage extends CucumberRunner {
 		else {
 			genericHelper.throwUserException("no appropriate status found");
 		}
+		log.info("Order status in order details page is: "+orderStatus);
 		return orderStatus;
 	}
 	

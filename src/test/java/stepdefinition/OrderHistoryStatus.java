@@ -41,6 +41,8 @@ public class OrderHistoryStatus {
 
 	@Then("^verify order status in history to be \"([^\"]*)\"$")
 	public void verify_order_status_in_history_to_be(String orderStatus) {
+		
+		System.out.println("The order status is: "+orderStatus+" Actual order status "+historyPage.getOrderStatus());
 		Assert.assertTrue(historyPage.getOrderStatus().equalsIgnoreCase(orderStatus));
 		log.info(historyPage.getOrderStatus());
 	}

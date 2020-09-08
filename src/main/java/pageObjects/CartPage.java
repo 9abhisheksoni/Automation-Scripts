@@ -1,14 +1,12 @@
 package pageObjects;
 
 import java.util.List;
-import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
@@ -34,8 +32,19 @@ public class CartPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 * **/
-	@FindBy(xpath = "//tr[@class='totals shipping excl']")
+	@FindBy(xpath = "//tr[@class='totals shipping excl' or @class='totals-tax']")
 	private WebElement lblOrderSummary;
+	
+	//added element
+	@FindBy(xpath = "//span[contains(text(),'Link your Club Apparel account to earn')]")
+	private WebElement lblLinkCa;
+	
+	@FindBy(xpath = "//tr[@class='totals-tax']")
+	private WebElement lblTax;
+	
+	@FindBy(xpath = "//tr[@class='totals sub']")
+	private WebElement lblSubTotal;
+	//
 	
 	@FindBy(xpath = "//button[@class='action primary checkout']")
 	private WebElement btnCheckout;
@@ -61,7 +70,17 @@ public class CartPage extends CucumberRunner {
 	
 	
 	public void clickCheckout() {
-		waitHelper.waitForElementVisible(lblOrderSummary);
+
+		try {
+			waitHelper.waitForElementVisible(lblSubTotal);
+		}catch(Exception e) {
+			try {
+				waitHelper.waitForElementVisible(lblLinkCa);
+			}catch(Exception excep) {
+				waitHelper.waitForElementVisible(lblTax);
+			}			
+		}		
+
 		commonMethods.click(btnCheckout);
 		log.info("clicked checkout button in cart page");
 	}	
