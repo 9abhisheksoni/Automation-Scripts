@@ -57,6 +57,12 @@ Scenario Outline: TS_AddToCart_01 - Registered User of UAT 6thstreet.com site sh
 	
 	Examples: 
 		|username                          |password|
+		|uat_automation_tester1@yopmail.com|6Thstreet!|
+		|uat_automation_tester2@yopmail.com|6Thstreet!|
+		|uat_automation_tester3@yopmail.com|6Thstreet!|
+		|uat_automation_tester4@yopmail.com|6Thstreet!|
+		|uat_automation_tester5@yopmail.com|6Thstreet!|
+		|uat_automation_tester6@yopmail.com|6Thstreet!|
 		|uat_automation_tester7@yopmail.com|6Thstreet!|
 		|uat_automation_tester8@yopmail.com|6Thstreet!|
 		|uat_automation_tester9@yopmail.com|6Thstreet!|

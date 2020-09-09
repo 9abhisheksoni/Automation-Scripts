@@ -27,6 +27,7 @@ public class SearhPage extends CucumberRunner {
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
 	private Logger log = Logger.getLogger(SearhPage.class.getName());
+	public static int wishlisttime = 30;
 	
 	/**
 	 * Constructor to initialize page objects
@@ -188,6 +189,7 @@ public class SearhPage extends CucumberRunner {
 	public void clickOnWishListIcon() {
 		commonMethods.click(iconWishlist);
 		log.info("clicked on wishlist icon");
+		pageLoadTimeout(wishlisttime);
 	}
 
 	public void verifyWishlistSuccessDisplay() {

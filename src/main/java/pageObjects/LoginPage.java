@@ -102,7 +102,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clickOnLoginOrRegisterOption() {
-		new HomePage().waitForBannerLoading();
+//		new HomePage().waitForBannerLoading();    //commented to reduce execution time for UAT Abandon cart
 		commonMethods.click(this.labelLoginOrRegister);
 		log.info("login or registered label in header clicked");
 	}
