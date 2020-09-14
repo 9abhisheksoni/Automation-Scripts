@@ -37,10 +37,10 @@ Scenario Outline: TS_AddToCart_03 - Registered User of UAT 6thstreet.com site sh
 	And user selects countrySize as "EU", size as "29"
 	And user clicks on ADDTOBAG button 
 	And User is in cart page 
-	And user enters product name as "0111801566-NAVY" in search text box and click search icon 
+	And user enters product name as "CAK-IB0IB00402-Light-Grey-Heather" in search text box and click search icon 
 	And User clicks wishlist icon
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "31" 
+	And user selects countrySize as "EU", size as "10" 
 	And user clicks on ADDTOBAG button 
 	And User is in cart page 
 	And user enters product name as "CHG1806275-LIGHT-PINK" in search text box and click search icon 
