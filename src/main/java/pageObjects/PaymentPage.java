@@ -201,6 +201,7 @@ public class PaymentPage extends CucumberRunner {
 		String cvv = json.getCVV(cardType);
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
+			waitHelper.staticWait(3000);
 			commonMethods.click(radioCreditCardPayment);
 			waitHelper.waitForSpinnerInvisibility();
 		}
@@ -220,6 +221,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingCOD() {
+		//waitHelper.staticWait(2000);
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
 			waitHelper.waitForSpinnerInvisibility();
@@ -264,6 +266,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingTabbyPayLater() {
+		waitHelper.waitForSpinnerInvisibility();
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.click(radioTabbyPayLater);
 			waitHelper.waitForSpinnerInvisibility();
@@ -273,7 +276,7 @@ public class PaymentPage extends CucumberRunner {
 
 	public void payUsingTabbyPayInInstallments() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
-			commonMethods.click(radioTabbyPayInInstallments);
+			commonMethods.moveToElementAndClick(radioTabbyPayInInstallments);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -288,12 +291,9 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void clickOnPlaceOrder() {
+
 		int count=0;
-		/*
-		 * Scanner scan=new Scanner(System.in); System.out.
-		 * println("================Enter any string to continue=============");
-		 * scan.nextLine();
-		 */
+
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
