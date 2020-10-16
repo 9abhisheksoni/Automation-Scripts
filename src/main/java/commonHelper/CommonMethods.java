@@ -572,6 +572,11 @@ public class CommonMethods extends CucumberRunner {
 	public void navigate(String value) {
 		browserFactory.getDriver().navigate().to(value);
 	}
+	
+	/** browser refresh**/
+	public void refresh() {
+		browserFactory.getDriver().navigate().refresh();;
+	}
 
 	/** Click this Stale element**/
 	public void staleElementClick(WebElement element) {

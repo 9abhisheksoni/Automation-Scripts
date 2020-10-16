@@ -102,7 +102,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clickOnLoginOrRegisterOption() {
-//		new HomePage().waitForBannerLoading();    //commented to reduce execution time for UAT Abandon cart
+		new HomePage().waitForBannerLoading();
 		commonMethods.click(this.labelLoginOrRegister);
 		log.info("login or registered label in header clicked");
 	}
@@ -120,7 +120,13 @@ public class LoginPage extends CucumberRunner {
 	public void clickLoginButton() {
 		commonMethods.click(btnLogin);
 		log.info("login button clicked");
+		waitHelper.staticWait(10);
+	
+	if(commonMethods.isElementPresent(labelLoginOrRegister)) {
+		commonMethods.refresh();
 	}
+	}
+	
 
 	public void verifyLogin() {
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));

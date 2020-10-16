@@ -36,9 +36,6 @@ public class Checkout {
 
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Do you want to proceed? ");
-		String input = sc.nextLine();
 		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("COD")) {
 			paymentPage.payUsingCOD();
