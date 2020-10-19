@@ -13,6 +13,7 @@ import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class LoginPage extends CucumberRunner {
 
@@ -181,7 +182,13 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputGuestUserEmail(String guestuserType) {
-		commonMethods.clearAndSendKeys(this.txtGuestEmail, jsonReader.getUserName(guestuserType));
+		String guestUserName;
+		if(guestuserType.equalsIgnoreCase("tempUser")) {
+			guestUserName=new StringUtility().generateRandomEmailID();
+		}else {
+			guestUserName=jsonReader.getUserName(guestuserType);
+		commonMethods.clearAndSendKeys(this.txtGuestEmail, guestUserName);
+		}
 	}
 
 	public void clickOnContinueAsGuest() {

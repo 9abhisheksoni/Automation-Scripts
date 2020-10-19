@@ -63,7 +63,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		And user selects countrySize as "EU", size as "10Y" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And User login as guest user "guestuser" 
+		And User login as guest user "tempUser" 
 		And User clicks on Guestlogin button 
 		And user enters the valid details for shipping address 
 		And user selects payment option as "COD"  
