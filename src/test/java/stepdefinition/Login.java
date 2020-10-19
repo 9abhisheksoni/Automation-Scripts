@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.LoginPage;
@@ -48,20 +49,41 @@ public class Login {
 	public void user_clicks_on_merchant_login_button() {
 		loginPage.clickOnMerchantLogin();
 	}
-	
+
 	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup from feature$")
 	public void user_enters_valid_login_details_and_in_the_login_popup_from_feature(String username, String password) {
 		loginPage.enterLoginDetailsFromFeature(username, password);
 	}
-	
+
 	@When("^User enters Checkout Sandbox valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
-	public void user_enters_Checkout_Sandbox_valid_login_details_username_and_password_in_the_login_page(String checkoutEmail, String checkoutPwd) {
+	public void user_enters_Checkout_Sandbox_valid_login_details_username_and_password_in_the_login_page(
+			String checkoutEmail, String checkoutPwd) {
 		loginPage.enterCheckoutSandboxUserandPwd(checkoutEmail, checkoutPwd);
 	}
 
 	@When("^User clicks on Checkout Sandbox login button$")
 	public void user_clicks_on_Checkout_Sandbox_login_button() {
 		loginPage.clickOnCheckoutSandboxLogin();
+	}
+
+	@And("^user clears Wishlist$")
+	public void user_clears_Wishlist() {
+		loginPage.clearWishlist();
+	}
+
+	@Then("^user should be able to see product in Wishlist$")
+	public void user_should_be_able_to_see_product_in_Wishlist() {
+		loginPage.verifyWishlistProductAdded();
+	}
+
+	@And("^User Logsout$")
+	public void User_Logsout() {
+		loginPage.clickLogoutLink();
+	}
+
+	@Then("^Logout is successfull$")
+	public void Logout_is_successfull() {
+		loginPage.verifySuccessfulLogout();
 	}
 
 }

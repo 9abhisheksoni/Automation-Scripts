@@ -101,4 +101,5 @@ public class CartPage extends CucumberRunner {
 	public void isMyBagPageLoaded() {
 		Assert.assertTrue(genericHelper.isDisplayed(btnCheckout));
 	}
+	
 }

@@ -1,53 +1,139 @@
-29-09-2020 23:26:44 INFO [CucumberRunner]: Executing Before Suite
-29-09-2020 23:26:44 INFO [CucumberRunner]: Executing Before Test
-29-09-2020 23:26:44 INFO [BrowserFactory]: Creating Browser Factory Instance
-29-09-2020 23:26:44 INFO [BrowserFactory]: Creating Browser Instance Chrome
-29-09-2020 23:26:44 INFO [BrowserFactory]: Setting Execution Country KSA
-29-09-2020 23:26:44 INFO [BrowserFactory]: Setting Execution language EN
-29-09-2020 23:26:45 INFO [Hooks]: Before Scenario Execution
-29-09-2020 23:26:45 INFO [CucumberRunner]: identifying browser to launch
-29-09-2020 23:26:45 INFO [CucumberRunner]: loading property file
-29-09-2020 23:26:45 INFO [Config]: Creating config object
-29-09-2020 23:26:45 INFO [Config]: Setting Config Path
-29-09-2020 23:26:45 INFO [CucumberRunner]: OS = Windows
-29-09-2020 23:26:45 INFO [BrowserFactory]: Creating Browser Factory Instance
-29-09-2020 23:26:45 INFO [BrowserFactory]: Returning Browser Instance
-29-09-2020 23:26:45 INFO [BrowserFactory]: Creating Chrome Driver Instance
-29-09-2020 23:26:48 INFO [CucumberRunner]: maximizing browser window
-29-09-2020 23:26:48 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:26:50 INFO [Config]: getting implicit wait from property file in sec
-29-09-2020 23:26:50 INFO [CucumberRunner]: Setting up implicit wait in secs 15
-29-09-2020 23:26:50 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:26:50 INFO [CucumberRunner]: Clearing browser cookies
-29-09-2020 23:26:50 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:26:50 INFO [BrowserFactory]: Getting Execution Country
-29-09-2020 23:26:50 INFO [BrowserFactory]: Getting Execution language
-29-09-2020 23:26:50 INFO [CucumberRunner]: Setting up browser url for country KSA and language EN
-29-09-2020 23:26:50 INFO [CucumberRunner]: loading property file
-29-09-2020 23:26:50 INFO [Config]: Creating config object
-29-09-2020 23:26:50 INFO [Config]: Setting Config Path
-29-09-2020 23:26:50 INFO [Config]: getting base URL from property file
-29-09-2020 23:26:50 INFO [Config]: the site URL for given country KSA and language EN is https://en-sa-uat.6tst.com
-29-09-2020 23:26:50 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:26:52 INFO [Config]: Setting Config object if null
-29-09-2020 23:26:52 INFO [Config]: Creating config object
-29-09-2020 23:26:52 INFO [Config]: Setting Config Path
-29-09-2020 23:26:52 INFO [Config]: getting explicit wait from property file in sec
-29-09-2020 23:26:52 INFO [Config]: Setting Config object if null
-29-09-2020 23:26:52 INFO [Config]: Creating config object
-29-09-2020 23:26:52 INFO [Config]: Setting Config Path
-29-09-2020 23:26:52 INFO [Config]: getting explicit wait from property file in sec
-29-09-2020 23:26:52 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:26:52 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:27:37 INFO [Hooks]: After Scenario Execution
-29-09-2020 23:27:37 INFO [CucumberRunner]: Attaching screenshot to cucumber html report
-29-09-2020 23:27:37 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:27:38 INFO [CucumberRunner]: Capturing screenshot
-29-09-2020 23:27:38 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:27:38 INFO [BrowserFactory]: Returning Browser Instance
-29-09-2020 23:27:38 INFO [DateTimeHelper]: currentDateTime is : 29_09_2020_11_27_38
-29-09-2020 23:27:38 INFO [CucumberRunner]: Closing all browser instances
-29-09-2020 23:27:38 INFO [BrowserFactory]: Returning Driver Instance
-29-09-2020 23:27:40 INFO [CucumberRunner]: Generating reports after suite execution
-29-09-2020 23:27:40 INFO [ReportHelper]: Generating Cucumber Reports
-29-09-2020 23:27:41 INFO [ReportHelper]: configuring extent reports
+19-10-2020 14:11:11 INFO [CucumberRunner]: Executing Before Suite
+19-10-2020 14:11:11 INFO [CucumberRunner]: Executing Before Test
+19-10-2020 14:11:11 INFO [BrowserFactory]: Creating Browser Factory Instance
+19-10-2020 14:11:11 INFO [BrowserFactory]: Creating Browser Instance Chrome
+19-10-2020 14:11:11 INFO [BrowserFactory]: Setting Execution Country UAE
+19-10-2020 14:11:11 INFO [BrowserFactory]: Setting Execution language EN
+19-10-2020 14:11:12 INFO [Hooks]: Before Scenario Execution
+19-10-2020 14:11:12 INFO [CucumberRunner]: identifying browser to launch
+19-10-2020 14:11:12 INFO [CucumberRunner]: loading property file
+19-10-2020 14:11:12 INFO [Config]: Creating config object
+19-10-2020 14:11:12 INFO [Config]: Setting Config Path
+19-10-2020 14:11:12 INFO [CucumberRunner]: OS = Windows
+19-10-2020 14:11:12 INFO [BrowserFactory]: Creating Browser Factory Instance
+19-10-2020 14:11:12 INFO [BrowserFactory]: Returning Browser Instance
+19-10-2020 14:11:12 INFO [BrowserFactory]: Creating Chrome Driver Instance
+19-10-2020 14:11:15 INFO [CucumberRunner]: maximizing browser window
+19-10-2020 14:11:15 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:18 INFO [Config]: getting implicit wait from property file in sec
+19-10-2020 14:11:18 INFO [CucumberRunner]: Setting up implicit wait in secs 15
+19-10-2020 14:11:18 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:18 INFO [CucumberRunner]: Clearing browser cookies
+19-10-2020 14:11:18 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:18 INFO [BrowserFactory]: Getting Execution Country
+19-10-2020 14:11:18 INFO [BrowserFactory]: Getting Execution language
+19-10-2020 14:11:18 INFO [CucumberRunner]: Setting up browser url for country UAE and language EN
+19-10-2020 14:11:18 INFO [CucumberRunner]: loading property file
+19-10-2020 14:11:18 INFO [Config]: Creating config object
+19-10-2020 14:11:18 INFO [Config]: Setting Config Path
+19-10-2020 14:11:18 INFO [Config]: getting base URL from property file
+19-10-2020 14:11:18 INFO [Config]: the site URL for given country UAE and language EN is https://en-ae.6thstreet.com
+19-10-2020 14:11:18 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:22 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:22 INFO [Config]: Creating config object
+19-10-2020 14:11:22 INFO [Config]: Setting Config Path
+19-10-2020 14:11:22 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:22 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:23 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //div[@class='logo']//img]
+19-10-2020 14:11:23 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:23 INFO [WaitHelper]: element found...
+19-10-2020 14:11:23 INFO [WaitHelper]: Waiting for 5000 ms
+19-10-2020 14:11:28 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:28 INFO [Config]: Creating config object
+19-10-2020 14:11:28 INFO [Config]: Setting Config Path
+19-10-2020 14:11:28 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:28 INFO [Config]: Setting Config object if null
+19-10-2020 14:11:28 INFO [Config]: Creating config object
+19-10-2020 14:11:28 INFO [Config]: Setting Config Path
+19-10-2020 14:11:28 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:11:28 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:11:28 INFO [WaitHelper]: waitForInvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //span[@id='minicart-counter']]
+19-10-2020 14:11:28 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:23 INFO [HomePage]: minicart disappeared
+19-10-2020 14:12:23 INFO [HomePage]: home page is banner loaded
+19-10-2020 14:12:23 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //span[@class='login-label']]
+19-10-2020 14:12:23 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:23 INFO [LoginPage]: login or registered label in header clicked
+19-10-2020 14:12:23 INFO [JsonReader]: Getting user name for type validuser
+19-10-2020 14:12:23 INFO [JsonReader]: Getting user login for type validuser
+19-10-2020 14:12:23 INFO [JsonReader]: Reading JSON Array
+19-10-2020 14:12:23 INFO [Config]: Setting Config object if null
+19-10-2020 14:12:23 INFO [Config]: Creating config object
+19-10-2020 14:12:23 INFO [Config]: Setting Config Path
+19-10-2020 14:12:23 INFO [Config]: getting Json file name from property file
+19-10-2020 14:12:23 INFO [ResourceHelper]: Getting File Path TestData.json
+19-10-2020 14:12:23 INFO [ResourceHelper]: getting project directory base path
+19-10-2020 14:12:23 INFO [Config]: Setting Config object if null
+19-10-2020 14:12:23 INFO [Config]: Creating config object
+19-10-2020 14:12:23 INFO [Config]: Setting Config Path
+19-10-2020 14:12:23 INFO [Config]: getting Json file name from property file
+19-10-2020 14:12:23 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
+19-10-2020 14:12:23 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //input[@name='username']] Value : qauae1@yopmail.com
+19-10-2020 14:12:23 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:23 INFO [LoginPage]: entered user email
+19-10-2020 14:12:23 INFO [JsonReader]: Getting user password for type validuser
+19-10-2020 14:12:23 INFO [JsonReader]: Getting user login for type validuser
+19-10-2020 14:12:23 INFO [JsonReader]: Reading JSON Array
+19-10-2020 14:12:23 INFO [Config]: Setting Config object if null
+19-10-2020 14:12:23 INFO [Config]: Creating config object
+19-10-2020 14:12:23 INFO [Config]: Setting Config Path
+19-10-2020 14:12:23 INFO [Config]: getting Json file name from property file
+19-10-2020 14:12:23 INFO [ResourceHelper]: Getting File Path TestData.json
+19-10-2020 14:12:23 INFO [ResourceHelper]: getting project directory base path
+19-10-2020 14:12:23 INFO [Config]: Setting Config object if null
+19-10-2020 14:12:23 INFO [Config]: Creating config object
+19-10-2020 14:12:23 INFO [Config]: Setting Config Path
+19-10-2020 14:12:23 INFO [Config]: getting Json file name from property file
+19-10-2020 14:12:23 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
+19-10-2020 14:12:23 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //input[@name='password']] Value : 6Thstreet!
+19-10-2020 14:12:23 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:24 INFO [LoginPage]: entered user password
+19-10-2020 14:12:24 INFO [LoginPage]: Entered user credentials
+19-10-2020 14:12:24 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:24 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> css selector: button#login_button]
+19-10-2020 14:12:24 INFO [LoginPage]: login button clicked
+19-10-2020 14:12:24 INFO [WaitHelper]: Waiting for 10 ms
+19-10-2020 14:12:24 INFO [CommonMethods]: checking whether element is present
+19-10-2020 14:12:24 INFO [CommonMethods]: Found element:::--[[ChromeDriver: chrome on WINDOWS (57816f947ca812f07ae4cdf41e91fb40)] -> xpath: //span[@class='login-label']]
+19-10-2020 14:12:24 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:12:26 INFO [Config]: Setting Config object if null
+19-10-2020 14:12:26 INFO [Config]: Creating config object
+19-10-2020 14:12:26 INFO [Config]: Setting Config Path
+19-10-2020 14:12:26 INFO [Config]: getting explicit wait from property file in sec
+19-10-2020 14:12:41 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //span[@id='customer_name_top_menu']'
+19-10-2020 14:12:41 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:13:27 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[@id='customer_name_top_menu']' (tried for 30 second(s) with 500 milliseconds interval)
+19-10-2020 14:13:27 INFO [Hooks]: After Scenario Execution
+19-10-2020 14:13:27 INFO [CucumberRunner]: Attaching screenshot to cucumber html report
+19-10-2020 14:13:27 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:13:28 INFO [CucumberRunner]: Capturing screenshot
+19-10-2020 14:13:28 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:13:28 INFO [BrowserFactory]: Returning Browser Instance
+19-10-2020 14:13:28 INFO [DateTimeHelper]: currentDateTime is : 19_10_2020_02_13_28
+19-10-2020 14:13:28 INFO [CucumberRunner]: Closing all browser instances
+19-10-2020 14:13:28 INFO [BrowserFactory]: Returning Driver Instance
+19-10-2020 14:13:29 INFO [CucumberRunner]: Generating reports after suite execution
+19-10-2020 14:13:29 INFO [ReportHelper]: Generating Cucumber Reports
+19-10-2020 14:13:30 INFO [ReportHelper]: configuring extent reports

@@ -71,6 +71,9 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@ID='yopeso_register']")
 	private WebElement btnCreateAccount;
+	
+	@FindBy(xpath="//li[@class='header-wishlist']/a")
+	private WebElement lnkWishlist;
 
 	/**
 	 * WebElement declaration ends here
@@ -122,6 +125,21 @@ public class HomePage extends CucumberRunner {
 		waitHelper.waitForElementVisible(btnCreateAccount);
 		commonMethods.click(btnCreateAccount);
 
+	}
+	
+	public void typeInSearchField(String product) {
+		commonMethods.clearAndSendKeys(txtSearchProduct, product);
+		log.info("Entering text in Search field");
+	}
+	
+	public void clickHomeLogo() {
+		commonMethods.click(imgHomePage);
+		log.info("Clicked on Home Logo");
+	}
+	
+	public void clickOnWishlistInHeader() {
+		commonMethods.click(lnkWishlist);
+		log.info("clicked Wishlist in Header");
 	}
 
 }

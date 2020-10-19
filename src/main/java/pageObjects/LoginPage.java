@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,7 @@ public class LoginPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
+	HomePage homePage = new HomePage();
 
 	/**
 	 * Constructor to initialize page objects
@@ -77,15 +80,21 @@ public class LoginPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@class='action-close']")
 	private WebElement btnIncomingMessageCls;
-	
-	@FindBy (xpath = "//input[@id='email']")
+
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtCheckoutSandboxEmail;
-	
-	@FindBy (xpath = "//input[@id='password']")
+
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtCheckoutSandboxPwd;
-	
-	@FindBy (xpath = "//button[@id='login-btn']")
+
+	@FindBy(xpath = "//button[@id='login-btn']")
 	private WebElement btnCheckoutSandboxLogin;
+
+	@FindBy(xpath = "//li[@class='product-item']//a[@data-role='remove']")
+	private List<WebElement> iconWishlistRemove;
+
+	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
+	private WebElement lnkLogout;
 
 	/**
 	 * WebElement declaration ends here
@@ -103,7 +112,7 @@ public class LoginPage extends CucumberRunner {
 
 	public void clickOnLoginOrRegisterOption() {
 		new HomePage().waitForBannerLoading();
-		commonMethods.click(this.labelLoginOrRegister);
+		commonMethods.moveToElementAndClick(this.labelLoginOrRegister);
 		log.info("login or registered label in header clicked");
 	}
 
@@ -121,12 +130,11 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.click(btnLogin);
 		log.info("login button clicked");
 		waitHelper.staticWait(10);
-	
-	if(commonMethods.isElementPresent(labelLoginOrRegister)) {
-		commonMethods.refresh();
+
+		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
+			commonMethods.refresh();
+		}
 	}
-	}
-	
 
 	public void verifyLogin() {
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
@@ -144,7 +152,7 @@ public class LoginPage extends CucumberRunner {
 		this.clickLoginButton();
 		log.info("login submitted");
 	}
-	 
+
 	public void enterGuestEmail(String email) {
 		this.inputGuestUserEmail(email);
 		log.info("entered guest email");
@@ -175,7 +183,6 @@ public class LoginPage extends CucumberRunner {
 		log.info("clicked merchant login");
 	}
 
-
 	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
 		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);
 
@@ -199,12 +206,12 @@ public class LoginPage extends CucumberRunner {
 		}
 		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 	}
-		
+
 	public void inputUserNameFromFeature(String userName) {
 		commonMethods.clearAndSendKeys(this.txtUserName, userName);
 		log.info("entered user email");
 	}
-	
+
 	public void inputPasswordFromFeature(String password) {
 		commonMethods.clearAndSendKeys(this.txtPassword, password);
 		log.info("entered user password");
@@ -215,20 +222,45 @@ public class LoginPage extends CucumberRunner {
 		this.inputPasswordFromFeature(password);
 		log.info("Entered user credentials");
 	}
-	
+
 	public void inputCheckoutSandboxEmailandPwd(String checkoutEmailType, String checkoutPwdType) {
 		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxEmail, jsonReader.getUserName(checkoutEmailType));
 		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxPwd, jsonReader.getPassword(checkoutPwdType));
 	}
-	
+
 	public void enterCheckoutSandboxUserandPwd(String checkoutEmail, String checkoutPwd) {
 		this.inputCheckoutSandboxEmailandPwd(checkoutEmail, checkoutPwd);
-
 		log.info("entered Checkout Sandbox details");
 	}
-	
+
 	public void clickOnCheckoutSandboxLogin() {
 		commonMethods.click(btnCheckoutSandboxLogin);
 		log.info("clicked Checkout Sandbox login");
+	}
+
+	public void clearWishlist() {
+		homePage.clickOnWishlistInHeader();
+		int removeiconWishlistCount = iconWishlistRemove.size();
+		for (int i = 0; i < removeiconWishlistCount; i++) {
+			commonMethods.click(iconWishlistRemove.get(0));
+			log.info("Wishlist remove icon clicked");
+		}
+	}
+
+	public void verifyWishlistProductAdded() {
+		homePage.clickOnWishlistInHeader();
+		Assert.assertEquals(iconWishlistRemove.size(), 1);
+		log.info("Wishlist has 1 product");
+	}
+
+	public void clickLogoutLink() {
+		commonMethods.click(lblCustomerName);
+		commonMethods.click(lnkLogout);
+		log.info("logout link clicked");
+	}
+
+	public void verifySuccessfulLogout() {
+		genericHelper.isDisplayed(labelLoginOrRegister);
+		log.info("Logout successfull");
 	}
 }
