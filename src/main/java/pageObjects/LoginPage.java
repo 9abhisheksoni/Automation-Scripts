@@ -187,8 +187,8 @@ public class LoginPage extends CucumberRunner {
 			guestUserName=new StringUtility().generateRandomEmailID();
 		}else {
 			guestUserName=jsonReader.getUserName(guestuserType);
-		commonMethods.clearAndSendKeys(this.txtGuestEmail, guestUserName);
 		}
+		commonMethods.clearAndSendKeys(this.txtGuestEmail, guestUserName);
 	}
 
 	public void clickOnContinueAsGuest() {
