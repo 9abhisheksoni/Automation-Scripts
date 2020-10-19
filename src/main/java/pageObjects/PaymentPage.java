@@ -294,16 +294,13 @@ public class PaymentPage extends CucumberRunner {
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
-			commonMethods.moveToElementAndClick(btnCodPlaceOrder);
+			commonMethods.staleElementClick(btnCodPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			while(commonMethods.isElementPresent(btnCcPlaceOrder)) {				
-				commonMethods.moveToElementAndClick(btnCcPlaceOrder);
-				System.out.println("No of times clicked:" + (++count));
-			}			
+			commonMethods.staleElementClick(btnCcPlaceOrder);	
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
-			commonMethods.moveToElementAndClick(btnTabbyPayLaterPlaceOrder);
+			commonMethods.staleElementClick(btnTabbyPayLaterPlaceOrder);
 		} else {
-			commonMethods.moveToElementAndClick(btnTabbyPayInInstallmentsPlaceOrder);
+			commonMethods.staleElementClick(btnTabbyPayInInstallmentsPlaceOrder);
 		}
 		log.info("clicked on place order");
 	}

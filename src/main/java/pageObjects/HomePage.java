@@ -141,5 +141,5 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(lnkWishlist);
 		log.info("clicked Wishlist in Header");
 	}
-
+	
 }

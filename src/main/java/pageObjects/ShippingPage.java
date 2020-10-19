@@ -39,13 +39,13 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='action action-show-popup add_new_address']")
 	private WebElement btnNewAddress;
 
-	@FindBy(xpath = "//input[@name='firstname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='firstname' and contains(@class,'input-text')]")
 	private WebElement txtFirstName;
 
-	@FindBy(xpath = "//input[@name='lastname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='lastname' and contains(@class,'input-text')]")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[@name='street[0]']")
+	@FindBy(xpath = "//input[contains(@name,'street')]")
 	private WebElement txtStreetAddress;
 
 	@FindBy(xpath = "//select[@name='city']")
@@ -57,7 +57,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//select[@name='cn_carriercode']")
 	private WebElement drpdwnCarrierCode;
 
-	@FindBy(xpath = "//input[@name='contact' and @type='text']")
+	@FindBy(xpath = "//input[contains(@name,'contact') and @type='text']")
 	private WebElement txtPhoneNumber;
 
 	@FindBy(xpath = "//button[@class='button action continue primary']")
@@ -236,6 +236,11 @@ public class ShippingPage extends CucumberRunner {
 			commonMethods.click(btnCancelAddressPopUp);
 			log.info("clicked cancel save address popup");
 		}
+	}
+	
+	public void editAndEnterFirstName(String firstName) {
+		commonMethods.clearAndSendKeys(txtFirstName, firstName);
+		log.info("First Name is Modified");
 	}
 	
 }

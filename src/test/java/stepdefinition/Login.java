@@ -86,4 +86,38 @@ public class Login {
 		loginPage.verifySuccessfulLogout();
 	}
 
+	@Then("^User clears saved address$")
+	public void User_clears_saved_address() {
+		loginPage.clearSavedAddress();
+	}
+
+	@Then("^Address should be saved$")
+	public void address_should_be_saved() {
+		loginPage.verifyAddressSaved();
+	}
+
+	@Then("^Default address should be updated$")
+	public void default_address_should_be_updated() {
+		loginPage.verifyAddressDefaulted();
+	}
+
+	@And("^User saves valid Address$")
+	public void user_saves_valid_address() {
+		loginPage.saveAddress();
+	}
+
+	@And("^User edits, makes address Default$")
+	public void user_edits_makes_address_default() {
+		loginPage.editAndMakeAddressDefault();
+	}
+
+	@And("^User Deletes saved address$")
+	public void user_deletes_saved_address() {
+		loginPage.deleteAllSavedAddress();
+	}
+	
+	@Then("^address should be deleted$")
+	public void address_should_be_deleted() {
+		loginPage.verifyEmptyAddressBook();
+	}
 }

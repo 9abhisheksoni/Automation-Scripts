@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -43,6 +44,18 @@ public class OrderDetailsPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[@class='cash-content']")
 	private WebElement lblPayMentType;
+	
+	@FindBy(xpath="//div[@class='cancel-btn']/a")
+	private WebElement btnCancelOrder;
+	
+	@FindBy(xpath="//label[@class='cancel-check']/span")
+	private WebElement radioCancelProduct;
+	
+	@FindBy(xpath="//input[@id='clickToCancel']")
+	private WebElement btnCancelItems;
+	
+	@FindBy(xpath = "//div[contains(@class,'message-success')]")
+	private WebElement msgOrderCancelSuccess;
 	
 	/**
 	 * WebElement declaration ends here
@@ -89,4 +102,20 @@ public class OrderDetailsPage extends CucumberRunner {
 		log.info("Returning Order Date");
 		return commonMethods.getAttribute(lblOrderDate,"innerHtml");
 	}
+	
+	public void cancelOrder() {
+		commonMethods.click(btnCancelOrder);
+		if(!genericHelper.isSelected(radioCancelProduct)) {
+			commonMethods.click(radioCancelProduct);
+			log.info("Select item for Cancel");
+		}
+		commonMethods.click(btnCancelItems);
+		log.info("Item Cancelled");
+	}
+	
+	public void verifyOrderCancelSuccessMsg() {
+		Assert.assertTrue(genericHelper.isDisplayed(msgOrderCancelSuccess));
+		log.info("Order Cancelled Successfully");
+	}
+	
 }

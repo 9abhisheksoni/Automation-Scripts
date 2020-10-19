@@ -25,6 +25,7 @@ public class LoginPage extends CucumberRunner {
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
 	HomePage homePage = new HomePage();
+	
 
 	/**
 	 * Constructor to initialize page objects
@@ -95,6 +96,27 @@ public class LoginPage extends CucumberRunner {
 
 	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
 	private WebElement lnkLogout;
+	
+	@FindBy(xpath="//a[@class='top-link-address-link']")
+	private WebElement lnkDeliveryAddress;
+	
+	@FindBy (xpath="//a[contains(@class,'delete')]")
+	private List<WebElement> iconRemoveAddress;
+	
+	@FindBy (xpath="//button[contains(@class,'action-accept')]")
+	private WebElement btnConfirmDelete;
+	
+	@FindBy (xpath="//button[@data-action='save-address']")
+	private WebElement btnSaveAddress;
+	
+	@FindBy (xpath="//a[@class='action edit']/img")
+	private WebElement lnkEditAddress;
+	
+	@FindBy (xpath="//div[@class='field choice set billing']/input[@type='checkbox']/following-sibling::label")
+	private WebElement chkDefaultShippingAddress;
+	
+	@FindBy (xpath="//div[@class='box-content']//span[@class='default-shipping']")
+	private WebElement lblDefaultAddress;
 
 	/**
 	 * WebElement declaration ends here
@@ -263,4 +285,55 @@ public class LoginPage extends CucumberRunner {
 		genericHelper.isDisplayed(labelLoginOrRegister);
 		log.info("Logout successfull");
 	}
+	
+	public void clearSavedAddress() {
+		commonMethods.click(lblCustomerName);
+		commonMethods.click(lnkDeliveryAddress);
+		this.deleteAllSavedAddress();
+	}
+	
+	public void saveAddress() {
+		ShippingPage shippingPage = new ShippingPage();
+		String country = browserFactory.getCountry().toLowerCase();
+		log.info("Enter address manually");
+		shippingPage.submitShippingAddress(country);
+		commonMethods.click(btnSaveAddress);
+		log.info("Save address button is clicked");
+		}
+	
+	public void verifyAddressSaved() {
+		Assert.assertEquals(iconRemoveAddress.size(),1);
+		log.info("address Saved successfully");
+	}
+	
+	public void editAndMakeAddressDefault() {
+		ShippingPage shippingPage = new ShippingPage();
+		commonMethods.click(lnkEditAddress);
+		shippingPage.editAndEnterFirstName("Default Address");
+		commonMethods.click(chkDefaultShippingAddress);
+		log.info("Default Address checkbox is selected");
+		commonMethods.click(btnSaveAddress);
+		log.info("Save address button is clicked");
+	}
+	
+	public void verifyAddressDefaulted() {
+		this.verifyAddressSaved();
+		Assert.assertTrue(genericHelper.isDisplayed(lblDefaultAddress));
+		log.info("Default address is Updated successfully");
+	}
+	
+	public void deleteAllSavedAddress() {
+		int removeAddressCount = iconRemoveAddress.size();
+		for (int i = 0; i < removeAddressCount; i++) {
+			commonMethods.moveToElementAndClick(iconRemoveAddress.get(0));
+			commonMethods.click(btnConfirmDelete);
+			log.info("Address deleted");
+		}	
+	}
+	
+	public void verifyEmptyAddressBook() {
+		Assert.assertEquals(iconRemoveAddress.size(), 0);
+		log.info("Address book is empty");
+	}
+
 }
