@@ -54,7 +54,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	@FindBy(xpath="//input[@id='clickToCancel']")
 	private WebElement btnCancelItems;
 	
-	@FindBy(xpath = "//div[contains(@class,'message-success')]")
+	@FindBy(xpath = "//span[@class='cancel-detail']/..")
 	private WebElement msgOrderCancelSuccess;
 	
 	/**
@@ -105,10 +105,8 @@ public class OrderDetailsPage extends CucumberRunner {
 	
 	public void cancelOrder() {
 		commonMethods.click(btnCancelOrder);
-		if(!genericHelper.isSelected(radioCancelProduct)) {
-			commonMethods.click(radioCancelProduct);
-			log.info("Select item for Cancel");
-		}
+		commonMethods.click(radioCancelProduct);
+		log.info("Select item for Cancel");
 		commonMethods.click(btnCancelItems);
 		log.info("Item Cancelled");
 	}

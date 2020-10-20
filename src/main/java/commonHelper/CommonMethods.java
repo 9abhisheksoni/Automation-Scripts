@@ -581,8 +581,10 @@ public class CommonMethods extends CucumberRunner {
 	/** Click this Stale element**/
 	public void staleElementClick(WebElement element) {
 		boolean staleElement = true;
+		
 		while (staleElement) {
 			try {
+				new WaitHelper().waitForSpinnerInvisibility();
 				this.click(element);
 				staleElement = false;
 			} catch (StaleElementReferenceException e) {

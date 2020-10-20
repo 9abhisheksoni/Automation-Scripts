@@ -56,8 +56,7 @@ public class SandboxCheckoutPaymentsPage extends CucumberRunner {
 	 **/
 
 	public void inputSandboxCheckoutOrderNum() {
-//		String checkoutOrderNo = browserFactory.getOrderNumber();
-		String checkoutOrderNo = "500225897";
+		String checkoutOrderNo = browserFactory.getOrderNumber();
 		new WaitHelper().waitForElementVisible(searchCheckoutPayments);
 		commonMethods.clearAndSendKeys(searchCheckoutPayments, checkoutOrderNo, Keys.ENTER);
 	}
