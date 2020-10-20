@@ -108,4 +108,21 @@ public class SearchResults {
 	public void third_level_category_should_be_displayed() {
 		searchPage.verifyOnThirdCategory();
 	}
+	
+	@And("^products should be displayed$")
+	public void products_should_be_displayed() {
+	   productCount = searchPage.getProductsCount();
+	   Assert.assertTrue(productCount>0, "No Products to display");
+	}
+	
+	@And("^no products should be displayed$")
+	public void no_products_should_be_displayed() {
+		searchPage.verifyNoResultDisplayed();	   
+	}
+	
+	@Then("^search suggestions should be displayed$")
+    public void search_suggestions_should_be_displayed() {
+        searchPage.verifySearchSuggestionDisplay();
+    }
+
 }

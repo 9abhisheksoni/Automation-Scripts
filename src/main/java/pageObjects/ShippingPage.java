@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -38,13 +39,13 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='action action-show-popup add_new_address']")
 	private WebElement btnNewAddress;
 
-	@FindBy(xpath = "//input[@name='firstname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='firstname' and contains(@class,'input-text')]")
 	private WebElement txtFirstName;
 
-	@FindBy(xpath = "//input[@name='lastname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='lastname' and contains(@class,'input-text')]")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[@name='street[0]']")
+	@FindBy(xpath = "//input[contains(@name,'street')]")
 	private WebElement txtStreetAddress;
 
 	@FindBy(xpath = "//select[@name='city']")
@@ -56,7 +57,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//select[@name='cn_carriercode']")
 	private WebElement drpdwnCarrierCode;
 
-	@FindBy(xpath = "//input[@name='contact' and @type='text']")
+	@FindBy(xpath = "//input[contains(@name,'contact') and @type='text']")
 	private WebElement txtPhoneNumber;
 
 	@FindBy(xpath = "//button[@class='button action continue primary']")
@@ -129,6 +130,7 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void selectArea(String country) {
+		waitHelper.waitForElementVisible(drpdwnArea);
 		commonMethods.SelectUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
@@ -164,31 +166,31 @@ public class ShippingPage extends CucumberRunner {
 			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
 				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
-				log.info("Clicked UAE address radio button");
+				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
 				log.info("no saved address for selected country");
 				this.saveNewAddress(country);
 			}
-		} 
+		} 		
 		waitHelper.waitForSpinnerInvisibility();
 		this.clickDeliverToAddress();
 	}
 
 	private CharSequence getCurrentCountry() {
-		String url = genericHelper.getCurrentUrl();
+		String env = browserFactory.getCountry();
 		String country = "";
-		if (url.contains("-ae")) {
+		if (env.equalsIgnoreCase("UAE")) {
 			country = "United Arab Emirates";
-		} else if (url.contains("-sa")) {
+		} else if (env.equalsIgnoreCase("KSA")) {
 			country = "Saudi Arabia";
-		} else if (url.contains("-kw")) {
+		} else if (env.equalsIgnoreCase("KW")) {
 			country = "Kuwait";
-		}else if (url.contains("-qa")) {
+		}else if (env.equalsIgnoreCase("QA")) {
 			country = "Qatar";
-		}else if (url.contains("-om")) {
+		}else if (env.equalsIgnoreCase("OM")) {
 			country = "Oman";
-		}else if (url.contains("-bh")) {
+		}else if (env.equalsIgnoreCase("BH")) {
 			country = "Bahrain";
 		}
 		return country;
@@ -235,6 +237,11 @@ public class ShippingPage extends CucumberRunner {
 			commonMethods.click(btnCancelAddressPopUp);
 			log.info("clicked cancel save address popup");
 		}
+	}
+	
+	public void editAndEnterFirstName(String firstName) {
+		commonMethods.clearAndSendKeys(txtFirstName, firstName);
+		log.info("First Name is Modified");
 	}
 	
 }
