@@ -18,7 +18,7 @@ public class Config {
 	private Properties prop;
 	private String filepath;
 
-	/** This methods creates config object **/
+	/** This methods creates config object  **/
 	public Properties createConfigObject() {
 		log.info("Creating config object");
 		FileInputStream ip;
