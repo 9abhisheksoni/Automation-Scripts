@@ -1,749 +1,925 @@
-20-10-2020 10:46:24 INFO [CucumberRunner]: Executing Before Suite
-20-10-2020 10:46:24 INFO [CucumberRunner]: Executing Before Test
-20-10-2020 10:46:24 INFO [BrowserFactory]: Creating Browser Factory Instance
-20-10-2020 10:46:24 INFO [BrowserFactory]: Creating Browser Instance Chrome
-20-10-2020 10:46:24 INFO [BrowserFactory]: Setting Execution Country UAE
-20-10-2020 10:46:24 INFO [BrowserFactory]: Setting Execution language EN
-20-10-2020 10:46:24 INFO [Hooks]: Before Scenario Execution
-20-10-2020 10:46:24 INFO [CucumberRunner]: identifying browser to launch
-20-10-2020 10:46:24 INFO [CucumberRunner]: loading property file
-20-10-2020 10:46:24 INFO [Config]: Creating config object
-20-10-2020 10:46:24 INFO [Config]: Setting Config Path
-20-10-2020 10:46:24 INFO [CucumberRunner]: OS = Windows
-20-10-2020 10:46:24 INFO [BrowserFactory]: Creating Browser Factory Instance
-20-10-2020 10:46:24 INFO [BrowserFactory]: Returning Browser Instance
-20-10-2020 10:46:24 INFO [BrowserFactory]: Creating Chrome Driver Instance
-20-10-2020 10:46:28 INFO [CucumberRunner]: maximizing browser window
-20-10-2020 10:46:28 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:30 INFO [Config]: getting implicit wait from property file in sec
-20-10-2020 10:46:30 INFO [CucumberRunner]: Setting up implicit wait in secs 15
-20-10-2020 10:46:30 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:30 INFO [CucumberRunner]: Clearing browser cookies
-20-10-2020 10:46:30 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:30 INFO [BrowserFactory]: Getting Execution Country
-20-10-2020 10:46:30 INFO [BrowserFactory]: Getting Execution language
-20-10-2020 10:46:30 INFO [CucumberRunner]: Setting up browser url for country UAE and language EN
-20-10-2020 10:46:30 INFO [CucumberRunner]: loading property file
-20-10-2020 10:46:30 INFO [Config]: Creating config object
-20-10-2020 10:46:30 INFO [Config]: Setting Config Path
-20-10-2020 10:46:30 INFO [Config]: getting base URL from property file
-20-10-2020 10:46:30 INFO [Config]: the site URL for given country UAE and language EN is https://en-ae-stage.6tst.com
-20-10-2020 10:46:30 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:41 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:41 INFO [Config]: Creating config object
-20-10-2020 10:46:41 INFO [Config]: Setting Config Path
-20-10-2020 10:46:41 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:41 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:41 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='logo']//img]
-20-10-2020 10:46:41 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:46:41 INFO [WaitHelper]: element found...
-20-10-2020 10:46:41 INFO [WaitHelper]: Waiting for 5000 ms
-20-10-2020 10:46:46 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:46 INFO [Config]: Creating config object
-20-10-2020 10:46:46 INFO [Config]: Setting Config Path
-20-10-2020 10:46:46 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:46 INFO [Config]: Setting Config object if null
-20-10-2020 10:46:46 INFO [Config]: Creating config object
-20-10-2020 10:46:46 INFO [Config]: Setting Config Path
-20-10-2020 10:46:46 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:46:46 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:01 INFO [WaitHelper]: waitForInvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //span[@id='minicart-counter']'
-20-10-2020 10:47:01 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:47 INFO [HomePage]: minicart disappeared
-20-10-2020 10:47:47 INFO [HomePage]: home page is banner loaded
-20-10-2020 10:47:47 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@class='login-label']]
-20-10-2020 10:47:47 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:47 INFO [LoginPage]: login or registered label in header clicked
-20-10-2020 10:47:47 INFO [JsonReader]: Getting user name for type validuser
-20-10-2020 10:47:47 INFO [JsonReader]: Getting user login for type validuser
-20-10-2020 10:47:47 INFO [JsonReader]: Reading JSON Array
-20-10-2020 10:47:47 INFO [Config]: Setting Config object if null
-20-10-2020 10:47:47 INFO [Config]: Creating config object
-20-10-2020 10:47:47 INFO [Config]: Setting Config Path
-20-10-2020 10:47:47 INFO [Config]: getting Json file name from property file
-20-10-2020 10:47:47 INFO [ResourceHelper]: Getting File Path TestData.json
-20-10-2020 10:47:47 INFO [ResourceHelper]: getting project directory base path
-20-10-2020 10:47:47 INFO [Config]: Setting Config object if null
-20-10-2020 10:47:47 INFO [Config]: Creating config object
-20-10-2020 10:47:47 INFO [Config]: Setting Config Path
-20-10-2020 10:47:47 INFO [Config]: getting Json file name from property file
-20-10-2020 10:47:47 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
-20-10-2020 10:47:47 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //input[@name='username']] Value : qauae1@yopmail.com
-20-10-2020 10:47:47 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:48 INFO [LoginPage]: entered user email
-20-10-2020 10:47:48 INFO [JsonReader]: Getting user password for type validuser
-20-10-2020 10:47:48 INFO [JsonReader]: Getting user login for type validuser
-20-10-2020 10:47:48 INFO [JsonReader]: Reading JSON Array
-20-10-2020 10:47:48 INFO [Config]: Setting Config object if null
-20-10-2020 10:47:48 INFO [Config]: Creating config object
-20-10-2020 10:47:48 INFO [Config]: Setting Config Path
-20-10-2020 10:47:48 INFO [Config]: getting Json file name from property file
-20-10-2020 10:47:48 INFO [ResourceHelper]: Getting File Path TestData.json
-20-10-2020 10:47:48 INFO [ResourceHelper]: getting project directory base path
-20-10-2020 10:47:48 INFO [Config]: Setting Config object if null
-20-10-2020 10:47:48 INFO [Config]: Creating config object
-20-10-2020 10:47:48 INFO [Config]: Setting Config Path
-20-10-2020 10:47:48 INFO [Config]: getting Json file name from property file
-20-10-2020 10:47:48 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
-20-10-2020 10:47:48 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //input[@name='password']] Value : 6Thstreet!
-20-10-2020 10:47:48 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:48 INFO [LoginPage]: entered user password
-20-10-2020 10:47:48 INFO [LoginPage]: Entered user credentials
-20-10-2020 10:47:48 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:48 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> css selector: button#login_button]
-20-10-2020 10:47:48 INFO [LoginPage]: login button clicked
-20-10-2020 10:47:48 INFO [WaitHelper]: Waiting for 10 ms
-20-10-2020 10:47:48 INFO [CommonMethods]: checking whether element is present
-20-10-2020 10:47:48 INFO [CommonMethods]: Found element:::--[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@class='login-label']]
-20-10-2020 10:47:48 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:47:55 INFO [Config]: Setting Config object if null
-20-10-2020 10:47:55 INFO [Config]: Creating config object
-20-10-2020 10:47:55 INFO [Config]: Setting Config Path
-20-10-2020 10:47:55 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:47:58 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@id='customer_name_top_menu']]
-20-10-2020 10:47:58 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:00 INFO [WaitHelper]: element found...QA
-20-10-2020 10:48:00 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@id='customer_name_top_menu']]
-20-10-2020 10:48:00 INFO [LoginPage]: login is successfull
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //img[@id='mainBannerImage']]
-20-10-2020 10:48:00 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:00 INFO [WaitHelper]: element found...
-20-10-2020 10:48:00 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //img[@id='mainBannerImage']]
-20-10-2020 10:48:00 INFO [HomePage]: home page is loaded
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:00 INFO [Config]: Creating config object
-20-10-2020 10:48:00 INFO [Config]: Setting Config Path
-20-10-2020 10:48:00 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:00 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:00 INFO [WaitHelper]: Waiting for 5000 ms
-20-10-2020 10:48:05 INFO [CommonMethods]: checking whether element is present
-20-10-2020 10:48:05 INFO [CommonMethods]: Found element:::--[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@id='minicart-counter']]
-20-10-2020 10:48:05 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:06 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@class='cart_icon']]
-20-10-2020 10:48:06 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //a[@class='action viewcart view_bag']]
-20-10-2020 10:48:06 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:12 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:17 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='remove_cart']//span[@class='cart_icon_remove']]
-20-10-2020 10:48:17 INFO [CartPage]: remove icon clicked
-20-10-2020 10:48:17 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:18 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='logo']//img]
-20-10-2020 10:48:18 INFO [HomePage]: Clicked on Home Logo
-20-10-2020 10:48:18 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //input[@id='search']] Value : LCW-8S7179Z4-LCW-TURQUOIS :key ?
-20-10-2020 10:48:18 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:21 INFO [HomePage]: submitting search term
-20-10-2020 10:48:21 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:21 INFO [Config]: Creating config object
-20-10-2020 10:48:21 INFO [Config]: Setting Config Path
-20-10-2020 10:48:21 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:21 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:21 INFO [Config]: Creating config object
-20-10-2020 10:48:21 INFO [Config]: Setting Config Path
-20-10-2020 10:48:21 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:21 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:21 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:23 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']/a]
-20-10-2020 10:48:23 INFO [SearhPage]: clicked product on PLP
-20-10-2020 10:48:23 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:23 INFO [Config]: Creating config object
-20-10-2020 10:48:23 INFO [Config]: Setting Config Path
-20-10-2020 10:48:23 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:23 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:23 INFO [Config]: Creating config object
-20-10-2020 10:48:23 INFO [Config]: Setting Config Path
-20-10-2020 10:48:23 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:23 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:27 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='gallery-placeholder']]
-20-10-2020 10:48:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:27 INFO [WaitHelper]: element found...
-20-10-2020 10:48:28 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //select[@id='countrySize']] Value : EU
-20-10-2020 10:48:28 INFO [PDPPage]: Selected size country EU
-20-10-2020 10:48:28 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='gallery-placeholder']]
-20-10-2020 10:48:28 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:28 INFO [WaitHelper]: element found...
-20-10-2020 10:48:29 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //select[@id='countrySize']/parent::div/../..//select[@class='super-attribute-select']] Value : 1
-20-10-2020 10:48:29 INFO [PDPPage]: Selected size 10Y
-20-10-2020 10:48:29 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //button[@id='product-addtocart-button']]
-20-10-2020 10:48:29 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:35 INFO [PDPPage]: clicked on add to bag
-20-10-2020 10:48:36 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //button[@title='Proceed to Checkout']]
-20-10-2020 10:48:36 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:36 INFO [WaitHelper]: element found...CHECKOUT
-20-10-2020 10:48:37 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //tr[@class='totals sub']]
-20-10-2020 10:48:37 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:37 INFO [WaitHelper]: element found...Subtotal AED 787
-20-10-2020 10:48:37 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:56 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='action primary checkout']'
-20-10-2020 10:48:57 INFO [CartPage]: clicked checkout button in cart page
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:48:57 INFO [Config]: Setting Config object if null
-20-10-2020 10:48:57 INFO [Config]: Creating config object
-20-10-2020 10:48:57 INFO [Config]: Setting Config Path
-20-10-2020 10:48:57 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:48:57 INFO [CommonMethods]: checking whether element is present
-20-10-2020 10:49:12 INFO [CommonMethods]: Found element:::--Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='action primary action-save-address']'
-20-10-2020 10:49:27 INFO [BrowserFactory]: Getting Execution Country
-20-10-2020 10:49:27 INFO [CommonMethods]: Returning attribute value for innerHTML with value 
-
-    <input type="radio" data-bind="click: selectAddress" class="action action-select-shipping-item">
-
-    <!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().firstname -->uaefirstname<!-- /ko -->
-    <!-- ko text: address().lastname -->uaelastname<!-- /ko --> <!-- ko text: address().suffix --><!-- /ko --> <br>
-    <!-- ko text: address().street -->uaestreet<!-- /ko --> <br>
-    <!-- ko text: address().city -->Abu Dhabi<!-- /ko -->, <!-- ko text: address().region --><!-- /ko --> <!-- ko text: address().postcode -->Abu Dhabi Golf Club<!-- /ko --><br>
-    <!-- ko text: getCountryName(address().countryId) -->United Arab Emirates<!-- /ko --> <br>
-    <span class="telephone" data-bind="text: address().telephone">+971528888888</span>
-
-    <!-- ko if: (address().isEditable()) --><!-- /ko -->
-
-
-20-10-2020 10:49:27 INFO [BrowserFactory]: Getting Execution Country
-20-10-2020 10:49:27 INFO [ShippingPage]: Selecting a saved address radio
-20-10-2020 10:49:27 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='shipping-address-items']//div/input]
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:49:27 INFO [BrowserFactory]: Getting Execution Country
-20-10-2020 10:49:27 INFO [ShippingPage]: Clicked United Arab Emirates address radio button
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:49:27 INFO [WaitHelper]: Waiting for spinner disappear
-20-10-2020 10:49:27 INFO [Config]: Setting Config object if null
-20-10-2020 10:49:27 INFO [Config]: Creating config object
-20-10-2020 10:49:27 INFO [Config]: Setting Config Path
-20-10-2020 10:49:27 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:49:27 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:49:27 INFO [WaitHelper]: element found...
-20-10-2020 10:49:27 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:49:27 INFO [WaitHelper]: waitForInvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:49:27 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:01 INFO [WaitHelper]: spinner not displayed
-20-10-2020 10:50:01 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:02 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //button[@class='button action continue primary']]
-20-10-2020 10:50:02 INFO [ShippingPage]: Delivered to this adrress button is clicked
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:02 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:02 INFO [WaitHelper]: Waiting for spinner disappear
-20-10-2020 10:50:02 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:02 INFO [Config]: Creating config object
-20-10-2020 10:50:02 INFO [Config]: Setting Config Path
-20-10-2020 10:50:02 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:02 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:50:02 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:02 INFO [WaitHelper]: element found...
-20-10-2020 10:50:02 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:50:02 INFO [WaitHelper]: waitForInvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:50:02 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:07 INFO [JsonReader]: Getting card number for type visa
-20-10-2020 10:50:07 INFO [JsonReader]: Getting card details for type visa
-20-10-2020 10:50:07 INFO [JsonReader]: Reading JSON Array
-20-10-2020 10:50:07 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:07 INFO [Config]: Creating config object
-20-10-2020 10:50:07 INFO [Config]: Setting Config Path
-20-10-2020 10:50:07 INFO [Config]: getting Json file name from property file
-20-10-2020 10:50:07 INFO [ResourceHelper]: Getting File Path TestData.json
-20-10-2020 10:50:07 INFO [ResourceHelper]: getting project directory base path
-20-10-2020 10:50:07 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:07 INFO [Config]: Creating config object
-20-10-2020 10:50:07 INFO [Config]: Setting Config Path
-20-10-2020 10:50:07 INFO [Config]: getting Json file name from property file
-20-10-2020 10:50:07 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
-20-10-2020 10:50:07 INFO [JsonReader]: Getting card CVV for type visa
-20-10-2020 10:50:07 INFO [JsonReader]: Getting card details for type visa
-20-10-2020 10:50:07 INFO [JsonReader]: Reading JSON Array
-20-10-2020 10:50:07 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:07 INFO [Config]: Creating config object
-20-10-2020 10:50:07 INFO [Config]: Setting Config Path
-20-10-2020 10:50:07 INFO [Config]: getting Json file name from property file
-20-10-2020 10:50:07 INFO [ResourceHelper]: Getting File Path TestData.json
-20-10-2020 10:50:07 INFO [ResourceHelper]: getting project directory base path
-20-10-2020 10:50:07 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:07 INFO [Config]: Creating config object
-20-10-2020 10:50:07 INFO [Config]: Setting Config Path
-20-10-2020 10:50:07 INFO [Config]: getting Json file name from property file
-20-10-2020 10:50:07 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Ashwin BM\eclipse-workspace\Automation-Scripts/src/main/resources/data/Json/TestData.json
-20-10-2020 10:50:07 INFO [CommonMethods]: Returning attribute value for class with value payment-method
-20-10-2020 10:50:07 INFO [CommonMethods]: Returning attribute value for class with value payment-method
-20-10-2020 10:50:07 INFO [CommonMethods]: Returning attribute value for class with value payment-method
-20-10-2020 10:50:08 INFO [CommonMethods]: Returning attribute value for class with value payment-method
-20-10-2020 10:50:08 INFO [CommonMethods]: Returning attribute value for class with value payment-method
-20-10-2020 10:50:08 INFO [CommonMethods]: Returning attribute value for class with value payment-method stored-cards _active
-20-10-2020 10:50:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:08 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //input[@id = 'checkoutcom_card_payment']]
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:08 INFO [WaitHelper]: Waiting for spinner disappear
-20-10-2020 10:50:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:50:08 INFO [Config]: Creating config object
-20-10-2020 10:50:08 INFO [Config]: Setting Config Path
-20-10-2020 10:50:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:50:08 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:50:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:38 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-P1BLET2', ip: '192.168.225.143', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.75, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\Users\ASHWIN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 68ee41a8adac5930f66a4d4e1481ef49
-20-10-2020 10:50:38 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:53 INFO [GenericHelper]: switched to frameProxy element for: DefaultElementLocator 'By.xpath: //iframe[@id='cardNumber']'
-20-10-2020 10:50:53 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //form[@id='frames-element-card-number']/input[@id='checkout-frames-card-number']] Value : 4543474002249996
-20-10-2020 10:50:53 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:54 INFO [CommonMethods]: card number is entered as :4543474002249996
-20-10-2020 10:50:54 INFO [GenericHelper]: Switching to default window 
-20-10-2020 10:50:54 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:50:54 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:09 INFO [GenericHelper]: switched to frameProxy element for: DefaultElementLocator 'By.xpath: //iframe[@id='expiryDate']'
-20-10-2020 10:51:09 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //form[@id='frames-element-expiry-date']/input[@id='checkout-frames-expiry-date']] Value : 12/21
-20-10-2020 10:51:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:09 INFO [CommonMethods]: Expiry date is entered as : 12/21
-20-10-2020 10:51:09 INFO [GenericHelper]: Switching to default window 
-20-10-2020 10:51:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:24 INFO [GenericHelper]: switched to frameProxy element for: DefaultElementLocator 'By.xpath: //iframe[@id='cvv']'
-20-10-2020 10:51:24 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //form[@id='frames-element-cvv']/input[@id='checkout-frames-cvv']] Value : 956
-20-10-2020 10:51:24 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:24 INFO [GenericHelper]: Switching to default window 
-20-10-2020 10:51:24 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:24 INFO [CommonMethods]: CVV detail is entered as : 956
-20-10-2020 10:51:24 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:25 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='secure-checkout-right']/span]
-20-10-2020 10:51:25 INFO [CommonMethods]: Returning attribute value for class with value payment-method _active
-20-10-2020 10:51:25 INFO [CommonMethods]: Active payment: creditCardPayment
-20-10-2020 10:51:25 INFO [CommonMethods]: Returning attribute value for class with value payment-method _active
-20-10-2020 10:51:25 INFO [CommonMethods]: Returning attribute value for class with value payment-method _active
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:25 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:25 INFO [WaitHelper]: Waiting for spinner disappear
-20-10-2020 10:51:25 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:25 INFO [Config]: Creating config object
-20-10-2020 10:51:25 INFO [Config]: Setting Config Path
-20-10-2020 10:51:25 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:51:25 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
-20-10-2020 10:51:25 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:55 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-P1BLET2', ip: '192.168.225.143', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.75, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\Users\ASHWIN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 68ee41a8adac5930f66a4d4e1481ef49
-20-10-2020 10:51:55 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:51:55 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //button[@id='checkoutcom_card_payment_btn' and @title='Place Order']]
-20-10-2020 10:51:55 INFO [CommonMethods]: clicked on place order
-20-10-2020 10:51:55 INFO [Config]: Setting Config object if null
-20-10-2020 10:51:55 INFO [Config]: Creating config object
-20-10-2020 10:51:55 INFO [Config]: Setting Config Path
-20-10-2020 10:51:55 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:07 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
-20-10-2020 10:52:07 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:08 INFO [WaitHelper]: element found...Thank you!
-20-10-2020 10:52:08 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:08 INFO [Config]: Creating config object
-20-10-2020 10:52:08 INFO [Config]: Setting Config Path
-20-10-2020 10:52:08 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:08 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
-20-10-2020 10:52:08 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:08 INFO [WaitHelper]: element found...Thank you!
-20-10-2020 10:52:08 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
-20-10-2020 10:52:09 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:09 INFO [StringUtility]: Get integer value for input string Order #500227819
-20-10-2020 10:52:09 INFO [OrderSuccessPage]: Order Placed : Order #500227819
-20-10-2020 10:52:09 INFO [BrowserFactory]: Setting Return Order instance500227819
-20-10-2020 10:52:09 INFO [OrderSuccessPage]: Order Successfully Placed
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:09 INFO [Config]: Creating config object
-20-10-2020 10:52:09 INFO [Config]: Setting Config Path
-20-10-2020 10:52:09 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:09 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //span[@id='customer_name_top_menu']]
-20-10-2020 10:52:09 INFO [HomePage]: My account menu link is clicked
-20-10-2020 10:52:09 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:14 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //a[@class='top-link-order-history-link' and .='Order History']]
-20-10-2020 10:52:14 INFO [HomePage]: Order history is selected
-20-10-2020 10:52:14 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='order-history-title' and .='Order History']]
-20-10-2020 10:52:14 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:14 INFO [WaitHelper]: element found...Order History
-20-10-2020 10:52:14 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:14 INFO [BrowserFactory]: Returning order Instance
-20-10-2020 10:52:14 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:14 INFO [StringUtility]: Get integer value for input string Order #500227819
-20-10-2020 10:52:14 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - payment_success
-20-10-2020 10:52:14 INFO [CommonMethods]: Order number 500227819 found in order history, order status is : payment_success
-20-10-2020 10:52:14 INFO [HomePage]: The order status is: Payment_success Actual order status payment_success
-20-10-2020 10:52:14 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='order-history-title' and .='Order History']]
-20-10-2020 10:52:14 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:14 INFO [WaitHelper]: element found...Order History
-20-10-2020 10:52:15 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:15 INFO [BrowserFactory]: Returning order Instance
-20-10-2020 10:52:15 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:15 INFO [StringUtility]: Get integer value for input string Order #500227819
-20-10-2020 10:52:15 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - payment_success
-20-10-2020 10:52:15 INFO [CommonMethods]: Order number 500227819 found in order history, order status is : payment_success
-20-10-2020 10:52:15 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[@class='order-history-title' and .='Order History']]
-20-10-2020 10:52:15 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:15 INFO [WaitHelper]: element found...Order History
-20-10-2020 10:52:15 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:15 INFO [BrowserFactory]: Returning order Instance
-20-10-2020 10:52:15 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:15 INFO [StringUtility]: Get integer value for input string Order #500227819
-20-10-2020 10:52:15 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - payment_success
-20-10-2020 10:52:15 INFO [CommonMethods]: Order number 500227819 found in order history, order status is : payment_success
-20-10-2020 10:52:15 INFO [HomePage]: payment_success
-20-10-2020 10:52:15 INFO [CommonMethods]: the text is :: Order #500227819
-20-10-2020 10:52:15 INFO [BrowserFactory]: Returning order Instance
-20-10-2020 10:52:15 INFO [BrowserFactory]: Returning order Instance
-20-10-2020 10:52:15 INFO [CommonMethods]: Order number500227819 found in order history, order status is 
-20-10-2020 10:52:16 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //a[@class='view']]
-20-10-2020 10:52:34 INFO [Config]: Setting Config object if null
-20-10-2020 10:52:34 INFO [Config]: Creating config object
-20-10-2020 10:52:34 INFO [Config]: Setting Config Path
-20-10-2020 10:52:34 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:52:34 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:34 INFO [OrderDetailsPage]: Returning Order Status of ordrer details page
-20-10-2020 10:52:34 INFO [CommonMethods]: Returning attribute value for innerHTML with value <span>Status:</span>Payment Success
-20-10-2020 10:52:34 INFO [OrderDetailsPage]: Order status in order details page is: Payment Success
-20-10-2020 10:52:34 INFO [OrderDetailsPage]: Returning Order Payment
-20-10-2020 10:52:34 INFO [CommonMethods]: the text is :: Pay by Credit / Debit Card
-20-10-2020 10:52:34 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:54 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='cancel-btn']/a'
-20-10-2020 10:52:54 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:52:54 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //label[@class='cancel-check']/span]
-20-10-2020 10:52:54 INFO [OrderDetailsPage]: Select item for Cancel
-20-10-2020 10:52:54 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:53:16 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //input[@id='clickToCancel']'
-20-10-2020 10:53:16 INFO [OrderDetailsPage]: Item Cancelled
-20-10-2020 10:53:16 INFO [Config]: Setting Config object if null
-20-10-2020 10:53:16 INFO [Config]: Creating config object
-20-10-2020 10:53:16 INFO [Config]: Setting Config Path
-20-10-2020 10:53:16 INFO [Config]: getting explicit wait from property file in sec
-20-10-2020 10:53:16 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[contains(@class,'message-success')]]
-20-10-2020 10:53:16 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:53:46 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (68ee41a8adac5930f66a4d4e1481ef49)] -> xpath: //div[contains(@class,'message-success')]] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
-System info: host: 'DESKTOP-P1BLET2', ip: '192.168.225.143', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.8'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.75, chrome: {chromedriverVersion: 85.0.4183.87 (cd6713ebf92fa..., userDataDir: C:\Users\ASHWIN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:61417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 68ee41a8adac5930f66a4d4e1481ef49
-20-10-2020 10:53:46 INFO [Hooks]: After Scenario Execution
-20-10-2020 10:53:46 INFO [CucumberRunner]: Attaching screenshot to cucumber html report
-20-10-2020 10:53:46 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:53:47 INFO [CucumberRunner]: Capturing screenshot
-20-10-2020 10:53:47 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:53:47 INFO [BrowserFactory]: Returning Browser Instance
-20-10-2020 10:53:47 INFO [DateTimeHelper]: currentDateTime is : 20_10_2020_10_53_47
-20-10-2020 10:53:47 INFO [CucumberRunner]: Closing all browser instances
-20-10-2020 10:53:47 INFO [BrowserFactory]: Returning Driver Instance
-20-10-2020 10:53:48 INFO [CucumberRunner]: Generating reports after suite execution
-20-10-2020 10:53:48 INFO [ReportHelper]: Generating Cucumber Reports
-20-10-2020 10:53:49 INFO [ReportHelper]: configuring extent reports
+20-10-2020 12:26:04 INFO [CucumberRunner]: Executing Before Suite
+20-10-2020 12:26:04 INFO [CucumberRunner]: Executing Before Test
+20-10-2020 12:26:04 INFO [BrowserFactory]: Creating Browser Factory Instance
+20-10-2020 12:26:04 INFO [BrowserFactory]: Creating Browser Instance Chrome
+20-10-2020 12:26:04 INFO [BrowserFactory]: Setting Execution Country UAE
+20-10-2020 12:26:04 INFO [BrowserFactory]: Setting Execution language EN
+20-10-2020 12:26:05 INFO [Hooks]: Before Scenario Execution
+20-10-2020 12:26:05 INFO [CucumberRunner]: identifying browser to launch
+20-10-2020 12:26:05 INFO [CucumberRunner]: loading property file
+20-10-2020 12:26:05 INFO [Config]: Creating config object
+20-10-2020 12:26:05 INFO [Config]: Setting Config Path
+20-10-2020 12:26:05 INFO [CucumberRunner]: OS = Windows
+20-10-2020 12:26:05 INFO [BrowserFactory]: Creating Browser Factory Instance
+20-10-2020 12:26:05 INFO [BrowserFactory]: Returning Browser Instance
+20-10-2020 12:26:05 INFO [BrowserFactory]: Creating Chrome Driver Instance
+20-10-2020 12:26:08 INFO [CucumberRunner]: maximizing browser window
+20-10-2020 12:26:08 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:10 INFO [Config]: getting implicit wait from property file in sec
+20-10-2020 12:26:10 INFO [CucumberRunner]: Setting up implicit wait in secs 15
+20-10-2020 12:26:10 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:10 INFO [CucumberRunner]: Clearing browser cookies
+20-10-2020 12:26:10 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:10 INFO [BrowserFactory]: Getting Execution Country
+20-10-2020 12:26:10 INFO [BrowserFactory]: Getting Execution language
+20-10-2020 12:26:10 INFO [CucumberRunner]: Setting up browser url for country UAE and language EN
+20-10-2020 12:26:10 INFO [CucumberRunner]: loading property file
+20-10-2020 12:26:10 INFO [Config]: Creating config object
+20-10-2020 12:26:10 INFO [Config]: Setting Config Path
+20-10-2020 12:26:10 INFO [Config]: getting base URL from property file
+20-10-2020 12:26:10 INFO [Config]: the site URL for given country UAE and language EN is https://en-ae.6thstreet.com
+20-10-2020 12:26:10 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:15 INFO [Config]: Setting Config object if null
+20-10-2020 12:26:15 INFO [Config]: Creating config object
+20-10-2020 12:26:15 INFO [Config]: Setting Config Path
+20-10-2020 12:26:15 INFO [Config]: getting explicit wait from property file in sec
+20-10-2020 12:26:15 INFO [Config]: Setting Config object if null
+20-10-2020 12:26:15 INFO [Config]: Creating config object
+20-10-2020 12:26:15 INFO [Config]: Setting Config Path
+20-10-2020 12:26:15 INFO [Config]: getting explicit wait from property file in sec
+20-10-2020 12:26:15 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:15 INFO [Config]: Setting Config object if null
+20-10-2020 12:26:15 INFO [Config]: Creating config object
+20-10-2020 12:26:15 INFO [Config]: Setting Config Path
+20-10-2020 12:26:15 INFO [Config]: getting explicit wait from property file in sec
+20-10-2020 12:26:15 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:15 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:16 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //div[@class='logo']//img]
+20-10-2020 12:26:16 INFO [HomePage]: Clicked on Home Logo
+20-10-2020 12:26:16 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //input[@id='search']] Value : Shoes :key ?
+20-10-2020 12:26:16 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:16 INFO [HomePage]: submitting search term
+20-10-2020 12:26:16 INFO [Config]: Setting Config object if null
+20-10-2020 12:26:16 INFO [Config]: Creating config object
+20-10-2020 12:26:16 INFO [Config]: Setting Config Path
+20-10-2020 12:26:16 INFO [Config]: getting explicit wait from property file in sec
+20-10-2020 12:26:16 INFO [Config]: Setting Config object if null
+20-10-2020 12:26:16 INFO [Config]: Creating config object
+20-10-2020 12:26:16 INFO [Config]: Setting Config Path
+20-10-2020 12:26:16 INFO [Config]: getting explicit wait from property file in sec
+20-10-2020 12:26:16 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:16 INFO [SearhPage]: returning products on page
+20-10-2020 12:26:20 INFO [CommonMethods]: the text is :: 16,154
+20-10-2020 12:26:20 INFO [StringUtility]: Get integer value for input string 16,154
+20-10-2020 12:26:20 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:20 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //div[@data-tab='sort-by']/div]
+20-10-2020 12:26:20 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:21 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //div[contains(@item-key,'products_price_default_asc')]//label]
+20-10-2020 12:26:21 INFO [WaitHelper]: Waiting for 3000 ms
+20-10-2020 12:26:24 INFO [SearhPage]: sorted low to high
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 0
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 0
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 0
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:24 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:24 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 9
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 10
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 10
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 10
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 10
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 12
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 12
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 12
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 12
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 14
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 15
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 16
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 16
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 17
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 17
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 17
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 17
+20-10-2020 12:26:25 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:25 INFO [SearhPage]: returning price from text : 17
+20-10-2020 12:26:25 INFO [SearhPage]: sorted low to high
+20-10-2020 12:26:25 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:25 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //div[@data-tab='sort-by']/div]
+20-10-2020 12:26:25 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:26 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (00675513539559f51e778b26ff2fc13b)] -> xpath: //div[contains(@item-key,'products_price_default_desc')]//label]
+20-10-2020 12:26:26 INFO [WaitHelper]: Waiting for 3000 ms
+20-10-2020 12:26:29 INFO [SearhPage]: sorted high to low
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1499
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1375
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 1200
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 999
+20-10-2020 12:26:29 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:29 INFO [SearhPage]: returning price from text : 990
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 959
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 939
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 900
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 900
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 900
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 900
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 899
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 890
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 890
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 890
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 890
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 879
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 879
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 850
+20-10-2020 12:26:30 INFO [StringUtility]: Getting decimal value from given string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [StringUtility]: Removing all occurance of specific character in string
+20-10-2020 12:26:30 INFO [SearhPage]: returning price from text : 800
+20-10-2020 12:26:30 INFO [SearhPage]: sorted high to low
+20-10-2020 12:26:30 INFO [Hooks]: After Scenario Execution
+20-10-2020 12:26:30 INFO [CucumberRunner]: Attaching screenshot to cucumber html report
+20-10-2020 12:26:30 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:30 INFO [CucumberRunner]: Closing all browser instances
+20-10-2020 12:26:30 INFO [BrowserFactory]: Returning Driver Instance
+20-10-2020 12:26:32 INFO [CucumberRunner]: Generating reports after suite execution
+20-10-2020 12:26:32 INFO [ReportHelper]: Generating Cucumber Reports
+20-10-2020 12:26:32 INFO [ReportHelper]: configuring extent reports
