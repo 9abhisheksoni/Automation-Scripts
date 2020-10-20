@@ -1,12 +1,14 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 
@@ -18,6 +20,7 @@ public class PDPPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	GenericHelper genericHelper = new GenericHelper();
+	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(PDPPage.class.getName());
 
 	/**
@@ -56,6 +59,10 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@id='tabby-promo-close']")
 	private WebElement btnTabbyPromoClose;
+	
+	//
+	@FindBy(xpath = "//button[@title='Proceed to Checkout']")
+	private WebElement btnCheckout;
 
 	/**
 	 * WebElement declaration ends here
@@ -63,19 +70,34 @@ public class PDPPage extends CucumberRunner {
 
 	public void selectSizeCountry(String country) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.SelectUsingValue(drpdwnCountry, country);
-		log.info("Selected size country " + country);
+		if(!(country.isEmpty())) {			
+			commonMethods.SelectUsingValue(drpdwnCountry, country);
+			log.info("Selected size country " + country);
+		} else {
+			log.info("Selected product is simple product,  size is not required");
+		}
+		
 	}
 
 	public void chooseSize(String size) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.SelectUsingVisibleText(drpdwnSize, size);
-		log.info("Selected size " + size);
+		if(!(size.isEmpty())) {
+			
+			commonMethods.SelectUsingIndex(drpdwnSize, 1);
+			//commonMethods.SelectUsingVisibleText(drpdwnSize, size);
+			log.info("Selected size " + size);
+		} else {
+			log.info("Selected product is simple product, size is not required");
+		}
+		
 	}
 
 	public void clickAddToBag() {
-		commonMethods.click(btnAddToBag);
+		//commonMethods.click(btnAddToBag);
+		//jsHelper.scrollIntoViewAndClick(btnAddToBag);
+		commonMethods.sendKeys(btnAddToBag, Keys.ENTER);
 		log.info("clicked on add to bag");
+		waitHelper.waitForElementVisible(btnCheckout);
 	}
 	
 	/**

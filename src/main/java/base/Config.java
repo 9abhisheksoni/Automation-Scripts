@@ -216,5 +216,13 @@ public class Config {
 		log.info("getting tabby file name from property file");
 		return prop.getProperty("TabbyID");
 	}
+	
+	/** This methods returns Checkout Sandbox url from property file **/
+	public String getCheckoutSandboxURL(String CheckoutSandboxURL) {
+		checkToCreateProp();
+		log.info("getting CheckoutSandboxURL URL from property file");
+		CheckoutSandboxURL = prop.getProperty("CheckoutSandboxURL");
+		return CheckoutSandboxURL;
+	}
 
 }

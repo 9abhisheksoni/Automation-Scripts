@@ -126,9 +126,14 @@
 				<version>2.18.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>jenkinstestng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
+					<systemPropertyVariables>
+						<propertyName>${browser}</propertyName>
+						<propertyName>${country}</propertyName>
+						<propertyName>${language}</propertyName>
+					</systemPropertyVariables>
 						<property>
 							<name>listener</name>
 							<value>org.uncommons.reportng.HTMLReporter,

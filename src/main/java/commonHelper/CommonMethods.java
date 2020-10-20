@@ -15,6 +15,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -477,7 +478,7 @@ public class CommonMethods extends CucumberRunner {
 
 	/** This method moves to element and clicks **/
 	public void moveToElementAndClick(WebElement element) {
-		log.info("Move to element and clicking " + element);
+		log.info("Moving to element and clicking " + element);
 		Actions action = new Actions(browserFactory.getDriver());
 		action.moveToElement(element).click().build().perform();
 	}
@@ -570,6 +571,26 @@ public class CommonMethods extends CucumberRunner {
 	/** driver navigation to the URL **/
 	public void navigate(String value) {
 		browserFactory.getDriver().navigate().to(value);
+	}
+	
+	/** browser refresh**/
+	public void refresh() {
+		browserFactory.getDriver().navigate().refresh();;
+	}
+
+	/** Click this Stale element**/
+	public void staleElementClick(WebElement element) {
+		boolean staleElement = true;
+		
+		while (staleElement) {
+			try {
+				new WaitHelper().waitForSpinnerInvisibility();
+				this.click(element);
+				staleElement = false;
+			} catch (StaleElementReferenceException e) {
+				staleElement = true;
+			}
+		}
 	}
 
 }

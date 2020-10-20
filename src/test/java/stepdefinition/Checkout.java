@@ -1,9 +1,12 @@
 package stepdefinition;
 
+import java.util.Scanner;
+
 import base.Config;
 import commonHelper.WaitHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.en.And;
 import fileReader.JsonReader;
 import pageObjects.OrderHistoryPage;
 import pageObjects.OrderSuccessPage;
@@ -47,6 +50,7 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
+		
 	}
 
 	@When("^user fills all tabby details$")
@@ -78,6 +82,18 @@ public class Checkout {
 	@When("^Verify country \"([^\"]*)\" status \"([^\"]*)\" order$")
 	public void verify_country_status_order(String country, String status) {
 		orderSuccess.listMerchantOrderDetails(country, status);
+	}
+	
+	@When("^Launch Checkout Sandbox URL \"([^\"]*)\"$")
+	public void launch_Checkout_Sandbox_URL(String URL) {
+		orderSuccess.controlT();
+		orderSuccess.launchURL(config.getCheckoutSandboxURL(URL));
+
+	}
+	
+	@And("^selects use storecredit toggle if user is eligible to use$")
+	public void selects_use_storecredit_toggle_if_user_is_eligible_to_use() {
+		paymentPage.turnOnStoreCredit();
 	}
 
 }

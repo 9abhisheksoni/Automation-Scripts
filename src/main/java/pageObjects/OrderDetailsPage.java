@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,6 +45,18 @@ public class OrderDetailsPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='cash-content']")
 	private WebElement lblPayMentType;
 	
+	@FindBy(xpath="//div[@class='cancel-btn']/a")
+	private WebElement btnCancelOrder;
+	
+	@FindBy(xpath="//label[@class='cancel-check']/span")
+	private WebElement radioCancelProduct;
+	
+	@FindBy(xpath="//input[@id='clickToCancel']")
+	private WebElement btnCancelItems;
+	
+	@FindBy(xpath = "//span[@class='cancel-detail']/..")
+	private WebElement msgOrderCancelSuccess;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -64,7 +77,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	}
 	
 	public String getOrderStatus() {
-		log.info("Returning Order Status");
+		log.info("Returning Order Status of ordrer details page");
 		String orderStatusContent = commonMethods.getAttribute(lblOrderStatus,"innerHTML").toUpperCase();
 		String orderStatus="";
 		if (orderStatusContent.contains("Payment_success".toUpperCase())||orderStatusContent.contains("Payment Success".toUpperCase())){
@@ -81,6 +94,7 @@ public class OrderDetailsPage extends CucumberRunner {
 		else {
 			genericHelper.throwUserException("no appropriate status found");
 		}
+		log.info("Order status in order details page is: "+orderStatus);
 		return orderStatus;
 	}
 	
@@ -88,4 +102,18 @@ public class OrderDetailsPage extends CucumberRunner {
 		log.info("Returning Order Date");
 		return commonMethods.getAttribute(lblOrderDate,"innerHtml");
 	}
+	
+	public void cancelOrder() {
+		commonMethods.click(btnCancelOrder);
+		commonMethods.click(radioCancelProduct);
+		log.info("Select item for Cancel");
+		commonMethods.click(btnCancelItems);
+		log.info("Item Cancelled");
+	}
+	
+	public void verifyOrderCancelSuccessMsg() {
+		Assert.assertTrue(genericHelper.isDisplayed(msgOrderCancelSuccess));
+		log.info("Order Cancelled Successfully");
+	}
+	
 }

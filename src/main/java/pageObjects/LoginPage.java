@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -11,6 +13,7 @@ import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class LoginPage extends CucumberRunner {
 
@@ -22,6 +25,8 @@ public class LoginPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
+	HomePage homePage = new HomePage();
+	
 
 	/**
 	 * Constructor to initialize page objects
@@ -78,6 +83,42 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='action-close']")
 	private WebElement btnIncomingMessageCls;
 
+	@FindBy(xpath = "//input[@id='email']")
+	private WebElement txtCheckoutSandboxEmail;
+
+	@FindBy(xpath = "//input[@id='password']")
+	private WebElement txtCheckoutSandboxPwd;
+
+	@FindBy(xpath = "//button[@id='login-btn']")
+	private WebElement btnCheckoutSandboxLogin;
+
+	@FindBy(xpath = "//li[@class='product-item']//a[@data-role='remove']")
+	private List<WebElement> iconWishlistRemove;
+
+	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
+	private WebElement lnkLogout;
+	
+	@FindBy(xpath="//a[@class='top-link-address-link']")
+	private WebElement lnkDeliveryAddress;
+	
+	@FindBy (xpath="//a[contains(@class,'delete')]")
+	private List<WebElement> iconRemoveAddress;
+	
+	@FindBy (xpath="//button[contains(@class,'action-accept')]")
+	private WebElement btnConfirmDelete;
+	
+	@FindBy (xpath="//button[@data-action='save-address']")
+	private WebElement btnSaveAddress;
+	
+	@FindBy (xpath="//a[@class='action edit']/img")
+	private WebElement lnkEditAddress;
+	
+	@FindBy (xpath="//div[@class='field choice set billing']/input[@type='checkbox']/following-sibling::label")
+	private WebElement chkDefaultShippingAddress;
+	
+	@FindBy (xpath="//div[@class='box-content']//span[@class='default-shipping']")
+	private WebElement lblDefaultAddress;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -94,7 +135,7 @@ public class LoginPage extends CucumberRunner {
 
 	public void clickOnLoginOrRegisterOption() {
 		new HomePage().waitForBannerLoading();
-		commonMethods.click(this.labelLoginOrRegister);
+		commonMethods.moveToElementAndClick(this.labelLoginOrRegister);
 		log.info("login or registered label in header clicked");
 	}
 
@@ -111,6 +152,11 @@ public class LoginPage extends CucumberRunner {
 	public void clickLoginButton() {
 		commonMethods.click(btnLogin);
 		log.info("login button clicked");
+		waitHelper.staticWait(10);
+
+		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
+			commonMethods.refresh();
+		}
 	}
 
 	public void verifyLogin() {
@@ -136,7 +182,13 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputGuestUserEmail(String guestuserType) {
-		commonMethods.clearAndSendKeys(this.txtGuestEmail, jsonReader.getUserName(guestuserType));
+		String guestUserName;
+		if(guestuserType.equalsIgnoreCase("tempUser")) {
+			guestUserName=new StringUtility().generateRandomEmailID();
+		}else {
+			guestUserName=jsonReader.getUserName(guestuserType);
+		}
+		commonMethods.clearAndSendKeys(this.txtGuestEmail, guestUserName);
 	}
 
 	public void clickOnContinueAsGuest() {
@@ -159,7 +211,6 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.click(btnMerchantLogin);
 		log.info("clicked merchant login");
 	}
-
 
 	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
 		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);
@@ -184,4 +235,112 @@ public class LoginPage extends CucumberRunner {
 		}
 		waitHelper.waitForElementInVisiblity(btnIncomingMessageCls);
 	}
+
+	public void inputUserNameFromFeature(String userName) {
+		commonMethods.clearAndSendKeys(this.txtUserName, userName);
+		log.info("entered user email");
+	}
+
+	public void inputPasswordFromFeature(String password) {
+		commonMethods.clearAndSendKeys(this.txtPassword, password);
+		log.info("entered user password");
+	}
+
+	public void enterLoginDetailsFromFeature(String username, String password) {
+		this.inputUserNameFromFeature(username);
+		this.inputPasswordFromFeature(password);
+		log.info("Entered user credentials");
+	}
+
+	public void inputCheckoutSandboxEmailandPwd(String checkoutEmailType, String checkoutPwdType) {
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxEmail, jsonReader.getUserName(checkoutEmailType));
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxPwd, jsonReader.getPassword(checkoutPwdType));
+	}
+
+	public void enterCheckoutSandboxUserandPwd(String checkoutEmail, String checkoutPwd) {
+		this.inputCheckoutSandboxEmailandPwd(checkoutEmail, checkoutPwd);
+		log.info("entered Checkout Sandbox details");
+	}
+
+	public void clickOnCheckoutSandboxLogin() {
+		commonMethods.click(btnCheckoutSandboxLogin);
+		log.info("clicked Checkout Sandbox login");
+	}
+
+	public void clearWishlist() {
+		homePage.clickOnWishlistInHeader();
+		int removeiconWishlistCount = iconWishlistRemove.size();
+		for (int i = 0; i < removeiconWishlistCount; i++) {
+			commonMethods.click(iconWishlistRemove.get(0));
+			log.info("Wishlist remove icon clicked");
+		}
+	}
+
+	public void verifyWishlistProductAdded() {
+		homePage.clickOnWishlistInHeader();
+		Assert.assertEquals(iconWishlistRemove.size(), 1);
+		log.info("Wishlist has 1 product");
+	}
+
+	public void clickLogoutLink() {
+		commonMethods.click(lblCustomerName);
+		commonMethods.click(lnkLogout);
+		log.info("logout link clicked");
+	}
+
+	public void verifySuccessfulLogout() {
+		genericHelper.isDisplayed(labelLoginOrRegister);
+		log.info("Logout successfull");
+	}
+	
+	public void clearSavedAddress() {
+		commonMethods.click(lblCustomerName);
+		commonMethods.click(lnkDeliveryAddress);
+		this.deleteAllSavedAddress();
+	}
+	
+	public void saveAddress() {
+		ShippingPage shippingPage = new ShippingPage();
+		String country = browserFactory.getCountry().toLowerCase();
+		log.info("Enter address manually");
+		shippingPage.submitShippingAddress(country);
+		commonMethods.click(btnSaveAddress);
+		log.info("Save address button is clicked");
+		}
+	
+	public void verifyAddressSaved() {
+		Assert.assertEquals(iconRemoveAddress.size(),1);
+		log.info("address Saved successfully");
+	}
+	
+	public void editAndMakeAddressDefault() {
+		ShippingPage shippingPage = new ShippingPage();
+		commonMethods.click(lnkEditAddress);
+		shippingPage.editAndEnterFirstName("Default Address");
+		commonMethods.click(chkDefaultShippingAddress);
+		log.info("Default Address checkbox is selected");
+		commonMethods.click(btnSaveAddress);
+		log.info("Save address button is clicked");
+	}
+	
+	public void verifyAddressDefaulted() {
+		this.verifyAddressSaved();
+		Assert.assertTrue(genericHelper.isDisplayed(lblDefaultAddress));
+		log.info("Default address is Updated successfully");
+	}
+	
+	public void deleteAllSavedAddress() {
+		int removeAddressCount = iconRemoveAddress.size();
+		for (int i = 0; i < removeAddressCount; i++) {
+			commonMethods.moveToElementAndClick(iconRemoveAddress.get(0));
+			commonMethods.click(btnConfirmDelete);
+			log.info("Address deleted");
+		}	
+	}
+	
+	public void verifyEmptyAddressBook() {
+		Assert.assertEquals(iconRemoveAddress.size(), 0);
+		log.info("Address book is empty");
+	}
+
 }

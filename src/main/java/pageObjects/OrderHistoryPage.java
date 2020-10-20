@@ -59,6 +59,7 @@ public class OrderHistoryPage extends CucumberRunner {
 	}
 
 	public String getOrderStatus() {
+		waitHelper.waitForElementVisible(lblOrderHistory);
 		String orderStatus = "Order Not found!";
 		for (int i = 0; i < lnkOrderNumbers.size(); i++) {
 			if (commonMethods.getText(lnkOrderNumbers.get(i)).contains(browserFactory.getOrderNumber())) {
