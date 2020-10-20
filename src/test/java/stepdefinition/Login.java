@@ -120,4 +120,94 @@ public class Login {
 	public void address_should_be_deleted() {
 		loginPage.verifyEmptyAddressBook();
 	}
+	
+	@When("^Click on Customer$")
+	public void click_on_Customer() {
+		loginPage.clickCustomer();
+		
+	}
+
+	
+	@When("^Click on Club Apparel Loyalty$")
+	public void click_on_Club_Apparel_Loyalty() {
+		loginPage.clickClubApparelLoyalty();
+	}
+	
+	
+	@When("^Verify Club apparel logo displayed$")
+	public void verify_Club_apparel_logo_displayed() {
+		loginPage.verifyCLubApparelLogoDisplayed();
+	}
+
+	@When("^Verify AVAIL LOYALTY BENEFITS ON (\\d+)THSTREET is displayed$")
+	public void verify_AVAIL_LOYALTY_BENEFITS_ON_THSTREET_is_displayed(int arg1) 
+	{
+		loginPage.verifyAvailLoyaltyDisplayed();
+	}
+
+	@When("^Verify TIERS BENEFIT is displayed$")
+	public void verify_TIERS_BENEFIT_is_displayed() {
+		loginPage.verifyTierBenifitDisplayed();
+	}
+
+	@When("^Verify REDEMPTION VALUE is displayed$")
+	public void verify_REDEMPTION_VALUE_is_displayed() {
+		loginPage.verifyRedemptionValueDisplayed();
+	}
+
+	@When("^Verify Link your Club Apparel account and start earning points is displayed$")
+	public void verify_Link_your_Club_Apparel_account_and_start_earning_points_is_displayed() {
+		loginPage.verifyLinkYourCADisplayed();
+	}
+
+
+	@When("^Verify LINK YOUR ACCOUNT button is displayed$")
+	public void verify_LINK_YOUR_ACCOUNT_button_is_displayed() {
+		loginPage.verifyLinkYourAccountButtonDisplayed();
+	}
+	
+	@When("^Click on LINK YOUR Account button$")
+	public void click_on_LINK_YOUR_Account_button() {
+		loginPage.clickOnLINKYOURAcct();
+	}
+
+	@When("^Click on Select flag$")
+	public void click_on_Select_flag() {
+		loginPage.clicOnCountryFlag();
+	}
+
+	@When("^input country \"([^\"]*)\"$")
+	public void input_country(String countryFlag) {
+		loginPage.inputCountryFlag(countryFlag);
+	}
+
+	@When("^input Telephone Number \"([^\"]*)\"$")
+	public void input_Telephone_Number(String tele) {
+		loginPage.inputTelephoneNumber(tele);
+	}
+
+	@When("^Click on LINK ACCOUNT$")
+	public void click_on_LINK_ACCOUNT() {
+		loginPage.clickOnLinkAccount();
+	}
+
+	@When("^Verify Enter the verification code we sent to is displayed$")
+	public void verify_Enter_the_verification_code_we_sent_to_is_displayed() {
+		loginPage.verifyEntertheVerificationCode();
+	}
+	
+	@When("^Verify Link your club apparel message is displayed on cart page$")
+	public void verify_Link_your_club_apparel_message_is_displayed_on_cart_page() {
+		loginPage.verifyLinkyourAccountMsg();
+	}
+	
+	@When("^verify About club apparel section is displayed$")
+	public void verify_About_club_apparel_section_is_displayed() {
+		loginPage.verifyAboutClubApparelSec();
+	}
+
+	@When("^verfy Rewards section is displayed$")
+	public void verfy_Rewards_section_is_displayed() {
+		loginPage.verifyRewardsSec();
+	}
 }
