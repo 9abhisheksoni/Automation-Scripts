@@ -202,4 +202,48 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 	Examples:  
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
+		
+	@Smoke @runnow
+	Scenario Outline: TS_RegisteredCheckout_07 - User is able to apply percentage off coupon to payment
+	When User clicks on login link 
+	When User enters valid login details "validuser" username and "validuser" password in the login popup 
+	And User clicks on login button 
+	And user login is successfull 
+	And Home page is displayed 
+	And User clears cart
+	And user enters product name as "<Product>" in search text box and click search icon 
+	And user clicks on product tile in result 
+	And user selects countrySize as "EU", size as "10Y" 
+	And user clicks on ADDTOBAG button 
+	And user navigates to shopping bag page and clicks on proceedToCheckout button 
+	And user enters the valid details for shipping address 
+	And User applies "AmountOFFCoupon" on Payment Page
+	Then Discount of "10" percent should be applied on Payment Page
+	
+	Examples:  
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		
+
+	@Smoke @runnow
+	Scenario Outline: TS_RegisteredCheckout_08 - User is able to apply amount off coupon to payment
+	When User clicks on login link 
+	When User enters valid login details "validuser" username and "validuser" password in the login popup 
+	And User clicks on login button 
+	And user login is successfull 
+	And Home page is displayed 
+	And User clears cart
+	And user enters product name as "<Product>" in search text box and click search icon 
+	And user clicks on product tile in result 
+	And user selects countrySize as "EU", size as "10Y" 
+	And user clicks on ADDTOBAG button 
+	And user navigates to shopping bag page and clicks on proceedToCheckout button 
+	And user enters the valid details for shipping address 
+	And User applies "AmountOFFCoupon" on Payment Page
+	Then Discount of "10" amount should be applied on Payment Page
+	
+	Examples:  
+		|Product                   |CountrySize|Size|Qty|
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+	
 	

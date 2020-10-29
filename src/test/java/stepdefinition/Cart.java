@@ -49,8 +49,8 @@ public class Cart {
 		cartPage.verifyAmountOffApplied(amount);
 	}
 
-	@And("^User Applies \"([^\"]*)\" coupon$")
-	public void user_applies_something_coupon(String coupon) {
+	@And("^User applies \"([^\"]*)\"$")
+	public void user_applies(String coupon) {
 		cartPage.applyCoupon(coupon);
 	}
 

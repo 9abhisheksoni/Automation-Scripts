@@ -15,6 +15,7 @@ import commonHelper.ResourceHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class PaymentPage extends CucumberRunner {
 
@@ -162,6 +163,12 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
 	private WebElement chkClubApparelToggle;
+	
+	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
+	private WebElement lblSubTotalAmount;
+	
+	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
+	private WebElement lblDiscountAmount;
 
 	/**
 	 * WebElement declaration ends here
@@ -279,18 +286,13 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void applyCoupon(String couponCode) {
-		if (!genericHelper.isDisplayed(txtCouponCode)) {
-			commonMethods.click(drawCouponDrawer);
-		}
+		commonMethods.click(drawCouponDrawer);
 		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
 		commonMethods.click(btnApplyDiscount);
 		log.info("applied discount coupon on checkout");
 	}
 
 	public void clickOnPlaceOrder() {
-
-		int count=0;
-
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
@@ -390,5 +392,24 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.click(chkClubApparelToggle);
 		}
 	}
-
+	public void verifyAmountOffApplied(String expectedamount) {
+		String actualDiscount = this.getDiscountPrice();
+		Assert.assertEquals(expectedamount, actualDiscount);
+		log.info(expectedamount+" amount off discount verified successfully");
+	}
+	
+	public void verifyPercentOffApplied(String percent) {
+		String expectedDiscount = ""+ Math.round(0.01*Integer.parseInt(percent)*Integer.parseInt(this.getSubtotal()));
+		String actualDiscount = ""+ new StringUtility().getIntValue(this.getDiscountPrice());
+		Assert.assertEquals(expectedDiscount, actualDiscount);
+		log.info(percent+" percent off discount verified successfully");
+	}
+	
+	public String getDiscountPrice() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", "")	);
+	}
+	
+	public String getSubtotal() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+	}
 }
