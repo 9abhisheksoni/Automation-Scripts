@@ -286,6 +286,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void applyCoupon(String couponCode) {
+		waitHelper.waitForSpinnerInvisibility();
 		commonMethods.click(drawCouponDrawer);
 		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
 		commonMethods.click(btnApplyDiscount);
