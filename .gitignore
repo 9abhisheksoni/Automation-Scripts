@@ -8,9 +8,4 @@ test-output/*
 logs/*.log
 *.class
 screenshots/*
-!screenshots
-<<<<<<< HEAD
-/bin/
-=======
->>>>>>> de3500bef3689003c4749b4abe7b49e94636d7e9
-/target/
+bin

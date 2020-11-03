@@ -78,10 +78,17 @@ public class Config {
 	}
 
 	/** This methods returns site url from property file **/
-	public String getSiteURL(String country, String language) {
+	public String getSiteURL(String country, String language, String environment) {
 		checkToCreateProp();
 		log.info("getting base URL from property file");
-		String baseURL = prop.getProperty("BaseURL");
+		String baseURL = null;
+		if (environment.toUpperCase().contains("STAGE")) {
+			baseURL = prop.getProperty("StageURL");
+		} else if (environment.toUpperCase().contains("PROD")) {
+			baseURL = prop.getProperty("ProdURL");
+		} else if (environment.toUpperCase().contains("UAT")) {
+			baseURL = prop.getProperty("UatURL");
+		} 
 		String siteUrl;
 		String appender;
 		if (baseURL.contains("stage") || baseURL.contains("6tst")) {
