@@ -419,12 +419,15 @@ public class PaymentPage extends CucumberRunner {
 	}
 	
 	public void resetStoredPayment() {
+		System.out.println("==========0===============");
 		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
+			System.out.println("====1====");
 			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+				System.out.println("==========2===============");
 				this.turnOffStoreCredit();
 			}
 			if(genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-				this.turnOnCAPoints();
+				System.out.println("==========3===============");this.turnOnCAPoints();
 			}
 		}
 	}
