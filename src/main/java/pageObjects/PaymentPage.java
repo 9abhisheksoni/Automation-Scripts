@@ -370,6 +370,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit off if present");
 		if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
 			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -377,6 +378,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit off if present");
 		if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
 			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -384,6 +386,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
 			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -391,6 +394,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
 			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 	public void verifyAmountOffApplied(String expectedamount) {
@@ -412,5 +416,16 @@ public class PaymentPage extends CucumberRunner {
 	
 	public String getSubtotal() {
 		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+	}
+	
+	public void resetStoredPayment() {
+		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
+			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+				this.turnOffStoreCredit();
+			}
+			if(genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
+				this.turnOnCAPoints();
+			}
+		}
 	}
 }

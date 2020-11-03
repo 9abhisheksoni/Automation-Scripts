@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
-    @Smoke @CODPayment @RegisteredUser
+    @Smoke @CODPayment @RegisteredUser @SCtest
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -14,14 +14,15 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
+		And user reset Stored Payments
 		And user selects payment option as "COD" 
-		And user clicks on place order button 
-		Then Order placing should be successful 
-		And user clicks on my account top menu 
-		Then verify order status in history to be "Processing" 
-		And click on view order 
-		Then Verify order status in details to be "Processing" 
-		Then Verify order payment in details to be "Cash on delivery"
+#		And user clicks on place order button 
+#		Then Order placing should be successful 
+#		And user clicks on my account top menu 
+#		Then verify order status in history to be "Processing" 
+#		And click on view order 
+#		Then Verify order status in details to be "Processing" 
+#		Then Verify order payment in details to be "Cash on delivery"
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
@@ -203,7 +204,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@Smoke @runnow
+	@Smoke @Coupon
 	Scenario Outline: TS_RegisteredCheckout_07 - User is able to apply percentage off coupon to payment
 	When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -211,13 +212,14 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 	And user login is successfull 
 	And Home page is displayed 
 	And User clears cart
+	And User clears saved address
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
 	And user selects countrySize as "EU", size as "10Y" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address 
-	And User applies "AmountOFFCoupon" on Payment Page
+	And User applies "6stest" on Payment Page
 	Then Discount of "10" percent should be applied on Payment Page
 	
 	Examples:  
@@ -225,7 +227,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 
-	@Smoke @runnow
+	@Smoke @Coupon
 	Scenario Outline: TS_RegisteredCheckout_08 - User is able to apply amount off coupon to payment
 	When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -233,14 +235,15 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 	And user login is successfull 
 	And Home page is displayed 
 	And User clears cart
+	And User clears saved address
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
 	And user selects countrySize as "EU", size as "10Y" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address 
-	And User applies "AmountOFFCoupon" on Payment Page
-	Then Discount of "10" amount should be applied on Payment Page
+	And User applies "FRIENDS101" on Payment Page
+	Then Discount of "100" amount should be applied on Payment Page
 	
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|

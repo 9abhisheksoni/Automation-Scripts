@@ -271,7 +271,6 @@ public class LoginPage extends CucumberRunner {
 
 	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
 		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);
-
 		log.info("entered magento details");
 	}
 

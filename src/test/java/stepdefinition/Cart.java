@@ -52,6 +52,7 @@ public class Cart {
 	@And("^User applies \"([^\"]*)\"$")
 	public void user_applies(String coupon) {
 		cartPage.applyCoupon(coupon);
+//		cartPage.verifyCouponSuccessMessage();
 	}
 
 	@Then("^Discount of \"([^\"]*)\" percent should be applied$")

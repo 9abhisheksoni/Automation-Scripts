@@ -108,5 +108,10 @@ public class Checkout {
     public void discount_of_something_amount_should_be_applied_on_payment_page(String amountDiscount) {
 		paymentPage.verifyAmountOffApplied(amountDiscount);
     }
+	
+	@And("^user reset Stored Payments$")
+	public void user_reset_Stored_Payments() {
+		paymentPage.resetStoredPayment();
+	}
 
 }

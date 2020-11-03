@@ -86,6 +86,9 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
 	private WebElement lblDiscountAmount;
 	
+	@FindBy (xpath="//div[contains(@class,'message-success')]")
+	private WebElement msgSuccess;
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
@@ -171,6 +174,11 @@ public class CartPage extends CucumberRunner {
 	
 	public String getSubtotal() {
 		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+	}
+	
+	public void verifyCouponSuccessMessage() {
+		Assert.assertTrue(genericHelper.isElementPresent(msgSuccess));
+		log.info("Coupon Code successfully Applied");
 	}
 	
 }

@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP, Place Order - Guest and Registered User
 
-		@Smoke @PLPSORT		
+		@Smoke @PLPSORTProd		
 		Scenario Outline: TS_ProdDepChecklist_01 - Verify whether user is able to sort the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -13,7 +13,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 
-		@Smoke @Search	
+		@Smoke @SearchProd	
 		Scenario Outline: TS_ProdDepChecklist_01 - Verify search functionality
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			Then products should be displayed 
@@ -24,7 +24,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 
-  		@Smoke @Search	
+  		@Smoke @SearchProd	
 		Scenario: TS_ProdDepChecklist_01 - Verify search suggestion
 			And user enters product name as "a" in search text box 
 			Then search suggestions should be displayed 
@@ -46,7 +46,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 				
-		@Smoke @Level1
+		@Smoke @Level1Prod
 		Scenario: TS_ProdDepChecklist_03 - Registered User of 6thstreet.com UAE site should be able to navigate to level1 page 
 			And Home page is displayed 
 			And user click first level Category 
@@ -69,6 +69,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		And user selects payment option as "COD"  
 		And user clicks on place order button 
 		Then Order placing should be successful 
+		And user login is successfull
 		And user clicks on my account top menu
 		When user selects order history option 
 		Then verify order status in history to be "Processing" 
@@ -174,6 +175,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		And user selects payment option as "CC_VISA"  
 		And user clicks on place order button 
 		Then Order placing should be successful 
+		And user login is successfull
 		And user clicks on my account top menu
 		When user selects order history option 
 		Then verify order status in history to be "Payment_success" 
