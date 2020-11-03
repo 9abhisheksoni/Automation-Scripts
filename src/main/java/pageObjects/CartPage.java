@@ -11,6 +11,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class CartPage extends CucumberRunner {
 	
@@ -64,6 +65,27 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath="//div[@class='remove_cart']//span[@class='cart_icon_remove']")
 	private List<WebElement> iconRemove;
 	
+	@FindBy(xpath="//div[@class='cart-empty_icon']")
+	private WebElement iconEmptyCart;
+	
+	@FindBy(xpath="//select[contains(@class,'change-cart-qty')]")
+	private WebElement drpdwnQTY;
+	
+	@FindBy(xpath = "//div[@class='block discount']")
+	private WebElement drawCouponDrawer;
+
+	@FindBy(xpath = "//input[@id='coupon_code']")
+	private WebElement txtCouponCode;
+
+	@FindBy(xpath = "//button[@value='Apply Discount']")
+	private WebElement btnApplyDiscount;
+	
+	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
+	private WebElement lblSubTotalAmount;
+	
+	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
+	private WebElement lblDiscountAmount;
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
@@ -100,6 +122,55 @@ public class CartPage extends CucumberRunner {
 	
 	public void isMyBagPageLoaded() {
 		Assert.assertTrue(genericHelper.isDisplayed(btnCheckout));
+	}
+
+	public void removeProduct() {
+		commonMethods.click(iconRemove.get(0));
+		log.info("remove icon clicked");
+	}
+
+	public void isCartEmpty() {
+		Assert.assertTrue(genericHelper.isDisplayed(iconEmptyCart));
+		log.info("cart is empty");
+	}
+
+	public void increaseProductQTY(String QTY) {
+		commonMethods.SelectUsingValue(drpdwnQTY, QTY);
+	}
+	
+	public void verifyProductQTY(String QTY) {
+		Assert.assertEquals(commonMethods.getSelectedValue(drpdwnQTY),QTY);
+		log.info("product qty updated correctly");
+	}
+	
+	public void applyCoupon(String couponCode) {
+		if (!genericHelper.isDisplayed(txtCouponCode)) {
+			commonMethods.click(drawCouponDrawer);
+		}
+		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
+		commonMethods.click(btnApplyDiscount);
+		log.info("applied discount coupon on cart");
+	}
+	
+	public void verifyAmountOffApplied(String expectedamount) {
+		String actualDiscount = this.getDiscountPrice();
+		Assert.assertEquals(expectedamount, actualDiscount);
+		log.info(expectedamount+" amount off discount verified successfully");
+	}
+	
+	public void verifyPercentOffApplied(String percent) {
+		String expectedDiscount = ""+ Math.round(0.01*Integer.parseInt(percent)*Integer.parseInt(this.getSubtotal()));
+		String actualDiscount = ""+ new StringUtility().getIntValue(this.getDiscountPrice());
+		Assert.assertEquals(expectedDiscount, actualDiscount);
+		log.info(percent+" percent off discount verified successfully");
+	}
+	
+	public String getDiscountPrice() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", "")	);
+	}
+	
+	public String getSubtotal() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
 	}
 	
 }

@@ -126,13 +126,12 @@
 				<version>2.18.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>jenkinstestng.xml</suiteXmlFile>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
 					<systemPropertyVariables>
 						<propertyName>${browser}</propertyName>
-						<propertyName>${country}</propertyName>
-						<propertyName>${language}</propertyName>
+						<propertyName>${environment}</propertyName>
 					</systemPropertyVariables>
 						<property>
 							<name>listener</name>
