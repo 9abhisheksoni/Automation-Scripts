@@ -8,6 +8,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "10Y" 
@@ -36,6 +37,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "10Y" 
@@ -71,6 +73,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "10Y" 
@@ -106,6 +109,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "10Y" 
@@ -142,6 +146,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "41" 
@@ -177,6 +182,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart 
+		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "41" 
