@@ -18,7 +18,7 @@ public class Config {
 	private Properties prop;
 	private String filepath;
 
-	/** This methods creates config object **/
+	/** This methods creates config object  **/
 	public Properties createConfigObject() {
 		log.info("Creating config object");
 		FileInputStream ip;
@@ -78,10 +78,17 @@ public class Config {
 	}
 
 	/** This methods returns site url from property file **/
-	public String getSiteURL(String country, String language) {
+	public String getSiteURL(String country, String language, String environment) {
 		checkToCreateProp();
 		log.info("getting base URL from property file");
-		String baseURL = prop.getProperty("BaseURL");
+		String baseURL = null;
+		if (environment.toUpperCase().contains("STAGE")) {
+			baseURL = prop.getProperty("StageURL");
+		} else if (environment.toUpperCase().contains("PROD")) {
+			baseURL = prop.getProperty("ProdURL");
+		} else if (environment.toUpperCase().contains("UAT")) {
+			baseURL = prop.getProperty("UatURL");
+		} 
 		String siteUrl;
 		String appender;
 		if (baseURL.contains("stage") || baseURL.contains("6tst")) {
@@ -215,6 +222,14 @@ public class Config {
 		checkToCreateProp();
 		log.info("getting tabby file name from property file");
 		return prop.getProperty("TabbyID");
+	}
+	
+	/** This methods returns Checkout Sandbox url from property file **/
+	public String getCheckoutSandboxURL(String CheckoutSandboxURL) {
+		checkToCreateProp();
+		log.info("getting CheckoutSandboxURL URL from property file");
+		CheckoutSandboxURL = prop.getProperty("CheckoutSandboxURL");
+		return CheckoutSandboxURL;
 	}
 
 }

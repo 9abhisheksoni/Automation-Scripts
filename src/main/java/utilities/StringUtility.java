@@ -166,7 +166,7 @@ public class StringUtility {
 		log.info("Returning random gmail email id");
 		String firstName = RandomStringUtils.randomAlphabetic(5);
 		String lastName = RandomStringUtils.randomAlphabetic(5);
-		String email = firstName + "." + lastName + RandomStringUtils.randomNumeric(3) + "@gmail.com";
+		String email = firstName + "." + lastName + RandomStringUtils.randomNumeric(3) + "@yopmail.com";
 		return email;
 	}
 }

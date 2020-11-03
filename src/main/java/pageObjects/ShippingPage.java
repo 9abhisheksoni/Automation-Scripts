@@ -1,7 +1,6 @@
 package pageObjects;
 
 import java.util.List;
-import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -13,7 +12,6 @@ import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
-
 
 public class ShippingPage extends CucumberRunner {
 
@@ -40,13 +38,13 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='action action-show-popup add_new_address']")
 	private WebElement btnNewAddress;
 
-	@FindBy(xpath = "//input[@name='firstname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='firstname' and contains(@class,'input-text')]")
 	private WebElement txtFirstName;
 
-	@FindBy(xpath = "//input[@name='lastname' and @class='input-text']")
+	@FindBy(xpath = "//input[@name='lastname' and contains(@class,'input-text')]")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[@name='street[0]']")
+	@FindBy(xpath = "//input[contains(@name,'street')]")
 	private WebElement txtStreetAddress;
 
 	@FindBy(xpath = "//select[@name='city']")
@@ -58,7 +56,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//select[@name='cn_carriercode']")
 	private WebElement drpdwnCarrierCode;
 
-	@FindBy(xpath = "//input[@name='contact' and @type='text']")
+	@FindBy(xpath = "//input[contains(@name,'contact') and @type='text']")
 	private WebElement txtPhoneNumber;
 
 	@FindBy(xpath = "//button[@class='button action continue primary']")
@@ -131,6 +129,7 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void selectArea(String country) {
+		waitHelper.waitForElementVisible(drpdwnArea);
 		commonMethods.SelectUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
@@ -146,7 +145,6 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void clickDeliverToAddress() {
-		waitHelper.waitForSpinnerInvisibility();
 		commonMethods.click(btnDeliverToAddress);
 		log.info("Delivered to this adrress button is clicked");
 	}
@@ -173,12 +171,7 @@ public class ShippingPage extends CucumberRunner {
 				log.info("no saved address for selected country");
 				this.saveNewAddress(country);
 			}
-		} 
-		
-		/*
-		 * Scanner sc = new Scanner (System.in);
-		 * System.out.println("Do you want to proceed"); String input = sc.nextLine();
-		 */
+		} 		
 		waitHelper.waitForSpinnerInvisibility();
 		this.clickDeliverToAddress();
 	}
@@ -243,6 +236,11 @@ public class ShippingPage extends CucumberRunner {
 			commonMethods.click(btnCancelAddressPopUp);
 			log.info("clicked cancel save address popup");
 		}
+	}
+	
+	public void editAndEnterFirstName(String firstName) {
+		commonMethods.clearAndSendKeys(txtFirstName, firstName);
+		log.info("First Name is Modified");
 	}
 	
 }

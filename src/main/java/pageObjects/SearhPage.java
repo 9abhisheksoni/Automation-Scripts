@@ -75,10 +75,10 @@ public class SearhPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@data-tab='sort-by']/div")
 	private WebElement drpdwnSortBy;
 
-	@FindBy(xpath = "//div[@item-key='stage_magento_english_products_price_default_asc']//label")
+	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_asc')]//label")
 	private WebElement optionPriceLowToHigh;
 
-	@FindBy(xpath = "//div[@item-key='stage_magento_english_products_price_default_desc']//label")
+	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_desc')]//label")
 	private WebElement optionPriceHighToLow;
 
 	@FindBy(xpath = "//span[@class='price']")
@@ -104,6 +104,12 @@ public class SearhPage extends CucumberRunner {
 
 	@FindBy(xpath="//ul[@class='breadcrumb clearfix']/li")
 	private List<WebElement> lblBreadcrumb;
+	
+	@FindBy (xpath="//span[@id='you_searched_for']/following-sibling::h4")
+	private WebElement msgNoSearchMsg;
+	
+	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
+	private List<WebElement> lnkProductSuggestion;
 
 	/**
 	 * WebElement declaration ends here
@@ -180,7 +186,8 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public int getPriceFromText(String text) {
-		int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf(' ') + 1));
+		//int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf(' ') + 1));
+		int price = (int) (0 + stringUtility.getDecimalValue(text.substring(text.lastIndexOf(' ') + 1))); 
 		log.info("returning price from text : "+price);
 		return price;
 	}
@@ -191,7 +198,7 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void verifyWishlistSuccessDisplay() {
-		//Assert.assertTrue(genericHelper.isDisplayed(msgWishlistSuccess));
+		Assert.assertTrue(genericHelper.isDisplayed(msgWishlistSuccess));
 		log.info("product wishlisted successfully");
 	}
 
@@ -227,6 +234,16 @@ public class SearhPage extends CucumberRunner {
 	public void verifyOnThirdCategory() {
 		Assert.assertTrue(lblBreadcrumb.size()==2);
 		log.info("third level category page displayed");
+	}
+	
+	public void verifyNoResultDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(msgNoSearchMsg));
+		log.info("No result page displayed");
+	}
+	
+	public void verifySearchSuggestionDisplay() {
+		Assert.assertTrue(lnkProductSuggestion.size()>0);
+		log.info("Search suggestions displayed");
 	}
 
 }

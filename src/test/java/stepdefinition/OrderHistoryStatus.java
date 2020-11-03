@@ -6,6 +6,7 @@ import org.junit.Assert;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
+import pageObjects.OrderDetailsPage;
 import pageObjects.OrderHistoryPage;
 import pageObjects.OrderSuccessPage;
 
@@ -18,6 +19,7 @@ public class OrderHistoryStatus {
 	OrderSuccessPage orderSuccess = new OrderSuccessPage();
 	HomePage homePage = new HomePage();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
+	OrderDetailsPage orderDetailsPage = new OrderDetailsPage();
 
 	@When("^user clicks on continue shipping button$")
 	public void user_clicks_on_continue_shipping_button() {
@@ -42,7 +44,7 @@ public class OrderHistoryStatus {
 	@Then("^verify order status in history to be \"([^\"]*)\"$")
 	public void verify_order_status_in_history_to_be(String orderStatus) {
 		
-		System.out.println("The order status is: "+orderStatus+" Actual order status "+historyPage.getOrderStatus());
+		log.info("The order status is: "+orderStatus+" Actual order status "+historyPage.getOrderStatus());
 		Assert.assertTrue(historyPage.getOrderStatus().equalsIgnoreCase(orderStatus));
 		log.info(historyPage.getOrderStatus());
 	}
@@ -52,4 +54,10 @@ public class OrderHistoryStatus {
 		historyPage.clickViewOrder();
 	}
 
+	@Then("^User cancels the Order$")
+	public void user_cancels_the_Order() {
+		orderDetailsPage.cancelOrder();
+		orderDetailsPage.verifyOrderCancelSuccessMsg();
+	}
+	
 }

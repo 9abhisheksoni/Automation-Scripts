@@ -19,7 +19,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@Smoke @CreditCardPayment @GuestUser  
+	@Smoke @CreditCardPayment @GuestUser @CheckoutPaymentSuccess 
 	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -32,12 +32,24 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user selects payment option as "CC_VISA"  
 		And user clicks on place order button 
 		Then Order placing should be successful 
+		And user clicks on my account top menu
+		When user selects order history option 
+		Then verify order status in history to be "Payment_success" 
+		And click on view order 
+		Then Verify order status in details to be "Payment Success" 
+		Then Verify order payment in details to be "Pay by Credit / Debit Card"
+		And User cancels the Order
+		When user selects order history option
+		Then verify order status in history to be "Closed" 
+		And click on view order
+		Then Verify order status in details to be "Closed"
+
 	
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser 
+	@CreditCardPayment @GuestUser
 	Scenario Outline: TS_GuestCheckout_03 - Guest User of 6thstreet.com site should be able to place order using master card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -49,13 +61,24 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user enters the valid details for shipping address 
 		And user selects payment option as "CC_Master"  
 		And user clicks on place order button 
-		Then Order placing should be successful 
+		Then Order placing should be successful
+		And user clicks on my account top menu
+		When user selects order history option 
+		Then verify order status in history to be "Payment_success" 
+		And click on view order 
+		Then Verify order status in details to be "Payment Success" 
+		Then Verify order payment in details to be "Pay by Credit / Debit Card"
+		And User cancels the Order
+		When user selects order history option
+		Then verify order status in history to be "Closed" 
+		And click on view order
+		Then Verify order status in details to be "Closed"
 	
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser 
+	@CreditCardPayment @GuestUser
 	Scenario Outline: TS_GuestCheckout_04 - Guest User of 6thstreet.com site should be able to place order using amex card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -67,7 +90,18 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user enters the valid details for shipping address 
 		And user selects payment option as "CC_Amex"  
 		And user clicks on place order button 
-		Then Order placing should be successful 
+		Then Order placing should be successful
+		And user clicks on my account top menu
+		When user selects order history option 
+		Then verify order status in history to be "Payment_success" 
+		And click on view order 
+		Then Verify order status in details to be "Payment Success" 
+		Then Verify order payment in details to be "Pay by Credit / Debit Card"
+		And User cancels the Order
+		When user selects order history option
+		Then verify order status in history to be "Closed" 
+		And click on view order
+		Then Verify order status in details to be "Closed"
 	
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|

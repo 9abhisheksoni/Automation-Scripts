@@ -26,6 +26,10 @@
 			"uatvaliduser": {
 				"username": "ashwin.bm@6thstreet.com",
 				"password": "Modex@123"
+			},
+			"checkoutsandboxuser": {
+				"username": "arjun.kapoor@6thstreet.com",
+				"password": "Str0ng$1"
 			}
 		},
 		"creditcard": {
@@ -77,7 +81,7 @@
 				"city": "kwcity",
 				"area": "kwarea",
 				"careercode": "kwcareercode",
-				"contactnumber": "kwcontactnumber"
+				"contactnumber": "8888888"
 			},
 			"qa": {
 				"firstname": "qafirstname",
@@ -86,7 +90,7 @@
 				"city": "qacity",
 				"area": "qaarea",
 				"careercode": "qacareercode",
-				"contactnumber": "qacontactnumber"
+				"contactnumber": "8888888"
 			},
 			"bh": {
 				"firstname": "bhfirstname",
@@ -95,7 +99,7 @@
 				"city": "bhcity",
 				"area": "bharea",
 				"careercode": "bhcareercode",
-				"contactnumber": "bhcontactnumber"
+				"contactnumber": "8888888"
 			},
 			"om": {
 				"firstname": "omfirstname",
@@ -104,7 +108,7 @@
 				"city": "omcity",
 				"area": "omarea",
 				"careercode": "omcareercode",
-				"contactnumber": "omcontactnumber"
+				"contactnumber": "8888888"
 			}
 		}
 	}
