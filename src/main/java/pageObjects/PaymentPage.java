@@ -158,10 +158,10 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
-	@FindBy(xpath = "//input[contains(@class,'storecredit')]")
+	@FindBy(xpath = "//input[contains(@class,'storecredit')]/parent::div")
 	private WebElement chkStoreCreditToggle;
 
-	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
+	@FindBy(xpath = "//div[contains(@class,'ca-code')]//div[@class='switch-toggle-main']")
 	private WebElement chkClubApparelToggle;
 	
 	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
@@ -169,6 +169,9 @@ public class PaymentPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
 	private WebElement lblDiscountAmount;
+	
+	@FindBy(xpath="//table[contains(@class,'table-totals')]")
+	private WebElement tblOrderSummary;
 
 	/**
 	 * WebElement declaration ends here
@@ -344,9 +347,10 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isStoreCreditActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkStoreCreditToggle)) {
+		waitHelper.waitForElementVisible(chkStoreCreditToggle);
+		if (commonMethods.getAttribute(tblOrderSummary, "innerHTML").contains("ko text: title")) {
 			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkStoreCreditToggle);
+			result = true;
 		} else {
 			log.info("Storecredit element not displayed");
 			result = false;
@@ -356,9 +360,10 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isClubApparelPointsActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkClubApparelToggle)) {
-			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkClubApparelToggle);
+		waitHelper.waitForElementVisible(chkClubApparelToggle);
+		if (commonMethods.getAttribute(tblOrderSummary, "innerHTML").contains("Club Apparel Redemption")) {
+			log.info("Return club appareal state");
+			result = true;
 		} else {
 			log.info("Storecredit element not displayed");
 			result = false;
@@ -431,4 +436,5 @@ public class PaymentPage extends CucumberRunner {
 			}
 		}
 	}
+	
 }

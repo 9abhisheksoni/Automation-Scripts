@@ -12,6 +12,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import junit.framework.Assert;
 import testRunner.CucumberRunner;
 
 public class PDPPage extends CucumberRunner {
@@ -68,6 +69,9 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")
 	private WebElement btnSelectColor;
+	
+	@FindBy(xpath="//span[contains(@class,'product_name')]")
+	private WebElement msgProductName;
 
 	/**
 	 * WebElement declaration ends here
@@ -195,6 +199,12 @@ public class PDPPage extends CucumberRunner {
 		waitHelper.waitForElementVisible(imgProductTile);
 		commonMethods.click(btnSelectColor);
 		log.info("Selected the color");
+	}
+	
+	public void verifyPDPDisplayed() {
+		waitHelper.waitForElementVisible(msgProductName);
+		Assert.assertTrue(genericHelper.isDisplayed(msgProductName));
+		log.info("user is on PDP");
 	}
 
 }

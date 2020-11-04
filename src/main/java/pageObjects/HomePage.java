@@ -74,6 +74,9 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath="//li[@class='header-wishlist']/a")
 	private WebElement lnkWishlist;
+	
+	@FindBy(xpath="(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]")
+	private WebElement FirstSearchEle;
 
 	/**
 	 * WebElement declaration ends here
@@ -140,6 +143,11 @@ public class HomePage extends CucumberRunner {
 	public void clickOnWishlistInHeader() {
 		commonMethods.click(lnkWishlist);
 		log.info("clicked Wishlist in Header");
+	}
+	
+	public void clickOnFirstItemSearchResult() {
+		commonMethods.moveToElementAndClick(FirstSearchEle);
+		log.info("First Search element clicked");
 	}
 	
 }
