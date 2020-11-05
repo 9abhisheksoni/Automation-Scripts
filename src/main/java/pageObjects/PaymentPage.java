@@ -426,7 +426,7 @@ public class PaymentPage extends CucumberRunner {
 	public void resetStoredPayment() {
 		System.out.println("==========0===============");
 		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
-			System.out.println("====1====");
+			System.out.println("===========1==============");
 			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
 				System.out.println("==========2===============");
 				this.turnOffStoreCredit();
