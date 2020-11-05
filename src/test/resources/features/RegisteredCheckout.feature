@@ -16,14 +16,14 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 #		And user enters the valid details for shipping address 
 		And user reset Stored Payments
-		And user selects payment option as "COD" 
-		And user clicks on place order button 
-		Then Order placing should be successful 
-		And user clicks on my account top menu 
-		Then verify order status in history to be "Processing" 
-		And click on view order 
-		Then Verify order status in details to be "Processing" 
-		Then Verify order payment in details to be "Cash on delivery"
+#		And user selects payment option as "COD" 
+#		And user clicks on place order button 
+#		Then Order placing should be successful 
+#		And user clicks on my account top menu 
+#		Then verify order status in history to be "Processing" 
+#		And click on view order 
+#		Then Verify order status in details to be "Processing" 
+#		Then Verify order payment in details to be "Cash on delivery"
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
