@@ -8,4 +8,4 @@ test-output/*
 logs/*.log
 *.class
 screenshots/*
-!screenshots
+bin
