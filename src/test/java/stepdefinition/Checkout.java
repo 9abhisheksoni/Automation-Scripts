@@ -120,5 +120,11 @@ public class Checkout {
 		}
 		paymentPage.resetStoredPayment();
 	}
+	
+	@And("^user selects saved card and enters cvv$")
+	public void user_selects_saved_card_and_enters_cvv() {
+		waitHelper.waitForSpinnerInvisibility();
+		paymentPage.payUsingFirstSavedCreditCard();
+	}
 
 }

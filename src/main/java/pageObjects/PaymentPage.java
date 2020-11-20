@@ -1,5 +1,6 @@
 package pageObjects;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -71,7 +72,7 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout button default']")
 	private WebElement btnCodPlaceOrder;
 
-	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']")//updated
+	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']") // updated
 	private WebElement btnCcPlaceOrder;//
 
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
@@ -163,15 +164,30 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'ca-code')]//div[@class='switch-toggle-main']")
 	private WebElement chkClubApparelToggle;
-	
+
 	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
 	private WebElement lblSubTotalAmount;
-	
+
 	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
 	private WebElement lblDiscountAmount;
-	
-	@FindBy(xpath="//table[contains(@class,'table-totals')]")
+
+	@FindBy(xpath = "//table[contains(@class,'table-totals')]")
 	private WebElement tblOrderSummary;
+
+	@FindBy(xpath = "//span[text()='Saved Cards']//ancestor::div/input[@class='radio']")
+	private WebElement radioSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//img[1]")
+	private WebElement imgFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//div[contains(@id,'cko-vault-card')][1]")
+	private WebElement radioFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//input[@placeholder='CVV'][1]")
+	private WebElement txtSavedCardCVV;
+
+	@FindBy(xpath = "//button[@id='checkoutcom_vault_btn' and @title='Place Order']")
+	private WebElement btnSavedCCPlaceOrder;
 
 	/**
 	 * WebElement declaration ends here
@@ -302,12 +318,13 @@ public class PaymentPage extends CucumberRunner {
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.staleElementClick(btnCodPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			commonMethods.staleElementClick(btnCcPlaceOrder);	
+			commonMethods.staleElementClick(btnCcPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.staleElementClick(btnTabbyPayLaterPlaceOrder);
-		} else {
+		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
 			commonMethods.staleElementClick(btnTabbyPayInInstallmentsPlaceOrder);
-		}
+		} else
+			commonMethods.staleElementClick(btnSavedCCPlaceOrder);
 		log.info("clicked on place order");
 	}
 
@@ -402,39 +419,64 @@ public class PaymentPage extends CucumberRunner {
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
+
 	public void verifyAmountOffApplied(String expectedamount) {
 		String actualDiscount = this.getDiscountPrice();
 		Assert.assertEquals(expectedamount, actualDiscount);
-		log.info(expectedamount+" amount off discount verified successfully");
+		log.info(expectedamount + " amount off discount verified successfully");
 	}
-	
+
 	public void verifyPercentOffApplied(String percent) {
-		String expectedDiscount = ""+ Math.round(0.01*Integer.parseInt(percent)*Integer.parseInt(this.getSubtotal()));
-		String actualDiscount = ""+ new StringUtility().getIntValue(this.getDiscountPrice());
+		String expectedDiscount = ""
+				+ Math.round(0.01 * Integer.parseInt(percent) * Integer.parseInt(this.getSubtotal()));
+		String actualDiscount = "" + new StringUtility().getIntValue(this.getDiscountPrice());
 		Assert.assertEquals(expectedDiscount, actualDiscount);
-		log.info(percent+" percent off discount verified successfully");
+		log.info(percent + " percent off discount verified successfully");
 	}
-	
+
 	public String getDiscountPrice() {
-		return ""+new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", "")	);
+		return "" + new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", ""));
 	}
-	
+
 	public String getSubtotal() {
-		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+		return "" + new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
 	}
-	
+
 	public void resetStoredPayment() {
 		System.out.println("==========0===============");
-		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
+		if (genericHelper.isElementPresent(chkStoreCreditToggle)
+				|| (genericHelper.isElementPresent(chkClubApparelToggle))) {
 			System.out.println("===========1==============");
-			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+			if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
 				System.out.println("==========2===============");
 				this.turnOffStoreCredit();
 			}
-			if(genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-				System.out.println("==========3===============");this.turnOnCAPoints();
+			if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
+				System.out.println("==========3===============");
+				this.turnOnCAPoints();
 			}
 		}
 	}
-	
+
+	public void payUsingFirstSavedCreditCard() {
+		if (genericHelper.isSelected(radioSavedCard)) {
+			if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("vi")) {
+				commonMethods.click(radioFirstSavedCard);
+				log.info("Saved Card radio button is selected");
+				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("visa"));
+				log.info("Saved Card " + json.getCVV("visa") + " is entered");
+			} else if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("mc")) {
+				commonMethods.click(radioFirstSavedCard);
+				log.info("Saved Card radio button is selected");
+				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("master"));
+				log.info("Saved Card " + json.getCVV("master") + " is entered");
+			} else {
+				commonMethods.click(radioFirstSavedCard);
+				log.info("Saved Card radio button is selected");
+				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("amex"));
+				log.info("Saved Card " + json.getCVV("amex") + " is entered");
+			}
+		}
+	}
+
 }

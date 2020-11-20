@@ -30,6 +30,10 @@
 			"checkoutsandboxuser": {
 				"username": "arjun.kapoor@6thstreet.com",
 				"password": "Str0ng$1"
+			},
+			"Savedcarduser": {
+				"username": "qasavedcard@yopmail.com",
+				"password": "6Thstreet!"
 			}
 		},
 		"creditcard": {
