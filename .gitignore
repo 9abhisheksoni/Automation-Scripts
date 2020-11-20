@@ -9,3 +9,4 @@ logs/*.log
 *.class
 screenshots/*
 bin
+/target/

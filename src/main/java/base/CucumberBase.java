@@ -31,7 +31,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	public String currCountry="";
 	public static String environment;
 	
-	private Logger log = Logger.getLogger(CucumberRunner.class.getName());
+	private Logger log = Logger.getLogger(CucumberBase.class.getName());
 
 	/**This method loads config file object**/
 	public void LoadConfigProperty() {

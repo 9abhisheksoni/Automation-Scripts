@@ -1,8 +1,12 @@
 package stepdefinition;
 
+
 import java.util.Map;
 
 import cucumber.api.DataTable;
+
+import cucumber.api.java.en.And;
+
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
 import pageObjects.PDPPage;
@@ -48,7 +52,22 @@ public class PDP {
 			pdpPage.selectSizeCountry(prodDetails.get("CounrtySize"));
 			pdpPage.chooseSize(prodDetails.get("Size"));
 			pdpPage.clickAddToBag();
-		}	
+		}
+	}
+	
+	@And("^user selects Country and Size$")
+	public void user_selects_Country_and_Size() {
+		pdpPage.selectSizeCountry();
+		pdpPage.chooseSize();
+	}
+	@And("^user selects color$")
+	public void user_selects_color() {
+		pdpPage.chooseColor();
+	}
+	
+	@And("^user selects variation if available$")
+	public void user_selects_variation_if_available() {
+		pdpPage.addAnyProduct();
 	}
 
 }

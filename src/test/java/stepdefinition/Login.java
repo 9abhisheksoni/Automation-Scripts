@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import java.util.Scanner;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -209,5 +211,14 @@ public class Login {
 	@When("^verfy Rewards section is displayed$")
 	public void verfy_Rewards_section_is_displayed() {
 		loginPage.verifyRewardsSec();
+	}
+	
+	@And("^Login manually$")
+	public void Login_manually() {
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
