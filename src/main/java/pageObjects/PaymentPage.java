@@ -459,24 +459,25 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingFirstSavedCreditCard() {
-		if (genericHelper.isSelected(radioSavedCard)) {
-			if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("vi")) {
-				commonMethods.click(radioFirstSavedCard);
-				log.info("Saved Card radio button is selected");
-				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("visa"));
-				log.info("Saved Card " + json.getCVV("visa") + " is entered");
-			} else if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("mc")) {
-				commonMethods.click(radioFirstSavedCard);
-				log.info("Saved Card radio button is selected");
-				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("master"));
-				log.info("Saved Card " + json.getCVV("master") + " is entered");
-			} else {
-				commonMethods.click(radioFirstSavedCard);
-				log.info("Saved Card radio button is selected");
-				commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("amex"));
-				log.info("Saved Card " + json.getCVV("amex") + " is entered");
+		if (genericHelper.isElementPresent(radioSavedCard)) {
+			if (genericHelper.isSelected(radioSavedCard)) {
+				if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("vi")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("visa"));
+					log.info("Saved Card " + json.getCVV("visa") + " is entered");
+				} else if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("mc")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("master"));
+					log.info("Saved Card " + json.getCVV("master") + " is entered");
+				} else {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("amex"));
+					log.info("Saved Card " + json.getCVV("amex") + " is entered");
+				}
 			}
 		}
 	}
-
 }
