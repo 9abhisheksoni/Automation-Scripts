@@ -62,7 +62,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser @run
+	@CreditCardPayment @GuestUser 
 	Scenario Outline: TS_GuestCheckout_03 - Guest User of 6thstreet.com site should be able to place order using master card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -79,7 +79,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		When user selects order history option 
 		Then verify order status in history to be "Payment_success" 
 		And click on view order 
-		Then Verify order status in details to be "Payment Success" 
+		#Then Verify order status in details to be "Payment Success" 
 		Then Verify order payment in details to be "Pay by Credit / Debit Card"
 		And User cancels the Order
 		And user clicks on my account top menu
@@ -155,7 +155,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@TabbyPayLater @GuestUser
+	@TabbyPayLater @GuestUser 
 	Scenario Outline: TS_GuestCheckout_06 - Guest User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 

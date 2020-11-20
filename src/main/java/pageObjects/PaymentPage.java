@@ -427,17 +427,24 @@ public class PaymentPage extends CucumberRunner {
 
 	public void resetStoredPayment() {
 		System.out.println("==========0===============");
-		if (genericHelper.isElementPresent(chkStoreCreditToggle)
-				|| (genericHelper.isElementPresent(chkClubApparelToggle))) {
-			System.out.println("====1====");
-			if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
-				System.out.println("==========2===============");
-				this.turnOffStoreCredit();
+		try {
+			waitHelper.waitForElementVisible(chkStoreCreditToggle);
+			if (genericHelper.isElementPresent(chkStoreCreditToggle)
+					|| (genericHelper.isElementPresent(chkClubApparelToggle))) {
+				System.out.println("====1 SC toggle available====");
+				if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+					System.out.println("==========2 SC toggle available and it is active ===============");
+					this.turnOffStoreCredit();
+				}
+				if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
+					System.out.println("==========3===============");
+					this.turnOnCAPoints();
+				}
 			}
-			if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-				System.out.println("==========3===============");
-				this.turnOnCAPoints();
-			}
+		
+		} catch(Exception e) {
+			log.info("Store Credit toggler is not available in payment page, check SC balance!");
+			
 		}
 	}
 }
