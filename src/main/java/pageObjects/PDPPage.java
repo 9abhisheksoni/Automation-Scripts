@@ -1,5 +1,7 @@
 package pageObjects;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -44,7 +46,7 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='gallery-placeholder']")
 	private WebElement imgProductTile;
-	
+
 	@FindBy(xpath = "//span[@class='special-price eav-final']")
 	private WebElement txtSpcialPriceCart;
 
@@ -59,10 +61,13 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@id='tabby-promo-close']")
 	private WebElement btnTabbyPromoClose;
-	
+
 	//
 	@FindBy(xpath = "//button[@title='Proceed to Checkout']")
 	private WebElement btnCheckout;
+
+	@FindBy(xpath = "//div[@class='swatch-option color']")
+	private WebElement btnSelectColor;
 
 	/**
 	 * WebElement declaration ends here
@@ -70,36 +75,36 @@ public class PDPPage extends CucumberRunner {
 
 	public void selectSizeCountry(String country) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		if(!(country.isEmpty())) {			
+		if (!(country.isEmpty())) {
 			commonMethods.SelectUsingValue(drpdwnCountry, country);
 			log.info("Selected size country " + country);
 		} else {
 			log.info("Selected product is simple product,  size is not required");
 		}
-		
+
 	}
 
 	public void chooseSize(String size) {
 		waitHelper.waitForElementVisible(imgProductTile);
-		if(!(size.isEmpty())) {
-			
+		if (!(size.isEmpty())) {
+
 			commonMethods.SelectUsingIndex(drpdwnSize, 1);
-			//commonMethods.SelectUsingVisibleText(drpdwnSize, size);
+			// commonMethods.SelectUsingVisibleText(drpdwnSize, size);
 			log.info("Selected size " + size);
 		} else {
 			log.info("Selected product is simple product, size is not required");
 		}
-		
+
 	}
 
 	public void clickAddToBag() {
-		//commonMethods.click(btnAddToBag);
-		//jsHelper.scrollIntoViewAndClick(btnAddToBag);
+		// commonMethods.click(btnAddToBag);
+		// jsHelper.scrollIntoViewAndClick(btnAddToBag);
 		commonMethods.sendKeys(btnAddToBag, Keys.ENTER);
 		log.info("clicked on add to bag");
 		waitHelper.waitForElementVisible(btnCheckout);
 	}
-	
+
 	/**
 	 * This method is used to verify the tabby widget
 	 **/
@@ -155,4 +160,41 @@ public class PDPPage extends CucumberRunner {
 			log.info("Tabby promo is closed");
 		}
 	}
+
+	public void selectSizeCountry() {
+		waitHelper.waitForElementVisible(imgProductTile);
+		commonMethods.SelectUsingIndex(drpdwnCountry, 0);
+		log.info("Selected size country");
+	}
+
+	public void chooseSize() {
+		waitHelper.waitForElementVisible(imgProductTile);
+		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
+		for (String currentSize : availableSizes) {
+			if (!currentSize.contains(" ")) {
+				commonMethods.SelectUsingVisibleText(drpdwnSize, currentSize);
+				log.info("Selected product size");
+				break;
+			}
+		}
+	}
+
+	public void addAnyProduct() {
+		waitHelper.waitForSpinnerInvisibility();
+		if (commonMethods.isElementPresent(drpdwnCountry) && commonMethods.isElementPresent(drpdwnSize)) {
+			this.selectSizeCountry();
+			this.chooseSize();
+		} else if (commonMethods.isElementPresent(btnSelectColor)) {
+			this.chooseColor();
+		} else {
+			log.info("Selected product is not having variation");
+		}
+	}
+
+	public void chooseColor() {
+		waitHelper.waitForElementVisible(imgProductTile);
+		commonMethods.click(btnSelectColor);
+		log.info("Selected the color");
+	}
+
 }

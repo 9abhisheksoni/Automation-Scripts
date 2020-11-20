@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import pageObjects.PDPPage;
 
@@ -31,6 +32,21 @@ public class PDP {
 	@When("^Verify the tabby promo from widget$")
 	public void verify_the_tabby_promo_from_widget() throws Throwable {
 		pdpPage.tabbyPromoVerify();
+	}
+	
+	@And("^user selects Country and Size$")
+	public void user_selects_Country_and_Size() {
+		pdpPage.selectSizeCountry();
+		pdpPage.chooseSize();
+	}
+	@And("^user selects color$")
+	public void user_selects_color() {
+		pdpPage.chooseColor();
+	}
+	
+	@And("^user selects variation if available$")
+	public void user_selects_variation_if_available() {
+		pdpPage.addAnyProduct();
 	}
 
 }

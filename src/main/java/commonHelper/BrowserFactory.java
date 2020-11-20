@@ -15,6 +15,7 @@ public class BrowserFactory {
 	ThreadLocal<String> ordernumber = new ThreadLocal<String>();
 	ThreadLocal<String> returnnumber = new ThreadLocal<String>();
 
+
 	private Logger log = Logger.getLogger(BrowserFactory.class.getName());
 
 	/**Singleton constructor declared**/
@@ -110,5 +111,6 @@ public class BrowserFactory {
 		log.info("Setting Return Order instance " + returnID);
 		returnnumber.set(returnID);
 	}
+	
 }
 

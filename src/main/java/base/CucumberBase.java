@@ -29,8 +29,9 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	CucumberRunner cucumberRunner;
 	Config configReader = new Config();
 	public String currCountry="";
+	public static String environment;
 	
-	private Logger log = Logger.getLogger(CucumberRunner.class.getName());
+	private Logger log = Logger.getLogger(CucumberBase.class.getName());
 
 	/**This method loads config file object**/
 	public void LoadConfigProperty() {
@@ -81,7 +82,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		maximizeWindow();
 		implicitWait(configReader.getImplicitTimeoutInSec());
 		deleteAllCookies();
-		setEnv(browserFactory.getCountry(),browserFactory.getLanguage());
+		setEnv(browserFactory.getCountry(),browserFactory.getLanguage(),CucumberBase.environment);
 	}
 
 	/**this methods maximizes browser window**/
@@ -109,10 +110,10 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	}
 
 	/**this methods sets url**/
-	public void setEnv(String country, String language) {
-		log.info("Setting up browser url for country "+country+" and language "+language);
+	public void setEnv(String country, String language, String environment) {
+		log.info("Setting up browser url for country "+country+", language "+language+" and environment as "+environment);
 		LoadConfigProperty();
-		String siteUrl = configReader.getSiteURL(country, language);
+		String siteUrl = configReader.getSiteURL(country, language, environment);
 		browserFactory.getDriver().get(siteUrl);
 	}
 
@@ -130,13 +131,15 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 
 	/**This is before test method**/
 	@BeforeTest(alwaysRun = true)
-	@Parameters({ "browser", "country", "language" })
-	public void beforeTest(String browser,String country,String language) {
+	@Parameters({ "browser", "country", "language","environment" })
+	public void beforeTest(String browser,String country,String language,String environment) {
 		log.info("Executing Before Test");
+		CucumberBase.environment = environment;
 		browserFactory = BrowserFactory.getInstance();
 		browserFactory.setBrowser(browser);
 		browserFactory.setCountry(country);
 		browserFactory.setLanguage(language);
+		
 	}
 
 	/**This method captures and saves screen shot**/

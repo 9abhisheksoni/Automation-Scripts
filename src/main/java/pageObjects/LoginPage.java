@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -118,6 +119,62 @@ public class LoginPage extends CucumberRunner {
 	
 	@FindBy (xpath="//div[@class='box-content']//span[@class='default-shipping']")
 	private WebElement lblDefaultAddress;
+	
+	@FindBy(xpath = "//span[@class='customer-name']")
+    private WebElement txtCustomer;
+    
+    @FindBy(xpath = "//a[@class='top-link-ca-link']")
+    private WebElement lnkClubApparelLoyalty;
+
+    @FindBy(xpath = "//div[@class='club-logo']")
+    private WebElement imgCALogo;
+
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[1]/h3")
+    private WebElement txtAvailLoyalty;
+    
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[2]/h3")
+    private WebElement txtTiersBenefit;
+    
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[3]/h3")
+    private WebElement txtRedValue;
+    
+    @FindBy(xpath = "//button[@id='LinkAccount']")
+    private WebElement btnLINKYOURACCOUNT;
+    
+    @FindBy(xpath = "//div[@class='apparel-link']/p")
+    private WebElement txtLinkYourCA;
+    
+    @FindBy(xpath = "//div[@class='iti__selected-dial-code']")
+    private WebElement selCountryFlag;
+    
+    @FindBy(xpath = "//input[@id='country-search']")
+    private WebElement txtSearchField;
+    
+    
+    @FindBy(xpath = "//span[text()='']")
+    private WebElement txtCountry;
+    
+    
+    @FindBy(xpath = "//li[@class='iti__country iti__standard iti__highlight']")
+    private WebElement txtSelectCountry;
+    
+    @FindBy(xpath = "//input[@name='mobileno']")
+    private WebElement txtTelephone;
+    
+    @FindBy(xpath = "//button[@class='button submit primary sent_otp']")
+    private WebElement btnLinkAccount;
+    
+    @FindBy(xpath = "//div[4]/div[2]/p[1]")
+    private WebElement txtEnterOTP;
+    
+    @FindBy(xpath = "//tbody/tr[@class='totals balance ca-msg']")
+    private WebElement txtLinkYourAccountCartMsg;
+    
+    @FindBy(xpath = "//div[@class='box-a1'][1]")
+    private WebElement txtSecAboutClubApparel;
+    
+    @FindBy(xpath = "//div[@class='box-a1'][2]")
+    private WebElement txtSecRewards;
 
 	/**
 	 * WebElement declaration ends here
@@ -214,7 +271,6 @@ public class LoginPage extends CucumberRunner {
 
 	public void enterMagnetoUserandPwd(String magentoEmail, String magentoPwd) {
 		this.inputMagentoEmailandPwd(magentoEmail, magentoPwd);
-
 		log.info("entered magento details");
 	}
 
@@ -341,6 +397,104 @@ public class LoginPage extends CucumberRunner {
 	public void verifyEmptyAddressBook() {
 		Assert.assertEquals(iconRemoveAddress.size(), 0);
 		log.info("Address book is empty");
+	}
+	
+	public void clickCustomer() {
+		commonMethods.click(txtCustomer);
+		log.info("customer is clicked");
+	} 
+    
+
+    public void clickClubApparelLoyalty() {
+		commonMethods.click(lnkClubApparelLoyalty);
+		log.info("Club Apparel Loyalty is clicked");
+	}
+    
+    
+	public void verifyCLubApparelLogoDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(imgCALogo));
+		log.info("Club Apparel Logo is displayed");
+	}
+    
+	public void verifyAvailLoyaltyDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtAvailLoyalty));
+		log.info("AVAIL LOYALTY BENEFITS ON 6THSTREET is displayed");
+	}
+	
+	public void verifyTierBenifitDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtTiersBenefit));
+		log.info("TIERS BENEFIT is displayed");
+	}
+	
+	public void verifyRedemptionValueDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtRedValue));
+		log.info("REDEMPTION VALUE is displayed");
+	}
+	
+	public void verifyLinkYourAccountButtonDisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(btnLINKYOURACCOUNT));
+		log.info("LINK YOUR Account button is displayed");
+	}
+	
+	public void verifyLinkYourCADisplayed() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtLinkYourCA));
+		log.info("Link your Club Apparel account and start earning points is displayed");
+	}
+	
+	
+	public void clickOnLINKYOURAcct() {
+		commonMethods.click(btnLINKYOURACCOUNT);
+		log.info("LINK YOUR Account button is clicked");
+	}
+	
+	
+	public void clicOnCountryFlag() {
+		commonMethods.click(selCountryFlag);
+		log.info("Country Flag is clicked");
+	}
+	
+	public void clickOnSearchField() {
+		commonMethods.click(txtSearchField);
+		log.info("Country search field is clicked");
+	}
+	
+	public void inputCountryFlag(String countryFlag) {
+		commonMethods.sendKeys(txtSearchField, countryFlag);
+		commonMethods.click(browserFactory.getDriver().findElement(By.xpath("//span[text()='"+countryFlag+"']")));
+		
+		log.info("Country is entered");
+	}
+	
+
+	public void inputTelephoneNumber(String tele) {
+		commonMethods.sendKeys(txtTelephone, tele);
+		log.info("Telephone Number is entered");
+	}
+	
+	public void clickOnLinkAccount() {
+		commonMethods.click(btnLinkAccount);
+		log.info("Link Account is clicked");
+	}
+	
+	public void verifyEntertheVerificationCode() {
+		commonMethods.click(txtEnterOTP);
+		log.info("Enter the verification code we sent to is displayed");
+	}
+	
+	
+	public void verifyLinkyourAccountMsg() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtLinkYourAccountCartMsg));
+		log.info("LINK YOUR Account message in cart is displayed");
+	}
+	
+	public void verifyAboutClubApparelSec() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtSecAboutClubApparel));
+		log.info("About club apparel section is displayed");
+	}
+	
+	public void verifyRewardsSec() {
+		Assert.assertTrue(genericHelper.isDisplayed(txtSecRewards));
+		log.info("Rewards section is displayed");
 	}
 
 }

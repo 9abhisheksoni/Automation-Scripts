@@ -15,6 +15,7 @@ import commonHelper.ResourceHelper;
 import commonHelper.WaitHelper;
 import fileReader.JsonReader;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class PaymentPage extends CucumberRunner {
 
@@ -162,6 +163,12 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
 	private WebElement chkClubApparelToggle;
+	
+	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
+	private WebElement lblSubTotalAmount;
+	
+	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
+	private WebElement lblDiscountAmount;
 
 	/**
 	 * WebElement declaration ends here
@@ -279,18 +286,14 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void applyCoupon(String couponCode) {
-		if (!genericHelper.isDisplayed(txtCouponCode)) {
-			commonMethods.click(drawCouponDrawer);
-		}
+		waitHelper.waitForSpinnerInvisibility();
+		commonMethods.click(drawCouponDrawer);
 		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
 		commonMethods.click(btnApplyDiscount);
 		log.info("applied discount coupon on checkout");
 	}
 
 	public void clickOnPlaceOrder() {
-
-		int count=0;
-
 		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
@@ -367,6 +370,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit off if present");
 		if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
 			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -374,6 +378,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit off if present");
 		if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
 			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -381,6 +386,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
 			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -388,7 +394,41 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
 			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
-
+	public void verifyAmountOffApplied(String expectedamount) {
+		String actualDiscount = this.getDiscountPrice();
+		Assert.assertEquals(expectedamount, actualDiscount);
+		log.info(expectedamount+" amount off discount verified successfully");
+	}
+	
+	public void verifyPercentOffApplied(String percent) {
+		String expectedDiscount = ""+ Math.round(0.01*Integer.parseInt(percent)*Integer.parseInt(this.getSubtotal()));
+		String actualDiscount = ""+ new StringUtility().getIntValue(this.getDiscountPrice());
+		Assert.assertEquals(expectedDiscount, actualDiscount);
+		log.info(percent+" percent off discount verified successfully");
+	}
+	
+	public String getDiscountPrice() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", "")	);
+	}
+	
+	public String getSubtotal() {
+		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+	}
+	
+	public void resetStoredPayment() {
+		System.out.println("==========0===============");
+		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
+			System.out.println("====1====");
+			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
+				System.out.println("==========2===============");
+				this.turnOffStoreCredit();
+			}
+			if(genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
+				System.out.println("==========3===============");this.turnOnCAPoints();
+			}
+		}
+	}
 }
