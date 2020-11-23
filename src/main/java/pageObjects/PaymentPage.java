@@ -1,9 +1,10 @@
 package pageObjects;
 
-import java.util.Scanner;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -158,11 +159,17 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
-	@FindBy(xpath = "//input[contains(@class,'storecredit')]")
-	private WebElement chkStoreCreditToggle;
+	@FindBy(css = "#aw-storecredit-pt-checkbox")
+	private List <WebElement> chkStoreCreditToggle;
 
-	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
-	private WebElement chkClubApparelToggle;
+	@FindBy(css = "#aw-ca-pt-checkbox")
+	private List <WebElement> chkClubApparelToggle;
+	
+	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']")
+	private WebElement btnStoreCreditToggle;
+
+	@FindBy(xpath = "//label[@for='aw-ca-pt-checkbox']")
+	private WebElement btnClubApparelToggle;
 
 	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
 	private WebElement lblSubTotalAmount;
@@ -349,11 +356,11 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isStoreCreditActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkStoreCreditToggle)) {
+		if (chkStoreCreditToggle.size()>0) {
 			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkStoreCreditToggle);
+			result = commonMethods.isSelected(chkStoreCreditToggle.get(0));
 		} else {
-			log.info("Storecredit element not displayed");
+			log.info("Storecredit element not enabled / displayed");
 			result = false;
 		}
 		return result;
@@ -361,11 +368,11 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isClubApparelPointsActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkClubApparelToggle)) {
+		if (chkClubApparelToggle.size()>0) {
 			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkClubApparelToggle);
+			result = commonMethods.isSelected(chkClubApparelToggle.get(0));
 		} else {
-			log.info("Storecredit element not displayed");
+			log.info("CA element not enabled / displayed");
 			result = false;
 		}
 		return result;
@@ -373,16 +380,18 @@ public class PaymentPage extends CucumberRunner {
 
 	public void turnOffStoreCredit() {
 		log.info("turning store credit off if present");
-		if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
-			commonMethods.click(chkStoreCreditToggle);
+		if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
+			waitHelper.waitForSpinnerInvisibility();
+			commonMethods.sendKeys(chkStoreCreditToggle.get(0),Keys.ENTER);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOffCAPoints() {
 		log.info("turning CA credit off if present");
-		if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-			commonMethods.click(chkClubApparelToggle);
+		if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
+			waitHelper.waitForSpinnerInvisibility();
+			commonMethods.sendKeys(chkClubApparelToggle.get(0),Keys.ENTER);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -390,7 +399,8 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOnStoreCredit() {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
-			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
+			commonMethods.sendKeys(chkStoreCreditToggle.get(0),Keys.ENTER);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -398,7 +408,8 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOnCAPoints() {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
-			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
+			commonMethods.sendKeys(chkClubApparelToggle.get(0),Keys.ENTER);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -426,25 +437,13 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void resetStoredPayment() {
-		System.out.println("==========0===============");
-		try {
-			waitHelper.waitForElementVisible(chkStoreCreditToggle);
-			if (genericHelper.isElementPresent(chkStoreCreditToggle)
-					|| (genericHelper.isElementPresent(chkClubApparelToggle))) {
-				System.out.println("====1 SC toggle available====");
-				if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
-					System.out.println("==========2 SC toggle available and it is active ===============");
-					this.turnOffStoreCredit();
-				}
-				if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-					System.out.println("==========3===============");
-					this.turnOnCAPoints();
-				}
-			}
 		
-		} catch(Exception e) {
+			if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
+					this.turnOffStoreCredit();
+				} else if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
+					this.turnOffCAPoints();
+				} else {
 			log.info("Store Credit toggler is not available in payment page, check SC balance!");
-			
 		}
 	}
 }
