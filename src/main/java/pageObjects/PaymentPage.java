@@ -165,10 +165,10 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(css = "#aw-ca-pt-checkbox")
 	private List <WebElement> chkClubApparelToggle;
 	
-	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']")
+	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
 	private WebElement btnStoreCreditToggle;
 
-	@FindBy(xpath = "//label[@for='aw-ca-pt-checkbox']")
+	@FindBy(xpath = "//label[@for='aw-ca-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
 	private WebElement btnClubApparelToggle;
 
 	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
@@ -382,7 +382,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit off if present");
 		if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.sendKeys(chkStoreCreditToggle.get(0),Keys.ENTER);
+			commonMethods.click(btnStoreCreditToggle);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -391,7 +391,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit off if present");
 		if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.sendKeys(chkClubApparelToggle.get(0),Keys.ENTER);
+			commonMethods.click(btnClubApparelToggle);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -400,7 +400,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.sendKeys(chkStoreCreditToggle.get(0),Keys.ENTER);
+			commonMethods.click(btnStoreCreditToggle);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -409,7 +409,7 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.sendKeys(chkClubApparelToggle.get(0),Keys.ENTER);
+			commonMethods.click(btnClubApparelToggle);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -440,10 +440,9 @@ public class PaymentPage extends CucumberRunner {
 		
 			if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
 					this.turnOffStoreCredit();
-				} else if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
+				}
+			if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
 					this.turnOffCAPoints();
-				} else {
-			log.info("Store Credit toggler is not available in payment page, check SC balance!");
-		}
+				} 
 	}
 }
