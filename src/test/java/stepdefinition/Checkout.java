@@ -1,5 +1,7 @@
 package stepdefinition;
 
+import java.util.Scanner;
+
 import base.Config;
 import commonHelper.WaitHelper;
 import cucumber.api.java.en.And;
@@ -113,7 +115,18 @@ public class Checkout {
 	
 	@And("^user reset Stored Payments$")
 	public void user_reset_Stored_Payments() {
+		try {
+			Thread.sleep(120000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		paymentPage.resetStoredPayment();
+	}
+	
+	@And("^user selects saved card and enters cvv$")
+	public void user_selects_saved_card_and_enters_cvv() {
+		waitHelper.waitForSpinnerInvisibility();
+		paymentPage.payUsingFirstSavedCreditCard();
 	}
 
 }

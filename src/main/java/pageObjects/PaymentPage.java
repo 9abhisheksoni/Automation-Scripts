@@ -1,7 +1,6 @@
 package pageObjects;
 
 import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -177,6 +176,24 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
 	private WebElement lblDiscountAmount;
 
+	@FindBy(xpath = "//table[contains(@class,'table-totals')]")
+	private WebElement tblOrderSummary;
+
+	@FindBy(xpath = "//span[text()='Saved Cards']//ancestor::div/input[@class='radio']")
+	private WebElement radioSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//img[1]")
+	private WebElement imgFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//div[contains(@id,'cko-vault-card')][1]")
+	private WebElement radioFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//input[@placeholder='CVV'][1]")
+	private WebElement txtSavedCardCVV;
+
+	@FindBy(xpath = "//button[@id='checkoutcom_vault_btn' and @title='Place Order']")
+	private WebElement btnSavedCCPlaceOrder;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -314,9 +331,10 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.staleElementClick(btnCcPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.staleElementClick(btnTabbyPayLaterPlaceOrder);
-		} else {
+		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
 			commonMethods.staleElementClick(btnTabbyPayInInstallmentsPlaceOrder);
-		}
+		} else
+			commonMethods.staleElementClick(btnSavedCCPlaceOrder);
 		log.info("clicked on place order");
 	}
 
@@ -437,12 +455,35 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void resetStoredPayment() {
-		
+		log.info("removing stored payment");
 			if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
 					this.turnOffStoreCredit();
 				}
 			if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
 					this.turnOffCAPoints();
 				} 
+	}
+
+	public void payUsingFirstSavedCreditCard() {
+		if (genericHelper.isElementPresent(radioSavedCard)) {
+			if (genericHelper.isSelected(radioSavedCard)) {
+				if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("vi")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("visa"));
+					log.info("Saved Card " + json.getCVV("visa") + " is entered");
+				} else if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("mc")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("master"));
+					log.info("Saved Card " + json.getCVV("master") + " is entered");
+				} else {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("amex"));
+					log.info("Saved Card " + json.getCVV("amex") + " is entered");
+				}
+			}
+		}
 	}
 }

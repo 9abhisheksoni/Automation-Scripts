@@ -6,7 +6,7 @@ import java.util.Map;
 import cucumber.api.DataTable;
 
 import cucumber.api.java.en.And;
-
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
 import pageObjects.PDPPage;
@@ -68,6 +68,11 @@ public class PDP {
 	@And("^user selects variation if available$")
 	public void user_selects_variation_if_available() {
 		pdpPage.addAnyProduct();
+	}
+	
+	@Then("^user is on PDP$")
+	public void user_is_on_PDP() {
+		pdpPage.verifyPDPDisplayed();
 	}
 
 }

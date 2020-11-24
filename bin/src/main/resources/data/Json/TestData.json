@@ -10,8 +10,7 @@
 				"password": "invalid@1234"
 			},
 			"clubuser": {
-				"username": "tommy.qatester1@gmail.com"
-				"password": "test@12345"
+				"password": "club@1234"
 			},
 			"guestuser": {
 				"username": "qauaeguest@yopmail.com"
@@ -31,10 +30,6 @@
 			"checkoutsandboxuser": {
 				"username": "arjun.kapoor@6thstreet.com",
 				"password": "Str0ng$1"
-			},
-			"Savedcarduser": {
-				"username": "qasavedcard@yopmail.com",
-				"password": "6Thstreet!"
 			}
 		},
 		"creditcard": {
@@ -64,11 +59,11 @@
 			"uae": {
 				"firstname": "uaefirstname",
 				"lastname": "uaelastname",
-				"street": "ROYAL TOWERS 6TH FLOOR WAY NO 3518",
-				"city": "Dubai",
-				"area": "Airport Termial 1",
-				"careercode": "50",
-				"contactnumber": "6641037"
+				"street": "uaestreet",
+				"city": "Abu Dhabi",
+				"area": "Abu Dhabi Golf Club",
+				"careercode": "52",
+				"contactnumber": "8888888"
 			},
 			"ksa": {
 				"firstname": "ksafirstname",
