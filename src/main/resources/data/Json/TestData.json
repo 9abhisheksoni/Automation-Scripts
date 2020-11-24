@@ -10,7 +10,8 @@
 				"password": "invalid@1234"
 			},
 			"clubuser": {
-				"password": "club@1234"
+				"username": "tommy.qatester1@gmail.com"
+				"password": "test@12345"
 			},
 			"guestuser": {
 				"username": "qauaeguest@yopmail.com"
@@ -63,11 +64,11 @@
 			"uae": {
 				"firstname": "uaefirstname",
 				"lastname": "uaelastname",
-				"street": "uaestreet",
-				"city": "Abu Dhabi",
-				"area": "Abu Dhabi Golf Club",
-				"careercode": "52",
-				"contactnumber": "8888888"
+				"street": "ROYAL TOWERS 6TH FLOOR WAY NO 3518",
+				"city": "Dubai",
+				"area": "Airport Termial 1",
+				"careercode": "50",
+				"contactnumber": "6641037"
 			},
 			"ksa": {
 				"firstname": "ksafirstname",

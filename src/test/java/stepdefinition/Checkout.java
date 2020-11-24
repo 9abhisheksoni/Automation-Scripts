@@ -46,8 +46,10 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("CC_AMEX")) {
 			paymentPage.payUsingCreditCard("amex");
 		} else if (payment.equalsIgnoreCase("TabbyPayLater")) {
+			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayLater();
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
+			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
 

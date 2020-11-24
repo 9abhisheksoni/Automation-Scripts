@@ -90,6 +90,8 @@ public class OrderDetailsPage extends CucumberRunner {
 			orderStatus = "Complete";
 		} else if (orderStatusContent.contains("Canceled".toUpperCase())){
 			orderStatus = "Canceled";
+		} else if (orderStatusContent.contains("Closed".toUpperCase())){
+			orderStatus = "Closed";
 		}
 		else {
 			genericHelper.throwUserException("no appropriate status found");
