@@ -27,6 +27,7 @@ public class LoginPage extends CucumberRunner {
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
 	HomePage homePage = new HomePage();
+	StringUtility stringUtility = new StringUtility();
 	
 
 	/**
@@ -175,6 +176,15 @@ public class LoginPage extends CucumberRunner {
     
     @FindBy(xpath = "//div[@class='box-a1'][2]")
     private WebElement txtSecRewards;
+    
+    @FindBy(xpath="//li[@class='item My Account']")
+    private WebElement lblMyAccount;
+    
+    @FindBy(xpath="//div[@class='content']//div[@class='store-credit-wrap']")
+    private WebElement lblStoreCredit;
+    
+    @FindBy(xpath="//div[@class='content']//div[@class='store-credit-wrap']//span[@class='price']")
+    private WebElement lblStoreCreditAmount;
 
 	/**
 	 * WebElement declaration ends here
@@ -495,6 +505,28 @@ public class LoginPage extends CucumberRunner {
 	public void verifyRewardsSec() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtSecRewards));
 		log.info("Rewards section is displayed");
+	}
+	
+	public int getStoreCredit() {
+		int storeCreditValue = 0;
+		if(genericHelper.isDisplayed(lblMyAccount)) {
+			if(genericHelper.isDisplayed(lblStoreCredit)) {
+				storeCreditValue = stringUtility.getPriceValue(commonMethods.getText(lblStoreCreditAmount));
+				System.out.println("storeCreditValue" +storeCreditValue);
+			}
+		}
+		log.info("obtained Store Credit Value");
+		return storeCreditValue;
+	}
+	
+	public void verifyStoreCreditAvailability() {
+		int storeCredit  = this.getStoreCredit();
+		if(storeCredit>0) {
+			log.info("Store Credit is available");
+		}
+		else {
+			
+		}
 	}
 
 }

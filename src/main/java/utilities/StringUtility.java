@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 public class StringUtility {
 	private Logger log = Logger.getLogger(StringUtility.class.getName());
 	String orderIDPattern = "[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]";
+	String priceValuePattern = "[0-9][0-9][0-9][0-9]";
 
 	/** extracts int value from string **/
 	public int getIntValue(String input) {
@@ -168,5 +169,21 @@ public class StringUtility {
 		String lastName = RandomStringUtils.randomAlphabetic(5);
 		String email = firstName + "." + lastName + RandomStringUtils.randomNumeric(3) + "@yopmail.com";
 		return email;
+	}
+	
+	/** returns Price value from string **/
+	public int getPriceValue(String string) {
+		log.info("Getting price value from given string");
+		string.replaceAll(",", "");
+		String[] arr = string.split(" ");
+		String priceString = null;
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].matches(priceValuePattern)) {
+				priceString = arr[i];
+			}
+		}
+		int priceValue = Integer.parseInt(priceString);
+		log.info("Price Value = " + priceValue);
+		return priceValue;
 	}
 }

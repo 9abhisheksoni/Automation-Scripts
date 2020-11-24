@@ -221,4 +221,10 @@ public class Login {
 			e.printStackTrace();
 		}
 	}
+	
+	@And("^Configure SC Availability$")
+	public void configure_SC_Availability() {
+		loginPage.verifyStoreCreditAvailability();
+	}
+	
 }

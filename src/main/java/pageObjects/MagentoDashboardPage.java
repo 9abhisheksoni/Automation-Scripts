@@ -32,6 +32,12 @@ public class MagentoDashboardPage extends CucumberRunner {
 	@FindBy(xpath = "(//a/span[.='Orders'])[1]")
 	private WebElement lnkOrders;
 	
+	@FindBy(xpath="//li[@id='menu-magento-customer-customer']/a")
+	private WebElement lnkCustomers;
+	
+	@FindBy(xpath="//li[@id=\"menu-magento-customer-customer\"]//li[1]/a")
+	private WebElement lnkAllCustomers;
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
