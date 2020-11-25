@@ -53,4 +53,13 @@ public class MagentoDashboardPage extends CucumberRunner {
 		log.info("clicked Sales >> Orders link in Magento");
 	}
 	
+	public void clickCustomersMenu() {
+		commonMethods.click(lnkCustomers);
+		log.info("clicked Customers menu in Magento");
+	}
+	
+	public void clickAllCustomersMenuItem() {
+		commonMethods.click(lnkAllCustomers);
+		log.info("clicked Customers >> All Customers link in Magento");
+	}
 }

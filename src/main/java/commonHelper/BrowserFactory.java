@@ -14,6 +14,7 @@ public class BrowserFactory {
 	ThreadLocal<String> language = new ThreadLocal<String>();
 	ThreadLocal<String> ordernumber = new ThreadLocal<String>();
 	ThreadLocal<String> returnnumber = new ThreadLocal<String>();
+	ThreadLocal<String> loggedinUserEmail = new ThreadLocal<String>();
 
 
 	private Logger log = Logger.getLogger(BrowserFactory.class.getName());
@@ -110,6 +111,18 @@ public class BrowserFactory {
 	public final void setReturnNumber(String returnID) {
 		log.info("Setting Return Order instance " + returnID);
 		returnnumber.set(returnID);
+	}
+	
+	/**returning value of login User Email instance**/
+	public String getLoggedInUserEmail() {
+		log.info("Returning login Email Instance");
+		return loggedinUserEmail.get();
+	}
+	
+	/**Setting value of login User Email instance**/
+	public final void setLoggedInUserEmail(String loginEmail) {
+		log.info("Setting Return login Email instance" + loginEmail);
+		loggedinUserEmail.set(loginEmail);
 	}
 	
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Config;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
@@ -28,6 +29,8 @@ public class LoginPage extends CucumberRunner {
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
 	HomePage homePage = new HomePage();
 	StringUtility stringUtility = new StringUtility();
+	OrderSuccessPage orderSuccess = new OrderSuccessPage();
+	Config config = new Config();
 	
 
 	/**
@@ -209,6 +212,7 @@ public class LoginPage extends CucumberRunner {
 	
 	public void inputUserName(String userType) {
 		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
+		browserFactory.setLoggedInUserEmail(jsonReader.getUserName(userType));
 		log.info("entered user email");
 	}
 
@@ -515,17 +519,20 @@ public class LoginPage extends CucumberRunner {
 				System.out.println("storeCreditValue" +storeCreditValue);
 			}
 		}
-		log.info("obtained Store Credit Value");
+		log.info("obtained Store Credit Value: "+storeCreditValue);
 		return storeCreditValue;
 	}
 	
-	public void verifyStoreCreditAvailability() {
+	public void verifyStoreCreditAvailability(String MagentoURL, String magentoUser, String magentoPwd) {
 		int storeCredit  = this.getStoreCredit();
 		if(storeCredit>0) {
 			log.info("Store Credit is available");
-		}
-		else {
-			
+		}else {
+			orderSuccess.controlT();
+			orderSuccess.launchURL(config.getMagentoURL(MagentoURL));
+			this.enterMagnetoUserandPwd(magentoUser, magentoPwd);
+			this.clickOnMagentoLogin();
+			this.waitForMagentoDashBoard();
 		}
 	}
 

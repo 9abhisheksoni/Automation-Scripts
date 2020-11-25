@@ -222,9 +222,10 @@ public class Login {
 		}
 	}
 	
-	@And("^Configure SC Availability$")
-	public void configure_SC_Availability() {
-		loginPage.verifyStoreCreditAvailability();
+	@And("^Configure SC Availability using Magento \"([^\"]*)\" username \"([^\"]*)\" and password \"([^\"]*)\"$")
+	public void configure_SC_Availability_using_Magento(String MagentoURL, String magentoUser, String magentoPwd) {
+		loginPage.verifyStoreCreditAvailability(MagentoURL, magentoUser, magentoPwd);
 	}
+	
 	
 }
