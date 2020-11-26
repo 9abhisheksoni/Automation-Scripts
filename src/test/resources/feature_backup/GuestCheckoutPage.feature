@@ -1,11 +1,11 @@
 Feature: 6thstreet.com - Guest User Place Order Scenarios
 
 
-	@Smoke @CODPayment @GuestUser 
+	@Smoke @CODPayment
 	Scenario Outline: TS_GuestCheckout_01 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -31,11 +31,11 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser 
+	@CreditCardPayment @Regression
 	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -62,11 +62,11 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser 
+	@CreditCardPayment @Regression 
 	Scenario Outline: TS_GuestCheckout_03 - Guest User of 6thstreet.com site should be able to place order using master card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -92,11 +92,11 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @GuestUser
+	@CreditCardPayment @Regression
 	Scenario Outline: TS_GuestCheckout_04 - Guest User of 6thstreet.com site should be able to place order using amex card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -122,11 +122,11 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@TabbyPayInInstallments @GuestUser 
+	@TabbyPayInInstallments @Regression
 	Scenario Outline: TS_GuestCheckout_05 - Guest User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -153,13 +153,13 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 			
 	Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|5277134-TAN|EU|23|1|
 		
-	@TabbyPayLater @GuestUser 
+	@TabbyPayLater @Regression
 	Scenario Outline: TS_GuestCheckout_06 - Guest User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
@@ -186,4 +186,4 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		
 	Examples:  
 		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|218-WFKD116601-JC140|EU|XS|1|
