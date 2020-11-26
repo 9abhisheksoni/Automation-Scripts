@@ -10,12 +10,11 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-    @Smoke @CODPayment @RegisteredUser @SCtest
-	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 
-		
+    @Smoke
+	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -39,11 +38,11 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 
-	@Smoke @CreditCardPayment @RegisteredUser
+	@Regression
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -67,11 +66,11 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@CreditCardPayment @RegisteredUser
+	@Regression
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using master credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -95,11 +94,11 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 	
-	@CreditCardPayment @RegisteredUser
+	@Regression
 	Scenario Outline: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using amex credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -124,7 +123,7 @@ Background: User logs into application and clears cart - addresses
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 		
-	@TabbyPayInInstallments @RegisteredUser 
+	@Regression @run
 	Scenario Outline: TS_RegisteredCheckout_05 - Registered User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -152,14 +151,14 @@ Background: User logs into application and clears cart - addresses
 		Then Verify order status in details to be "Closed"
 		
 	Examples:  
-		| MerchantURL                 |Product |CountrySize|Size|Qty|
-		| https://merchant.tabby.ai/auth |5277134-TAN|EU|23|1|
+		|Product|CountrySize|Size|Qty|
+		|5277134-TAN|EU|23|1|
 		
-	@Smoke @TabbyPayLater @RegisteredUser
+	@Regression
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -183,8 +182,8 @@ Background: User logs into application and clears cart - addresses
 		Then Verify order status in details to be "Closed"
 		
 	Examples:  
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|Product              |CountrySize|Size|Qty|
+		|218-WFKD116601-JC140 |EU|XS|1|
 		
 	
 	
