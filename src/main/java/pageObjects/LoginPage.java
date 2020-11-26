@@ -31,7 +31,9 @@ public class LoginPage extends CucumberRunner {
 	StringUtility stringUtility = new StringUtility();
 	OrderSuccessPage orderSuccess = new OrderSuccessPage();
 	Config config = new Config();
-	
+	MagentoAllCustomersPage magentoAllCustomersPage = new MagentoAllCustomersPage();
+	MagentoDashboardPage magentoDashboardPage = new MagentoDashboardPage();
+	MagentoCustomerDetailsPage magentoCustomerDetailsPage = new MagentoCustomerDetailsPage();
 
 	/**
 	 * Constructor to initialize page objects
@@ -533,6 +535,11 @@ public class LoginPage extends CucumberRunner {
 			this.enterMagnetoUserandPwd(magentoUser, magentoPwd);
 			this.clickOnMagentoLogin();
 			this.waitForMagentoDashBoard();
+			magentoDashboardPage.navigateToCustomersPage();
+			magentoAllCustomersPage.navigateToCustomerDetailsPage();
+			magentoCustomerDetailsPage.updateStoreCreditBalance();	
+			genericHelper.switchToBaseWindow();
+			System.out.println("==========switched to main window=========");
 		}
 	}
 

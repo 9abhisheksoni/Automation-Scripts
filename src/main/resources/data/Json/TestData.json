@@ -35,6 +35,10 @@
 			"Savedcarduser": {
 				"username": "qasavedcard@yopmail.com",
 				"password": "6Thstreet!"
+			},
+			"SCuser": {
+				"username": "qastorecredit@yopmail.com",
+				"password": "6Thstreet!"
 			}
 		},
 		"creditcard": {

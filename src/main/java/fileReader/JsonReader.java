@@ -59,6 +59,8 @@ public class JsonReader {
 			user = (JSONObject) userdata.get("checkoutsandboxuser");
 		} else if (userType.equalsIgnoreCase("Savedcarduser")) {
 			user = (JSONObject) userdata.get("Savedcarduser");
+		} else if (userType.equalsIgnoreCase("SCuser")) {
+			user = (JSONObject) userdata.get("SCuser");
 		}
 		else {
 			try {

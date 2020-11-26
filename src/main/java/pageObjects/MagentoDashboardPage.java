@@ -12,15 +12,15 @@ public class MagentoDashboardPage extends CucumberRunner {
 	
 	CommonMethods commonMethods = new CommonMethods();
 	
-	private Logger log = Logger.getLogger(MagentoDashboardPage.class.getName());
-	
-	
-	/**
+	private Logger log = Logger.getLogger(MagentoDashboardPage.class.getName());/**
 	 * Constructor to initialize page objects
 	 * **/
 	public MagentoDashboardPage() {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
+	
+	
+	
 	
 	
 	/**
@@ -61,5 +61,10 @@ public class MagentoDashboardPage extends CucumberRunner {
 	public void clickAllCustomersMenuItem() {
 		commonMethods.click(lnkAllCustomers);
 		log.info("clicked Customers >> All Customers link in Magento");
+	}
+	
+	public void navigateToCustomersPage() {
+		this.clickCustomersMenu();
+		this.clickAllCustomersMenuItem();
 	}
 }

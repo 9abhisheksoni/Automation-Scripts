@@ -62,7 +62,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 @StoreCreditAndMagento
 	Scenario: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using Saved credit card 
 		When User clicks on login link 
-		When User enters valid login details "clubuser" username and "clubuser" password in the login popup 
+		When User enters valid login details "SCuser" username and "SCuser" password in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
