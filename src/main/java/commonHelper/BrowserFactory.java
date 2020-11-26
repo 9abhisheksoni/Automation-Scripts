@@ -15,6 +15,7 @@ public class BrowserFactory {
 	ThreadLocal<String> ordernumber = new ThreadLocal<String>();
 	ThreadLocal<String> returnnumber = new ThreadLocal<String>();
 	ThreadLocal<String> loggedinUserEmail = new ThreadLocal<String>();
+	ThreadLocal<String> environment = new ThreadLocal<String>();
 
 
 	private Logger log = Logger.getLogger(BrowserFactory.class.getName());
@@ -125,5 +126,16 @@ public class BrowserFactory {
 		loggedinUserEmail.set(loginEmail);
 	}
 	
+	/**Setting value of environment instance**/
+	public final void setEnvironment(String env) {
+		log.info("Creating environment Instance " + env);
+		environment.set(env);
+	}
+
+	/**returning value of environment instance**/
+	public String getEnvironment() {
+		log.info("Returning environment Instance");
+		return environment.get();
+	}
 }
 

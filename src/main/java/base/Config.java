@@ -9,7 +9,9 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+import commonHelper.BrowserFactory;
 import fileReader.DataHandlers;
+import testRunner.CucumberRunner;
 
 public class Config {
 
@@ -17,6 +19,7 @@ public class Config {
 	private final Logger log = Logger.getLogger(Config.class.getName());
 	private Properties prop;
 	private String filepath;
+	
 
 	/** This methods creates config object  **/
 	public Properties createConfigObject() {
@@ -195,12 +198,12 @@ public class Config {
 		DataHandlers data = new DataHandlers();
 		data.setNewCellValue(sheet, keyValue, value);
 	}
-
+/*
 	public String getBaseUrl() {
 		log.info("Getting base url");
-		return createConfigObject().getProperty("BaseURL");
+		return createConfigObject().getProperty("BaseURL");  //commenting since the BaseURL is no more used
 	}
-
+*/   
 	/** This methods returns site url from property file **/
 	public String getMagentoURL(String MagentoURL) {
 		checkToCreateProp();

@@ -5,6 +5,12 @@
 	<groupId>Ecom</groupId>
 	<artifactId>Automation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+		<maven.compile.encoding>UTF-8</maven.compile.encoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
