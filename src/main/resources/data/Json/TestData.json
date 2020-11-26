@@ -10,7 +10,7 @@
 				"password": "invalid@1234"
 			},
 			"clubuser": {
-				"username": "tommy.qatester1@gmail.com"
+				"username": "tommy.qatester1@gmail.com",
 				"password": "test@12345"
 			},
 			"guestuser": {
@@ -57,7 +57,7 @@
 			"otp": "888888",
 			"fullname": "test",
 			"id": "1111111111",
-			"nationality": "Saudi Arabia",
+			"nationality": "Saudi Arabia (KSA)",
 			"dob": "12021989"
 		},
 		"addresses": {

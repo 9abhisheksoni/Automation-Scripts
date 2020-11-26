@@ -128,7 +128,7 @@ Background: User logs into application and clears cart - addresses
 	Scenario Outline: TS_RegisteredCheckout_05 - Registered User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address
@@ -153,17 +153,10 @@ Background: User logs into application and clears cart - addresses
 		
 	Examples:  
 		| MerchantURL                 |Product |CountrySize|Size|Qty|
-		| https://merchant.tabby.ai/auth |DSW425728-230-NUDE|EU|41|1|
+		| https://merchant.tabby.ai/auth |5277134-TAN|EU|23|1|
 		
 	@Smoke @TabbyPayLater @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
-		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
-		And User clicks on login button 
-		And user login is successfull 
-		And Home page is displayed 
-		And User clears cart 
-		And User clears saved address
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user selects countrySize as "EU", size as "41" 

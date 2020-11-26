@@ -1,6 +1,5 @@
 package stepdefinition;
 
-import java.util.Scanner;
 
 import base.Config;
 import commonHelper.WaitHelper;

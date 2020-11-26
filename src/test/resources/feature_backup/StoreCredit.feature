@@ -9,9 +9,9 @@ Background: User logs into application and clears cart - addresses
 		And Home page is displayed 
 		And User clears cart
 		And User clears saved address
-		And Configure SC Availability
+	#	And Configure SC Availability
 		
-	@Smoke @CODPayment @StoreCredit 
+	@Smoke @CODPayment @StoreCredit @run
 	Scenario Outline: TS_RegisteredCheckout_09 - Registered User of 6thstreet.com site should be able to place order using store credit if it is enabled
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 

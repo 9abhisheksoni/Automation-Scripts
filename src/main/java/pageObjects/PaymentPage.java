@@ -288,6 +288,7 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
 			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
 			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
+			commonMethods.click(txtTabbyNationality);
 			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);
