@@ -126,7 +126,7 @@
 				<version>2.18.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+						<suiteXmlFile>suiteXml/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
 					<systemPropertyVariables>

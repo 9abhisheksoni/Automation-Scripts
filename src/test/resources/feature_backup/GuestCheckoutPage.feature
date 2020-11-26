@@ -155,7 +155,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product |CountrySize|Size|Qty|
 		|5277134-TAN|EU|23|1|
 		
-	@TabbyPayLater @Regression
+	@TabbyPayLater @Regression 
 	Scenario Outline: TS_GuestCheckout_06 - Guest User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 

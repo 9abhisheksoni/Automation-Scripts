@@ -155,15 +155,18 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[3]")
 	private WebElement txtTabbyNationality;
 
+	@FindBy(xpath = "//li[contains(@class,'DropdownCountries')]")
+	private WebElement drpdwnTabbyNationality;
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
 	@FindBy(css = "#aw-storecredit-pt-checkbox")
-	private List <WebElement> chkStoreCreditToggle;
+	private List<WebElement> chkStoreCreditToggle;
 
 	@FindBy(css = "#aw-ca-pt-checkbox")
-	private List <WebElement> chkClubApparelToggle;
-	
+	private List<WebElement> chkClubApparelToggle;
+
 	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
 	private WebElement btnStoreCreditToggle;
 
@@ -254,7 +257,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingCOD() {
-		//waitHelper.staticWait(2000);
+		// waitHelper.staticWait(2000);
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
 			waitHelper.waitForSpinnerInvisibility();
@@ -288,7 +291,7 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
 			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
 			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
-			commonMethods.click(txtTabbyNationality);
+			commonMethods.click(drpdwnTabbyNationality);
 			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);
@@ -375,7 +378,7 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isStoreCreditActive() {
 		boolean result;
-		if (chkStoreCreditToggle.size()>0) {
+		if (chkStoreCreditToggle.size() > 0) {
 			log.info("Return store credit state");
 			result = commonMethods.isSelected(chkStoreCreditToggle.get(0));
 		} else {
@@ -387,7 +390,7 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isClubApparelPointsActive() {
 		boolean result;
-		if (chkClubApparelToggle.size()>0) {
+		if (chkClubApparelToggle.size() > 0) {
 			log.info("Return store credit state");
 			result = commonMethods.isSelected(chkClubApparelToggle.get(0));
 		} else {
@@ -399,18 +402,22 @@ public class PaymentPage extends CucumberRunner {
 
 	public void turnOffStoreCredit() {
 		log.info("turning store credit off if present");
-		if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
+		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnStoreCreditToggle);
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOffCAPoints() {
 		log.info("turning CA credit off if present");
-		if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
+		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnClubApparelToggle);
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -419,7 +426,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnStoreCreditToggle);
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -428,7 +437,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnClubApparelToggle);
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -457,12 +468,12 @@ public class PaymentPage extends CucumberRunner {
 
 	public void resetStoredPayment() {
 		log.info("removing stored payment");
-			if (chkStoreCreditToggle.size()>0 && this.isStoreCreditActive()) {
-					this.turnOffStoreCredit();
-				}
-			if (chkClubApparelToggle.size()>0 && this.isClubApparelPointsActive()) {
-					this.turnOffCAPoints();
-				} 
+		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
+			this.turnOffStoreCredit();
+		}
+		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
+			this.turnOffCAPoints();
+		}
 	}
 
 	public void payUsingFirstSavedCreditCard() {

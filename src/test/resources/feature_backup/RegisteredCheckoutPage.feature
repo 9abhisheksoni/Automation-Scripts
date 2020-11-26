@@ -10,7 +10,7 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-    @Smoke
+    @Smoke @CODPayment
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -38,7 +38,7 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 
-	@Regression
+	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -66,7 +66,7 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@Regression
+	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using master credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -94,7 +94,7 @@ Background: User logs into application and clears cart - addresses
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 	
-	@Regression
+	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using amex credit card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -123,7 +123,7 @@ Background: User logs into application and clears cart - addresses
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 		
-	@Regression @run
+	@Regression @TabbyPayInInstallments
 	Scenario Outline: TS_RegisteredCheckout_05 - Registered User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -154,7 +154,7 @@ Background: User logs into application and clears cart - addresses
 		|Product|CountrySize|Size|Qty|
 		|5277134-TAN|EU|23|1|
 		
-	@Regression
+	@Regression @TabbyPayLater
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
