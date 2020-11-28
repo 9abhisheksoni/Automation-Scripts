@@ -21,6 +21,8 @@ Background: User logs into application and clears cart - addresses
 		And user enters the valid details for shipping address 
 		And user reset Stored Payments
 		And selects use storecredit toggle if user is eligible to use
+		When user clicks on place order button with Store Credits
+		Then Order placing should be successful 
 		
 			Examples:  
 		| URL                 |Product                   |CountrySize|Size|Qty|

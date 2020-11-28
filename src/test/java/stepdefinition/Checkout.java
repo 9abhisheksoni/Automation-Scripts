@@ -128,5 +128,10 @@ public class Checkout {
 		waitHelper.waitForSpinnerInvisibility();
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
+	
+	@When("^user clicks on place order button with Store Credits$")
+	public void user_clicks_on_place_order_button_with_Store_Credits() {
+		paymentPage.clickOnPlaceOrderwithSC();
+	}
 
 }
