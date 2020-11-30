@@ -1,5 +1,6 @@
 package stepdefinition;
 
+
 import base.Config;
 import commonHelper.WaitHelper;
 import cucumber.api.java.en.And;
@@ -44,8 +45,10 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("CC_AMEX")) {
 			paymentPage.payUsingCreditCard("amex");
 		} else if (payment.equalsIgnoreCase("TabbyPayLater")) {
+			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayLater();
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
+			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
 
@@ -112,6 +115,12 @@ public class Checkout {
 	@And("^user reset Stored Payments$")
 	public void user_reset_Stored_Payments() {
 		paymentPage.resetStoredPayment();
+	}
+	
+	@And("^user selects saved card and enters cvv$")
+	public void user_selects_saved_card_and_enters_cvv() {
+		waitHelper.waitForSpinnerInvisibility();
+		paymentPage.payUsingFirstSavedCreditCard();
 	}
 
 }

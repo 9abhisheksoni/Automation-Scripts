@@ -1,12 +1,22 @@
 package stepdefinition;
 
+
+import java.util.Map;
+
+import cucumber.api.DataTable;
+
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.HomePage;
 import pageObjects.PDPPage;
+import pageObjects.SearhPage;
 
 public class PDP {
 	
 	PDPPage pdpPage = new PDPPage();
+	SearhPage searchPage = new SearhPage();
+	HomePage homePage = new HomePage();
 	
 	@When("^user selects countrySize as \"([^\"]*)\", size as \"([^\"]*)\"$")
 	public void user_selects_countrySize_as_size_as(String country, String size) {
@@ -33,6 +43,17 @@ public class PDP {
 	public void verify_the_tabby_promo_from_widget() throws Throwable {
 		pdpPage.tabbyPromoVerify();
 	}
+		
+	@When("^user enters product details to add to cart$")
+	public void user_enters_product_details_to_add_to_cart(DataTable productDetails) {
+		for(Map<String,String> prodDetails:productDetails.asMaps(String.class, String.class)) {
+			homePage.searchProduct(prodDetails.get("ProductSKU"));
+			searchPage.clickProdcuctInSearchPage();
+			pdpPage.selectSizeCountry(prodDetails.get("CounrtySize"));
+			pdpPage.chooseSize(prodDetails.get("Size"));
+			pdpPage.clickAddToBag();
+		}
+	}
 	
 	@And("^user selects Country and Size$")
 	public void user_selects_Country_and_Size() {
@@ -47,6 +68,11 @@ public class PDP {
 	@And("^user selects variation if available$")
 	public void user_selects_variation_if_available() {
 		pdpPage.addAnyProduct();
+	}
+	
+	@Then("^user is on PDP$")
+	public void user_is_on_PDP() {
+		pdpPage.verifyPDPDisplayed();
 	}
 
 }

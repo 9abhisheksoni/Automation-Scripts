@@ -24,10 +24,20 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 
-  		@Smoke @SearchProd	
+  		@Smoke @SearchProd @SearchTest1
 		Scenario: TS_ProdDepChecklist_01 - Verify search suggestion
 			And user enters product name as "a" in search text box 
-			Then search suggestions should be displayed 
+			Then search suggestions should be displayed
+			
+		@Smoke @Search @HomePageTest
+		Scenario: TS_Home Page Navigation_01- HOME LOGO
+			And user enters product name as "a" in search text box 
+			And search suggestions should be displayed 
+			And user click on first product on the search suggestions
+			Then user is on PDP
+			Then User click on Home Logo 
+			And Home page is displayed
+			 
 					  
 		@Smoke @WishlistProd	
 		Scenario Outline: TS_ProdDepChecklist_02 - Registered User of 6thstreet.com should be able to add product to wishlist 

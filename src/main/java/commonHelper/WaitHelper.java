@@ -103,16 +103,16 @@ public class WaitHelper extends CucumberRunner {
 	/** Waiting for spinner invisibility **/
 	public void waitForSpinnerInvisibility() {
 		WebElement spinner = new ShippingPage().checkoutSpinner;
-		try {
-			log.info("Waiting for spinner disappear");
-			int count=0;
-			while(new GenericHelper().isDisplayed(spinner) && count<5) {
-			this.waitForElementInVisiblity(spinner);
-			this.staticWait(10000);
-			count++;
+		int count = 0;
+		while (new GenericHelper().isElementPresent(spinner) && count < 5) {
+			try {
+				log.info("Waiting for spinner disappear");
+				this.waitForElementInVisiblity(spinner);
+				this.staticWait(10000);
+				count++;
+			} catch (Exception e) {
+				log.info("spinner not displayed");
 			}
-		} catch (Exception e) {
-			log.info("spinner not displayed");
 		}
 	}
 }

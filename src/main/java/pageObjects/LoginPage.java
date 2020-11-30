@@ -196,6 +196,7 @@ public class LoginPage extends CucumberRunner {
 		log.info("login or registered label in header clicked");
 	}
 
+	
 	public void inputUserName(String userType) {
 		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
 		log.info("entered user email");
@@ -210,13 +211,13 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.click(btnLogin);
 		log.info("login button clicked");
 		waitHelper.staticWait(10);
-
 		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
 			commonMethods.refresh();
 		}
 	}
 
 	public void verifyLogin() {
+		commonMethods.refresh();
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
 		log.info("login is successfull");
 	}

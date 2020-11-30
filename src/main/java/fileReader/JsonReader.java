@@ -57,7 +57,10 @@ public class JsonReader {
 			user = (JSONObject) userdata.get("uatvaliduser");//
 		} else if (userType.equalsIgnoreCase("checkoutsandboxuser")) {
 			user = (JSONObject) userdata.get("checkoutsandboxuser");
-		} else {
+		} else if (userType.equalsIgnoreCase("Savedcarduser")) {
+			user = (JSONObject) userdata.get("Savedcarduser");
+		}
+		else {
 			try {
 				throw new Exception("Invalid User Type Requested");
 			} catch (Exception e) {
@@ -232,7 +235,7 @@ public class JsonReader {
 
 	/** this method returns tabby payment otp **/
 	public String getTabbyOTP() {
-		log.info("Getting email for tabby payment");
+		log.info("Getting otp for tabby payment");
 		return (String) this.getTabbyDetails().get("otp");
 	}
 	
@@ -260,4 +263,9 @@ public class JsonReader {
 		return (String) this.getTabbyDetails().get("dob");
 	}
 
+	/** this method returns tabby payment otp1 **/
+	public String getTabbyOTP1() {
+		log.info("Getting otp1 for tabby payment");
+		return (String) this.getTabbyDetails().get("otp1");
+	}
 }

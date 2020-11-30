@@ -1,9 +1,9 @@
 package pageObjects;
 
-import java.util.Scanner;
-
+import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -71,7 +71,7 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout button default']")
 	private WebElement btnCodPlaceOrder;
 
-	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']")//updated
+	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']") // updated
 	private WebElement btnCcPlaceOrder;//
 
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
@@ -155,20 +155,47 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[3]")
 	private WebElement txtTabbyNationality;
 
+	@FindBy(xpath = "//li[contains(@class,'DropdownCountries')]")
+	private WebElement drpdwnTabbyNationality;
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
-	@FindBy(xpath = "//input[contains(@class,'storecredit')]")
-	private WebElement chkStoreCreditToggle;
+	@FindBy(css = "#aw-storecredit-pt-checkbox")
+	private List<WebElement> chkStoreCreditToggle;
 
-	@FindBy(xpath = "//div[contains(@class,'ca-code')]//input")
-	private WebElement chkClubApparelToggle;
-	
+	@FindBy(css = "#aw-ca-pt-checkbox")
+	private List<WebElement> chkClubApparelToggle;
+
+	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
+	private WebElement btnStoreCreditToggle;
+
+	@FindBy(xpath = "//label[@for='aw-ca-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
+	private WebElement btnClubApparelToggle;
+
 	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
 	private WebElement lblSubTotalAmount;
-	
+
 	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
 	private WebElement lblDiscountAmount;
+
+	@FindBy(xpath = "//table[contains(@class,'table-totals')]")
+	private WebElement tblOrderSummary;
+
+	@FindBy(xpath = "//span[text()='Saved Cards']//ancestor::div/input[@class='radio']")
+	private WebElement radioSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//img[1]")
+	private WebElement imgFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//div[contains(@id,'cko-vault-card')][1]")
+	private WebElement radioFirstSavedCard;
+
+	@FindBy(xpath = "//div[@id='vault-container']//input[@placeholder='CVV'][1]")
+	private WebElement txtSavedCardCVV;
+
+	@FindBy(xpath = "//button[@id='checkoutcom_vault_btn' and @title='Place Order']")
+	private WebElement btnSavedCCPlaceOrder;
 
 	/**
 	 * WebElement declaration ends here
@@ -183,21 +210,23 @@ public class PaymentPage extends CucumberRunner {
 
 	public String checkGetActivePayment() {
 		String paymentMethod = "";
-		if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
-			paymentMethod = "creditCardPayment";
-		} else if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
-			paymentMethod = "creditCardPayment";
-		} else if (commonMethods.getAttribute(divCodPayment, "class").contains("active")) {
-			paymentMethod = "codPayment";
-		} else if (commonMethods.getAttribute(divTabbyPayLater, "class").contains("active")) {
-			paymentMethod = "tabbyPayLater";
-		} else if (commonMethods.getAttribute(divTabbyPayInInstallments, "class").contains("active")) {
-			paymentMethod = "tabbyPayInInstallments";
-		} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("active")) {
-			paymentMethod = "savedCardsPayment";
-		} else {
-			log.info("No active payment methods, hence returning null!!!");
-			paymentMethod = null;
+		try {
+			if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
+				paymentMethod = "creditCardPayment";
+			} else if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
+				paymentMethod = "creditCardPayment";
+			} else if (commonMethods.getAttribute(divCodPayment, "class").contains("active")) {
+				paymentMethod = "codPayment";
+			} else if (commonMethods.getAttribute(divTabbyPayLater, "class").contains("active")) {
+				paymentMethod = "tabbyPayLater";
+			} else if (commonMethods.getAttribute(divTabbyPayInInstallments, "class").contains("active")) {
+				paymentMethod = "tabbyPayInInstallments";
+			} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("active")) {
+				paymentMethod = "savedCardsPayment";
+			}
+		} catch (Exception e) {
+			log.info("No active payment methods, hence returning null!!");
+			paymentMethod = "null";
 		}
 		return paymentMethod;
 	}
@@ -208,6 +237,7 @@ public class PaymentPage extends CucumberRunner {
 		String cvv = json.getCVV(cardType);
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
+			waitHelper.staticWait(3000);
 			commonMethods.click(radioCreditCardPayment);
 			waitHelper.waitForSpinnerInvisibility();
 		}
@@ -227,6 +257,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingCOD() {
+		// waitHelper.staticWait(2000);
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
 			waitHelper.waitForSpinnerInvisibility();
@@ -260,6 +291,7 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
 			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
 			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
+			commonMethods.click(drpdwnTabbyNationality);
 			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);
@@ -271,6 +303,7 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingTabbyPayLater() {
+		waitHelper.waitForSpinnerInvisibility();
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.click(radioTabbyPayLater);
 			waitHelper.waitForSpinnerInvisibility();
@@ -280,7 +313,7 @@ public class PaymentPage extends CucumberRunner {
 
 	public void payUsingTabbyPayInInstallments() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
-			commonMethods.click(radioTabbyPayInInstallments);
+			commonMethods.moveToElementAndClick(radioTabbyPayInInstallments);
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -299,12 +332,13 @@ public class PaymentPage extends CucumberRunner {
 		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.staleElementClick(btnCodPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			commonMethods.staleElementClick(btnCcPlaceOrder);	
+			commonMethods.staleElementClick(btnCcPlaceOrder);
 		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
 			commonMethods.staleElementClick(btnTabbyPayLaterPlaceOrder);
-		} else {
+		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
 			commonMethods.staleElementClick(btnTabbyPayInInstallmentsPlaceOrder);
-		}
+		} else
+			commonMethods.staleElementClick(btnSavedCCPlaceOrder);
 		log.info("clicked on place order");
 	}
 
@@ -344,11 +378,11 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isStoreCreditActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkStoreCreditToggle)) {
+		if (chkStoreCreditToggle.size() > 0) {
 			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkStoreCreditToggle);
+			result = commonMethods.isSelected(chkStoreCreditToggle.get(0));
 		} else {
-			log.info("Storecredit element not displayed");
+			log.info("Storecredit element not enabled / displayed");
 			result = false;
 		}
 		return result;
@@ -356,11 +390,11 @@ public class PaymentPage extends CucumberRunner {
 
 	private boolean isClubApparelPointsActive() {
 		boolean result;
-		if (genericHelper.isElementPresent(chkClubApparelToggle)) {
+		if (chkClubApparelToggle.size() > 0) {
 			log.info("Return store credit state");
-			result = commonMethods.isSelected(chkClubApparelToggle);
+			result = commonMethods.isSelected(chkClubApparelToggle.get(0));
 		} else {
-			log.info("Storecredit element not displayed");
+			log.info("CA element not enabled / displayed");
 			result = false;
 		}
 		return result;
@@ -368,16 +402,22 @@ public class PaymentPage extends CucumberRunner {
 
 	public void turnOffStoreCredit() {
 		log.info("turning store credit off if present");
-		if (genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
-			commonMethods.click(chkStoreCreditToggle);
+		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
+			waitHelper.waitForSpinnerInvisibility();
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOffCAPoints() {
 		log.info("turning CA credit off if present");
-		if (genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-			commonMethods.click(chkClubApparelToggle);
+		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
+			waitHelper.waitForSpinnerInvisibility();
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -385,7 +425,10 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOnStoreCredit() {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
-			commonMethods.click(chkStoreCreditToggle);
+			waitHelper.waitForSpinnerInvisibility();
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -393,41 +436,65 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOnCAPoints() {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
-			commonMethods.click(chkClubApparelToggle);
+			waitHelper.waitForSpinnerInvisibility();
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
+
 	public void verifyAmountOffApplied(String expectedamount) {
 		String actualDiscount = this.getDiscountPrice();
 		Assert.assertEquals(expectedamount, actualDiscount);
-		log.info(expectedamount+" amount off discount verified successfully");
+		log.info(expectedamount + " amount off discount verified successfully");
 	}
-	
+
 	public void verifyPercentOffApplied(String percent) {
-		String expectedDiscount = ""+ Math.round(0.01*Integer.parseInt(percent)*Integer.parseInt(this.getSubtotal()));
-		String actualDiscount = ""+ new StringUtility().getIntValue(this.getDiscountPrice());
+		String expectedDiscount = ""
+				+ Math.round(0.01 * Integer.parseInt(percent) * Integer.parseInt(this.getSubtotal()));
+		String actualDiscount = "" + new StringUtility().getIntValue(this.getDiscountPrice());
 		Assert.assertEquals(expectedDiscount, actualDiscount);
-		log.info(percent+" percent off discount verified successfully");
+		log.info(percent + " percent off discount verified successfully");
 	}
-	
+
 	public String getDiscountPrice() {
-		return ""+new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", "")	);
+		return "" + new StringUtility().getIntValue(commonMethods.getText(lblDiscountAmount).replace("-", ""));
 	}
-	
+
 	public String getSubtotal() {
-		return ""+new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
+		return "" + new StringUtility().getIntValue(commonMethods.getText(lblSubTotalAmount).replace("\"", ""));
 	}
-	
+
 	public void resetStoredPayment() {
-		System.out.println("==========0===============");
-		if(genericHelper.isElementPresent(chkStoreCreditToggle) || (genericHelper.isElementPresent(chkClubApparelToggle))){
-			System.out.println("====1====");
-			if(genericHelper.isElementPresent(chkStoreCreditToggle) && this.isStoreCreditActive()) {
-				System.out.println("==========2===============");
-				this.turnOffStoreCredit();
-			}
-			if(genericHelper.isElementPresent(chkClubApparelToggle) && this.isClubApparelPointsActive()) {
-				System.out.println("==========3===============");this.turnOnCAPoints();
+		log.info("removing stored payment");
+		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
+			this.turnOffStoreCredit();
+		}
+		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
+			this.turnOffCAPoints();
+		}
+	}
+
+	public void payUsingFirstSavedCreditCard() {
+		if (genericHelper.isElementPresent(radioSavedCard)) {
+			if (genericHelper.isSelected(radioSavedCard)) {
+				if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("vi")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("visa"));
+					log.info("Saved Card " + json.getCVV("visa") + " is entered");
+				} else if (commonMethods.getAttribute(imgFirstSavedCard, "src").contains("mc")) {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("master"));
+					log.info("Saved Card " + json.getCVV("master") + " is entered");
+				} else {
+					commonMethods.click(radioFirstSavedCard);
+					log.info("Saved Card radio button is selected");
+					commonMethods.clearAndSendKeys(txtSavedCardCVV, json.getCVV("amex"));
+					log.info("Saved Card " + json.getCVV("amex") + " is entered");
+				}
 			}
 		}
 	}
