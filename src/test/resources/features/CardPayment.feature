@@ -57,17 +57,4 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
-		
-@StoreCreditAndMagento
-	Scenario: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using Saved credit card 
-		When User clicks on login link 
-		When User enters valid login details "SCuser" username and "SCuser" password in the login popup 
-		And User clicks on login button 
-		And user login is successfull 
-		And Home page is displayed 
-		And User clears cart
-		And User clears saved address
-		And Configure SC Availability using Magento "MagentoURL" username "magentouser" and password "magentouser" 
-		
-		
+		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|	
