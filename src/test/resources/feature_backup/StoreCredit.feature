@@ -19,7 +19,7 @@ Background: User logs into application and clears cart - addresses
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button
 		And user enters the valid details for shipping address 
-		And user reset Stored Payments
+#		And user reset Stored Payments
 		And selects use storecredit toggle if user is eligible to use
 		When user clicks on place order button with Store Credits
 		Then Order placing should be successful 

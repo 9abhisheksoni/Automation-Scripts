@@ -43,6 +43,10 @@ public class MagentoAllCustomersPage extends CucumberRunner {
 	
 	@FindBy(xpath="//table//a[contains(@href,'edit')][1]")
 	private WebElement lnkEditCustomer;
+	
+	@FindBy(xpath="//div[@class='admin__data-grid-header']//button[@class='action-tertiary action-clear' and text()='Clear all']")
+	private WebElement btnClearAll;
+	
 	/**
 	 * WebElement declaration ends here
 	 * **/
@@ -71,11 +75,21 @@ public class MagentoAllCustomersPage extends CucumberRunner {
 	}
 	
 	public void clickOnEditCustomer() {
+		waitHelper.waitForElementToBeClickable(lnkEditCustomer);
 		commonMethods.moveToElementAndClick(lnkEditCustomer);
 		log.info("clicked Edit link for the customer in Magento");
 	}
 	
+	public void clickClearAll() {
+		waitHelper.waitForSpinnerInvisibility();
+		if(genericHelper.isDisplayed(btnClearAll)) {
+			commonMethods.click(btnClearAll);
+			log.info("clicked Clear All button in All Customers page in Magento");
+		}
+	}
+	
 	public void navigateToCustomerDetailsPage() {
+		this.clickClearAll();
 		this.clickCustomersFilters();
 		this.enterEmail();
 		this.clickOnApplyFilters();
