@@ -490,15 +490,29 @@ public class PaymentPage extends CucumberRunner {
 		}
 	}
 
-	public void clickOnPlaceOrderwithSC() {
+	public void clickOnPlaceOrderwithSC(String additionalPayment) {
 		if (genericHelper.isElementPresent(this.btnSCPlaceOrder)) {
 			waitHelper.waitForElementVisible(this.btnSCPlaceOrder);
 			commonMethods.staleElementClick(btnSCPlaceOrder);
 			log.info("CLicked Place order button with Store Credit");
 		} else {
-			this.payUsingCOD();
+			if (additionalPayment.equalsIgnoreCase("COD")) {
+				this.payUsingCOD();
+			} else if (additionalPayment.equalsIgnoreCase("CC_VISA")) {
+				this.payUsingCreditCard("visa");
+			} else if (additionalPayment.equalsIgnoreCase("CC_MASTER")) {
+				this.payUsingCreditCard("master");
+			} else if (additionalPayment.equalsIgnoreCase("CC_AMEX")) {
+				this.payUsingCreditCard("amex");
+			} else if (additionalPayment.equalsIgnoreCase("TabbyPayLater")) {
+				waitHelper.staticWait(2000);
+				this.payUsingTabbyPayLater();
+			} else if (additionalPayment.equalsIgnoreCase("TabbyPayInInstallments")) {
+				waitHelper.staticWait(2000);
+				this.payUsingTabbyPayInInstallments();
+			}
 			this.clickOnPlaceOrder();
-			log.info("CLicked Place order button with Store Credit and COD");
+			log.info("CLicked Place order button");
 		}
 	}
 }

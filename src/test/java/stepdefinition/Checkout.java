@@ -129,9 +129,9 @@ public class Checkout {
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
 	
-	@When("^user clicks on place order button with Store Credits$")
-	public void user_clicks_on_place_order_button_with_Store_Credits() {
-		paymentPage.clickOnPlaceOrderwithSC();
+	@When("^user clicks on place order button with Store Credits and \"([^\"]*)\" if required$")
+	public void user_clicks_on_place_order_button_with_Store_Credits_and_another_if_required(String additionalPayment) {
+		paymentPage.clickOnPlaceOrderwithSC(additionalPayment);
 	}
 
 }

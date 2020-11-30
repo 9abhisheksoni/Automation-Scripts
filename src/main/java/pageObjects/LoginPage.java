@@ -542,7 +542,6 @@ public class LoginPage extends CucumberRunner {
 			magentoAllCustomersPage.navigateToCustomerDetailsPage();
 			magentoCustomerDetailsPage.updateStoreCreditBalance();	
 			genericHelper.switchToBaseWindow();
-			System.out.println("==========switched to main window=========");
 		}
 	}
 
