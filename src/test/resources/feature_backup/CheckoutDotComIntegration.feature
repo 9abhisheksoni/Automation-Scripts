@@ -14,7 +14,7 @@ Background: User log into application
 Scenario Outline: TS_checkout_01: Checkout application Payment Success	 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "<Size>" 
+		And user selects countrySize as "<CountrySize>", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -36,15 +36,15 @@ Scenario Outline: TS_checkout_01: Checkout application Payment Success
 		And User clicks on Checkout Payment Details
 		Then Verify status "Payment authorized" and "Payment captured" in Checkout payment details
 		
-	Examples:  
-	|Product                   |CountrySize|Size|Qty|
-	|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 
 @CheckoutIntegration @Regression
 Scenario Outline: TS_Checkout_02:Checkout application Payment Refund
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "<Size>" 
+		And user selects countrySize as "<CountrySize>", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -70,7 +70,7 @@ Scenario Outline: TS_Checkout_02:Checkout application Payment Refund
 		And User clicks on Checkout Payment Details
 		Then Verify status "Payment refunded" refund in Checkout payment details
 		
-	Examples:  
-	|Product                   |CountrySize|Size|Qty|
-	|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 	

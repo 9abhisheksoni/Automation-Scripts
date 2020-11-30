@@ -186,8 +186,7 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public int getPriceFromText(String text) {
-		//int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf(' ') + 1));
-		int price = (int) (0 + stringUtility.getDecimalValue(text.substring(text.lastIndexOf(' ') + 1))); 
+		int price = (int) (stringUtility.getDecimalValue(0 + text.substring(text.lastIndexOf(' ') + 1))); 
 		log.info("returning price from text : "+price);
 		return price;
 	}
