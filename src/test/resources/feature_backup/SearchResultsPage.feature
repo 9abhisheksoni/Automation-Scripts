@@ -71,11 +71,15 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 			Then search suggestions should be displayed
 			
 		@Smoke @Regression	
-		Scenario: TS_Search_07 - Verify HOME LOGO
-			And user enters product name as "a" in search text box 
+		Scenario Outline: TS_Search_07 - Verify HOME LOGO
+			And user enters product name as "<SearchTerm>" in search text box 
 			And search suggestions should be displayed 
 			And user click on first product on the search suggestions
 			Then user is on PDP
 			Then User click on Home Logo 
 			And Home page is displayed
+			
+		Examples: 
+				|SearchTerm|
+				|Shoes|
 
