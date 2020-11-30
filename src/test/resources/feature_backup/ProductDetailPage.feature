@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - PDP select size
 
-@Smoke
+@Smoke @Regression	
 Scenario Outline: TS_PDP_01:User should be able add product with size
  		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -11,7 +11,7 @@ Scenario Outline: TS_PDP_01:User should be able add product with size
 				|Product|
 				|AR73965592-RED-600|
 
-@Smoke
+@Smoke @Regression
 Scenario Outline: TS_PDP_02:User should be able add product without variations
  		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -32,7 +32,7 @@ Scenario Outline: TS_PDP_03:User should be able add product with color
 				|Product|
 				|23ETHERANDRA-WHITE|
 
-@Regression			
+@Regression
 Scenario Outline: TS_PDP_04:User should be able add any product
 		And user enters product name as "<searchTerm>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -45,7 +45,7 @@ Scenario Outline: TS_PDP_04:User should be able add any product
 				|AR73965592-RED-600|
 				|ADWONI-270-002-034-RUGBY-TAN|
 				
-@Smoke
+@Smoke @Regression	
 Scenario Outline: TS_PDP_05 - User of 6thstreet.com site should be able to Review Tabby Widget on PDP
 	And Home page is displayed 
 	And user enters product name as "<Product>" in search text box and click search icon 
