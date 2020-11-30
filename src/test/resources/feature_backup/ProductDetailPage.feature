@@ -9,7 +9,7 @@ Scenario Outline: TS_PDP_01:User should be able add product with size
 	
 	Examples: 
 				|Product|
-				|AR73965592-RED-600|
+				|LCW-0SV017Z8-KUC-NAVY-BLUE|
 
 @Smoke @Regression
 Scenario Outline: TS_PDP_02:User should be able add product without variations
@@ -19,9 +19,9 @@ Scenario Outline: TS_PDP_02:User should be able add product without variations
 		
 	Examples: 
 				|Product|
-				|ADWONI-270-002-034-RUGBY-TAN|
+				|IG5907755311267-BROWN|
 
-@Regression				
+@Regression			
 Scenario Outline: TS_PDP_03:User should be able add product with color
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -30,7 +30,7 @@ Scenario Outline: TS_PDP_03:User should be able add product with color
 	
 	Examples: 
 				|Product|
-				|23ETHERANDRA-WHITE|
+				|NKAA2146-600-RED|
 
 @Regression
 Scenario Outline: TS_PDP_04:User should be able add any product
@@ -41,11 +41,11 @@ Scenario Outline: TS_PDP_04:User should be able add any product
 	
 	Examples: 
 				|searchTerm|
-				|23ETHERANDRA-WHITE|
-				|AR73965592-RED-600|
+				|LCW-0SV017Z8-KUC-NAVY-BLUE|
+				|IG5907755311267-BROWN|
 				|ADWONI-270-002-034-RUGBY-TAN|
 				
-@Smoke @Regression	
+@Regression	@Tabby
 Scenario Outline: TS_PDP_05 - User of 6thstreet.com site should be able to Review Tabby Widget on PDP
 	And Home page is displayed 
 	And user enters product name as "<Product>" in search text box and click search icon 
@@ -55,6 +55,6 @@ Scenario Outline: TS_PDP_05 - User of 6thstreet.com site should be able to Revie
 	And Verify the tabby promo from widget
 	
 	 Examples:  
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|Product |
+		|120-V065FG008-1-L-BLUE|
 	

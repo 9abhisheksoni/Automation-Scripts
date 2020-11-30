@@ -36,7 +36,7 @@ Background: User logs into application and clears cart - addresses
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|46|1|
 
 	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
@@ -64,7 +64,7 @@ Background: User logs into application and clears cart - addresses
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|46|1|
 		
 	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using master credit card 
@@ -92,7 +92,7 @@ Background: User logs into application and clears cart - addresses
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|46|1|
 	
 	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_04 - Registered User of 6thstreet.com site should be able to place order using amex credit card 
@@ -120,7 +120,7 @@ Background: User logs into application and clears cart - addresses
 		
 	Examples:  
 		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|46|1|
 		
 		
 	@Regression @TabbyPayInInstallments

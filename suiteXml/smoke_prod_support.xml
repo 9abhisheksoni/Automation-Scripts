@@ -6,6 +6,7 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Smoke_AllSites" />
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KSA-EN : Smoke">
@@ -13,6 +14,7 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Smoke_AllSites" />
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="OM-EN : Smoke">
@@ -48,6 +50,7 @@
 		<parameter name="language" value="AR" />
 		<classes>
 			<class name="testRunner.Smoke_AllSites" />
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KSA-AR : Smoke">
@@ -55,6 +58,7 @@
 		<parameter name="language" value="AR" />
 		<classes>
 			<class name="testRunner.Smoke_AllSites" />
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="OM-AR : Smoke">

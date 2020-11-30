@@ -176,6 +176,9 @@ public class LoginPage extends CucumberRunner {
     @FindBy(xpath = "//div[@class='box-a1'][2]")
     private WebElement txtSecRewards;
 
+    @FindBy(xpath = "//div[@class='message info empty']")
+    private WebElement msgEmptyWishlist;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -331,6 +334,7 @@ public class LoginPage extends CucumberRunner {
 			commonMethods.click(iconWishlistRemove.get(0));
 			log.info("Wishlist remove icon clicked");
 		}
+		waitHelper.waitForElementVisible(msgEmptyWishlist);
 	}
 
 	public void verifyWishlistProductAdded() {

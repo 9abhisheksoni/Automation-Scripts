@@ -1,13 +1,13 @@
 Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login/logout
 
-	@Smoke @Regression	
+	@Regression
 	Scenario: TS_Account_Creation _01 - Create user account with email_id and Password
 		When User clicks on login link 
 		Then Create an account using valid details
 		Then user login is successfull
 	
 	@Smoke @Regression	
-	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to place order using cod 
+	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 
@@ -48,7 +48,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-		@Smoke @Regression	
+		@Smoke @Regression 
 		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters valid login details "validuser" username and "validuser" password in the login popup 
