@@ -133,5 +133,10 @@ public class Checkout {
 	public void user_clicks_on_place_order_button_with_Store_Credits_and_another_if_required(String additionalPayment) {
 		paymentPage.clickOnPlaceOrderwithSC(additionalPayment);
 	}
+	
+	@Then("^verify available Payment options in payment page$")
+	public void verify_available_Payment_options_in_payment_page() {
+		paymentPage.verifyAvailablePaymentOptions();
+	}
 
 }

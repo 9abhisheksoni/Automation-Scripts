@@ -130,6 +130,7 @@ public class ShippingPage extends CucumberRunner {
 
 	public void selectArea(String country) {
 		waitHelper.waitForElementVisible(drpdwnArea);
+		waitHelper.staticWait(1000);
 		commonMethods.SelectUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}

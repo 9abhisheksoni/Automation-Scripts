@@ -71,7 +71,7 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout button default']")
 	private WebElement btnCodPlaceOrder;
 
-	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn' and @title='Place Order']") // updated
+	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn']") // updated
 	private WebElement btnCcPlaceOrder;//
 
 	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
@@ -191,11 +191,17 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@id='vault-container']//input[@placeholder='CVV'][1]")
 	private WebElement txtSavedCardCVV;
 
-	@FindBy(xpath = "//button[@id='checkoutcom_vault_btn' and @title='Place Order']")
+	@FindBy(xpath = "//button[@id='checkoutcom_vault_btn']")
 	private WebElement btnSavedCCPlaceOrder;
 
-	@FindBy(xpath = "//button[@class='action primary checkout' and @title='Place Order']/span")
+	@FindBy(xpath = "//button[@class='action primary checkout']/span")
 	private WebElement btnSCPlaceOrder;
+	
+	@FindBy(xpath="//span[@id='block-customerbalance-heading']/ancestor::div[@id='customerbalance-placer']")
+	private WebElement divStoreCredit;
+	
+	@FindBy(xpath="//span[@class='club-apparel']/ancestor::div[contains(@class,'ca')]")
+	private WebElement divClubApparel;
 
 	/**
 	 * WebElement declaration ends here
@@ -513,6 +519,33 @@ public class PaymentPage extends CucumberRunner {
 			}
 			this.clickOnPlaceOrder();
 			log.info("CLicked Place order button");
+		}
+	}
+	
+	public void verifyAvailablePaymentOptions() {
+		String env = browserFactory.getCountry();
+		if (env.equalsIgnoreCase("UAE") || env.equalsIgnoreCase("KSA")) {
+			genericHelper.isDisplayed(divStoreCredit);
+			log.info("Store Credit Payment Option is available");
+			genericHelper.isDisplayed(divClubApparel);
+			log.info("Club Appareal Payment Option is available");
+			genericHelper.isDisplayed(divCreditCardPayment);
+			log.info("Credit Card Payment Option is available");
+			genericHelper.isDisplayed(divCodPayment);
+			log.info("COD Payment Option is available");
+			genericHelper.isDisplayed(divTabbyPayLater);
+			log.info("Tabby Pay Later Payment Option is available");
+			genericHelper.isDisplayed(divTabbyPayInInstallments);
+			log.info("Tabby Pay In Installments Payment Option is available");
+		} else {
+			genericHelper.isDisplayed(divStoreCredit);
+			log.info("Store Credit Payment Option is available");
+			genericHelper.isDisplayed(divClubApparel);
+			log.info("Club Appareal Payment Option is available");
+			genericHelper.isDisplayed(divCreditCardPayment);
+			log.info("Credit Card Payment Option is available");
+			genericHelper.isDisplayed(divCodPayment);
+			log.info("COD Payment Option is available");
 		}
 	}
 }
