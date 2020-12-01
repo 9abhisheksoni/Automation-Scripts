@@ -48,7 +48,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		|Product                   |CountrySize|Size|
 		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 		
-		@Smoke @Regression 
+		@Smoke @Regression
 		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters valid login details "validuser" username and "validuser" password in the login popup 

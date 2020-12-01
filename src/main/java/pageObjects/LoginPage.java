@@ -329,8 +329,7 @@ public class LoginPage extends CucumberRunner {
 
 	public void clearWishlist() {
 		homePage.clickOnWishlistInHeader();
-		int removeiconWishlistCount = iconWishlistRemove.size();
-		for (int i = 0; i < removeiconWishlistCount; i++) {
+		while(iconWishlistRemove.size()>0) {
 			commonMethods.click(iconWishlistRemove.get(0));
 			log.info("Wishlist remove icon clicked");
 		}
