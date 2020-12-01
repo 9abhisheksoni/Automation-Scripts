@@ -233,9 +233,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void verifyLogin() {
-		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
-			commonMethods.refresh();
-		}
+		commonMethods.refresh();
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
 		log.info("login is successfull");
 	}

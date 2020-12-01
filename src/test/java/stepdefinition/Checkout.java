@@ -1,6 +1,5 @@
 package stepdefinition;
 
-import java.util.Scanner;
 
 import base.Config;
 import commonHelper.WaitHelper;
@@ -115,11 +114,6 @@ public class Checkout {
 	
 	@And("^user reset Stored Payments$")
 	public void user_reset_Stored_Payments() {
-		try {
-			Thread.sleep(120000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		paymentPage.resetStoredPayment();
 	}
 	

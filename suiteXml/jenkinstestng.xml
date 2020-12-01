@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="1">
+	<test name="KSA">
+		<parameter name="country" value="KSA" />
+ 		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.CucumberRunner" />
+		</classes>
+	</test> <!--Test -->
+</suite> <!-- Suite -->

@@ -8,7 +8,7 @@ import cucumber.api.CucumberOptions;
 glue = "stepdefinition", format = {	"pretty"}, tags = { "@Smoke" }, 
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html" }, dryRun = false)
 
-public class CucumberRunner extends CucumberBase {
+public class Smoke_AllSites extends CucumberBase {
 
 
 }

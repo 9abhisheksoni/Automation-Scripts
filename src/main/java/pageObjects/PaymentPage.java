@@ -155,6 +155,9 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[3]")
 	private WebElement txtTabbyNationality;
 
+	@FindBy(xpath = "//li[contains(@class,'DropdownCountries')]")
+	private WebElement drpdwnTabbyNationality;
+
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
@@ -297,6 +300,7 @@ public class PaymentPage extends CucumberRunner {
 			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
 			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
 			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
+			commonMethods.click(drpdwnTabbyNationality);
 			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);
@@ -409,7 +413,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit off if present");
 		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnStoreCreditToggle);
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -418,7 +424,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit off if present");
 		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnClubApparelToggle);
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -427,7 +435,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnStoreCreditToggle);
+			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
+				commonMethods.click(btnStoreCreditToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
@@ -436,7 +446,9 @@ public class PaymentPage extends CucumberRunner {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
 			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnClubApparelToggle);
+			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
+				commonMethods.click(btnClubApparelToggle);
+			}
 			waitHelper.waitForSpinnerInvisibility();
 		}
 	}

@@ -132,13 +132,13 @@
 				<version>2.18.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+						<suiteXmlFile>suiteXml/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
-					<systemPropertyVariables>
-						<propertyName>${browser}</propertyName>
-						<propertyName>${environment}</propertyName>
-					</systemPropertyVariables>
+						<systemPropertyVariables>
+							<propertyName>${browser}</propertyName>
+							<propertyName>${environment}</propertyName>
+						</systemPropertyVariables>
 						<property>
 							<name>listener</name>
 							<value>org.uncommons.reportng.HTMLReporter,

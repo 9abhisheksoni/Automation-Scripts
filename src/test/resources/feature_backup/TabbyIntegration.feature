@@ -1,33 +1,23 @@
-Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
-													 Tabby RMA Scenarios
+Feature: 6thstreet.com - Tabby Order placing, Tabby cancellation & Tabby RMA Scenarios
 
-  @TabbyPayInInstallments @RegisteredUser @Smoke
-  Scenario Outline: TS_TabbyRMA_01 - User of 6thstreet.com site should be able to Review Tabby Widget on PDP
-	And Home page is displayed 
-	And user enters product name as "<Product>" in search text box and click search icon 
-	And user clicks on product tile in result 
-	And Tabby widget verification with monthly division
-	And Click on Tabby Widget
-	And Verify the tabby promo from widget
-	
-	 Examples:  
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
-		
-		@TabbyPayInInstallments @RegisteredUser 
-	Scenario Outline: TS_TabbyRMA_02 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayInInstallments 
+Background: user logins to application and navigates till shipping address page
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart 
+		
+		
+		
+	@TabbyPayInInstallments @Regression
+	Scenario Outline: TS_TabbyRMA_02 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayInInstallments  
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user enters the valid details for shipping address
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -58,23 +48,17 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 		Then Verify Magento Order Status to be "Canceled" 
 	
 	Examples: 
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|Product|CountrySize|Size|Qty|
+		|5277134-TAN|EU|23|1|
 		
-	@TabbyPayLater @RegisteredUser 
-	Scenario Outline: TS_TabbyRMA_03 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayLater 
-		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
-		And User clicks on login button 
-		And user login is successfull 
-		And Home page is displayed 
-		And User clears cart 
+	@TabbyPayLater @Regression 
+	Scenario Outline: TS_TabbyRMA_03 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayLater  
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "41" 
+		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user enters the valid details for shipping address
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -111,20 +95,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 			
 			
 
-  @TabbyPayInInstallments @RegisteredUser @Smoke
+  @TabbyPayInInstallments @Regression
   Scenario Outline: TS_TabbyRMA_04 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayInInstallments
-    When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
-	And User clicks on login button 
-	And user login is successfull 
-	And Home page is displayed 
-	And User clears cart 
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "41" 
+	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address 
+	And user enters the valid details for shipping address
 	And user selects payment option as "TabbyPayInInstallments" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -158,14 +136,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 	And Verify the Payment Method in Magento as "Pay in installments" 
 	And user clicks on Invoice button 
 	Then user should be redirected to Invoice page 
-	When user slects payment capture method as "capture offline" 
+	When user slects payment capture method as "capture online" 
 	And user clicks on submit invoice button 
 	Then invoice should be generated 
 	When user clicks ship button 
 	Then user should be redirected to shipment page 
 	When user clicks on add tracking number button 
 	And user selects carrier partner as "DHL" 
-	And user enters carrier tracking number as "12345" 
+	And user enters carrier tracking number as "AEP092000042" 
 	And user clicks on submit shipment 
 	Then shipment should be created 
 	When user goes to main window 
@@ -205,24 +183,18 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 	Then Verify return status in return details to be "Tabby Refunded" 
     
     Examples:  
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|
+		|Product|CountrySize|Size|Qty|
+		|5277134-TAN|EU|23|1|
 		
 	
-	@TabbyPayLater @RegisteredUser @Smoke
+	@TabbyPayLater @Regression
   Scenario Outline: TS_TabbyRMA_05 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayLater
-    When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
-	And User clicks on login button 
-	And user login is successfull 
-	And Home page is displayed 
-	And User clears cart 
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "41" 
+	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address 
+	And user enters the valid details for shipping address
 	And user selects payment option as "TabbyPayLater" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -256,14 +228,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 	And Verify the Payment Method in Magento as "Pay Later" 
 	And user clicks on Invoice button 
 	Then user should be redirected to Invoice page 
-	When user slects payment capture method as "capture offline" 
+	When user slects payment capture method as "capture online" 
 	And user clicks on submit invoice button 
 	Then invoice should be generated 
 	When user clicks ship button 
 	Then user should be redirected to shipment page 
 	When user clicks on add tracking number button 
 	And user selects carrier partner as "DHL" 
-	And user enters carrier tracking number as "12345" 
+	And user enters carrier tracking number as "AEP092000042" 
 	And user clicks on submit shipment 
 	Then shipment should be created 
 	When user goes to main window 
@@ -306,20 +278,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@TabbyPayInInstallments @RegisteredUser 
+	@TabbyPayInInstallments @Regression 
   Scenario Outline: TS_TabbyRMA_06 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayInInstallments
-    When User clicks on login link
-    When User enters valid login details "validuser" username and "validuser" password in the login popup
-    And User clicks on login button
-    And user login is successfull
-    And Home page is displayed
-    And User clears cart
-    And user enters product name as "<Product>" in search text box and click search icon
-    And user clicks on product tile in result
-    And user selects countrySize as "EU", size as "41"
-    And user clicks on ADDTOBAG button
-    And user navigates to shopping bag page and clicks on proceedToCheckout button
-    And user enters the valid details for shipping address
+    And user enters product name as "<Product>" in search text box and click search icon 
+	And user clicks on product tile in result 
+	And user selects countrySize as "EU", size as "<Size>" 
+	And user clicks on ADDTOBAG button 
+	And user navigates to shopping bag page and clicks on proceedToCheckout button 
+	And user enters the valid details for shipping address
     And user selects payment option as "TabbyPayInInstallments"
     And user clicks on place order button
     And user fills all tabby details
@@ -353,14 +319,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
     And Verify the Payment Method in Magento as "Pay in installments"
     And user clicks on Invoice button
     Then user should be redirected to Invoice page
-    When user slects payment capture method as "capture offline"
+    When user slects payment capture method as "capture online"
     And user clicks on submit invoice button
     Then invoice should be generated
     When user clicks ship button
     Then user should be redirected to shipment page
     When user clicks on add tracking number button
     And user selects carrier partner as "DHL"
-    And user enters carrier tracking number as "12345"
+    And user enters carrier tracking number as "AEP092000042"
     And user clicks on submit shipment
     Then shipment should be created
     When user goes to main window 
@@ -410,23 +376,17 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
     
     
     Examples:  
-		|Product |CountrySize|Size|Qty|
-		|DSW425728-230-NUDE|EU|41|1|	
+		|Product|CountrySize|Size|Qty|
+		|5277134-TAN|EU|23|1|	
 	
-	@TabbyPayLater @RegisteredUser 
+	@TabbyPayLater @Regression 
   Scenario Outline: TS_TabbyRMA_07 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayLater
-    When User clicks on login link
-    When User enters valid login details "validuser" username and "validuser" password in the login popup
-    And User clicks on login button
-    And user login is successfull
-    And Home page is displayed
-    And User clears cart
-    And user enters product name as "<Product>" in search text box and click search icon
-    And user clicks on product tile in result
-    And user selects countrySize as "EU", size as "41"
-    And user clicks on ADDTOBAG button
-    And user navigates to shopping bag page and clicks on proceedToCheckout button
-    And user enters the valid details for shipping address
+    And user enters product name as "<Product>" in search text box and click search icon 
+	And user clicks on product tile in result 
+	And user selects countrySize as "EU", size as "<Size>" 
+	And user clicks on ADDTOBAG button 
+	And user navigates to shopping bag page and clicks on proceedToCheckout button 
+	And user enters the valid details for shipping address
     And user selects payment option as "TabbyPayLater"
     And user clicks on place order button
     And user fills all tabby details
@@ -460,14 +420,14 @@ Feature: 6thstreet.com - Tabby Widget on PDP and Tabby cancellation
     And Verify the Payment Method in Magento as "Pay Later"
     And user clicks on Invoice button
     Then user should be redirected to Invoice page
-    When user slects payment capture method as "capture offline"
+    When user slects payment capture method as "capture online"
     And user clicks on submit invoice button
     Then invoice should be generated
     When user clicks ship button
     Then user should be redirected to shipment page
     When user clicks on add tracking number button
     And user selects carrier partner as "DHL"
-    And user enters carrier tracking number as "12345"
+    And user enters carrier tracking number as "AEP092000042"
     And user clicks on submit shipment
     Then shipment should be created
     When user goes to main window 

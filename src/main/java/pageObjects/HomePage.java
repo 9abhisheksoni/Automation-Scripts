@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -12,6 +13,7 @@ import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
+import utilities.StringUtility;
 
 public class HomePage extends CucumberRunner {
 	/**
@@ -22,6 +24,7 @@ public class HomePage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
+	StringUtility strUtil=new StringUtility();
 
 	/**
 	 * Constructor to initialize page objects
@@ -150,4 +153,15 @@ public class HomePage extends CucumberRunner {
 		log.info("First Search element clicked");
 	}
 	
+	public void createAccount() {
+		waitHelper.waitForElementVisible(btnSignUp);
+		commonMethods.click(btnSignUp);
+		commonMethods.clearAndSendKeys(txtFirstName, RandomStringUtils.randomAlphabetic(6));
+		commonMethods.clearAndSendKeys(txtLastName, RandomStringUtils.randomAlphabetic(5));
+		commonMethods.clearAndSendKeys(txtEmailID, strUtil.generateRandomEmailID());
+		commonMethods.clearAndSendKeys(txtPwd, "India@123");
+		waitHelper.waitForElementVisible(btnCreateAccount);
+		commonMethods.click(btnCreateAccount);
+
+	}
 }
