@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -7,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Wait;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
@@ -72,7 +75,12 @@ public class PDPPage extends CucumberRunner {
 	
 	@FindBy(xpath="//span[contains(@class,'product_name')]")
 	private WebElement msgProductName;
-
+	
+	@FindBy (xpath = "//span[@class='price eav-regular']")
+	private WebElement txtBasePrice;
+	
+	@FindBy (xpath = "//span[@class='special-price eav-final']")
+	private WebElement txtSpecialPrice;
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -205,6 +213,53 @@ public class PDPPage extends CucumberRunner {
 		waitHelper.waitForElementVisible(msgProductName);
 		Assert.assertTrue(genericHelper.isDisplayed(msgProductName));
 		log.info("user is on PDP");
+	}
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the PDP
+	 */
+	public String getBasePricePDP() {
+		waitHelper.waitForElementVisible(txtBasePrice);
+		String basePrice = txtBasePrice.getText();
+		basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.replaceAll("[^0-9]", "");
+		return basePrice;
+	}
+	
+	/* This method compares the base_price displaying at PDP with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateBasePriceAtPDP(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at PDP with the actual base_price provided by the user");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		String basePriceAtPDP = getBasePricePDP();
+		log.info("The base_price available in the PDP is " + basePriceAtPDP);
+		assertEquals(basePriceAtPDP, actualBasePrice, "The base_price is matching");
+	}
+	
+	/*
+	 * This method fetches the special_price displaying for an item
+	 * in the PDP
+	 */
+	public String getSpecialPricePLP() {
+		log.info("Fethcing the special of the item in the PDP");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+
+	/*
+	 * This method compares the special_price displaying at PDP with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at PDP with the actual values");
+		String SpecialAtPDP = getSpecialPricePLP();
+		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PDP");
 	}
 
 }

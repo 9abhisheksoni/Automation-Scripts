@@ -25,4 +25,8 @@ public class OrderDetails {
 		Assert.assertTrue(orderDetailsPage.getOrderPaymentType().equalsIgnoreCase(payment));
 	}
 	
+	@Then("^user checks the \"([^\"]*)\" in order order details$")
+	public void user_checks_the_in_order_order_details(String specialPrice) throws Throwable {
+		orderDetailsPage.evaluateSpecialPriceAtShipping(specialPrice);
+	}
 }

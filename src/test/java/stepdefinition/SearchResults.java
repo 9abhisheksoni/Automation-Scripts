@@ -125,4 +125,10 @@ public class SearchResults {
         searchPage.verifySearchSuggestionDisplay();
     }
 
+	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PLP$")
+	public void user_checks_the_and_the_in_PLP(String base_price, String special_price) {
+		searchPage.evaluateBasePriceAtPLP(base_price);
+		searchPage.evaluateSpecialPriceAtPLP(special_price);
+	}
+
 }

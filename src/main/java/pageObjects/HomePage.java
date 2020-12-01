@@ -1,5 +1,9 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
+import java.util.Scanner;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -71,12 +75,15 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@ID='yopeso_register']")
 	private WebElement btnCreateAccount;
-	
-	@FindBy(xpath="//li[@class='header-wishlist']/a")
+
+	@FindBy(xpath = "//li[@class='header-wishlist']/a")
 	private WebElement lnkWishlist;
-	
-	@FindBy(xpath="(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]")
+
+	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]")
 	private WebElement FirstSearchEle;
+
+	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']")
+	private WebElement txtPriceInSearch;
 
 	/**
 	 * WebElement declaration ends here
@@ -129,25 +136,54 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(btnCreateAccount);
 
 	}
-	
+
 	public void typeInSearchField(String product) {
 		commonMethods.clearAndSendKeys(txtSearchProduct, product);
 		log.info("Entering text in Search field");
 	}
-	
+
 	public void clickHomeLogo() {
 		commonMethods.click(imgHomePage);
 		log.info("Clicked on Home Logo");
 	}
-	
+
 	public void clickOnWishlistInHeader() {
 		commonMethods.click(lnkWishlist);
 		log.info("clicked Wishlist in Header");
 	}
-	
+
 	public void clickOnFirstItemSearchResult() {
 		commonMethods.moveToElementAndClick(FirstSearchEle);
 		log.info("First Search element clicked");
 	}
+
+	/*
+	 * Author: Dinesh This method fetches price displaying for an SKU at the Search
+	 * bar
+	 */
+	public String getPriceValueAtSearch() {
+		log.info("Fetching the price at the search");
+		waitHelper.waitForElementVisible(txtPriceInSearch);
+		String priceWithCurrenyCode = commonMethods.getText(txtPriceInSearch);
+		log.info("The price available in the search bar: " + priceWithCurrenyCode);
+		//String actualPrice = priceWithCurrenyCode.replaceAll(",", ""); // Works correctly for KSA and UAE
+		String actualPrice = priceWithCurrenyCode.replaceAll("[^0-9]", "");
+		log.info("The actual price is " + actualPrice);
+		return actualPrice;
+	}
+
+	/*
+	 * Author: Dinesh This method compares the price displaying in the search bar
+	 * with the price given by the user
+	 */
+	public void evaluateSpecialPriceAtSearch(String sellingPrice) {
+		log.info("comparing the price displaying at the search");
+		String priceAtSearch = getPriceValueAtSearch();
+		log.info("The price at search is " + priceAtSearch);
+		log.info("Actual value provided by the user is " + sellingPrice);
+		assertEquals(priceAtSearch, sellingPrice, "Prices are matching at the search");
+	}
+
 	
+
 }

@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -92,6 +94,12 @@ public class ShippingPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[@class='preventAddress mage-error']")
 	private WebElement msgSavedShippingAddressError;
+	
+	@FindBy (xpath = "//div[@class='original-price']/span")
+	private WebElement txtBasePrice;
+	
+	@FindBy (xpath = "//div[@class='price with-discount']/span")
+	private WebElement txtSpecialPrice;
 	
 	/**
 	 * WebElement declaration ends here
@@ -241,6 +249,51 @@ public class ShippingPage extends CucumberRunner {
 	public void editAndEnterFirstName(String firstName) {
 		commonMethods.clearAndSendKeys(txtFirstName, firstName);
 		log.info("First Name is Modified");
+	}
+	
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the Shipment
+	 */
+	public String getBasePriceAtShipping() {
+		waitHelper.waitForElementVisible(txtBasePrice);
+		String basePrice = txtBasePrice.getText();
+		basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.replaceAll("[^0-9]", "");
+		return basePrice;
+	}
+	
+	/* This method compares the base_price displaying at Shipment with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateBasePriceAtShipping(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at Shipping with the actual base_price provided by the user");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		String basePriceAtShipping = getBasePriceAtShipping();
+		log.info("The base_price available in the Shipping is " + basePriceAtShipping);
+		assertEquals(basePriceAtShipping, actualBasePrice, "The base_price is matching");
+	}
+
+	public String getSpecialPriceAtShipping() {
+		log.info("Fethcing the special price of the item in the Shipping");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		log.info("The Special Price at Shipping is "+specialPrice);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Shipment with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtShipping(String actualSpecialPrice) {
+		log.info("Comparing the special_price displaying at Shipping with the actual values");
+		String SpecialPriceAtShipping = getSpecialPriceAtShipping();
+		assertEquals(SpecialPriceAtShipping, actualSpecialPrice, "The special_price is matching at Shipping");
 	}
 	
 }

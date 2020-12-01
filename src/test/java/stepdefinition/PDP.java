@@ -74,5 +74,11 @@ public class PDP {
 	public void user_is_on_PDP() {
 		pdpPage.verifyPDPDisplayed();
 	}
+	
+	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PDP$")
+	public void user_checks_the_and_the_in_PDP(String base_price, String special_price) {
+		pdpPage.evaluateBasePriceAtPDP(base_price);
+		pdpPage.evaluateSpecialPriceAtPLP(special_price);
+	}
 
 }

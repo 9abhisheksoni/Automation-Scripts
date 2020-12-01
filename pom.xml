@@ -126,12 +126,13 @@
 				<version>2.18.1</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+<!-- 						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile> -->
+							<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<properties>
 					<systemPropertyVariables>
-						<propertyName>${browser}</propertyName>
-						<propertyName>${environment}</propertyName>
+<!-- 						<propertyName>${browser}</propertyName> -->
+<!-- 						<propertyName>${environment}</propertyName> -->
 					</systemPropertyVariables>
 						<property>
 							<name>listener</name>

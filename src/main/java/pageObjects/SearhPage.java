@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -110,6 +112,12 @@ public class SearhPage extends CucumberRunner {
 	
 	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
 	private List<WebElement> lnkProductSuggestion;
+	
+	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
+	private WebElement txtBasePrice;
+
+	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
+	private WebElement txtSpecialPrice;
 
 	/**
 	 * WebElement declaration ends here
@@ -244,6 +252,56 @@ public class SearhPage extends CucumberRunner {
 	public void verifySearchSuggestionDisplay() {
 		Assert.assertTrue(lnkProductSuggestion.size()>0);
 		log.info("Search suggestions displayed");
+	}
+	
+	/*
+	 * This method fetches the base_price displaying for an item in
+	 * the PLP
+	 */
+	public String getBasePricePLP() {
+		log.info("Fethcing the basebrice of the item in the PDP");
+		waitHelper.waitForElementVisible(txtBasePrice);
+		String basePrice = commonMethods.getText(txtBasePrice);
+		basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.replaceAll("[^0-9]", "");
+		return basePrice;
+	}
+
+	/*
+	 * This method compares the base_price displaying at PLP with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateBasePriceAtPLP(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at PLP with the actual values");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		String basePriceAtPLP = getBasePricePLP();
+		log.info("The base_price available in the PLP is " + basePriceAtPLP);
+		assertEquals(basePriceAtPLP, actualBasePrice, "The base_price is matching");
+	}
+
+	/*
+	 * This method fetches the special_price displaying for an item
+	 * in the PLP
+	 */
+	public String getSpecialPricePLP() {
+		log.info("Fethcing the special of the item in the PLP");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+
+	/*
+	 * This method compares the special_price displaying at PLP with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at PLP with the actual values");
+		String SpecialAtPDP = getSpecialPricePLP();
+		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
 	}
 
 }

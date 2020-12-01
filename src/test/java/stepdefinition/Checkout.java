@@ -123,5 +123,17 @@ public class Checkout {
 		waitHelper.waitForSpinnerInvisibility();
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
+	
+	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Shipment$")
+	public void user_checks_the_and_the_in_Shipment(String basePrice, String specialPrice) throws Throwable {
+		shippingPage.evaluateBasePriceAtShipping(basePrice);
+		shippingPage.evaluateSpecialPriceAtShipping(specialPrice);
+	}
+	
+	@Then("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in order success$")
+	public void user_checks_the_and_the_in_order_success(String basePrice, String specialPrice) throws Throwable {
+		orderSuccess.evaluateBasePriceAtOrderSuccess(basePrice);
+		orderSuccess.evaluateSpecialPriceAtOrderSuccess(specialPrice);
+	}
 
 }

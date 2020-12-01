@@ -58,5 +58,16 @@ public class Home {
 	public void user_click_on_Home_Logo() throws Throwable {
 		homePage.clickHomeLogo();
 	}
+	
+	@And("^user checks the \"([^\"]*)\" in the search$")
+	public void user_checks_the_in_the_search(String special_price) {
+		homePage.evaluateSpecialPriceAtSearch(special_price);
+	}
+	
+	@And("^user clicks the wishlist link$")
+	public void user_clicks_the_wishlist_link() {
+		homePage.clickOnWishlistInHeader();
+	}
+
 
 }

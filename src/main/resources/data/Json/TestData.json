@@ -2,15 +2,15 @@
 	{
 		"users": {
 			"validuser": {
-				"username": "qauae1@yopmail.com",
-				"password": "6Thstreet!"
+				"username": "chethana.achar@6thstreet.com",
+				"password": "Letmein!123"
 			},
 			"invaliduser": {
 				"username": "invalid@automation.com",
 				"password": "invalid@1234"
 			},
 			"clubuser": {
-				"username": "tommy.qatester1@gmail.com"
+				"username": "tommy.qatester1@gmail.com",
 				"password": "test@12345"
 			},
 			"guestuser": {

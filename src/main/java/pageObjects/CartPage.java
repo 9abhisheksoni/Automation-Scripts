@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -88,6 +90,12 @@ public class CartPage extends CucumberRunner {
 	
 	@FindBy (xpath="//div[contains(@class,'message-success')]")
 	private WebElement msgSuccess;
+	
+	@FindBy (xpath = "//span[@class='old-price']")
+	private WebElement txtBasePrice;
+	
+	@FindBy (xpath = "//span[@class='special-price']//span[@class='price']")
+	private WebElement txtSpecialPrice;
 	
 	/**
 	 * WebElement declaration ends here
@@ -180,5 +188,76 @@ public class CartPage extends CucumberRunner {
 		Assert.assertTrue(genericHelper.isElementPresent(msgSuccess));
 		log.info("Coupon Code successfully Applied");
 	}
+	
+	
+	/*
+	 * This method fetches the special_price displaying for an item
+	 * in the PDP
+	 */
+	public String getSpecialPriceCart() {
+		log.info("Fethcing the special of the item in the Cart");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+	
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the Cart
+	 */
+	public String getBasePriceCart() {
+		waitHelper.waitForElementVisible(txtBasePrice);
+		String basePrice = txtBasePrice.getText();
+		basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.replaceAll("[^0-9]", "");
+		return basePrice;
+	}
+	
+	/* This method compares the base_price displaying at Cart with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateBasePriceAtCart(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at Cart with the actual base_price provided by the user");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		String basePriceAtCart = getBasePriceCart();
+		log.info("The base_price available in the Cart is " + basePriceAtCart);
+		assertEquals(basePriceAtCart, actualBasePrice, "The base_price is matching");
+	}
+
+	/*
+	 * This method compares the special_price displaying at Cart with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtCart(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at Cart with the actual values");
+		String SpecialAtCart = getSpecialPriceCart();
+		assertEquals(SpecialAtCart, actualSpecialPrice, "The special_price is matching at Cart");
+	}
+	
+	public String getSpecialPriceAtSubtotal() {
+		log.info("Fetching the specialPrice of the item in the Cart Subtotal");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+
+	/*
+	 * This method compares the special_price displaying at Cart with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtSubtotal(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at Cart Subtotal with the actual values");
+		String SpecialAtCart = getSpecialPriceCart();
+		assertEquals(SpecialAtCart, actualSpecialPrice, "The special_price is matching at Cart");
+	}
+
 	
 }

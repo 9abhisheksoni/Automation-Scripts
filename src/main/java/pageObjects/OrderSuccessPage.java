@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -22,6 +24,7 @@ public class OrderSuccessPage extends CucumberRunner {
 	 **/
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
+	WaitHelper waitHelper = new WaitHelper();
 	private Logger log = Logger.getLogger(OrderSuccessPage.class.getName());
 
 	/**
@@ -57,6 +60,14 @@ public class OrderSuccessPage extends CucumberRunner {
 
 	@FindBy(xpath = "//input[@class='Search__input--bb1']")
 	private WebElement txtMerchantSearch;
+	
+	
+	@FindBy (xpath = "//span[@class='old-price']")
+	private WebElement txtBasePrice;
+	
+	@FindBy (xpath = "//span[@class='special-price']")
+	private WebElement txtSpecialPrice;
+	
 
 	/**
 	 * WebElement declaration ends here
@@ -143,6 +154,50 @@ public class OrderSuccessPage extends CucumberRunner {
 			log.info("Merchant tabby order is not listed");
 		}
 
+	}
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the Order Success
+	 */
+	public String getBasePriceAtOrderSuccess() {
+		waitHelper.waitForElementVisible(txtBasePrice);
+		String basePrice = txtBasePrice.getText();
+		basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.replaceAll("[^0-9]", "");
+		return basePrice;
+	}
+	
+	/* This method compares the base_price displaying at Order Success with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateBasePriceAtOrderSuccess(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at Order Success with the actual base_price provided by the user");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		String basePriceAtShipping = getBasePriceAtOrderSuccess();
+		log.info("The base_price available in the  Order Success is " + basePriceAtShipping);
+		assertEquals(basePriceAtShipping, actualBasePrice, "The base_price is matching");
+	}
+
+	public String getSpecialPriceAtOrderSuccess() {
+		log.info("Fethcing the special price of the item in the  Order Success");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		log.info("The Special Price at  Order Success is "+specialPrice);
+		specialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Order Success with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtOrderSuccess(String actualSpecialPrice) {
+		log.info("Comparing the special_price displaying at Shipping with the actual values");
+		String SpecialPriceAtShipping = getSpecialPriceAtOrderSuccess();
+		assertEquals(SpecialPriceAtShipping, actualSpecialPrice, "The special_price is matching at Shipping");
 	}
 
 }
