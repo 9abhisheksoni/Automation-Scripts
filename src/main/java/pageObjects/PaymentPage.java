@@ -525,26 +525,26 @@ public class PaymentPage extends CucumberRunner {
 	public void verifyAvailablePaymentOptions() {
 		String env = browserFactory.getCountry();
 		if (env.equalsIgnoreCase("UAE") || env.equalsIgnoreCase("KSA")) {
-			genericHelper.isDisplayed(divStoreCredit);
+			Assert.assertTrue(genericHelper.isDisplayed(divStoreCredit));
 			log.info("Store Credit Payment Option is available");
-			genericHelper.isDisplayed(divClubApparel);
+			Assert.assertTrue(genericHelper.isDisplayed(divClubApparel));
 			log.info("Club Appareal Payment Option is available");
-			genericHelper.isDisplayed(divCreditCardPayment);
+			Assert.assertTrue(genericHelper.isDisplayed(divCreditCardPayment));
 			log.info("Credit Card Payment Option is available");
-			genericHelper.isDisplayed(divCodPayment);
+			Assert.assertTrue(genericHelper.isDisplayed(divCodPayment));
 			log.info("COD Payment Option is available");
-			genericHelper.isDisplayed(divTabbyPayLater);
+			Assert.assertTrue(genericHelper.isDisplayed(divTabbyPayLater));
 			log.info("Tabby Pay Later Payment Option is available");
-			genericHelper.isDisplayed(divTabbyPayInInstallments);
+			Assert.assertTrue(genericHelper.isDisplayed(divTabbyPayInInstallments));
 			log.info("Tabby Pay In Installments Payment Option is available");
 		} else {
-			genericHelper.isDisplayed(divStoreCredit);
+			Assert.assertTrue(genericHelper.isDisplayed(divStoreCredit));
 			log.info("Store Credit Payment Option is available");
-			genericHelper.isDisplayed(divClubApparel);
+			Assert.assertTrue(genericHelper.isDisplayed(divClubApparel));
 			log.info("Club Appareal Payment Option is available");
-			genericHelper.isDisplayed(divCreditCardPayment);
+			Assert.assertTrue(genericHelper.isDisplayed(divCreditCardPayment));
 			log.info("Credit Card Payment Option is available");
-			genericHelper.isDisplayed(divCodPayment);
+			Assert.assertTrue(genericHelper.isDisplayed(divCodPayment));
 			log.info("COD Payment Option is available");
 		}
 	}
