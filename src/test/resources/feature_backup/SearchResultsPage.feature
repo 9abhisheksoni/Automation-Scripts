@@ -16,7 +16,7 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 				|SearchTerm|
 				|Dress|
 		
-		@Smoke	@Regression		
+		@Smoke	@Regression
 		Scenario Outline: TS_Search_02 - Verify whether user is able to sort the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -82,4 +82,12 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 		Examples: 
 				|SearchTerm|
 				|Shoes|
-
+		
+		@Smoke @Regression			
+		Scenario Outline: TS_Search_08 - Verify whether user is able to click on valid PDP link 
+			And user enters product name as "<SearchTerm>" in search text box and click search icon 
+			And click on first valid product in search result
+			 
+		Examples: 
+				|SearchTerm|
+				|Shoes|

@@ -125,4 +125,8 @@ public class SearchResults {
         searchPage.verifySearchSuggestionDisplay();
     }
 
+	@And("^click on first valid product in search result$")
+	public void click_on_first_valid_product_in_search_result() {
+		searchPage.clickFirstValidInResult();
+	}
 }

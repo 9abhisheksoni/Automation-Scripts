@@ -6,7 +6,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		Then Create an account using valid details
 		Then user login is successfull
 	
-	@Smoke @Regression	
+	@Smoke @Regression
 	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
