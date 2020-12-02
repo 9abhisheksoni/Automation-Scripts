@@ -18,7 +18,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And User clears saved address
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "10Y" 
+	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address
@@ -27,8 +27,8 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	Then Discount of "10" percent should be applied on Payment Page
 	
 	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 		
 
 	@Regression
@@ -49,7 +49,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And User clears saved address
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "10Y" 
+	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address 
@@ -57,15 +57,15 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And User applies "FRIENDS101" on Payment Page
 	Then Discount of "100" amount should be applied on Payment Page
 	
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 		
 	@Regression
 	Scenario Outline: TS_ApplyPromotionCOdes_03 - Guest user is able to apply %off coupon codes to avail discounts on sub total
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "10Y" 
+	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address 
@@ -73,14 +73,14 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	Then Discount of "10" percent should be applied on Payment Page
 	
 	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 		
 	@Regression
 	Scenario Outline: TS_ApplyPromotionCOdes_04 - Guest user is able to apply fixed amount off coupon codes to avail discounts on sub total
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
-	And user selects countrySize as "EU", size as "10Y" 
+	And user selects countrySize as "<CountrySize>", size as "<Size>"
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
 	And user enters the valid details for shipping address 
@@ -88,5 +88,5 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	Then Discount of "100" amount should be applied on Payment Page
 	
 	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|

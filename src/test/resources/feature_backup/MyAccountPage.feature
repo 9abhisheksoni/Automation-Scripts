@@ -1,13 +1,13 @@
 Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login/logout
 
-	@Smoke @Regression	
+	@Regression
 	Scenario: TS_Account_Creation _01 - Create user account with email_id and Password
 		When User clicks on login link 
 		Then Create an account using valid details
 		Then user login is successfull
 	
-	@Smoke @Regression	
-	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to place order using cod 
+	@Smoke @Regression
+	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 
@@ -24,7 +24,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		And Home page is displayed 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "<Size>" 
+		And user selects countrySize as "<CountrySize>", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -44,11 +44,11 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		And click on view order
 		Then Verify order status in details to be "Closed"
 		
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product                   |CountrySize|Size|
+		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
 		
-		@Smoke @Regression	
+		@Smoke @Regression
 		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters valid login details "validuser" username and "validuser" password in the login popup 

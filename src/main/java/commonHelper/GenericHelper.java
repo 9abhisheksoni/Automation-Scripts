@@ -232,25 +232,16 @@ public class GenericHelper extends CucumberRunner {
 	}
 
 	/** Verifying whether element is present **/
-	public boolean isElementPresnt(WebElement ele) {
-		int waitTime = 10;
+	public boolean isElementPresentInDOM(WebElement ele) {
 		Boolean s = false;
 		log.info("Verifying element is present in dom");
-		for (int i = 0; i < new WaitHelper().explicitTimeout; i++) {
 			try {
-				ele.isDisplayed();
+				WebElement element = ele;
 				s = true;
-				break;
 			} catch (Exception e) {
-				try {
-					Thread.sleep(waitTime);
-
-				} catch (InterruptedException e1) {
-					log.info("Waiting for element to appear on DOM");
-				}
+				log.info("Waiting for element to appear on DOM");
 			}
-		}
-		return s;
+			return s;
 	}
 
 	/** returning current url **/

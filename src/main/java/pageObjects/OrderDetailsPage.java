@@ -45,7 +45,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='cash-content']")
 	private WebElement lblPayMentType;
 	
-	@FindBy(xpath="//div[@class='cancel-btn']/a")
+	@FindBy(xpath="//div[contains(@class,'cancel-btn')]/a")
 	private WebElement btnCancelOrder;
 	
 	@FindBy(xpath="//label[@class='cancel-check']/span")

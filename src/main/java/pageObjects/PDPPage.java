@@ -125,9 +125,7 @@ public class PDPPage extends CucumberRunner {
 			} else {
 				log.info("Regular price");
 				priceStr = commonMethods.getText(txtRegularPriceCart).split(" ");
-				System.out.println("priceRegularStr" + priceStr[1]);
 				priceDob = Double.parseDouble(priceStr[1]);
-				System.out.println("price amount regular" + priceDob);
 			}
 
 			priceDobDiv = priceDob / 4;

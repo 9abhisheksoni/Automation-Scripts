@@ -13,7 +13,7 @@ Feature: 6thstreet.com - Search results Page
 			
 			Examples: 
 				|SearchTerm|
-				|Shoes|
+				|Dress|
 		
 		@Smoke		
 		Scenario Outline: TS_Search_02 - Verify whether user is able to sort the products 
@@ -26,7 +26,7 @@ Feature: 6thstreet.com - Search results Page
 			
 			Examples: 
 				|SearchTerm|
-				|Shoes|
+				|Wallet|
 		
 		@Smoke		
 		Scenario Outline: TS_Search_03 - Registered User of 6thstreet.com should be able to add product to wishlist 
@@ -44,7 +44,7 @@ Feature: 6thstreet.com - Search results Page
 				|Shoes|
 		
 		@Smoke 
-		Scenario: TS_Search_04 - Registered User of 6thstreet.com UAE site should be able to navigate to level1 page 
+		Scenario: TS_Search_04 - Registered User of 6thstreet.com UAE site should be able to different levels of category 
 			And Home page is displayed 
 			And user click first level Category 
 			Then first level category should be displayed 

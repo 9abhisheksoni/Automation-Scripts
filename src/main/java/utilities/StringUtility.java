@@ -19,7 +19,7 @@ public class StringUtility {
 		log.info("Get integer value for input string " + input);
 		int intValue = 0;
 		Pattern p = Pattern.compile("\\d+");
-		Matcher m = p.matcher(input);
+		Matcher m = p.matcher(input.replace(",", ""));
 		while (m.find()) {
 			intValue = Integer.parseInt(m.group());
 
@@ -119,23 +119,18 @@ public class StringUtility {
 	/** Getting decimal value from given string **/
 	public float getDecimalValue(String str) {
 		log.info("Getting decimal value from given string");
-		String regex = "[0-9]*.*[0-9]";
-		str = removeChar(str, '$');
-		str = removeChar(str, '+');
-		str = removeChar(str, '(');
-		str = removeChar(str, ')');
-		str = removeChar(str, 'C');
+		String floatRegex = "^\\d*\\.\\d+|\\d+\\.\\d*$";
+		String intRegex = "^\\d+$";
 		String[] arr = str.split(" ");
-
-		String decimalValue = null;
+		System.out.println(arr.length);
+		String decimalValue = "0.0";
 		for (int i = 0; i < arr.length; i++) {
-
-			if (arr[i].trim().matches(regex)) {
+			if (arr[i].trim().matches(floatRegex) || arr[i].trim().matches(intRegex)) {
 				decimalValue = arr[i].trim();
+				break;
 			}
 		}
-		float decimalValue1 = Float.parseFloat(decimalValue);
-		return decimalValue1;
+		return Float.parseFloat(decimalValue);
 	}
 
 	/** this method removes all occurance of specific character in string **/

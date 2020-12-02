@@ -35,61 +35,6 @@ public class JsonReader {
 		return dataList;
 	}
 
-	/** this method returns user login details **/
-	private List<String> getUserLogin(String userType) {
-		log.info("Getting user login for type " + userType);
-		JSONObject users = (JSONObject) readJson().get(0);
-		JSONObject userdata = ((JSONObject) users.get("users"));
-		JSONObject user = null;
-		if (userType.equalsIgnoreCase("validuser")) {
-			user = (JSONObject) userdata.get("validuser");
-		} else if (userType.equalsIgnoreCase("invaliduser")) {
-			user = (JSONObject) userdata.get("invaliduser");
-		} else if (userType.equalsIgnoreCase("clubuser")) {
-			user = (JSONObject) userdata.get("clubuser");
-		} else if (userType.equalsIgnoreCase("guestuser")) {
-			user = (JSONObject) userdata.get("guestuser");
-		} else if (userType.equalsIgnoreCase("merchantuser")) {
-			user = (JSONObject) userdata.get("merchantuser");
-		} else if (userType.equalsIgnoreCase("magentouser")) {
-			user = (JSONObject) userdata.get("magentouser");
-		} else if (userType.equalsIgnoreCase("uatvaliduser")) { //added
-			user = (JSONObject) userdata.get("uatvaliduser");//
-		} else if (userType.equalsIgnoreCase("checkoutsandboxuser")) {
-			user = (JSONObject) userdata.get("checkoutsandboxuser");
-		} else if (userType.equalsIgnoreCase("Savedcarduser")) {
-			user = (JSONObject) userdata.get("Savedcarduser");
-		} else if (userType.equalsIgnoreCase("SCuser")) {
-			user = (JSONObject) userdata.get("SCuser");
-		}
-		else {
-			try {
-				throw new Exception("Invalid User Type Requested");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		String username = (String) user.get("username");
-		String password = (String) user.get("password");
-
-		List<String> userdetail = new ArrayList<String>();
-		userdetail.add(username);
-		userdetail.add(password);
-		return userdetail;
-	}
-
-	/** this method returns user name **/
-	public String getUserName(String userType) {
-		log.info("Getting user name for type " + userType);
-		return getUserLogin(userType).get(0);
-	}
-
-	/** this method returns password **/
-	public String getPassword(String userType) {
-		log.info("Getting user password for type " + userType);
-		return getUserLogin(userType).get(1);
-	}
-
 	/** this method returns credit card details **/
 	private List<String> getCreditCardDetails(String cardType) {
 		log.info("Getting card details for type " + cardType);
@@ -240,34 +185,77 @@ public class JsonReader {
 		log.info("Getting otp for tabby payment");
 		return (String) this.getTabbyDetails().get("otp");
 	}
-	
+
 	/** this method returns tabby payment username **/
 	public String getTabbyFullName() {
 		log.info("Getting fullname for tabby payment");
 		return (String) this.getTabbyDetails().get("fullname");
 	}
-	
+
 	/** this method returns tabby payment ksaid **/
 	public String getTabbyID() {
 		log.info("Getting id for tabby payment");
 		return (String) this.getTabbyDetails().get("id");
 	}
-	
+
 	/** this method returns tabby payment nationality **/
 	public String getTabbyNationality() {
 		log.info("Getting nationality for tabby payment");
 		return (String) this.getTabbyDetails().get("nationality");
 	}
-	
+
 	/** this method returns tabby payment DOB **/
 	public String getTabbyDOB() {
 		log.info("Getting date of birth for tabby payment");
 		return (String) this.getTabbyDetails().get("dob");
 	}
 
-	/** this method returns tabby payment otp1 **/
-	public String getTabbyOTP1() {
-		log.info("Getting otp1 for tabby payment");
-		return (String) this.getTabbyDetails().get("otp1");
+	/** this method returns user credential details **/
+	private JSONObject getUserCredentials(String country) {
+		log.info("Getting user details object for country " + country);
+		JSONObject countries = (JSONObject) readJson().get(0);
+		JSONObject userData = ((JSONObject) countries.get("usercredentials"));
+		JSONObject value = null;
+		if (country.equalsIgnoreCase("uae")) {
+			value = (JSONObject) userData.get("uae");
+		} else if (country.equalsIgnoreCase("ksa")) {
+			value = (JSONObject) userData.get("ksa");
+		} else if (country.equalsIgnoreCase("kw")) {
+			value = (JSONObject) userData.get("kw");
+		} else if (country.equalsIgnoreCase("om")) {
+			value = (JSONObject) userData.get("om");
+		} else if (country.equalsIgnoreCase("qa")) {
+			value = (JSONObject) userData.get("qa");
+		} else if (country.equalsIgnoreCase("bh")) {
+			value = (JSONObject) userData.get("bh");
+		} else {
+			try {
+				throw new Exception("Invalid User Type Requested");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return value;
+	}
+
+	/** this method returns user type object **/
+	private JSONObject getUserTypeData(String country, String userType) {
+		log.info("returning user type object");
+		JSONObject userdata = this.getUserCredentials(country);
+		return (JSONObject) userdata.get(userType);
+
+	}
+
+	/** this method returns user name **/
+	public String getUsername(String country, String userType) {
+		log.info("returning username for country " + country + " and user type " + userType);
+		return (String) this.getUserTypeData(country, userType).get("username");
+	}
+
+	/** this method returns password **/
+	public String getPassword(String country, String userType) {
+		log.info("returning password for country " + country + " and user type " + userType);
+		return (String) this.getUserTypeData(country, userType).get("password");
 	}
 }

@@ -1,44 +1,251 @@
 [
 	{
-		"users": {
-			"validuser": {
-				"username": "qauae1@yopmail.com",
-				"password": "6Thstreet!"
+		"usercredentials": {
+			"uae": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			},
-			"invaliduser": {
-				"username": "invalid@automation.com",
-				"password": "invalid@1234"
+			"ksa": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			},
-			"clubuser": {
-				"username": "tommy.qatester1@gmail.com",
-				"password": "test@12345"
+			"kw": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			},
-			"guestuser": {
-				"username": "qauaeguest@yopmail.com"
+			"qa": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			},
-			"merchantuser": {
-				"username": "arjun.kapoor@6thstreet.com",
-				"password": "Arjun9811"
+			"bh": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			},
-			"magentouser": {
-				"username": "shubha.r",
-				"password": "shubha@444"
-			},
-			"uatvaliduser": {
-				"username": "ashwin.bm@6thstreet.com",
-				"password": "Modex@123"
-			},
-			"checkoutsandboxuser": {
-				"username": "arjun.kapoor@6thstreet.com",
-				"password": "Str0ng$1"
-			},
-			"Savedcarduser": {
-				"username": "qasavedcard@yopmail.com",
-				"password": "6Thstreet!"
-			},
-			"SCuser": {
-				"username": "ashwinbmsit@gmail.com",
-				"password": "6Thstreet!"
+			"om": {
+				"validuser": {
+					"username": "qaautomation2020@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"invaliduser": {
+					"username": "invalid@automation.com",
+					"password": "invalid@1234"
+				},
+				"clubuser": {
+					"username": "tommy.qatester1@gmail.com",
+					"password": "test@12345"
+				},
+				"guestuser": {
+					"username": "qauaeguest@yopmail.com"
+				},
+				"merchantuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Arjun9811"
+				},
+				"magentouser": {
+					"username": "shubha.r",
+					"password": "shubha@444"
+				},
+				"uatvaliduser": {
+					"username": "ashwin.bm@6thstreet.com",
+					"password": "Modex@123"
+				},
+				"checkoutsandboxuser": {
+					"username": "arjun.kapoor@6thstreet.com",
+					"password": "Str0ng$1"
+				},
+				"Savedcarduser": {
+					"username": "qasavedcard@yopmail.com",
+					"password": "6Thstreet!"
+				},
+				"SCuser": {
+					"username": "ashwinbmsit@gmail.com",
+					"password": "6Thstreet!"
+				}
 			}
 		},
 		"creditcard": {
@@ -70,7 +277,7 @@
 				"lastname": "uaelastname",
 				"street": "ROYAL TOWERS 6TH FLOOR WAY NO 3518",
 				"city": "Dubai",
-				"area": "Airport Termial 1",
+				"area": "Bur Dubai",
 				"careercode": "50",
 				"contactnumber": "6641037"
 			},
