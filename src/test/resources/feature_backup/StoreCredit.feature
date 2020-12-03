@@ -3,7 +3,7 @@ Feature: 6thstreet.com - Registered User Place Order Using SC Scenarios
 Background: User logs into application and clears cart - addresses
 
 		When User clicks on login link 
-		When User enters valid login details "clubuser" username and "clubuser" password in the login popup 
+		When User enters "validuser" login details in the login popup
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
@@ -11,7 +11,7 @@ Background: User logs into application and clears cart - addresses
 		And User clears saved address
 	#	And Configure SC Availability
 		
-	@Smoke @CODPayment @StoreCredit @Regression	
+	@CODPayment @StoreCredit @Regression	
 	Scenario Outline: TS_RegisteredCheckout_09 - Registered User of 6thstreet.com site should be able to place order using store credit if it is enabled
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 

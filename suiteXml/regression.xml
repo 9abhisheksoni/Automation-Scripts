@@ -22,7 +22,6 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="BH-EN : Smoke">
@@ -30,7 +29,6 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="QA-EN : Smoke">
@@ -38,7 +36,6 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KW-EN : Smoke">
@@ -46,7 +43,6 @@
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 		<test name="UAE-AR : Smoke">
@@ -70,7 +66,6 @@
 		<parameter name="language" value="AR" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="BH-AR : Smoke">
@@ -78,7 +73,6 @@
 		<parameter name="language" value="AR" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 	<test name="QA-AR : Smoke">
@@ -93,7 +87,6 @@
 		<parameter name="language" value="AR" />
 		<classes>
 			<class name="testRunner.Regression_AllSites" />
-			<class name="testRunner.TabbyScenarios" />
 		</classes>
 	</test> <!--Test -->
 </suite> <!-- Suite -->

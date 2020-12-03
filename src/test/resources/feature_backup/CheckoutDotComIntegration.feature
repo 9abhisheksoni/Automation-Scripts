@@ -2,7 +2,7 @@ Feature: 6thstreet.com - test Checkout Sandbox
 
 Background: User log into application
 		When User clicks on login link 
-		When User enters valid login details "clubuser" username and "clubuser" password in the login popup 
+		When User enters "validuser" login details in the login popup  
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
@@ -13,9 +13,9 @@ Background: User log into application
 @CheckoutIntegration @Regression
 Scenario Outline: TS_checkout_01: Checkout application Payment Success	 
 		And user enters product name as "<Product>" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "<Size>" 
-		And user clicks on ADDTOBAG button 
+		And click on first valid product in search result
+		And user selects variation if available
+		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
 		And user reset Stored Payments
@@ -36,15 +36,15 @@ Scenario Outline: TS_checkout_01: Checkout application Payment Success
 		And User clicks on Checkout Payment Details
 		Then Verify status "Payment authorized" and "Payment captured" in Checkout payment details
 		
-	Examples:  
-	|Product                   |CountrySize|Size|Qty|
-	|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product|
+		|Shoes|
 
 @CheckoutIntegration @Regression
 Scenario Outline: TS_Checkout_02:Checkout application Payment Refund
 		And user enters product name as "<Product>" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "<Size>" 
+		And click on first valid product in search result
+		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
@@ -70,7 +70,7 @@ Scenario Outline: TS_Checkout_02:Checkout application Payment Refund
 		And User clicks on Checkout Payment Details
 		Then Verify status "Payment refunded" refund in Checkout payment details
 		
-	Examples:  
-	|Product                   |CountrySize|Size|Qty|
-	|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|Product|
+		|Shoes|
 	

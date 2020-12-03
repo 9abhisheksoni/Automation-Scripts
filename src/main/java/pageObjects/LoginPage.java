@@ -27,7 +27,6 @@ public class LoginPage extends CucumberRunner {
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
 	HomePage homePage = new HomePage();
-	
 
 	/**
 	 * Constructor to initialize page objects
@@ -98,83 +97,84 @@ public class LoginPage extends CucumberRunner {
 
 	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
 	private WebElement lnkLogout;
-	
-	@FindBy(xpath="//a[@class='top-link-address-link']")
+
+	@FindBy(xpath = "//a[@class='top-link-address-link']")
 	private WebElement lnkDeliveryAddress;
-	
-	@FindBy (xpath="//a[contains(@class,'delete')]")
+
+	@FindBy(xpath = "//a[contains(@class,'delete')]")
 	private List<WebElement> iconRemoveAddress;
-	
-	@FindBy (xpath="//button[contains(@class,'action-accept')]")
+
+	@FindBy(xpath = "//button[contains(@class,'action-accept')]")
 	private WebElement btnConfirmDelete;
-	
-	@FindBy (xpath="//button[@data-action='save-address']")
+
+	@FindBy(xpath = "//button[@data-action='save-address']")
 	private WebElement btnSaveAddress;
-	
-	@FindBy (xpath="//a[@class='action edit']/img")
+
+	@FindBy(xpath = "//a[@class='action edit']/img")
 	private WebElement lnkEditAddress;
-	
-	@FindBy (xpath="//div[@class='field choice set billing']/input[@type='checkbox']/following-sibling::label")
+
+	@FindBy(xpath = "//div[@class='field choice set billing']/input[@type='checkbox']/following-sibling::label")
 	private WebElement chkDefaultShippingAddress;
-	
-	@FindBy (xpath="//div[@class='box-content']//span[@class='default-shipping']")
+
+	@FindBy(xpath = "//div[@class='box-content']//span[@class='default-shipping']")
 	private WebElement lblDefaultAddress;
-	
+
 	@FindBy(xpath = "//span[@class='customer-name']")
-    private WebElement txtCustomer;
-    
-    @FindBy(xpath = "//a[@class='top-link-ca-link']")
-    private WebElement lnkClubApparelLoyalty;
+	private WebElement txtCustomer;
 
-    @FindBy(xpath = "//div[@class='club-logo']")
-    private WebElement imgCALogo;
+	@FindBy(xpath = "//a[@class='top-link-ca-link']")
+	private WebElement lnkClubApparelLoyalty;
 
-    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[1]/h3")
-    private WebElement txtAvailLoyalty;
-    
-    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[2]/h3")
-    private WebElement txtTiersBenefit;
-    
-    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[3]/h3")
-    private WebElement txtRedValue;
-    
-    @FindBy(xpath = "//button[@id='LinkAccount']")
-    private WebElement btnLINKYOURACCOUNT;
-    
-    @FindBy(xpath = "//div[@class='apparel-link']/p")
-    private WebElement txtLinkYourCA;
-    
-    @FindBy(xpath = "//div[@class='iti__selected-dial-code']")
-    private WebElement selCountryFlag;
-    
-    @FindBy(xpath = "//input[@id='country-search']")
-    private WebElement txtSearchField;
-    
-    
-    @FindBy(xpath = "//span[text()='']")
-    private WebElement txtCountry;
-    
-    
-    @FindBy(xpath = "//li[@class='iti__country iti__standard iti__highlight']")
-    private WebElement txtSelectCountry;
-    
-    @FindBy(xpath = "//input[@name='mobileno']")
-    private WebElement txtTelephone;
-    
-    @FindBy(xpath = "//button[@class='button submit primary sent_otp']")
-    private WebElement btnLinkAccount;
-    
-    @FindBy(xpath = "//div[4]/div[2]/p[1]")
-    private WebElement txtEnterOTP;
-    
-    @FindBy(xpath = "//tbody/tr[@class='totals balance ca-msg']")
-    private WebElement txtLinkYourAccountCartMsg;
-    
-    @FindBy(xpath = "//div[@class='box-a1'][1]")
-    private WebElement txtSecAboutClubApparel;
-    
-    @FindBy(xpath = "//div[@class='box-a1'][2]")
-    private WebElement txtSecRewards;
+	@FindBy(xpath = "//div[@class='club-logo']")
+	private WebElement imgCALogo;
+
+	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[1]/h3")
+	private WebElement txtAvailLoyalty;
+
+	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[2]/h3")
+	private WebElement txtTiersBenefit;
+
+	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[3]/h3")
+	private WebElement txtRedValue;
+
+	@FindBy(xpath = "//button[@id='LinkAccount']")
+	private WebElement btnLINKYOURACCOUNT;
+
+	@FindBy(xpath = "//div[@class='apparel-link']/p")
+	private WebElement txtLinkYourCA;
+
+	@FindBy(xpath = "//div[@class='iti__selected-dial-code']")
+	private WebElement selCountryFlag;
+
+	@FindBy(xpath = "//input[@id='country-search']")
+	private WebElement txtSearchField;
+
+	@FindBy(xpath = "//span[text()='']")
+	private WebElement txtCountry;
+
+	@FindBy(xpath = "//li[@class='iti__country iti__standard iti__highlight']")
+	private WebElement txtSelectCountry;
+
+	@FindBy(xpath = "//input[@name='mobileno']")
+	private WebElement txtTelephone;
+
+	@FindBy(xpath = "//button[@class='button submit primary sent_otp']")
+	private WebElement btnLinkAccount;
+
+	@FindBy(xpath = "//div[4]/div[2]/p[1]")
+	private WebElement txtEnterOTP;
+
+	@FindBy(xpath = "//tbody/tr[@class='totals balance ca-msg']")
+	private WebElement txtLinkYourAccountCartMsg;
+
+	@FindBy(xpath = "//div[@class='box-a1'][1]")
+	private WebElement txtSecAboutClubApparel;
+
+	@FindBy(xpath = "//div[@class='box-a1'][2]")
+	private WebElement txtSecRewards;
+
+	@FindBy(xpath = "//div[@class='message info empty']")
+	private WebElement msgEmptyWishlist;
 
 	/**
 	 * WebElement declaration ends here
@@ -196,15 +196,16 @@ public class LoginPage extends CucumberRunner {
 		log.info("login or registered label in header clicked");
 	}
 
-	
 	public void inputUserName(String userType) {
-		commonMethods.clearAndSendKeys(this.txtUserName, jsonReader.getUserName(userType));
-		log.info("entered user email");
+		commonMethods.clearAndSendKeys(this.txtUserName,
+				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
+		log.info("entered user email for "+userType);
 	}
 
 	public void inputPassword(String userType) {
-		commonMethods.clearAndSendKeys(this.txtPassword, jsonReader.getPassword(userType));
-		log.info("entered user password");
+		commonMethods.clearAndSendKeys(this.txtPassword,
+				jsonReader.getPassword(browserFactory.getCountry().toLowerCase(),userType));
+		log.info("entered user password for "+userType);
 	}
 
 	public void clickLoginButton() {
@@ -222,16 +223,16 @@ public class LoginPage extends CucumberRunner {
 		log.info("login is successfull");
 	}
 
-	public void enterLoginDetails(String username, String password) {
-		this.inputUserName(username);
-		this.inputPassword(password);
-		log.info("Entered user credentials");
-	}
-
-	public void loginDetails(String username, String password) {
-		this.enterLoginDetails(username, password);
-		this.clickLoginButton();
-		log.info("login submitted");
+	public void enterLoginDetails(String userType) {
+		log.info("Entering login details ...");
+		if (userType.equalsIgnoreCase("validuser")) {
+			this.inputUserName(browserFactory.getLanguage().toLowerCase()+userType);
+			this.inputPassword(browserFactory.getLanguage().toLowerCase()+userType);
+		} else {
+			this.inputUserName(userType);
+			this.inputPassword(userType);
+		}
+		log.info("login details entered");
 	}
 
 	public void enterGuestEmail(String email) {
@@ -241,10 +242,10 @@ public class LoginPage extends CucumberRunner {
 
 	public void inputGuestUserEmail(String guestuserType) {
 		String guestUserName;
-		if(guestuserType.equalsIgnoreCase("tempUser")) {
-			guestUserName=new StringUtility().generateRandomEmailID();
-		}else {
-			guestUserName=jsonReader.getUserName(guestuserType);
+		if (guestuserType.equalsIgnoreCase("tempUser")) {
+			guestUserName = new StringUtility().generateRandomEmailID();
+		} else {
+			guestUserName = jsonReader.getUsername(browserFactory.getCountry(), guestuserType);
 		}
 		commonMethods.clearAndSendKeys(this.txtGuestEmail, guestUserName);
 	}
@@ -261,8 +262,9 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputMerchantEmailandPwd(String merchantEmailType, String merchantPwdType) {
-		commonMethods.clearAndSendKeys(this.txtMerchantEmail, jsonReader.getUserName(merchantEmailType));
-		commonMethods.clearAndSendKeys(this.txtMerchantPwd, jsonReader.getPassword(merchantPwdType));
+		commonMethods.clearAndSendKeys(this.txtMerchantEmail,
+				jsonReader.getUsername(browserFactory.getCountry(), merchantEmailType));
+		commonMethods.clearAndSendKeys(this.txtMerchantPwd,jsonReader.getPassword(browserFactory.getCountry(), merchantPwdType));
 	}
 
 	public void clickOnMerchantLogin() {
@@ -276,8 +278,10 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputMagentoEmailandPwd(String magentoUserType, String magentoPwdType) {
-		commonMethods.clearAndSendKeys(this.txtMagentoUser, jsonReader.getUserName(magentoUserType));
-		commonMethods.clearAndSendKeys(this.txtMagentoPwd, jsonReader.getPassword(magentoPwdType));
+		commonMethods.clearAndSendKeys(this.txtMagentoUser,
+				jsonReader.getUsername(browserFactory.getCountry(), magentoUserType));
+		commonMethods.clearAndSendKeys(this.txtMagentoPwd,
+				jsonReader.getPassword(browserFactory.getCountry(), magentoPwdType));
 	}
 
 	public void clickOnMagentoLogin() {
@@ -302,7 +306,7 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(this.txtPassword, password);
 		log.info("entered user password");
 	}
-
+	
 	public void enterLoginDetailsFromFeature(String username, String password) {
 		this.inputUserNameFromFeature(username);
 		this.inputPasswordFromFeature(password);
@@ -310,8 +314,10 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputCheckoutSandboxEmailandPwd(String checkoutEmailType, String checkoutPwdType) {
-		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxEmail, jsonReader.getUserName(checkoutEmailType));
-		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxPwd, jsonReader.getPassword(checkoutPwdType));
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxEmail,
+				jsonReader.getUsername(browserFactory.getCountry(), checkoutEmailType));
+		commonMethods.clearAndSendKeys(this.txtCheckoutSandboxPwd,
+				jsonReader.getPassword(browserFactory.getCountry(), checkoutPwdType));
 	}
 
 	public void enterCheckoutSandboxUserandPwd(String checkoutEmail, String checkoutPwd) {
@@ -326,11 +332,11 @@ public class LoginPage extends CucumberRunner {
 
 	public void clearWishlist() {
 		homePage.clickOnWishlistInHeader();
-		int removeiconWishlistCount = iconWishlistRemove.size();
-		for (int i = 0; i < removeiconWishlistCount; i++) {
+		while (iconWishlistRemove.size() > 0) {
 			commonMethods.click(iconWishlistRemove.get(0));
 			log.info("Wishlist remove icon clicked");
 		}
+		waitHelper.waitForElementVisible(msgEmptyWishlist);
 	}
 
 	public void verifyWishlistProductAdded() {
@@ -349,13 +355,13 @@ public class LoginPage extends CucumberRunner {
 		genericHelper.isDisplayed(labelLoginOrRegister);
 		log.info("Logout successfull");
 	}
-	
+
 	public void clearSavedAddress() {
 		commonMethods.click(lblCustomerName);
 		commonMethods.click(lnkDeliveryAddress);
 		this.deleteAllSavedAddress();
 	}
-	
+
 	public void saveAddress() {
 		ShippingPage shippingPage = new ShippingPage();
 		String country = browserFactory.getCountry().toLowerCase();
@@ -363,13 +369,13 @@ public class LoginPage extends CucumberRunner {
 		shippingPage.submitShippingAddress(country);
 		commonMethods.click(btnSaveAddress);
 		log.info("Save address button is clicked");
-		}
-	
+	}
+
 	public void verifyAddressSaved() {
-		Assert.assertEquals(iconRemoveAddress.size(),1);
+		Assert.assertEquals(iconRemoveAddress.size(), 1);
 		log.info("address Saved successfully");
 	}
-	
+
 	public void editAndMakeAddressDefault() {
 		ShippingPage shippingPage = new ShippingPage();
 		commonMethods.click(lnkEditAddress);
@@ -379,123 +385,122 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.click(btnSaveAddress);
 		log.info("Save address button is clicked");
 	}
-	
+
 	public void verifyAddressDefaulted() {
 		this.verifyAddressSaved();
 		Assert.assertTrue(genericHelper.isDisplayed(lblDefaultAddress));
 		log.info("Default address is Updated successfully");
 	}
-	
+
 	public void deleteAllSavedAddress() {
 		int removeAddressCount = iconRemoveAddress.size();
 		for (int i = 0; i < removeAddressCount; i++) {
 			commonMethods.moveToElementAndClick(iconRemoveAddress.get(0));
 			commonMethods.click(btnConfirmDelete);
 			log.info("Address deleted");
-		}	
+		}
 	}
-	
+
 	public void verifyEmptyAddressBook() {
 		Assert.assertEquals(iconRemoveAddress.size(), 0);
 		log.info("Address book is empty");
 	}
-	
+
 	public void clickCustomer() {
 		commonMethods.click(txtCustomer);
 		log.info("customer is clicked");
-	} 
-    
+	}
 
-    public void clickClubApparelLoyalty() {
+	public void clickClubApparelLoyalty() {
 		commonMethods.click(lnkClubApparelLoyalty);
 		log.info("Club Apparel Loyalty is clicked");
 	}
-    
-    
+
 	public void verifyCLubApparelLogoDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(imgCALogo));
 		log.info("Club Apparel Logo is displayed");
 	}
-    
+
 	public void verifyAvailLoyaltyDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtAvailLoyalty));
 		log.info("AVAIL LOYALTY BENEFITS ON 6THSTREET is displayed");
 	}
-	
+
 	public void verifyTierBenifitDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtTiersBenefit));
 		log.info("TIERS BENEFIT is displayed");
 	}
-	
+
 	public void verifyRedemptionValueDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtRedValue));
 		log.info("REDEMPTION VALUE is displayed");
 	}
-	
+
 	public void verifyLinkYourAccountButtonDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(btnLINKYOURACCOUNT));
 		log.info("LINK YOUR Account button is displayed");
 	}
-	
+
 	public void verifyLinkYourCADisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtLinkYourCA));
 		log.info("Link your Club Apparel account and start earning points is displayed");
 	}
-	
-	
+
 	public void clickOnLINKYOURAcct() {
 		commonMethods.click(btnLINKYOURACCOUNT);
 		log.info("LINK YOUR Account button is clicked");
 	}
-	
-	
+
 	public void clicOnCountryFlag() {
 		commonMethods.click(selCountryFlag);
 		log.info("Country Flag is clicked");
 	}
-	
+
 	public void clickOnSearchField() {
 		commonMethods.click(txtSearchField);
 		log.info("Country search field is clicked");
 	}
-	
+
 	public void inputCountryFlag(String countryFlag) {
 		commonMethods.sendKeys(txtSearchField, countryFlag);
-		commonMethods.click(browserFactory.getDriver().findElement(By.xpath("//span[text()='"+countryFlag+"']")));
-		
+		commonMethods.click(browserFactory.getDriver().findElement(By.xpath("//span[text()='" + countryFlag + "']")));
+
 		log.info("Country is entered");
 	}
-	
 
 	public void inputTelephoneNumber(String tele) {
 		commonMethods.sendKeys(txtTelephone, tele);
 		log.info("Telephone Number is entered");
 	}
-	
+
 	public void clickOnLinkAccount() {
 		commonMethods.click(btnLinkAccount);
 		log.info("Link Account is clicked");
 	}
-	
+
 	public void verifyEntertheVerificationCode() {
 		commonMethods.click(txtEnterOTP);
 		log.info("Enter the verification code we sent to is displayed");
 	}
-	
-	
+
 	public void verifyLinkyourAccountMsg() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtLinkYourAccountCartMsg));
 		log.info("LINK YOUR Account message in cart is displayed");
 	}
-	
+
 	public void verifyAboutClubApparelSec() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtSecAboutClubApparel));
 		log.info("About club apparel section is displayed");
 	}
-	
+
 	public void verifyRewardsSec() {
 		Assert.assertTrue(genericHelper.isDisplayed(txtSecRewards));
 		log.info("Rewards section is displayed");
+	}
+
+	public String getActiveCountryUserName() {
+
+		return null;
 	}
 
 }

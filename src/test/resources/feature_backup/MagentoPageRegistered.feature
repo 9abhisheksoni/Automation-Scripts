@@ -8,15 +8,16 @@
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
-		And user enters product name as "<Product>" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
+		And user enters product name as "Shoes" in search text box and click search icon 
+		And user sort by high to low price
+		And click on first valid product in search result
+		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
 			
 	@Regression @CODPayment  
-	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod
+	Scenario: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -43,12 +44,9 @@
 		And Verify the Payment Method in Magento as "Cash on delivery" 
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 	@Regression @CreditCardPayment 
-	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using VISA credit card
+	Scenario: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using VISA credit card
 		And user selects payment option as "CC_VISA" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -75,12 +73,9 @@
 		And Verify the Payment Method in Magento as "Pay by Credit / Debit Card" 
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 	@Regression @TabbyPayLater  
-	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay later
+	Scenario: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay later
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -107,13 +102,10 @@
 		And Verify the Payment Method in Magento as "Pay later" 
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 		
 	@Regression @TabbyPayInInstallments  
-	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay installments
+	Scenario: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay installments
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
 		Then Order placing should be successful 
@@ -140,6 +132,3 @@
 		And Verify the Payment Method in Magento as "Pay in installments" 
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
-	Examples:  
-		|Product                   |CountrySize|Size|Qty|
-		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|

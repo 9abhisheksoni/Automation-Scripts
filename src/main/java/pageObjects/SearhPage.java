@@ -41,6 +41,9 @@ public class SearhPage extends CucumberRunner {
 	 **/
 	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
 	private WebElement lnkProduct;
+	
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	private List <WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
 	private WebElement lblSearchResultCount;
@@ -162,9 +165,9 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void isPriceLowToHigh() {
-		List<Integer> prices = new ArrayList<Integer>();
+		List<Float> prices = new ArrayList<Float>();
 		for (WebElement temp : lblprice) {
-			int price = this.getPriceFromText(temp.getText());
+			float price = this.getPriceFromText(temp.getText());
 			prices.add(price);
 		}
 		boolean sorted = Ordering.natural().isOrdered(prices);
@@ -174,9 +177,9 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void isPriceHighToLow() {
-		List<Integer> prices = new ArrayList<Integer>();
+		List<Float> prices = new ArrayList<Float>();
 		for (WebElement temp : lblprice) {
-			int price = this.getPriceFromText(temp.getText());
+			float price = this.getPriceFromText(temp.getText());
 			prices.add(price);
 		}
 		boolean sorted = Ordering.natural().reverse().isOrdered(prices);
@@ -185,9 +188,8 @@ public class SearhPage extends CucumberRunner {
 		log.info("sorted high to low");
 	}
 
-	public int getPriceFromText(String text) {
-		//int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf(' ') + 1));
-		int price = (int) (0 + stringUtility.getDecimalValue(text.substring(text.lastIndexOf(' ') + 1))); 
+	public float getPriceFromText(String text) {
+		float price = (stringUtility.getDecimalValue(text)); 
 		log.info("returning price from text : "+price);
 		return price;
 	}
@@ -198,7 +200,7 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void verifyWishlistSuccessDisplay() {
-		Assert.assertTrue(genericHelper.isDisplayed(msgWishlistSuccess));
+		Assert.assertTrue(genericHelper.isElementPresentInDOM(msgWishlistSuccess));
 		log.info("product wishlisted successfully");
 	}
 
@@ -244,6 +246,16 @@ public class SearhPage extends CucumberRunner {
 	public void verifySearchSuggestionDisplay() {
 		Assert.assertTrue(lnkProductSuggestion.size()>0);
 		log.info("Search suggestions displayed");
+	}
+
+	public void clickFirstValidInResult() {
+		for (int i=0;i<lblprice.size();i++) {
+			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
+				commonMethods.click(lnksProduct.get(i));
+				break;
+			}
+		}
+		log.info("clicked valid product on PLP");
 	}
 
 }

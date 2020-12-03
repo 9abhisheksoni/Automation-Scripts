@@ -2,7 +2,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 
 Background: user logs into application with valid credentials
 	When User clicks on login link 
-	When User enters valid login details "<username>" username and "<password>" password in the login popup 
+	When User enters "validuser" login details in the login popup 
 	And User clicks on login button 
 	And user login is successfull 
 	And Home page is displayed 
