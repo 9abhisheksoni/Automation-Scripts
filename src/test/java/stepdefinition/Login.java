@@ -14,9 +14,9 @@ public class Login {
 		loginPage.clickOnLoginOrRegisterOption();
 	}
 
-	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
-	public void user_enters_valid_login_details_and_in_the_login_popup(String username, String password) {
-		loginPage.enterLoginDetails(username, password);
+	@When("^User enters \"([^\"]*)\" login details in the login popup$")
+	public void user_enters_login_details_in_the_login_popup(String userType) {
+		loginPage.enterLoginDetails(userType);
 	}
 
 	@When("^User clicks on login button$")
@@ -209,15 +209,6 @@ public class Login {
 	@When("^verfy Rewards section is displayed$")
 	public void verfy_Rewards_section_is_displayed() {
 		loginPage.verifyRewardsSec();
-	}
-	
-	@And("^Login manually$")
-	public void Login_manually() {
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	@And("^Configure SC Availability using Magento \"([^\"]*)\" username \"([^\"]*)\" and password \"([^\"]*)\"$")
