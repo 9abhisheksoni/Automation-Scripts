@@ -28,18 +28,18 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	public static BrowserFactory browserFactory;
 	CucumberRunner cucumberRunner;
 	Config configReader = new Config();
-	public String currCountry="";
+	public String currCountry = "";
 	public static String environment;
-	
+
 	private Logger log = Logger.getLogger(CucumberBase.class.getName());
 
-	/**This method loads config file object**/
+	/** This method loads config file object **/
 	public void LoadConfigProperty() {
 		log.info("loading property file");
 		config = configReader.createConfigObject();
 	}
 
-	/**This method configures browser binary file path**/
+	/** This method configures browser binary file path **/
 	public void configureDriverPath() throws IOException {
 		if (System.getProperty("os.name").startsWith("Linux")) {
 			log.info("OS = Linux");
@@ -66,7 +66,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		}
 	}
 
-	/**this methods opens browser instance**/
+	/** this methods opens browser instance **/
 	public void openBrowser() {
 		log.info("identifying browser to launch");
 		// loads the config options
@@ -82,42 +82,43 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		maximizeWindow();
 		implicitWait(configReader.getImplicitTimeoutInSec());
 		deleteAllCookies();
-		setEnv(browserFactory.getCountry(),browserFactory.getLanguage(),CucumberBase.environment);
+		setEnv(browserFactory.getCountry(), browserFactory.getLanguage(), CucumberBase.environment);
 	}
 
-	/**this methods maximizes browser window**/
+	/** this methods maximizes browser window **/
 	public void maximizeWindow() {
 		log.info("maximizing browser window");
 		browserFactory.getDriver().manage().window().maximize();
 	}
 
-	/**this methods sets implicit wait**/
+	/** this methods sets implicit wait **/
 	public void implicitWait(int time) {
-		log.info("Setting up implicit wait in secs "+time);
+		log.info("Setting up implicit wait in secs " + time);
 		browserFactory.getDriver().manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 
-	/**this methods sets page load timeout**/
+	/** this methods sets page load timeout **/
 	public void pageLoadTimeout(int time) {
-		log.info("Setting up page load time out in secs "+time);
+		log.info("Setting up page load time out in secs " + time);
 		browserFactory.getDriver().manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
 	}
 
-	/**this methods clears all browser cookies**/
+	/** this methods clears all browser cookies **/
 	public void deleteAllCookies() {
 		log.info("Clearing browser cookies");
 		browserFactory.getDriver().manage().deleteAllCookies();
 	}
 
-	/**this methods sets url**/
+	/** this methods sets url **/
 	public void setEnv(String country, String language, String environment) {
-		log.info("Setting up browser url for country "+country+", language "+language+" and environment as "+environment);
+		log.info("Setting up browser url for country " + country + ", language " + language + " and environment as "
+				+ environment);
 		LoadConfigProperty();
 		String siteUrl = configReader.getSiteURL(country, language, environment);
 		browserFactory.getDriver().get(siteUrl);
 	}
 
-	/**This is before suite method**/
+	/** This is before suite method **/
 	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite() {
 		DOMConfigurator.configure("src/test/resources/configuration/log4j.xml");
@@ -129,20 +130,20 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		}
 	}
 
-	/**This is before test method**/
+	/** This is before test method **/
 	@BeforeTest(alwaysRun = true)
-	@Parameters({ "browser", "country", "language","environment" })
-	public void beforeTest(String browser,String country,String language,String environment) {
+	@Parameters({ "browser", "country", "language", "environment" })
+	public void beforeTest(String browser, String country, String language, String environment) {
 		log.info("Executing Before Test");
 		CucumberBase.environment = environment;
 		browserFactory = BrowserFactory.getInstance();
 		browserFactory.setBrowser(browser);
 		browserFactory.setCountry(country);
 		browserFactory.setLanguage(language);
-		
+
 	}
 
-	/**This method captures and saves screen shot**/
+	/** This method captures and saves screen shot **/
 	public void takeScreenShot(Scenario scenario) {
 		log.info("Capturing screenshot");
 		File srcImageFile = ((TakesScreenshot) browserFactory.getDriver()).getScreenshotAs(OutputType.FILE);
@@ -157,27 +158,33 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		}
 	}
 
-	/**This is method attaches screen shot to cucumber html report**/
+	/** This is method attaches screen shot to cucumber html report **/
 	public void attachScreen(Scenario scenario) {
 		log.info("Attaching screenshot to cucumber html report");
 		final byte[] screenshot = ((TakesScreenshot) browserFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
 		scenario.embed(screenshot, "image/png");
 	}
 
-	/**This is generates cucumber and extent html report**/
+	/** This is generates cucumber and extent html report **/
 	@Parameters({ "browser" })
 	@AfterSuite(alwaysRun = true)
 	public void generateHTMLReports(String browser) {
 		log.info("Generating reports after suite execution");
 		new ReportHelper().generateCucumberReport(browser);
 		new ReportHelper().configureExtentReport(browser);
+		try {
+			if (browserFactory.getDriver().getWindowHandles().size() > 0) {
+				quit();
+			}
+		} catch (Exception e) {
+			log.info("no window to close");
+		}
 	}
 
-	/**This is closes all browser instances**/
+	/** This is closes all browser instances **/
 	public void quit() {
 		log.info("Closing all browser instances");
 		browserFactory.getDriver().quit();
 	}
-	
 
 }

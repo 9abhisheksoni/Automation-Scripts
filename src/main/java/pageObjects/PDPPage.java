@@ -69,8 +69,8 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")
 	private WebElement btnSelectColor;
-	
-	@FindBy(xpath="//span[contains(@class,'product_name')]")
+
+	@FindBy(xpath = "//span[contains(@class,'product_name')]")
 	private WebElement msgProductName;
 
 	/**
@@ -170,7 +170,6 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void chooseSize() {
-		waitHelper.waitForElementVisible(imgProductTile);
 		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
 		for (String currentSize : availableSizes) {
 			if (!currentSize.contains(" ")) {
@@ -195,10 +194,12 @@ public class PDPPage extends CucumberRunner {
 
 	public void chooseColor() {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.click(btnSelectColor);
+		if (!commonMethods.getAttribute(btnSelectColor,"class").contains("selected")) {
+			commonMethods.click(btnSelectColor);
+		}
 		log.info("Selected the color");
 	}
-	
+
 	public void verifyPDPDisplayed() {
 		waitHelper.waitForElementVisible(msgProductName);
 		Assert.assertTrue(genericHelper.isDisplayed(msgProductName));

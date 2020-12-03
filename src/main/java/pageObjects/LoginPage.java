@@ -199,13 +199,13 @@ public class LoginPage extends CucumberRunner {
 	public void inputUserName(String userType) {
 		commonMethods.clearAndSendKeys(this.txtUserName,
 				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
-		log.info("entered user email");
+		log.info("entered user email for "+userType);
 	}
 
 	public void inputPassword(String userType) {
 		commonMethods.clearAndSendKeys(this.txtPassword,
 				jsonReader.getPassword(browserFactory.getCountry().toLowerCase(),userType));
-		log.info("entered user password");
+		log.info("entered user password for "+userType);
 	}
 
 	public void clickLoginButton() {
@@ -223,16 +223,16 @@ public class LoginPage extends CucumberRunner {
 		log.info("login is successfull");
 	}
 
-	public void enterLoginDetails(String username, String password) {
-		this.inputUserName(username);
-		this.inputPassword(password);
-		log.info("Entered user credentials");
-	}
-
-	public void loginDetails(String username, String password) {
-		this.enterLoginDetails(username, password);
-		this.clickLoginButton();
-		log.info("login submitted");
+	public void enterLoginDetails(String userType) {
+		log.info("Entering login details ...");
+		if (userType.equalsIgnoreCase("validuser")) {
+			this.inputUserName(browserFactory.getLanguage().toLowerCase()+userType);
+			this.inputPassword(browserFactory.getLanguage().toLowerCase()+userType);
+		} else {
+			this.inputUserName(userType);
+			this.inputPassword(userType);
+		}
+		log.info("login details entered");
 	}
 
 	public void enterGuestEmail(String email) {
@@ -306,7 +306,7 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(this.txtPassword, password);
 		log.info("entered user password");
 	}
-
+	
 	public void enterLoginDetailsFromFeature(String username, String password) {
 		this.inputUserNameFromFeature(username);
 		this.inputPasswordFromFeature(password);

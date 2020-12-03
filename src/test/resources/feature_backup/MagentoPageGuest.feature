@@ -2,10 +2,11 @@
 	                         Guest User Place Order via various payment methods and Admin Cancels the order
 	                         
 	Background: Guest user adds a product into cart and navigates till shipping page
-		And user enters product name as "LCW-0SV017Z8-KUC-NAVY-BLUE" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "52" 
-		And user clicks on ADDTOBAG button 
+		And user enters product name as "Shoes" in search text box and click search icon 
+		And user sort by high to low price
+		And click on first valid product in search result
+		And user selects variation if available
+		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "guestuser" 
 		And User clicks on Guestlogin button 

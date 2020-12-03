@@ -2,12 +2,12 @@ Feature: 6thstreet.com - Tabby Order placing, Tabby cancellation & Tabby RMA Sce
 
 Background: user logins to application and navigates till shipping address page
 		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
+		When User enters "validuser" login details in the login popup
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart 
-		
+		And User clears saved address
 		
 		
 	@TabbyPayInInstallments @Regression

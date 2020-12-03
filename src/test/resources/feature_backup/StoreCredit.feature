@@ -3,7 +3,7 @@ Feature: 6thstreet.com - Registered User Place Order Using SC Scenarios
 Background: User logs into application and clears cart - addresses
 
 		When User clicks on login link 
-		When User enters valid login details "clubuser" username and "clubuser" password in the login popup 
+		When User enters "validuser" login details in the login popup
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 

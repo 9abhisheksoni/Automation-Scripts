@@ -2,8 +2,12 @@
 	{
 		"usercredentials": {
 			"uae": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "uaeen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "uaear.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -39,8 +43,12 @@
 				}
 			},
 			"ksa": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "ksaen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "ksaar.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -76,8 +84,12 @@
 				}
 			},
 			"kw": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "kwen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "kwar.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -113,8 +125,12 @@
 				}
 			},
 			"qa": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "qaen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "qaar.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -150,8 +166,12 @@
 				}
 			},
 			"bh": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "bhen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "bhar.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -187,8 +207,12 @@
 				}
 			},
 			"om": {
-				"validuser": {
-					"username": "qaautomation2020@yopmail.com",
+				"envaliduser": {
+					"username": "omen.automation@mailinator.com",
+					"password": "6Thstreet!"
+				},
+				"arvaliduser": {
+					"username": "omar.automation@mailinator.com",
 					"password": "6Thstreet!"
 				},
 				"invaliduser": {
@@ -252,7 +276,7 @@
 			"uae": {
 				"firstname": "uaefirstname",
 				"lastname": "uaelastname",
-				"street": "ROYAL TOWERS 6TH FLOOR WAY NO 3518",
+				"street": "Al Marsa Street, Marina",
 				"city": "Dubai",
 				"area": "Bur Dubai",
 				"careercode": "50",
@@ -261,47 +285,47 @@
 			"ksa": {
 				"firstname": "ksafirstname",
 				"lastname": "ksalastname",
-				"street": "688 9th A Main Road",
-				"city": "Badaya",
-				"area": "Al Wusta",
-				"careercode": "54",
-				"contactnumber": "8888888"
+				"street": "THE LOGISTICS PARK WH NO 8",
+				"city": "Riyadh",
+				"area": "Riyadh Air Base",
+				"careercode": "56",
+				"contactnumber": "1411833"
 			},
 			"kw": {
 				"firstname": "kwfirstname",
 				"lastname": "kwlastname",
-				"street": "kwstreet",
-				"city": "kwcity",
-				"area": "kwarea",
-				"careercode": "kwcareercode",
-				"contactnumber": "8888888"
+				"street": "Area 146 Bin Khaldoun Street",
+				"city": "Kuwait",
+				"area": "Hawally",
+				"careercode": "9",
+				"contactnumber": "9691021"
 			},
 			"qa": {
 				"firstname": "qafirstname",
 				"lastname": "qalastname",
-				"street": "qastreet",
-				"city": "qacity",
-				"area": "qaarea",
-				"careercode": "qacareercode",
-				"contactnumber": "8888888"
+				"street": "Doha City Center, Unit No. G-045 City Center Doha",
+				"city": "Doha",
+				"area": "Al Doha Al Jadeeda",
+				"careercode": "7",
+				"contactnumber": "4785191"
 			},
 			"bh": {
 				"firstname": "bhfirstname",
 				"lastname": "bhlastname",
-				"street": "bhstreet",
-				"city": "bhcity",
-				"area": "bharea",
-				"careercode": "bhcareercode",
-				"contactnumber": "8888888"
+				"street": "Amani Tower, Bldg. No. 964",
+				"city": "Bahrain",
+				"area": "Abu Saiba",
+				"careercode": "3",
+				"contactnumber": "9011516"
 			},
 			"om": {
 				"firstname": "omfirstname",
 				"lastname": "omlastname",
-				"street": "omstreet",
-				"city": "omcity",
-				"area": "omarea",
-				"careercode": "omcareercode",
-				"contactnumber": "8888888"
+				"street": "ROYAL TOWERS 6TH FLOOR WAY NO 3518",
+				"city": "Muscat",
+				"area": "Muscat",
+				"careercode": "92",
+				"contactnumber": "820855"
 				}
 			}
 		}

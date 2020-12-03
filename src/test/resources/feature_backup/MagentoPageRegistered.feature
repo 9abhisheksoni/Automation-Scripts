@@ -8,9 +8,10 @@
 		And user login is successfull 
 		And Home page is displayed 
 		And User clears cart
-		And user enters product name as "LCW-0SV017Z8-KUC-NAVY-BLUE" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "52" 
+		And user enters product name as "Shoes" in search text box and click search icon 
+		And user sort by high to low price
+		And click on first valid product in search result
+		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user enters the valid details for shipping address 
