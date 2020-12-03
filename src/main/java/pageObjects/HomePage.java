@@ -80,7 +80,41 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath="//a[@class='algoliasearch-autocomplete-hit']")
 	private WebElement FirstSearchEle;
-
+	
+	/*Footer Links*/
+	@FindBy(xpath="//a[contains(text(),'About 6TH STREET')]")
+	private WebElement lnkAbout6thStreet;
+	
+	@FindBy(xpath="//a[contains(text(),'Consumer Rights')]")
+	private WebElement lnkConsumerRights;
+	
+	@FindBy(xpath="//a[contains(text(),'Disclaimer')]")
+	private WebElement lnkDisclaimer;
+	
+	@FindBy(xpath="//a[contains(text(),'Privacy Policy')]")
+	private WebElement lnkPrivacyPolicy;
+	
+	@FindBy(xpath="//a[contains(text(),'Shipping Information')]")
+	private WebElement lnkShippingInfo;
+	
+	@FindBy(xpath="//a[contains(text(),'Returns Information')]")
+	private WebElement lnkReturnInfo;
+	
+	@FindBy(xpath="//a[contains(text(),'Order Tracking')]")
+	private WebElement lnkOrderTrack;
+	
+	@FindBy(xpath="//a[contains(text(),\"FAQ's\")]")
+	private WebElement lnkFAQs;
+	
+	@FindBy(xpath="//a[contains(text(),'Feedback')]")
+	private WebElement lnkFeedback;
+	
+	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[3]/span[2]")
+	private WebElement lnkCustomerCare;
+	
+	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[2]")
+	private WebElement lnkSupportPhoneNo;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -164,4 +198,58 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(btnCreateAccount);
 
 	}
+	
+	public void clickOnAbout6thStreetFooterLink() {
+		commonMethods.click(lnkAbout6thStreet);
+		log.info("clicked About 6thstreet link in Footer");
+	}
+	
+	public void clickOnConsumerRightsFooterLink() {
+		commonMethods.click(lnkConsumerRights);
+		log.info("clicked ConsumerRights link in Footer");
+	}
+	
+	public void clickOnDisclaimerFooterLink() {
+		commonMethods.click(lnkDisclaimer);
+		log.info("clicked Disclaimer link in Footer");
+	}
+	
+	public void clickOnPrivacyPolicyFooterLink() {
+		commonMethods.click(lnkPrivacyPolicy);
+		log.info("clicked PrivacyPolicy link in Footer");
+	}
+	
+	public void clickOnShippingInfoFooterLink() {
+		commonMethods.click(lnkShippingInfo);
+		log.info("clicked ShippingInfo link in Footer");
+	}
+	
+	public void clickOnReturnInfoFooterLink() {
+		commonMethods.click(lnkReturnInfo);
+		log.info("clicked ReturnInfo link in Footer");
+	}
+	
+	public void clickOnOrderTrackFooterLink() {
+		commonMethods.click(lnkOrderTrack);
+		log.info("clicked OrderTracking lnk in Footer");
+	}
+	
+	public void clickOnFAQsFooterLink() {
+		commonMethods.click(lnkFAQs);
+		log.info("clicked FAQs link in Footer");
+	}
+	
+	public void clickOnFeedbackFooterLink() {
+		commonMethods.click(lnkFeedback);
+		log.info("clicked Feedback link in Footer");
+	}
+	
+	/*
+	 * public void verifyFooterLinks() { this.clickOnAbout6thStreetFooterLink();
+	 * this.clickOnConsumerRightsFooterLink(); this.clickOnDisclaimerFooterLink();
+	 * this.clickOnPrivacyPolicyFooterLink(); this.clickOnShippingInfoFooterLink();
+	 * this.clickOnReturnInfoFooterLink(); this.clickOnOrderTrackFooterLink();
+	 * this.clickOnFAQsFooterLink(); this.clickOnFeedbackFooterLink(); }
+	 */
+	
 }

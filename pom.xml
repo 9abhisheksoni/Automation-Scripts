@@ -131,6 +131,13 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
+					<projectName>Sample-Cucumber-TestNG</projectName>
+					<skip>false</skip>
+					<outputDirectory>target/cucumber-extent-reports/extent-report.html</outputDirectory>
+					<inputDirectory>target/cucumber.json</inputDirectory>
+					<jsonFiles>
+						<param>**/*.json</param>
+					</jsonFiles>
 					<suiteXmlFiles>
 						<suiteXmlFile>suiteXml/${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
