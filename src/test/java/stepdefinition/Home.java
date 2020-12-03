@@ -59,9 +59,9 @@ public class Home {
 		homePage.clickHomeLogo();
 	}
 	
-	@And("^user checks the \"([^\"]*)\" in the search$")
-	public void user_checks_the_in_the_search(String special_price) {
-		homePage.evaluateSpecialPriceAtSearch(special_price);
+	@And("^user checks the \"([^\"]*)\" in the search for the \"([^\"]*)\"$")
+	public void user_checks_the_in_the_search(String special_price, String country) {
+		homePage.evaluateSpecialPriceAtSearch(special_price,country);
 	}
 	
 	@And("^user clicks the wishlist link$")

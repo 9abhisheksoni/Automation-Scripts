@@ -20,16 +20,17 @@ import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
 public class SearhPage extends CucumberRunner {
+	private static final String String = null;
 	/**
 	 * Class object declaration here
 	 **/
-	
+
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
 	private Logger log = Logger.getLogger(SearhPage.class.getName());
-	
+
 	/**
 	 * Constructor to initialize page objects
 	 **/
@@ -37,7 +38,6 @@ public class SearhPage extends CucumberRunner {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
 
-	
 	/**
 	 * WebElement declaration starts here
 	 **/
@@ -91,28 +91,28 @@ public class SearhPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgWishlistSuccess;
-	
+
 	@FindBy(xpath = "//li[@class='active']/a")
 	private WebElement lblFirstLevelActive;
-	
+
 	@FindBy(xpath = "//ul[@class='main-categories first-level']/li[not(@class)]/a")
 	private WebElement lblFirstLevelInActive;
-	
+
 	@FindBy(xpath = "//ul[@class='nav second-level men-section']/li[@class='second-sub']")
 	private WebElement lblSecondLevelCategory;
-	
+
 	@FindBy(xpath = "(//li[@class='second-sub hover']//a[@data-level='second-level-item-1'])[2]")
 	private WebElement lblThirdLevelCategory;
 
-	@FindBy(xpath="//ul[@class='breadcrumb clearfix']/li")
+	@FindBy(xpath = "//ul[@class='breadcrumb clearfix']/li")
 	private List<WebElement> lblBreadcrumb;
-	
-	@FindBy (xpath="//span[@id='you_searched_for']/following-sibling::h4")
+
+	@FindBy(xpath = "//span[@id='you_searched_for']/following-sibling::h4")
 	private WebElement msgNoSearchMsg;
-	
-	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
+
+	@FindBy(xpath = "//div[@class='aa-dataset-suggestions']/div")
 	private List<WebElement> lnkProductSuggestion;
-	
+
 	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
 	private WebElement txtBasePrice;
 
@@ -122,7 +122,7 @@ public class SearhPage extends CucumberRunner {
 	/**
 	 * WebElement declaration ends here
 	 **/
-	
+
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);
 		log.info("clicked product on PLP");
@@ -194,9 +194,10 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public int getPriceFromText(String text) {
-		//int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf(' ') + 1));
-		int price = (int) (0 + stringUtility.getDecimalValue(text.substring(text.lastIndexOf(' ') + 1))); 
-		log.info("returning price from text : "+price);
+		// int price = 0 + stringUtility.getIntValue(text.substring(text.lastIndexOf('
+		// ') + 1));
+		int price = (int) (0 + stringUtility.getDecimalValue(text.substring(text.lastIndexOf(' ') + 1)));
+		log.info("returning price from text : " + price);
 		return price;
 	}
 
@@ -219,13 +220,13 @@ public class SearhPage extends CucumberRunner {
 		commonMethods.click(lblSecondLevelCategory);
 		log.info("Clicked second level category");
 	}
-	
+
 	public void clickOnThirdCategory() {
 		commonMethods.mouseHover(lblSecondLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
 	}
-	
+
 	public void verifyOnFirstCategory() {
 		String url = genericHelper.getCurrentUrl();
 		String activeUrl = commonMethods.getAttribute(lblFirstLevelActive, "href");
@@ -235,72 +236,95 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void verifyOnSecondCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==3);
+		Assert.assertTrue(lblBreadcrumb.size() == 3);
 		log.info("second level category page displayed");
 	}
-	
+
 	public void verifyOnThirdCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==2);
+		Assert.assertTrue(lblBreadcrumb.size() == 2);
 		log.info("third level category page displayed");
 	}
-	
+
 	public void verifyNoResultDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(msgNoSearchMsg));
 		log.info("No result page displayed");
 	}
-	
+
 	public void verifySearchSuggestionDisplay() {
-		Assert.assertTrue(lnkProductSuggestion.size()>0);
+		Assert.assertTrue(lnkProductSuggestion.size() > 0);
 		log.info("Search suggestions displayed");
 	}
-	
+
 	/*
-	 * This method fetches the base_price displaying for an item in
-	 * the PLP
+	 * This method fetches the base_price displaying for an item in the PLP
 	 */
-	public String getBasePricePLP() {
-		log.info("Fethcing the basebrice of the item in the PDP");
+	public String getBasePricePLP(String country) {
+		String basePrice = null;
+		log.info("Fethcing the basebrice of the item in the PLP");
 		waitHelper.waitForElementVisible(txtBasePrice);
-		String basePrice = commonMethods.getText(txtBasePrice);
+		basePrice = commonMethods.getText(txtBasePrice);
+		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
 		basePrice = basePrice.replaceAll(",", "");
-		basePrice = basePrice.replaceAll("[^0-9]", "");
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3);
+		log.info("The base price available in the PLP is " + basePrice);
+
+		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
+			basePrice = basePrice.replaceAll("[^0-9]", "");
+		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
+			basePrice = basePrice.replaceAll("[^\\.0-9]", "");
+		} else {
+			log.info("The country code is not valid");
+		}
+		log.info("The base price is " + basePrice);
 		return basePrice;
 	}
 
 	/*
-	 * This method compares the base_price displaying at PLP with the
-	 * actual_price provided by the user
+	 * This method compares the base_price displaying at PLP with the actual_price
+	 * provided by the user
 	 */
-	public void evaluateBasePriceAtPLP(String actualBasePrice) {
+	public void evaluateBasePriceAtPLP(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at PLP with the actual values");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		String basePriceAtPLP = getBasePricePLP();
+		String basePriceAtPLP = getBasePricePLP(country);
 		log.info("The base_price available in the PLP is " + basePriceAtPLP);
 		assertEquals(basePriceAtPLP, actualBasePrice, "The base_price is matching");
 	}
 
 	/*
-	 * This method fetches the special_price displaying for an item
-	 * in the PLP
+	 * This method fetches the special_price displaying for an item in the PLP
 	 */
-	public String getSpecialPricePLP() {
+	public String getSpecialPricePLP(String country) {
 		log.info("Fethcing the special of the item in the PLP");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
 		specialPrice = specialPrice.replaceAll(",", "");
-		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3);
+		log.info("The special Price at PLP is " + specialPrice);
+
+		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
+			log.info("The special Price at PLP is " + specialPrice);
+			specialPrice = specialPrice.replaceAll("[^0-9]", "");
+		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
+			log.info("The special Price at PLP is " + specialPrice);
+			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
+		} else {
+			log.info("The country code is not valid");
+		}
+
 		specialPrice = specialPrice.trim();
+		log.info("The special price is " + specialPrice);
 		return specialPrice;
 	}
 
 	/*
-	 * This method compares the special_price displaying at PLP with
-	 * the actual_price provided by the user
+	 * This method compares the special_price displaying at PLP with the
+	 * actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice, String country) {
 		log.info("Comparing the special displaying at PLP with the actual values");
-		String SpecialAtPDP = getSpecialPricePLP();
+		String SpecialAtPDP = getSpecialPricePLP(country);
 		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
 	}
 

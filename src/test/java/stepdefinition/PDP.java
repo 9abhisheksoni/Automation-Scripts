@@ -75,10 +75,10 @@ public class PDP {
 		pdpPage.verifyPDPDisplayed();
 	}
 	
-	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PDP$")
-	public void user_checks_the_and_the_in_PDP(String base_price, String special_price) {
-		pdpPage.evaluateBasePriceAtPDP(base_price);
-		pdpPage.evaluateSpecialPriceAtPLP(special_price);
+	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PDP for the \"([^\"]*)\"$")
+	public void user_checks_the_and_the_in_PDP(String base_price, String special_price, String country) {
+		pdpPage.evaluateBasePriceAtPDP(base_price, country);
+		pdpPage.evaluateSpecialPriceAtPDP(special_price, country);
 	}
 
 }

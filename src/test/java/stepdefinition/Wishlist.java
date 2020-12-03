@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 import pageObjects.WishlistPage;
 
@@ -7,9 +8,9 @@ public class Wishlist {
 	
 	WishlistPage wishlistPage = new WishlistPage();
 	
-	@When("^user checks the \"([^\"]*)\" in the wishlist$")
-	public void user_checks_the_in_the_wishlist(String specialPrice) {
-		wishlistPage.evaluateSpecialPriceAtPLP(specialPrice);
+	@And("^user checks the \"([^\"]*)\" in the wishlist for the \"([^\"]*)\"$")
+	public void user_checks_the_in_the_wishlist(String specialPrice, String country) {
+		wishlistPage.evaluateSpecialPriceAtPLP(specialPrice, country);
 	}
 	
 	@When("^user adds the item to the cart$")

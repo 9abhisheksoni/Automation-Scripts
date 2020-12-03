@@ -60,10 +60,10 @@ public class Cart {
 		cartPage.verifyPercentOffApplied(percent);
 	}
 	
-	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Cart$")
-	public void user_checks_the_and_the_in_Cart(String basePrice, String specialPrice) {
-		cartPage.evaluateBasePriceAtCart(basePrice);
-		cartPage.evaluateSpecialPriceAtCart(specialPrice);
-		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice);
+	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Cart for the \"([^\"]*)\"$")
+	public void user_checks_the_and_the_in_Cart(String basePrice, String specialPrice, String country) {
+		cartPage.evaluateBasePriceAtCart(basePrice, country);
+		cartPage.evaluateSpecialPriceAtCart(specialPrice, country);
+		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice, country);
 	}
 }

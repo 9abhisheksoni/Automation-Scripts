@@ -159,34 +159,65 @@ public class OrderSuccessPage extends CucumberRunner {
 	/*
 	 * This method fetches the base_price displaying for an item in the Order Success
 	 */
-	public String getBasePriceAtOrderSuccess() {
+	public String getBasePriceAtOrderSuccess(String country) {
+		
+		String basePrice = null;
+		log.info("Fethcing the basebrice of the item in the Order Success");
 		waitHelper.waitForElementVisible(txtBasePrice);
-		String basePrice = txtBasePrice.getText();
+		basePrice = commonMethods.getText(txtBasePrice);
+		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
 		basePrice = basePrice.replaceAll(",", "");
-		basePrice = basePrice.replaceAll("[^0-9]", "");
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode)+3);
+		log.info("The base price available in the Order Success is "+basePrice);
+		
+		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
+			basePrice = basePrice.replaceAll("[^0-9]", "");
+		}
+		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
+			basePrice = basePrice.replaceAll("[^\\.0-9]", "");
+		}
+		else {
+			log.info("The country code is not valid");
+		}
+		log.info("The base price is " + basePrice);		
 		return basePrice;
 	}
 	
 	/* This method compares the base_price displaying at Order Success with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateBasePriceAtOrderSuccess(String actualBasePrice) {
+	public void evaluateBasePriceAtOrderSuccess(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at Order Success with the actual base_price provided by the user");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		String basePriceAtShipping = getBasePriceAtOrderSuccess();
-		log.info("The base_price available in the  Order Success is " + basePriceAtShipping);
-		assertEquals(basePriceAtShipping, actualBasePrice, "The base_price is matching");
+		String basePriceAtOrderSuccess = getBasePriceAtOrderSuccess(country);
+		log.info("The base_price available in the  Order Success is " + basePriceAtOrderSuccess);
+		assertEquals(basePriceAtOrderSuccess, actualBasePrice, "The base_price is matching");
 	}
 
-	public String getSpecialPriceAtOrderSuccess() {
-		log.info("Fethcing the special price of the item in the  Order Success");
+	public String getSpecialPriceAtOrderSuccess(String country) {
+		log.info("Fethcing the special of the item in the Order Success");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
 		specialPrice = specialPrice.replaceAll(",", "");
 		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
-		log.info("The Special Price at  Order Success is "+specialPrice);
+		log.info("The special Price at Order Success is "+specialPrice);
+		
+		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
+			log.info("The special Price at Order Success is "+specialPrice);
+			specialPrice = specialPrice.replaceAll("[^0-9]", "");
+		}
+		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
+			log.info("The special Price at Order Success is "+specialPrice);
+			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
+		}
+		else {
+			log.info("The country code is not valid");
+		}
+		
 		specialPrice = specialPrice.trim();
+		log.info("The special price is " + specialPrice);	
+		
 		return specialPrice;
 	}
 	
@@ -194,10 +225,10 @@ public class OrderSuccessPage extends CucumberRunner {
 	 * This method compares the special_price displaying at Order Success with
 	 * the actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtOrderSuccess(String actualSpecialPrice) {
+	public void evaluateSpecialPriceAtOrderSuccess(String actualSpecialPrice, String country) {
 		log.info("Comparing the special_price displaying at Shipping with the actual values");
-		String SpecialPriceAtShipping = getSpecialPriceAtOrderSuccess();
-		assertEquals(SpecialPriceAtShipping, actualSpecialPrice, "The special_price is matching at Shipping");
+		String SpecialPriceAtOrderSuccess = getSpecialPriceAtOrderSuccess(country);
+		assertEquals(SpecialPriceAtOrderSuccess, actualSpecialPrice, "The special_price is matching at Order Success");
 	}
 
 }

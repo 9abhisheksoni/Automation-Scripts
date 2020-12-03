@@ -124,16 +124,16 @@ public class Checkout {
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
 	
-	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Shipment$")
-	public void user_checks_the_and_the_in_Shipment(String basePrice, String specialPrice) throws Throwable {
-		shippingPage.evaluateBasePriceAtShipping(basePrice);
-		shippingPage.evaluateSpecialPriceAtShipping(specialPrice);
+	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Shipment for the \"([^\"]*)\"$")
+	public void user_checks_the_and_the_in_Shipment(String basePrice, String specialPrice, String country) {
+		shippingPage.evaluateBasePriceAtShipping(basePrice, country);
+		shippingPage.evaluateSpecialPriceAtShipping(specialPrice, country);
 	}
 	
-	@Then("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in order success$")
-	public void user_checks_the_and_the_in_order_success(String basePrice, String specialPrice) throws Throwable {
-		orderSuccess.evaluateBasePriceAtOrderSuccess(basePrice);
-		orderSuccess.evaluateSpecialPriceAtOrderSuccess(specialPrice);
+	@Then("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in order success for the \"([^\"]*)\"$")
+	public void user_checks_the_and_the_in_order_success(String basePrice, String specialPrice, String country) {
+		orderSuccess.evaluateBasePriceAtOrderSuccess(basePrice, country);
+		orderSuccess.evaluateSpecialPriceAtOrderSuccess(specialPrice, country);
 	}
 
 }
