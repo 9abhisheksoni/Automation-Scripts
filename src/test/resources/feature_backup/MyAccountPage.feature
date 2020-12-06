@@ -15,7 +15,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		When User Logsout 
 		Then Logout is successfull
 
-    @Regression 
+    @Regression
 	Scenario Outline: TS_OrderHistory_03 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -48,7 +48,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		|searchTerm|
 		|Shoes|
 		
-		@Smoke @Regression
+		@Smoke @Regression 
 		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters "validuser" login details in the login popup 
