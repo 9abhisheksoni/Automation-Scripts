@@ -40,25 +40,25 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	@FindBy(xpath = "//a[contains(text(),'Consumer')]")
 	private WebElement lblConsumer;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Disclaimer')]")
+	@FindBy(xpath = "//h1[contains(text(),'Disclaimer') or contains(text(),'إخلاء المسؤولية')]")
 	private WebElement lblDisclaimer;
 		
-	@FindBy(xpath = "//h1[contains(text(),'Privacy Policy')]")
+	@FindBy(xpath = "//h1[contains(text(),'سياسة الخصوصية') or contains(text(),'Privacy Policy')]")
 	private WebElement lblPrivacyPolicy;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Shipping Policy')]")
+	@FindBy(xpath = "//h1[contains(text(),'Shipping Policy') or contains(text(),'سياسة الشحن')]")
 	private WebElement lblShippingPolicy;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Return Information')]")
+	@FindBy(xpath = "//h1[contains(text(),'Return Information') or contains(text(),'معلومات إرجاع السلع')]")
 	private WebElement lblReturnInfo;
 	
 	@FindBy(xpath = "//input[@id='tracking_id']")
 	private WebElement txtTrackID;
 	
-	@FindBy(xpath = "//h1[contains(text(),\"FAQ'S\")]")
+	@FindBy(xpath = "//h1[contains(text(),\"FAQ'S\") or contains(text(),'الأسئلة الأكثر شيوعاً')]")
 	private WebElement lblFAQs;	
 	
-	@FindBy(xpath = "//button[@title='Submit']")
+	@FindBy(xpath = "//button[@title='Submit'] | //body/div[4]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/form[1]/li[5]/button[1]")
 	private WebElement btnSubmitFeedback;
 	
 	/**
@@ -67,6 +67,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	
 	
 	public void verifyAbout6thStreetPage() {
+		waitHelper.waitForElementVisible(lblAbout6thStreet);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblAbout6thStreet));
 			log.info("About 6thstreet page is displayed");
@@ -104,6 +105,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyDisclaimerPage() {
+		waitHelper.waitForElementVisible(lblDisclaimer);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblDisclaimer));
 			log.info("Disclaimer page is displayed");
@@ -113,6 +115,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyPrivacyPolicyPage() {
+		waitHelper.waitForElementVisible(lblPrivacyPolicy);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblPrivacyPolicy));
 			log.info("Privacy Policy page is displayed");
@@ -122,6 +125,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyShippingPolicyPage() {
+		waitHelper.waitForElementVisible(lblShippingPolicy);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblShippingPolicy));
 			log.info("Shipping Policy page is displayed");
@@ -131,6 +135,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyReturnInfoPage() {
+		waitHelper.waitForElementVisible(lblReturnInfo);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblReturnInfo));
 			log.info("Return Info page is displayed");
@@ -140,6 +145,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyTrackingPage() {
+		waitHelper.waitForElementVisible(txtTrackID);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(txtTrackID));
 			log.info("Tracking page is displayed");
@@ -149,6 +155,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyFAQsPage() {
+		waitHelper.waitForElementVisible(lblFAQs);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(lblFAQs));
 			log.info("FAQs page is displayed");
@@ -158,6 +165,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	}
 	
 	public void verifyFeedbackPage() {
+		waitHelper.waitForElementVisible(btnSubmitFeedback);
 		try {
 			Assert.assertTrue(commonMethods.isElementPresent(btnSubmitFeedback));
 			log.info("Feedback page is displayed");

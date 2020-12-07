@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Config;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
@@ -25,6 +26,7 @@ public class HomePage extends CucumberRunner {
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil=new StringUtility();
+	Config config = new Config();
 
 	/**
 	 * Constructor to initialize page objects
@@ -82,31 +84,31 @@ public class HomePage extends CucumberRunner {
 	private WebElement FirstSearchEle;
 	
 	/*Footer Links*/
-	@FindBy(xpath="//a[contains(text(),'About 6TH STREET')]")
+	@FindBy(xpath="//a[contains(text(),'About 6TH STREET') or contains(text(),'معلومات عن 6th Street')]")
 	private WebElement lnkAbout6thStreet;
 	
-	@FindBy(xpath="//a[contains(text(),'Consumer Rights')]")
+	@FindBy(xpath="//a[contains(text(),'Consumer Rights') or contains(text(),'حقوق المستهلك')]")
 	private WebElement lnkConsumerRights;
 	
-	@FindBy(xpath="//a[contains(text(),'Disclaimer')]")
+	@FindBy(xpath="//a[contains(text(),'Disclaimer') or contains(text(),'إخلاء المسؤولية')]")
 	private WebElement lnkDisclaimer;
 	
-	@FindBy(xpath="//a[contains(text(),'Privacy Policy')]")
+	@FindBy(xpath="//a[contains(text(),'Privacy Policy') or contains(text(),'سياسة الخصوصية')]")
 	private WebElement lnkPrivacyPolicy;
 	
-	@FindBy(xpath="//a[contains(text(),'Shipping Information')]")
+	@FindBy(xpath="//a[contains(text(),'Shipping Information')] | //body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
 	private WebElement lnkShippingInfo;
 	
-	@FindBy(xpath="//a[contains(text(),'Returns Information')]")
+	@FindBy(xpath="//a[contains(text(),'Returns Information')] | //body/div[3]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[2]")
 	private WebElement lnkReturnInfo;
 	
-	@FindBy(xpath="//a[contains(text(),'Order Tracking')]")
+	@FindBy(xpath="//a[contains(text(),'Order Tracking') or contains(text(),'تتبع الطلب')]")
 	private WebElement lnkOrderTrack;
 	
-	@FindBy(xpath="//a[contains(text(),\"FAQ's\")]")
+	@FindBy(xpath="//a[contains(text(),\"FAQ's\") or contains(text(),'الأسئلة الأكثر تكراراً')]")
 	private WebElement lnkFAQs;
 	
-	@FindBy(xpath="//a[contains(text(),'Feedback')]")
+	@FindBy(xpath="//a[contains(text(),'Feedback') or contains(text(),'رأيكم يهمُّنا')]")
 	private WebElement lnkFeedback;
 	
 	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[3]/span[2]")
@@ -244,12 +246,25 @@ public class HomePage extends CucumberRunner {
 		log.info("clicked Feedback link in Footer");
 	}
 	
-	/*
-	 * public void verifyFooterLinks() { this.clickOnAbout6thStreetFooterLink();
-	 * this.clickOnConsumerRightsFooterLink(); this.clickOnDisclaimerFooterLink();
-	 * this.clickOnPrivacyPolicyFooterLink(); this.clickOnShippingInfoFooterLink();
-	 * this.clickOnReturnInfoFooterLink(); this.clickOnOrderTrackFooterLink();
-	 * this.clickOnFAQsFooterLink(); this.clickOnFeedbackFooterLink(); }
-	 */
+	public void verifySupportPhoneNumber() {
+		String phoneNo = commonMethods.getText(lnkSupportPhoneNo);
+		jsHelper.scrollToElement(lnkSupportPhoneNo);
+		try {
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo())));
+			log.info("Phone number displayed at Footer : "+phoneNo+ " is as expected");
+		} catch(Exception e) {
+			log.info("Phone number displayed at Footer : "+phoneNo+ " is not as expected");
+		}		
+	}
 	
+	public void verifySupportEmailId() {
+		String emailID = commonMethods.getText(lnkCustomerCare);
+		jsHelper.scrollToElement(lnkCustomerCare);
+		try {
+			Assert.assertTrue((emailID.equalsIgnoreCase(config.getSupportEmailId())));
+			log.info("Email id displayed at Footer : "+emailID+ " is as expected");
+		} catch(Exception e) {
+			log.info("Email id displayed at Footer : "+emailID+ " is not as expected");
+		}		
+	}
 }

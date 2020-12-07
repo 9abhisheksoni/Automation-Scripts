@@ -1,6 +1,6 @@
 Feature: 6thStreet.com -  Header, Footer Validation
 
-	@Footer
+	
 	Scenario Outline: TS_FooterLinkValidation_01 - Verify the whether footer links lead to respective pages
 		When User clicks on footer link "<FooterLink>"
 		Then User should be landed into "<PageName>" web page	
@@ -16,3 +16,7 @@ Feature: 6thStreet.com -  Header, Footer Validation
 		|OrderTrack    |OrderTracking |
 		|FAQs          |FAQs          |
 		|Feedback      |Feedback      |
+		
+		@Footer
+		Scenario: TS_ContactSupport_02 - Verify whether correct customer support details are displayed or not
+		When user verifies the customer support details

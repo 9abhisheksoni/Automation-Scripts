@@ -63,5 +63,11 @@ public class Home {
 	public void user_click_on_Home_Logo() throws Throwable {
 		homePage.clickHomeLogo();
 	}
+	
+	@When("^user verifies the customer support details$")
+	public void user_verifies_the_customer_support_details() {
+		homePage.verifySupportPhoneNumber();
+		homePage.verifySupportEmailId();
+	}
 
 }

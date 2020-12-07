@@ -231,5 +231,19 @@ public class Config {
 		CheckoutSandboxURL = prop.getProperty("CheckoutSandboxURL");
 		return CheckoutSandboxURL;
 	}
+	
+	/** This methods returns customer support phone number from property file **/
+	public String getSupportPhoneNo() {
+		checkToCreateProp();
+		log.info("getting support phone number from property file");
+		return prop.getProperty("SupportPhoneNo");
+	}
+	
+	/** This methods returns customer support email id from property file **/
+	public String getSupportEmailId() {
+		checkToCreateProp();
+		log.info("getting support email id from property file");
+		return prop.getProperty("supportEmail");
+	}
 
 }
