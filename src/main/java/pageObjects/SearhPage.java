@@ -16,11 +16,14 @@ import com.google.common.collect.Ordering;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
+import cucumber.api.java.en.And;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
 public class SearhPage extends CucumberRunner {
 	private static final String String = null;
+	public static String globalBasePrice = null;
+	public static String globalSpecialPrice = null;
 	/**
 	 * Class object declaration here
 	 **/
@@ -260,7 +263,7 @@ public class SearhPage extends CucumberRunner {
 	 */
 	public String getBasePricePLP(String country) {
 		String basePrice = null;
-		log.info("Fethcing the basebrice of the item in the PLP");
+		log.info("Fethcing the base brice of the item in the PLP");
 		waitHelper.waitForElementVisible(txtBasePrice);
 		basePrice = commonMethods.getText(txtBasePrice);
 		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
@@ -276,6 +279,7 @@ public class SearhPage extends CucumberRunner {
 			log.info("The country code is not valid");
 		}
 		log.info("The base price is " + basePrice);
+		this.globalBasePrice = basePrice;
 		return basePrice;
 	}
 
@@ -286,9 +290,7 @@ public class SearhPage extends CucumberRunner {
 	public void evaluateBasePriceAtPLP(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at PLP with the actual values");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		String basePriceAtPLP = getBasePricePLP(country);
-		log.info("The base_price available in the PLP is " + basePriceAtPLP);
-		assertEquals(basePriceAtPLP, actualBasePrice, "The base_price is matching");
+		assertEquals(getBasePricePLP(country), actualBasePrice, "The base_price is matching");
 	}
 
 	/*
@@ -315,6 +317,7 @@ public class SearhPage extends CucumberRunner {
 
 		specialPrice = specialPrice.trim();
 		log.info("The special price is " + specialPrice);
+		this.globalSpecialPrice = specialPrice;
 		return specialPrice;
 	}
 
@@ -327,5 +330,4 @@ public class SearhPage extends CucumberRunner {
 		String SpecialAtPDP = getSpecialPricePLP(country);
 		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
 	}
-
 }

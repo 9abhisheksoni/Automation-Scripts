@@ -29,4 +29,10 @@ public class OrderDetails {
 	public void user_checks_the_in_order_order_details(String specialPrice, String country) {
 		orderDetailsPage.evaluateSpecialPriceAtOrderDetails(specialPrice, country);
 	}
+	
+	@Then("^user checks the special_price in order order details for the \"([^\"]*)\"$")
+	public void user_checks_the_special_price_in_order_order_details_for_the(String country) {
+		orderDetailsPage.evaluateSpecialPriceAtOrderDetails(country);
+	}
+
 }

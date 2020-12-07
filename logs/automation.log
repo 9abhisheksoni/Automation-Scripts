@@ -1,58 +1,1428 @@
-03-12-2020 12:15:09 INFO [CucumberBase]: Executing Before Suite
-03-12-2020 12:15:09 INFO [CucumberBase]: Executing Before Test
-03-12-2020 12:15:09 INFO [BrowserFactory]: Creating Browser Factory Instance
-03-12-2020 12:15:09 INFO [BrowserFactory]: Creating Browser Instance Chrome
-03-12-2020 12:15:09 INFO [BrowserFactory]: Setting Execution Country KW
-03-12-2020 12:15:09 INFO [BrowserFactory]: Setting Execution language EN
-03-12-2020 12:15:10 INFO [Hooks]: Before Scenario Execution
-03-12-2020 12:15:10 INFO [CucumberBase]: identifying browser to launch
-03-12-2020 12:15:10 INFO [CucumberBase]: loading property file
-03-12-2020 12:15:10 INFO [Config]: Creating config object
-03-12-2020 12:15:10 INFO [Config]: Setting Config Path
-03-12-2020 12:15:10 INFO [CucumberBase]: OS = Windows
-03-12-2020 12:15:10 INFO [BrowserFactory]: Creating Browser Factory Instance
-03-12-2020 12:15:10 INFO [BrowserFactory]: Returning Browser Instance
-03-12-2020 12:15:10 INFO [BrowserFactory]: Creating Chrome Driver Instance
-03-12-2020 12:15:14 INFO [CucumberBase]: maximizing browser window
-03-12-2020 12:15:14 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:16 INFO [Config]: getting implicit wait from property file in sec
-03-12-2020 12:15:16 INFO [CucumberBase]: Setting up implicit wait in secs 15
-03-12-2020 12:15:16 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:16 INFO [CucumberBase]: Clearing browser cookies
-03-12-2020 12:15:16 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:16 INFO [BrowserFactory]: Getting Execution Country
-03-12-2020 12:15:16 INFO [BrowserFactory]: Getting Execution language
-03-12-2020 12:15:16 INFO [CucumberBase]: Setting up browser url for country KW, language EN and environment as PROD
-03-12-2020 12:15:16 INFO [CucumberBase]: loading property file
-03-12-2020 12:15:16 INFO [Config]: Creating config object
-03-12-2020 12:15:16 INFO [Config]: Setting Config Path
-03-12-2020 12:15:16 INFO [Config]: getting base URL from property file
-03-12-2020 12:15:16 INFO [Config]: the site URL for given country KW and language EN is https://en-kw.6thstreet.com
-03-12-2020 12:15:16 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:19 INFO [Config]: Setting Config object if null
-03-12-2020 12:15:19 INFO [Config]: Creating config object
-03-12-2020 12:15:19 INFO [Config]: Setting Config Path
-03-12-2020 12:15:19 INFO [Config]: getting explicit wait from property file in sec
-03-12-2020 12:15:19 INFO [Config]: Setting Config object if null
-03-12-2020 12:15:19 INFO [Config]: Creating config object
-03-12-2020 12:15:19 INFO [Config]: Setting Config Path
-03-12-2020 12:15:19 INFO [Config]: getting explicit wait from property file in sec
-03-12-2020 12:15:19 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:19 INFO [Config]: Setting Config object if null
-03-12-2020 12:15:19 INFO [Config]: Creating config object
-03-12-2020 12:15:19 INFO [Config]: Setting Config Path
-03-12-2020 12:15:19 INFO [Config]: getting explicit wait from property file in sec
-03-12-2020 12:15:19 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:31 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (a2f5da69e29482fd3d77df43f59e6a96)] -> xpath: //input[@id='search']] Value : LCW-0SL474Z8-CVL
-03-12-2020 12:15:31 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:15:37 INFO [HomePage]: Entering text in Search field
-03-12-2020 12:15:58 INFO [HomePage]: comparing the price displaying at the search
-03-12-2020 12:16:01 INFO [HomePage]: Fetching the price at the search
-03-12-2020 12:16:01 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (a2f5da69e29482fd3d77df43f59e6a96)] -> xpath: (//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']]
-03-12-2020 12:16:01 INFO [BrowserFactory]: Returning Driver Instance
-03-12-2020 12:16:06 INFO [WaitHelper]: element found...KWD 7.2
-03-12-2020 12:16:14 INFO [CommonMethods]: the text is :: KWD 7.2
-03-12-2020 12:16:17 INFO [HomePage]: The price available in the search bar: KWD 7.2
-03-12-2020 12:17:37 INFO [HomePage]: The actual price is 7.2
-03-12-2020 12:18:22 INFO [HomePage]: The price at search is 7.200
-03-12-2020 12:18:23 INFO [HomePage]: Actual value provided by the user is 7.200
+07-12-2020 13:23:01 INFO [CucumberBase]: Executing Before Suite
+07-12-2020 13:23:01 INFO [CucumberBase]: Executing Before Test
+07-12-2020 13:23:01 INFO [BrowserFactory]: Creating Browser Factory Instance
+07-12-2020 13:23:01 INFO [BrowserFactory]: Creating Browser Instance Chrome
+07-12-2020 13:23:01 INFO [BrowserFactory]: Setting Execution Country UAE
+07-12-2020 13:23:01 INFO [BrowserFactory]: Setting Execution language EN
+07-12-2020 13:23:01 INFO [Hooks]: Before Scenario Execution
+07-12-2020 13:23:01 INFO [CucumberBase]: identifying browser to launch
+07-12-2020 13:23:01 INFO [CucumberBase]: loading property file
+07-12-2020 13:23:01 INFO [Config]: Creating config object
+07-12-2020 13:23:01 INFO [Config]: Setting Config Path
+07-12-2020 13:23:01 INFO [CucumberBase]: OS = Windows
+07-12-2020 13:23:01 INFO [BrowserFactory]: Creating Browser Factory Instance
+07-12-2020 13:23:01 INFO [BrowserFactory]: Returning Browser Instance
+07-12-2020 13:23:01 INFO [BrowserFactory]: Creating Chrome Driver Instance
+07-12-2020 13:23:05 INFO [CucumberBase]: maximizing browser window
+07-12-2020 13:23:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:07 INFO [Config]: getting implicit wait from property file in sec
+07-12-2020 13:23:07 INFO [CucumberBase]: Setting up implicit wait in secs 15
+07-12-2020 13:23:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:07 INFO [CucumberBase]: Clearing browser cookies
+07-12-2020 13:23:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:07 INFO [BrowserFactory]: Getting Execution Country
+07-12-2020 13:23:07 INFO [BrowserFactory]: Getting Execution language
+07-12-2020 13:23:07 INFO [CucumberBase]: Setting up browser url for country UAE, language EN and environment as stage
+07-12-2020 13:23:07 INFO [CucumberBase]: loading property file
+07-12-2020 13:23:07 INFO [Config]: Creating config object
+07-12-2020 13:23:07 INFO [Config]: Setting Config Path
+07-12-2020 13:23:07 INFO [Config]: getting base URL from property file
+07-12-2020 13:23:07 INFO [Config]: the site URL for given country UAE and language EN is https://en-ae-stage.6tst.com
+07-12-2020 13:23:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:15 INFO [Config]: Creating config object
+07-12-2020 13:23:15 INFO [Config]: Setting Config Path
+07-12-2020 13:23:15 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='logo']//img]
+07-12-2020 13:23:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:15 INFO [WaitHelper]: element found...
+07-12-2020 13:23:15 INFO [WaitHelper]: Waiting for 5000 ms
+07-12-2020 13:23:20 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:20 INFO [Config]: Creating config object
+07-12-2020 13:23:20 INFO [Config]: Setting Config Path
+07-12-2020 13:23:20 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:20 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:20 INFO [Config]: Creating config object
+07-12-2020 13:23:20 INFO [Config]: Setting Config Path
+07-12-2020 13:23:20 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:20 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:20 INFO [Config]: Creating config object
+07-12-2020 13:23:20 INFO [Config]: Setting Config Path
+07-12-2020 13:23:20 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:20 INFO [Config]: Setting Config object if null
+07-12-2020 13:23:20 INFO [Config]: Creating config object
+07-12-2020 13:23:20 INFO [Config]: Setting Config Path
+07-12-2020 13:23:20 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:23:20 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:20 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:23:20 INFO [WaitHelper]: waitForInvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@id='minicart-counter']]
+07-12-2020 13:23:20 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:24:07 INFO [HomePage]: minicart disappeared
+07-12-2020 13:24:07 INFO [HomePage]: home page is banner loaded
+07-12-2020 13:24:07 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='login-label']]
+07-12-2020 13:24:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:24:07 INFO [LoginPage]: login or registered label in header clicked
+07-12-2020 13:26:47 INFO [JsonReader]: Getting user name for type validuser
+07-12-2020 13:26:47 INFO [JsonReader]: Getting user login for type validuser
+07-12-2020 13:26:47 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:26:47 INFO [Config]: Setting Config object if null
+07-12-2020 13:26:47 INFO [Config]: Creating config object
+07-12-2020 13:26:47 INFO [Config]: Setting Config Path
+07-12-2020 13:26:47 INFO [Config]: getting Json file name from property file
+07-12-2020 13:26:47 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:26:47 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:26:47 INFO [Config]: Setting Config object if null
+07-12-2020 13:26:47 INFO [Config]: Creating config object
+07-12-2020 13:26:47 INFO [Config]: Setting Config Path
+07-12-2020 13:26:47 INFO [Config]: getting Json file name from property file
+07-12-2020 13:26:47 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:26:47 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@name='username']] Value : chethana.achar@6thstreet.com
+07-12-2020 13:26:47 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:26:48 INFO [LoginPage]: entered user email
+07-12-2020 13:26:48 INFO [JsonReader]: Getting user password for type validuser
+07-12-2020 13:26:48 INFO [JsonReader]: Getting user login for type validuser
+07-12-2020 13:26:48 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:26:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:26:48 INFO [Config]: Creating config object
+07-12-2020 13:26:48 INFO [Config]: Setting Config Path
+07-12-2020 13:26:48 INFO [Config]: getting Json file name from property file
+07-12-2020 13:26:48 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:26:48 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:26:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:26:48 INFO [Config]: Creating config object
+07-12-2020 13:26:48 INFO [Config]: Setting Config Path
+07-12-2020 13:26:48 INFO [Config]: getting Json file name from property file
+07-12-2020 13:26:48 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:26:48 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@name='password']] Value : Letmein!123
+07-12-2020 13:26:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:26:49 INFO [LoginPage]: entered user password
+07-12-2020 13:26:49 INFO [LoginPage]: Entered user credentials
+07-12-2020 13:26:54 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:26:59 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> css selector: button#login_button]
+07-12-2020 13:26:59 INFO [LoginPage]: login button clicked
+07-12-2020 13:26:59 INFO [WaitHelper]: Waiting for 10 ms
+07-12-2020 13:26:59 INFO [CommonMethods]: checking whether element is present
+07-12-2020 13:26:59 INFO [CommonMethods]: Found element:::--[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='login-label']]
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@id='customer_name_top_menu']]
+07-12-2020 13:27:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:16 INFO [WaitHelper]: element found...Chethana
+07-12-2020 13:27:16 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@id='customer_name_top_menu']]
+07-12-2020 13:27:16 INFO [LoginPage]: login is successfull
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:16 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:16 INFO [Config]: Creating config object
+07-12-2020 13:27:16 INFO [Config]: Setting Config Path
+07-12-2020 13:27:16 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:17 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:17 INFO [Config]: Creating config object
+07-12-2020 13:27:17 INFO [Config]: Setting Config Path
+07-12-2020 13:27:17 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:17 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //img[@id='mainBannerImage']]
+07-12-2020 13:27:17 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:17 INFO [WaitHelper]: element found...
+07-12-2020 13:27:17 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //img[@id='mainBannerImage']]
+07-12-2020 13:27:17 INFO [HomePage]: home page is loaded
+07-12-2020 13:27:17 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:17 INFO [Config]: Creating config object
+07-12-2020 13:27:17 INFO [Config]: Setting Config Path
+07-12-2020 13:27:17 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:17 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:17 INFO [Config]: Creating config object
+07-12-2020 13:27:17 INFO [Config]: Setting Config Path
+07-12-2020 13:27:17 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:17 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:17 INFO [Config]: Creating config object
+07-12-2020 13:27:17 INFO [Config]: Setting Config Path
+07-12-2020 13:27:17 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:17 INFO [Config]: Setting Config object if null
+07-12-2020 13:27:17 INFO [Config]: Creating config object
+07-12-2020 13:27:17 INFO [Config]: Setting Config Path
+07-12-2020 13:27:17 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:27:17 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:17 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:18 INFO [WaitHelper]: Waiting for 5000 ms
+07-12-2020 13:27:23 INFO [CommonMethods]: checking whether element is present
+07-12-2020 13:27:38 INFO [CommonMethods]: Found element:::--Proxy element for: DefaultElementLocator 'By.xpath: //span[@id='minicart-counter']'
+07-12-2020 13:27:53 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:53 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@id='customer_name_top_menu']]
+07-12-2020 13:27:53 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:57 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //a[@class='top-link-address-link']]
+07-12-2020 13:27:57 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //a[contains(@class,'delete')]]
+07-12-2020 13:27:57 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:27:57 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:28:16 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //button[contains(@class,'action-accept')]'
+07-12-2020 13:28:16 INFO [LoginPage]: Address deleted
+07-12-2020 13:28:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:28:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //li[@class='header-wishlist']/a]
+07-12-2020 13:28:19 INFO [HomePage]: clicked Wishlist in Header
+07-12-2020 13:28:19 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:28:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //li[@class='product-item']//a[@data-role='remove']]
+07-12-2020 13:28:19 INFO [LoginPage]: Wishlist remove icon clicked
+07-12-2020 13:29:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:29:56 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='logo']//img]
+07-12-2020 13:29:56 INFO [HomePage]: Clicked on Home Logo
+07-12-2020 13:30:49 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@id='search']] Value : 00501-2713-DARK-CEDAR :key ?
+07-12-2020 13:30:49 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:30:58 INFO [HomePage]: submitting search term
+07-12-2020 13:31:01 INFO [Config]: Setting Config object if null
+07-12-2020 13:31:01 INFO [Config]: Creating config object
+07-12-2020 13:31:01 INFO [Config]: Setting Config Path
+07-12-2020 13:31:01 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:31:01 INFO [Config]: Setting Config object if null
+07-12-2020 13:31:01 INFO [Config]: Creating config object
+07-12-2020 13:31:01 INFO [Config]: Setting Config Path
+07-12-2020 13:31:01 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:31:01 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:31:13 INFO [SearhPage]: Fethcing the base brice of the item in the PLP
+07-12-2020 13:31:13 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@data-price-type='oldPrice']]
+07-12-2020 13:31:13 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:31:14 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:31:14 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:31:14 INFO [SearhPage]: The base price available in the PLP is  320
+07-12-2020 13:31:14 INFO [SearhPage]: The base price is 320
+07-12-2020 13:31:16 INFO [SearhPage]: Fethcing the special of the item in the PLP
+07-12-2020 13:31:16 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@data-price-type='finalPrice']/span[@class='price']]
+07-12-2020 13:31:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:31:21 INFO [WaitHelper]: element found...-9% AED 290
+07-12-2020 13:31:22 INFO [CommonMethods]: the text is :: -9% AED 290
+07-12-2020 13:31:22 INFO [SearhPage]: The special Price at PLP is  290
+07-12-2020 13:31:22 INFO [SearhPage]: The special Price at PLP is  290
+07-12-2020 13:31:22 INFO [SearhPage]: The special price is 290
+07-12-2020 13:31:33 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:31:42 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[contains(@class,'list_wishlist')]]
+07-12-2020 13:31:42 INFO [SearhPage]: clicked on wishlist icon
+07-12-2020 13:31:52 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:31:57 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']/a]
+07-12-2020 13:31:57 INFO [SearhPage]: clicked product on PLP
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:04 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [Config]: Setting Config object if null
+07-12-2020 13:32:04 INFO [Config]: Creating config object
+07-12-2020 13:32:04 INFO [Config]: Setting Config Path
+07-12-2020 13:32:04 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:32:04 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:04 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:12 INFO [PDPPage]: Comparing the base_price displaying at PDP with the actual base_price provided by the user
+07-12-2020 13:32:12 INFO [PDPPage]: The global base price is 320
+07-12-2020 13:32:12 INFO [PDPPage]: Fethcing the basebrice of the item in the PDP
+07-12-2020 13:32:12 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='price eav-regular']]
+07-12-2020 13:32:12 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:12 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:32:12 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:32:12 INFO [PDPPage]: The base price available in the PDP is  320
+07-12-2020 13:32:12 INFO [PDPPage]: The base price is 320
+07-12-2020 13:32:14 INFO [PDPPage]: Comparing the special displaying at PDP with the actual values
+07-12-2020 13:32:14 INFO [PDPPage]: The global special price is 290
+07-12-2020 13:32:18 INFO [PDPPage]: Fethcing the special of the item in the PDP
+07-12-2020 13:32:18 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='special-price eav-final']]
+07-12-2020 13:32:18 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:18 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:32:18 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:32:18 INFO [PDPPage]: The special Price at PDP is  290
+07-12-2020 13:32:18 INFO [PDPPage]: The special Price at PDP is  290
+07-12-2020 13:32:19 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@id='search']] Value : 00501-2713-DARK-CEDAR
+07-12-2020 13:32:19 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:19 INFO [HomePage]: Entering text in Search field
+07-12-2020 13:32:20 INFO [HomePage]: comparing the price displaying at the search
+07-12-2020 13:32:20 INFO [HomePage]: The global special price is 290
+07-12-2020 13:32:21 INFO [HomePage]: Fetching the price at the search
+07-12-2020 13:32:24 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: (//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']]
+07-12-2020 13:32:24 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:32:24 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:32:25 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:32:25 INFO [HomePage]: The price available in the search bar: AED 290
+07-12-2020 13:32:25 INFO [HomePage]: The actual price is 290
+07-12-2020 13:33:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:08 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //li[@class='header-wishlist']/a]
+07-12-2020 13:33:08 INFO [HomePage]: clicked Wishlist in Header
+07-12-2020 13:33:08 INFO [Config]: Setting Config object if null
+07-12-2020 13:33:08 INFO [Config]: Creating config object
+07-12-2020 13:33:08 INFO [Config]: Setting Config Path
+07-12-2020 13:33:08 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:33:08 INFO [Config]: Setting Config object if null
+07-12-2020 13:33:08 INFO [Config]: Creating config object
+07-12-2020 13:33:08 INFO [Config]: Setting Config Path
+07-12-2020 13:33:08 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:33:08 INFO [Config]: Setting Config object if null
+07-12-2020 13:33:08 INFO [Config]: Creating config object
+07-12-2020 13:33:08 INFO [Config]: Setting Config Path
+07-12-2020 13:33:08 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:33:08 INFO [Config]: Setting Config object if null
+07-12-2020 13:33:08 INFO [Config]: Creating config object
+07-12-2020 13:33:08 INFO [Config]: Setting Config Path
+07-12-2020 13:33:08 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:33:08 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:08 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:13 INFO [WishlistPage]: Comparing the special displaying at PDP with the actual values
+07-12-2020 13:33:13 INFO [WishlistPage]: Fethcing the special of the item in the Wishlist
+07-12-2020 13:33:13 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@data-price-type='finalPrice']]
+07-12-2020 13:33:13 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:18 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:33:18 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:33:18 INFO [WishlistPage]: The special Price at Wishlist is  290
+07-12-2020 13:33:18 INFO [WishlistPage]: The special Price at Wishlist is  290
+07-12-2020 13:33:18 INFO [WishlistPage]: The special price is 290
+07-12-2020 13:33:31 INFO [WaitHelper]: waitForelementToBeClickable[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='wishlist-tocart']]
+07-12-2020 13:33:31 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:36 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:33:36 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:34:00 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //span[@class='wishlist-tocart']'
+07-12-2020 13:34:09 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='gallery-placeholder']]
+07-12-2020 13:34:09 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:34:14 INFO [WaitHelper]: element found...
+07-12-2020 13:34:16 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@id='countrySize']] Value : 0
+07-12-2020 13:34:16 INFO [PDPPage]: Selected size country
+07-12-2020 13:34:18 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='gallery-placeholder']]
+07-12-2020 13:34:18 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:34:23 INFO [WaitHelper]: element found...
+07-12-2020 13:34:24 INFO [CommonMethods]: CHOOSE AN OPTION...
+07-12-2020 13:34:25 INFO [CommonMethods]: 30WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 38WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 40WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 38WX30L
+07-12-2020 13:34:25 INFO [CommonMethods]: 30WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 42WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 36WX30L
+07-12-2020 13:34:25 INFO [CommonMethods]: 34WX30L
+07-12-2020 13:34:25 INFO [CommonMethods]: 33WX30L
+07-12-2020 13:34:25 INFO [CommonMethods]: 31WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 40WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 38WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 31WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 36WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 36WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 34WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 34WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 33WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 33WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 32WX34L
+07-12-2020 13:34:25 INFO [CommonMethods]: 32WX32L
+07-12-2020 13:34:25 INFO [CommonMethods]: 32WX30L
+07-12-2020 13:34:25 INFO [CommonMethods]: 42WX32L
+07-12-2020 13:34:26 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@id='countrySize']/parent::div/../..//select[@class='super-attribute-select']] Value : 1
+07-12-2020 13:34:26 INFO [PDPPage]: Selected product size
+07-12-2020 13:34:33 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //button[@id='product-addtocart-button']]
+07-12-2020 13:34:33 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:34:45 INFO [PDPPage]: clicked on add to bag
+07-12-2020 13:34:46 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //button[@title='Proceed to Checkout']]
+07-12-2020 13:34:46 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:34:47 INFO [WaitHelper]: element found...CHECKOUT
+07-12-2020 13:34:59 INFO [CartPage]: Comparing the base_price displaying at Cart with the actual base_price provided by the user
+07-12-2020 13:34:59 INFO [CartPage]: The base_price fetched at PLP is 320
+07-12-2020 13:34:59 INFO [CartPage]: Fethcing the basebrice of the item in the Cart
+07-12-2020 13:34:59 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='old-price']]
+07-12-2020 13:34:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:35:04 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:35:04 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:35:05 INFO [CartPage]: The base price available in the Cart is  320
+07-12-2020 13:35:05 INFO [CartPage]: The base price is 320
+07-12-2020 13:35:09 INFO [CartPage]: Comparing the special displaying at Cart with the actual values
+07-12-2020 13:35:09 INFO [CartPage]: Fethcing the special of the item in the Cart
+07-12-2020 13:35:09 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='special-price']//span[@class='price']]
+07-12-2020 13:35:09 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:35:14 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:35:14 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:35:14 INFO [CartPage]: The special Price at Cart is  290
+07-12-2020 13:35:14 INFO [CartPage]: The special Price at Cart is  290
+07-12-2020 13:35:14 INFO [CartPage]: The special price is 290
+07-12-2020 13:35:16 INFO [CartPage]: Comparing the special displaying at Cart Subtotal with the actual values
+07-12-2020 13:35:16 INFO [CartPage]: Fethcing the special of the item in the Cart
+07-12-2020 13:35:16 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@data-th='Subtotal']]
+07-12-2020 13:35:16 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:35:21 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:35:21 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:35:22 INFO [CartPage]: The special Price at Cart is  290
+07-12-2020 13:35:22 INFO [CartPage]: The special Price at Cart is  290
+07-12-2020 13:35:22 INFO [CartPage]: The special price is 290
+07-12-2020 13:35:31 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //tr[@class='totals sub']]
+07-12-2020 13:35:31 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:35:36 INFO [WaitHelper]: element found...Subtotal AED 290
+07-12-2020 13:35:36 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:01 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='action primary checkout']'
+07-12-2020 13:36:01 INFO [CartPage]: clicked checkout button in cart page
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:05 INFO [Config]: Creating config object
+07-12-2020 13:36:05 INFO [Config]: Setting Config Path
+07-12-2020 13:36:05 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:05 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:06 INFO [Config]: Setting Config Path
+07-12-2020 13:36:06 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:06 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:06 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:07 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:07 INFO [Config]: Setting Config object if null
+07-12-2020 13:36:07 INFO [Config]: Creating config object
+07-12-2020 13:36:07 INFO [Config]: Setting Config Path
+07-12-2020 13:36:07 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:36:15 INFO [ShippingPage]: Comparing the base_price displaying at Shipping with the base_price fetched at PLP
+07-12-2020 13:36:15 INFO [ShippingPage]: Fethcing the basebrice of the item in the Shipping
+07-12-2020 13:36:15 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='original-price']/span]
+07-12-2020 13:36:15 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:21 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:36:21 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:36:21 INFO [ShippingPage]: The base price available in the Shipping is  320
+07-12-2020 13:36:21 INFO [ShippingPage]: The base price is 320
+07-12-2020 13:36:21 INFO [ShippingPage]: The base_price available in the Shipping is 320
+07-12-2020 13:36:21 INFO [ShippingPage]: Fethcing the basebrice of the item in the Shipping
+07-12-2020 13:36:21 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='original-price']/span]
+07-12-2020 13:36:21 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:26 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:36:27 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:36:27 INFO [ShippingPage]: The base price available in the Shipping is  320
+07-12-2020 13:36:27 INFO [ShippingPage]: The base price is 320
+07-12-2020 13:36:30 INFO [ShippingPage]: Comparing the special_price displaying at Shipping with the special price fetched at PLP
+07-12-2020 13:36:30 INFO [ShippingPage]: Fethcing the special of the item in the Shipping
+07-12-2020 13:36:30 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='price with-discount']/span]
+07-12-2020 13:36:31 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:36:36 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:36:36 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:36:36 INFO [ShippingPage]: The special Price at Shipping is  290
+07-12-2020 13:36:36 INFO [ShippingPage]: The special Price at Shipping is  290
+07-12-2020 13:36:36 INFO [ShippingPage]: The special price is 290
+07-12-2020 13:36:42 INFO [CommonMethods]: checking whether element is present
+07-12-2020 13:36:57 INFO [CommonMethods]: Found element:::--Proxy element for: DefaultElementLocator 'By.xpath: //button[@class='action primary action-save-address']'
+07-12-2020 13:37:16 INFO [BrowserFactory]: Getting Execution Country
+07-12-2020 13:37:31 INFO [ShippingPage]: Enter address manually
+07-12-2020 13:37:31 INFO [JsonReader]: Getting address first name for country uae
+07-12-2020 13:37:31 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:31 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:31 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:31 INFO [Config]: Creating config object
+07-12-2020 13:37:31 INFO [Config]: Setting Config Path
+07-12-2020 13:37:31 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:31 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:31 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:31 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:31 INFO [Config]: Creating config object
+07-12-2020 13:37:31 INFO [Config]: Setting Config Path
+07-12-2020 13:37:31 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:31 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:37:31 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@name='firstname' and contains(@class,'input-text')]] Value : uaefirstname
+07-12-2020 13:37:31 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:37:37 INFO [ShippingPage]: First Name is entered
+07-12-2020 13:37:37 INFO [JsonReader]: Getting address last name for country uae
+07-12-2020 13:37:37 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:37 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:37 INFO [Config]: Creating config object
+07-12-2020 13:37:37 INFO [Config]: Setting Config Path
+07-12-2020 13:37:37 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:37 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:37 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:37 INFO [Config]: Creating config object
+07-12-2020 13:37:37 INFO [Config]: Setting Config Path
+07-12-2020 13:37:37 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:37 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:37:38 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@name='lastname' and contains(@class,'input-text')]] Value : uaelastname
+07-12-2020 13:37:38 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:37:44 INFO [ShippingPage]: Last Name is entered
+07-12-2020 13:37:44 INFO [JsonReader]: Getting address street for country uae
+07-12-2020 13:37:44 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:44 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:44 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:44 INFO [Config]: Creating config object
+07-12-2020 13:37:44 INFO [Config]: Setting Config Path
+07-12-2020 13:37:44 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:44 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:44 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:44 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:44 INFO [Config]: Creating config object
+07-12-2020 13:37:44 INFO [Config]: Setting Config Path
+07-12-2020 13:37:44 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:44 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:37:44 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[contains(@name,'street')]] Value : ROYAL TOWERS 6TH FLOOR WAY NO 3518
+07-12-2020 13:37:44 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:37:50 INFO [ShippingPage]: Address is entered
+07-12-2020 13:37:50 INFO [JsonReader]: Getting address street for country uae
+07-12-2020 13:37:50 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:50 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:50 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:50 INFO [Config]: Creating config object
+07-12-2020 13:37:50 INFO [Config]: Setting Config Path
+07-12-2020 13:37:50 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:50 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:50 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:50 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:50 INFO [Config]: Creating config object
+07-12-2020 13:37:50 INFO [Config]: Setting Config Path
+07-12-2020 13:37:50 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:50 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:37:50 INFO [ShippingPage]: City is Value Dubai
+07-12-2020 13:37:50 INFO [JsonReader]: Getting address street for country uae
+07-12-2020 13:37:50 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:50 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:50 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:50 INFO [Config]: Creating config object
+07-12-2020 13:37:50 INFO [Config]: Setting Config Path
+07-12-2020 13:37:50 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:50 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:50 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:50 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:50 INFO [Config]: Creating config object
+07-12-2020 13:37:50 INFO [Config]: Setting Config Path
+07-12-2020 13:37:50 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:50 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:37:52 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@name='city']] Value : Dubai
+07-12-2020 13:37:52 INFO [ShippingPage]: City is selected
+07-12-2020 13:37:52 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@name='postcode']]
+07-12-2020 13:37:52 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:37:58 INFO [WaitHelper]: element found...Select area
+Abu Hail
+Academic City
+Airport Termial 1
+Al Aweer
+Al Bada'a
+Al Baraha
+Al Barari
+Al Barsha
+Al Barsha 1
+Al Barsha 2
+Al Barsha 3
+Al Barsha South 2
+Al Barsha South 4
+Al Barsha South 5
+Al Barsha South1
+Al Furjan
+Al Hamriya Port
+Al Hebiah
+Al Hebiah Fourth
+Al Jaddaf
+Al Jafiliya
+Al Karama
+Al Khaibaisi
+Al Khawaneej 1
+Al Khawaneej 2
+Al Kifaf
+Al Lailis Nature Reserve
+Al Lisaili
+Al Maktoum International Airport
+Al Manara
+Al Mankhool
+Al Mizhar 1
+Al Mizhar 2
+Al Murar
+Al Muteena
+Al Nahda 1
+Al Nahda 2 - Dubai
+Al Quasis 2
+Al Quasis Ind. 2
+Al Quasis Ind. 3
+Al Quasis Ind. 4
+Al Quasis Ind. 5
+Al Quoz
+Al Quoz 1
+Al Quoz 2
+Al Quoz 3
+Al Quoz 4
+Al Quoz Industrial
+Al Quoz Industrial Area 2
+Al Quoz Industrial Area 3
+Al Quoz Industrial Area 4
+Al Qurda, Camel Race
+Al Qusais 1
+Al Qusais 2
+Al Qusais 3
+Al Qusais Industrial Area
+Al Qusais Industrial Area 1
+Al Raffa
+Al Ras
+Al Rashidiya - Dubai
+Al Rigga
+Al Sabkha - Dubai
+Al Safa 1
+Al Safa 2
+Al Satwa
+Al Sufouh 1
+Al Thanyah
+Al Thanyah Mall
+Al Twar 1
+Al Twar 2
+Al Twar 3
+Al Waha
+Al Waheda
+Al Warqa
+Al Warqa 1
+Al Warqa 2
+Al Warqa 3
+Al Warqa 4
+Al Wasl
+Arabian Ranches
+Bab Al Shams
+Barsha Heights
+Bur Dubai
+Burj Khalifa
+Business Bay
+City Centre Me'aisem
+Deira
+Deira City Centre
+Difc - Trade Centre
+Discovery Garden
+Downtown Dubai
+Downtown Jabal Ali
+Dragon Mart
+Dubai Design Distric
+Dubai Festival City
+Dubai International Airport
+Dubai Internet City
+Dubai Investments Park
+Dubai Mall
+Dubai Marina
+Dubai Maritime City
+Dubai Media City
+Dubai Outlet Mall
+Dubai Production City
+Dubai Silicon Oasis
+Dubai World Central
+Dubai World Trade Centre
+Emaar Business Park
+Emirates Hills
+Festival City
+Garhoud
+Global Village
+Golf City
+Greens
+Hamriya
+Hatta
+Hor Al Anz
+Hor Al Anz East
+Hudaiba
+Ibn Battuta Mall
+International City
+International City 2
+Jebel Ali Free Zone
+Jebel Ali Free Zone - Jabal Ali 3
+Jebel Ali Free Zone - Jebel Ali 2
+Jebel Ali Industrial Area
+Jumeira Lakes
+Jumeirah
+Jumeirah 1
+Jumeirah 2
+Jumeirah 3
+Jumeirah Lake Towers
+Jumeirah Village
+Knowledge Village
+Lahbab
+Layan
+Living Legends
+Majan
+Mall Of The Emirates
+Marina Mall
+Meadows
+Millenium States Villa
+Mirdif
+Motor City
+Mudon
+Muhaisanah 1
+Muhaisanah 2
+Muhaisanah 3
+Muhaisanah 4
+Nad Al Sheba
+Nad Al Sheba 1
+Nad Al Sheba 2
+Nad Al Sheba 3
+Nad Al Sheba 4
+Nadd Al Hamar
+Nadd Hessa, Silicon Oasis
+Naif
+Oud Al Muteena 1
+Oud Al Muteena 2
+Oud Metha
+Palm Jumeirah
+Ras Al Khor
+Ras Al Khor Ind. 1
+Ras Al Khor Ind. 3
+Remraam
+Riggat Al Buteen
+Sports City
+Springs
+Springs 4
+Sustainable City
+The Lakes
+Trade Centre
+Umm Al Sheif
+Umm Hurair 1
+Umm Hurair 2
+Umm Ramoul
+Umm Suqeim 1
+Umm Suqeim 2
+Umm Suqeim 3
+Wadi Al Amardi
+Wadi Al Safa
+Warsan 2
+Warsan 3
+Za'abeel 1
+Za'abeel 2
+07-12-2020 13:37:58 INFO [JsonReader]: Getting address area for country uae
+07-12-2020 13:37:58 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:37:58 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:37:58 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:58 INFO [Config]: Creating config object
+07-12-2020 13:37:58 INFO [Config]: Setting Config Path
+07-12-2020 13:37:58 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:58 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:37:58 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:37:58 INFO [Config]: Setting Config object if null
+07-12-2020 13:37:58 INFO [Config]: Creating config object
+07-12-2020 13:37:58 INFO [Config]: Setting Config Path
+07-12-2020 13:37:58 INFO [Config]: getting Json file name from property file
+07-12-2020 13:37:58 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:38:00 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@name='postcode']] Value : Airport Termial 1
+07-12-2020 13:38:00 INFO [ShippingPage]: Area is selected
+07-12-2020 13:38:00 INFO [JsonReader]: Getting address career code for country uae
+07-12-2020 13:38:00 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:38:00 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:38:00 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:00 INFO [Config]: Creating config object
+07-12-2020 13:38:00 INFO [Config]: Setting Config Path
+07-12-2020 13:38:00 INFO [Config]: getting Json file name from property file
+07-12-2020 13:38:00 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:38:00 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:38:00 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:00 INFO [Config]: Creating config object
+07-12-2020 13:38:00 INFO [Config]: Setting Config Path
+07-12-2020 13:38:00 INFO [Config]: getting Json file name from property file
+07-12-2020 13:38:00 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:38:02 INFO [CommonMethods]: Locator : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //select[@name='cn_carriercode']] Value : 50
+07-12-2020 13:38:02 INFO [ShippingPage]: Carrier Code is selected
+07-12-2020 13:38:02 INFO [JsonReader]: Getting address contact number for country uae
+07-12-2020 13:38:02 INFO [JsonReader]: Getting address details for country uae
+07-12-2020 13:38:02 INFO [JsonReader]: Reading JSON Array
+07-12-2020 13:38:02 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:02 INFO [Config]: Creating config object
+07-12-2020 13:38:02 INFO [Config]: Setting Config Path
+07-12-2020 13:38:02 INFO [Config]: getting Json file name from property file
+07-12-2020 13:38:02 INFO [ResourceHelper]: Getting File Path TestData.json
+07-12-2020 13:38:02 INFO [ResourceHelper]: getting project directory base path
+07-12-2020 13:38:02 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:02 INFO [Config]: Creating config object
+07-12-2020 13:38:02 INFO [Config]: Setting Config Path
+07-12-2020 13:38:02 INFO [Config]: getting Json file name from property file
+07-12-2020 13:38:02 INFO [ResourceHelper]: The requested file path for file name TestData.json is C:\Users\Modex\git\Automation-Scripts/src/main/resources/data/Json/TestData.json
+07-12-2020 13:38:02 INFO [CommonMethods]: WebElement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[contains(@name,'contact') and @type='text']] Value : 6641037
+07-12-2020 13:38:02 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:08 INFO [ShippingPage]: Phone Number is entered
+07-12-2020 13:38:08 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:14 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //button[@class='button action continue primary']]
+07-12-2020 13:38:14 INFO [ShippingPage]: Delivered to this adrress button is clicked
+07-12-2020 13:38:26 INFO [CommonMethods]: removing stored payment
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:38:59 INFO [GenericHelper]: checking whether element is present
+07-12-2020 13:38:59 INFO [Config]: Setting Config object if null
+07-12-2020 13:38:59 INFO [Config]: Creating config object
+07-12-2020 13:38:59 INFO [Config]: Setting Config Path
+07-12-2020 13:38:59 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:38:59 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
+07-12-2020 13:38:59 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:34 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'DESKTOP-32UH9V4', ip: '192.168.0.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\Modex\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58486}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e5683ad89d4ad21be4bd5bb8f8d0755c
+07-12-2020 13:39:35 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:39:36 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:39:37 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:39:39 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:39:40 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:39:41 INFO [CommonMethods]: Returning attribute value for class with value payment-method stored-cards _active
+07-12-2020 13:39:41 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //input[@id = 'msp_cashondelivery']]
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:39:48 INFO [GenericHelper]: checking whether element is present
+07-12-2020 13:39:48 INFO [Config]: Setting Config object if null
+07-12-2020 13:39:48 INFO [Config]: Creating config object
+07-12-2020 13:39:48 INFO [Config]: Setting Config Path
+07-12-2020 13:39:48 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:39:48 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
+07-12-2020 13:39:48 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:20 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'DESKTOP-32UH9V4', ip: '192.168.0.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\Modex\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58486}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e5683ad89d4ad21be4bd5bb8f8d0755c
+07-12-2020 13:40:20 INFO [CommonMethods]: Payment method selected as :COD
+07-12-2020 13:40:25 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:31 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='secure-checkout-right']/span]
+07-12-2020 13:40:32 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:40:33 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:40:34 INFO [CommonMethods]: Returning attribute value for class with value payment-method _active
+07-12-2020 13:40:34 INFO [CommonMethods]: Active payment: codPayment
+07-12-2020 13:40:35 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:40:36 INFO [CommonMethods]: Returning attribute value for class with value payment-method
+07-12-2020 13:40:37 INFO [CommonMethods]: Returning attribute value for class with value payment-method _active
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:40:37 INFO [GenericHelper]: checking whether element is present
+07-12-2020 13:40:37 INFO [Config]: Setting Config object if null
+07-12-2020 13:40:37 INFO [Config]: Creating config object
+07-12-2020 13:40:37 INFO [Config]: Setting Config Path
+07-12-2020 13:40:37 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:40:37 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']]
+07-12-2020 13:40:37 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:41:14 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'DESKTOP-32UH9V4', ip: '192.168.0.103', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\Modex\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58486}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e5683ad89d4ad21be4bd5bb8f8d0755c
+07-12-2020 13:41:14 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:41:35 INFO [CommonMethods]: Clicked on Webelement : Proxy element for: DefaultElementLocator 'By.xpath: //button[@type = 'submit' and @class='action primary checkout button default']'
+07-12-2020 13:41:35 INFO [CommonMethods]: clicked on place order
+07-12-2020 13:41:40 INFO [Config]: Setting Config object if null
+07-12-2020 13:41:40 INFO [Config]: Creating config object
+07-12-2020 13:41:40 INFO [Config]: Setting Config Path
+07-12-2020 13:41:40 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:41:40 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
+07-12-2020 13:41:40 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:41:46 INFO [WaitHelper]: element found...Thank you!
+07-12-2020 13:41:46 INFO [Config]: Setting Config object if null
+07-12-2020 13:41:46 INFO [Config]: Creating config object
+07-12-2020 13:41:46 INFO [Config]: Setting Config Path
+07-12-2020 13:41:46 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:41:46 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
+07-12-2020 13:41:46 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:41:51 INFO [WaitHelper]: element found...Thank you!
+07-12-2020 13:41:57 INFO [GenericHelper]: element is displayed..[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='checkout-success']/div[@class='title']]
+07-12-2020 13:41:57 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:41:57 INFO [StringUtility]: Get integer value for input string Order #500229873
+07-12-2020 13:41:57 INFO [OrderSuccessPage]: Order Placed : Order #500229873
+07-12-2020 13:41:57 INFO [BrowserFactory]: Setting Return Order instance500229873
+07-12-2020 13:41:57 INFO [OrderSuccessPage]: Order Successfully Placed
+07-12-2020 13:42:12 INFO [OrderSuccessPage]: Comparing the base_price displaying at Order Success with the actual base_price provided by the user
+07-12-2020 13:42:12 INFO [OrderSuccessPage]: Fethcing the basebrice of the item in the Order Success
+07-12-2020 13:42:12 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='old-price']]
+07-12-2020 13:42:12 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:17 INFO [WaitHelper]: element found...AED 320
+07-12-2020 13:42:18 INFO [CommonMethods]: the text is :: AED 320
+07-12-2020 13:42:18 INFO [OrderSuccessPage]: The base price available in the Order Success is  320
+07-12-2020 13:42:18 INFO [OrderSuccessPage]: The base price is 320
+07-12-2020 13:42:20 INFO [OrderSuccessPage]: Comparing the special_price displaying at Shipping with the special price fetched at PLP
+07-12-2020 13:42:20 INFO [OrderSuccessPage]: Fethcing the special of the item in the Order Success
+07-12-2020 13:42:20 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='special-price']]
+07-12-2020 13:42:20 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:25 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:42:25 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:42:26 INFO [OrderSuccessPage]: The special Price at Order Success is  290
+07-12-2020 13:42:26 INFO [OrderSuccessPage]: The special Price at Order Success is  290
+07-12-2020 13:42:26 INFO [OrderSuccessPage]: The special price is 290
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [Config]: Setting Config object if null
+07-12-2020 13:42:26 INFO [Config]: Creating config object
+07-12-2020 13:42:26 INFO [Config]: Setting Config Path
+07-12-2020 13:42:26 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:42:26 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:27 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:28 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:42:34 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@id='customer_name_top_menu']]
+07-12-2020 13:42:34 INFO [HomePage]: My account menu link is clicked
+07-12-2020 13:43:02 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:43:15 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //a[@class='top-link-order-history-link' and .='Order History']]
+07-12-2020 13:43:15 INFO [HomePage]: Order history is selected
+07-12-2020 13:43:52 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='order-history-title' and .='Order History']]
+07-12-2020 13:43:52 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:43:58 INFO [WaitHelper]: element found...Order History
+07-12-2020 13:43:58 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:43:58 INFO [BrowserFactory]: Returning order Instance
+07-12-2020 13:43:59 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:43:59 INFO [StringUtility]: Get integer value for input string Order #500229873
+07-12-2020 13:44:00 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - processing
+07-12-2020 13:44:00 INFO [CommonMethods]: Order number 500229873 found in order history, order status is : processing
+07-12-2020 13:44:00 INFO [HomePage]: The order status is: Processing Actual order status processing
+07-12-2020 13:44:00 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='order-history-title' and .='Order History']]
+07-12-2020 13:44:00 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:44:06 INFO [WaitHelper]: element found...Order History
+07-12-2020 13:44:06 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:44:06 INFO [BrowserFactory]: Returning order Instance
+07-12-2020 13:44:07 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:44:07 INFO [StringUtility]: Get integer value for input string Order #500229873
+07-12-2020 13:44:08 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - processing
+07-12-2020 13:44:08 INFO [CommonMethods]: Order number 500229873 found in order history, order status is : processing
+07-12-2020 13:44:08 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //div[@class='order-history-title' and .='Order History']]
+07-12-2020 13:44:08 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:44:13 INFO [WaitHelper]: element found...Order History
+07-12-2020 13:44:14 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:44:14 INFO [BrowserFactory]: Returning order Instance
+07-12-2020 13:44:14 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:44:14 INFO [StringUtility]: Get integer value for input string Order #500229873
+07-12-2020 13:44:16 INFO [CommonMethods]: Returning attribute value for innerHTML with value  - processing
+07-12-2020 13:44:16 INFO [CommonMethods]: Order number 500229873 found in order history, order status is : processing
+07-12-2020 13:44:16 INFO [HomePage]: processing
+07-12-2020 13:44:22 INFO [CommonMethods]: the text is :: Order #500229873
+07-12-2020 13:44:22 INFO [BrowserFactory]: Returning order Instance
+07-12-2020 13:44:22 INFO [BrowserFactory]: Returning order Instance
+07-12-2020 13:44:22 INFO [CommonMethods]: Order number500229873 found in order history, order status is 
+07-12-2020 13:44:22 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:44:31 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //a[@class='view']]
+07-12-2020 13:44:46 INFO [Config]: Setting Config object if null
+07-12-2020 13:44:46 INFO [Config]: Creating config object
+07-12-2020 13:44:46 INFO [Config]: Setting Config Path
+07-12-2020 13:44:46 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:44:46 INFO [Config]: Setting Config object if null
+07-12-2020 13:44:46 INFO [Config]: Creating config object
+07-12-2020 13:44:46 INFO [Config]: Setting Config Path
+07-12-2020 13:44:46 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:44:46 INFO [Config]: Setting Config object if null
+07-12-2020 13:44:46 INFO [Config]: Creating config object
+07-12-2020 13:44:46 INFO [Config]: Setting Config Path
+07-12-2020 13:44:47 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:44:47 INFO [Config]: Setting Config object if null
+07-12-2020 13:44:47 INFO [Config]: Creating config object
+07-12-2020 13:44:47 INFO [Config]: Setting Config Path
+07-12-2020 13:44:47 INFO [Config]: getting explicit wait from property file in sec
+07-12-2020 13:44:47 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:44:47 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:46:44 INFO [OrderDetailsPage]: Returning Order Status of ordrer details page
+07-12-2020 13:46:45 INFO [CommonMethods]: Returning attribute value for innerHTML with value <span>Status:</span>Processing
+07-12-2020 13:46:45 INFO [OrderDetailsPage]: Order status in order details page is: Processing
+07-12-2020 13:46:52 INFO [OrderDetailsPage]: Comparing the special_price displaying at Order Details with the actual values
+07-12-2020 13:46:52 INFO [OrderDetailsPage]: Fethcing the special of the item in the Order Details
+07-12-2020 13:46:52 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (e5683ad89d4ad21be4bd5bb8f8d0755c)] -> xpath: //span[@class='cart-price']/span]
+07-12-2020 13:46:52 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:46:57 INFO [WaitHelper]: element found...AED 290
+07-12-2020 13:46:57 INFO [CommonMethods]: the text is :: AED 290
+07-12-2020 13:46:58 INFO [OrderDetailsPage]: The special Price at Order Details is  290
+07-12-2020 13:46:58 INFO [OrderDetailsPage]: The special Price at Order Details is  290
+07-12-2020 13:46:58 INFO [OrderDetailsPage]: The special price is 290
+07-12-2020 13:46:58 INFO [Hooks]: After Scenario Execution
+07-12-2020 13:46:58 INFO [CucumberBase]: Attaching screenshot to cucumber html report
+07-12-2020 13:46:58 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:47:11 INFO [CucumberBase]: Closing all browser instances
+07-12-2020 13:47:11 INFO [BrowserFactory]: Returning Driver Instance
+07-12-2020 13:47:22 INFO [CucumberBase]: Generating reports after suite execution
+07-12-2020 13:47:22 INFO [ReportHelper]: Generating Cucumber Reports
+07-12-2020 13:47:56 INFO [ReportHelper]: configuring extent reports

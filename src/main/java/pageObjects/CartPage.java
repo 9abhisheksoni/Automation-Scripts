@@ -20,7 +20,7 @@ public class CartPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
-
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(CartPage.class.getName());
 
 	/**
@@ -221,9 +221,16 @@ public class CartPage extends CucumberRunner {
 	public void evaluateBasePriceAtCart(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at Cart with the actual base_price provided by the user");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		String basePriceAtCart = getBasePriceCart(country);
-		log.info("The base_price available in the Cart is " + basePriceAtCart);
-		assertEquals(basePriceAtCart, actualBasePrice, "The base_price is matching");
+		assertEquals(getBasePriceCart(country), actualBasePrice, "The base_price is matching");
+	}
+	
+	/*
+	 * This method compares the base_price displaying at Cart with the actual_price fetched at PLP
+	 */
+	public void evaluateBasePriceAtCart(String country) {
+		log.info("Comparing the base_price displaying at Cart with the actual base_price provided by the user");
+		log.info("The base_price fetched at PLP is " + searchPage.globalBasePrice);
+		assertEquals(getBasePriceCart(country), searchPage.globalBasePrice, "The base_price is matching");
 	}
 
 	/*
@@ -247,10 +254,8 @@ public class CartPage extends CucumberRunner {
 		} else {
 			log.info("The country code is not valid");
 		}
-
-		specialPrice = specialPrice.trim();
 		log.info("The special price is " + specialPrice);
-		return specialPrice;
+		return specialPrice.trim();
 	}
 
 	/*
@@ -259,8 +264,16 @@ public class CartPage extends CucumberRunner {
 	 */
 	public void evaluateSpecialPriceAtCart(String actualSpecialPrice, String country) {
 		log.info("Comparing the special displaying at Cart with the actual values");
-		String SpecialAtCart = getSpecialPriceCart(country);
-		assertEquals(SpecialAtCart, actualSpecialPrice, "The special_price is matching at Cart");
+		assertEquals(getSpecialPriceCart(country), actualSpecialPrice, "The special_price is matching at Cart");
+	}
+	
+
+	/*
+	 * This method compares the special_price displaying at Cart with the special price fetched at Cart
+	 */
+	public void evaluateSpecialPriceAtCart(String country) {
+		log.info("Comparing the special displaying at Cart with the actual values");
+		assertEquals(getSpecialPriceCart(country), searchPage.globalSpecialPrice, "The special_price is matching at Cart");
 	}
 
 	public String getSpecialPriceAtSubtotal(String country) {
@@ -281,21 +294,24 @@ public class CartPage extends CucumberRunner {
 		} else {
 			log.info("The country code is not valid");
 		}
-
-		specialPrice = specialPrice.trim();
-		log.info("The special price is " + specialPrice);
-
-		return specialPrice;
+		return specialPrice.trim();
 	}
 
 	/*
-	 * This method compares the special_price displaying at Cart with the
+	 * This method compares the special_price displaying at Cart Subtotal with the
 	 * actual_price provided by the user
 	 */
 	public void evaluateSpecialPriceAtSubtotal(String actualSpecialPrice, String country) {
 		log.info("Comparing the special displaying at Cart Subtotal with the actual values");
-		String SpecialAtCart = getSpecialPriceAtSubtotal(country);
-		assertEquals(SpecialAtCart, actualSpecialPrice, "The special_price is matching at Cart");
+		assertEquals(getSpecialPriceAtSubtotal(country), actualSpecialPrice, "The special_price is matching at Cart");
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Cart with the special price fetched at PLP
+	 */
+	public void evaluateSpecialPriceAtSubtotal(String country) {
+		log.info("Comparing the special displaying at Cart Subtotal with the actual values");
+		assertEquals(getSpecialPriceAtSubtotal(country), searchPage.globalSpecialPrice, "The special_price is matching at Cart Subtotal");
 	}
 
 }

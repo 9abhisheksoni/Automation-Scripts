@@ -25,6 +25,7 @@ public class HomePage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 
 	/**
@@ -156,8 +157,9 @@ public class HomePage extends CucumberRunner {
 		commonMethods.moveToElementAndClick(FirstSearchEle);
 		log.info("First Search element clicked");
 	}
-	
-	/*	This method fetches price displaying for an SKU at the Search bar
+
+	/*
+	 * This method fetches price displaying for an SKU at the Search bar
 	 */
 	public String getPriceValueAtSearch(String country) {
 		String actualPrice = null;
@@ -168,15 +170,12 @@ public class HomePage extends CucumberRunner {
 		actualPrice = priceWithCurrenyCode.replaceAll(",", ""); // Works correctly for KSA and UAE
 		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
 			actualPrice = priceWithCurrenyCode.replaceAll("[^0-9]", "");
-		}
-		else  if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
-
+		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
 			actualPrice = priceWithCurrenyCode.replaceAll("[^\\.0-9]", "");
-			if(actualPrice.equals("^\\d*(?:\\.\\d{1,3})$")) {
+			if (actualPrice.equals("^\\d*(?:\\.\\d{1,3})$")) {
 				System.out.println("3 digits available after the decimal point");
 			}
-		}
-		else {
+		} else {
 			log.info("The country code is not valid");
 		}
 		log.info("The actual price is " + actualPrice);
@@ -184,15 +183,23 @@ public class HomePage extends CucumberRunner {
 	}
 
 	/*
-	 * This method compares the price displaying in the search bar
-	 * with the price given by the user
+	 * This method compares the price displaying in the search bar with the price
+	 * given by the user
 	 */
 	public void evaluateSpecialPriceAtSearch(String sellingPrice, String country) {
 		log.info("comparing the price displaying at the search");
-		String priceAtSearch = getPriceValueAtSearch(country);
-		log.info("The price at search is " + priceAtSearch);
-		log.info("Actual value provided by the user is " + sellingPrice);
-		assertEquals(priceAtSearch, sellingPrice, "Prices are matching at the search");
+		log.info("The price at search is " + getPriceValueAtSearch(country));
+		assertEquals(getPriceValueAtSearch(country), sellingPrice, "Prices are matching at the search");
+	}
+
+	/*
+	 * This method compares the price displaying in the search bar with the price
+	 * given by the user
+	 */
+	public void evaluateSpecialPriceAtSearch(String country) {
+		log.info("comparing the price displaying at the search");
+		log.info("The global special price is " + searchPage.globalSpecialPrice);
+		assertEquals(getPriceValueAtSearch(country), searchPage.globalSpecialPrice, "Prices are matching at the search");
 	}
 
 }

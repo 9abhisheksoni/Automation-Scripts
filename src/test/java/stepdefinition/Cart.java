@@ -66,4 +66,11 @@ public class Cart {
 		cartPage.evaluateSpecialPriceAtCart(specialPrice, country);
 		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice, country);
 	}
+	
+	@Then("^user checks the base_Price and the special_Price in Cart for the \"([^\"]*)\"$")
+	public void user_checks_the_base_Price_and_the_special_Price_in_Cart_for_the(String country) {
+		cartPage.evaluateBasePriceAtCart(country);
+		cartPage.evaluateSpecialPriceAtCart(country);
+		cartPage.evaluateSpecialPriceAtSubtotal(country);
+	}
 }

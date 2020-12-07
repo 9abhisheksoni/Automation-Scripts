@@ -60,6 +60,8 @@ public class PDP {
 		pdpPage.selectSizeCountry();
 		pdpPage.chooseSize();
 	}
+	
+	
 	@And("^user selects color$")
 	public void user_selects_color() {
 		pdpPage.chooseColor();
@@ -80,5 +82,12 @@ public class PDP {
 		pdpPage.evaluateBasePriceAtPDP(base_price, country);
 		pdpPage.evaluateSpecialPriceAtPDP(special_price, country);
 	}
+	
+	@And("^valdiate the base_Price and special_Price in PDP for the \"([^\"]*)\"$")
+	public void valdiate_the_base_Price_and_special_Price_in_PDP_for_the(String country) {
+		pdpPage.evaluateBasePriceAtPDP(country);
+		pdpPage.evaluateSpecialPriceAtPDP(country);
+	}
 
+	
 }

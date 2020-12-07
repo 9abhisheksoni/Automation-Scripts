@@ -21,6 +21,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(OrderDetailsPage.class.getName());
 	
 	/**
@@ -149,11 +150,7 @@ public class OrderDetailsPage extends CucumberRunner {
 		else {
 			log.info("The country code is not valid");
 		}
-		
-		specialPrice = specialPrice.trim();
-		log.info("The special price is " + specialPrice);	
-		
-		return specialPrice;
+		return specialPrice.trim();
 	}
 	
 	/*
@@ -162,8 +159,15 @@ public class OrderDetailsPage extends CucumberRunner {
 	 */
 	public void evaluateSpecialPriceAtOrderDetails(String actualSpecialPrice, String country) {
 		log.info("Comparing the special_price displaying at Order Details with the actual values");
-		String SpecialPriceAtOrderDetails = getSpecialPriceAtOrderDetails(country);
-		assertEquals(SpecialPriceAtOrderDetails, actualSpecialPrice, "The special_price is matching at Order Details");
+		assertEquals(getSpecialPriceAtOrderDetails(country), actualSpecialPrice, "The special_price is matching at Order Details");
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Order Success with the special price fetched at PLP
+	 */
+	public void evaluateSpecialPriceAtOrderDetails(String country) {
+		log.info("Comparing the special_price displaying at Order Details with the actual values");
+		assertEquals(getSpecialPriceAtOrderDetails(country), searchPage.globalSpecialPrice, "The special_price is matching at Order Details");
 	}
 	
 }

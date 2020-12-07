@@ -25,6 +25,7 @@ public class ShippingPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	GenericHelper genericHelper = new GenericHelper();
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(ShippingPage.class.getName());
 
 	/**
@@ -276,7 +277,7 @@ public class ShippingPage extends CucumberRunner {
 		}
 		log.info("The base price is " + basePrice);	
 		
-		return basePrice;
+		return basePrice.trim();
 	}
 	
 	/* This method compares the base_price displaying at Shipment with the
@@ -285,9 +286,17 @@ public class ShippingPage extends CucumberRunner {
 	public void evaluateBasePriceAtShipping(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at Shipping with the actual base_price provided by the user");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		String basePriceAtShipping = getBasePriceAtShipping(country);
-		log.info("The base_price available in the Shipping is " + basePriceAtShipping);
-		assertEquals(basePriceAtShipping, actualBasePrice, "The base_price is matching");
+		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping(country));
+		assertEquals(getBasePriceAtShipping(country), actualBasePrice, "The base_price is matching");
+	}
+	
+	
+	/* This method compares the base_price displaying at Shipment with the base_price fetched at PLP
+	 */
+	public void evaluateBasePriceAtShipping(String country) {
+		log.info("Comparing the base_price displaying at Shipping with the base_price fetched at PLP");
+		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping(country));
+		assertEquals(getBasePriceAtShipping(country), searchPage.globalBasePrice, "The base_price is matching");
 	}
 
 	public String getSpecialPriceAtShipping(String country) {
@@ -311,10 +320,7 @@ public class ShippingPage extends CucumberRunner {
 			log.info("The country code is not valid");
 		}
 		
-		specialPrice = specialPrice.trim();
-		log.info("The special price is " + specialPrice);
-		
-		return specialPrice;
+		return specialPrice.trim();
 	}
 	
 	/*
@@ -323,8 +329,16 @@ public class ShippingPage extends CucumberRunner {
 	 */
 	public void evaluateSpecialPriceAtShipping(String actualSpecialPrice, String country) {
 		log.info("Comparing the special_price displaying at Shipping with the actual values");
-		String SpecialPriceAtShipping = getSpecialPriceAtShipping(country);
-		assertEquals(SpecialPriceAtShipping, actualSpecialPrice, "The special_price is matching at Shipping");
+		assertEquals(getSpecialPriceAtShipping(country), actualSpecialPrice, "The special_price is matching at Shipping");
+	}
+	
+	
+	/*
+	 * This method compares the special_price displaying at Shipment with with fetched special_price at PLP
+	 */
+	public void evaluateSpecialPriceAtShipping(String country) {
+		log.info("Comparing the special_price displaying at Shipping with the special price fetched at PLP");
+		assertEquals(getSpecialPriceAtShipping(country), searchPage.globalSpecialPrice, "The special_price is matching at Shipping");
 	}
 	
 }

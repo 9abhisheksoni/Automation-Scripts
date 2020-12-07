@@ -10,11 +10,16 @@ public class Wishlist {
 	
 	@And("^user checks the \"([^\"]*)\" in the wishlist for the \"([^\"]*)\"$")
 	public void user_checks_the_in_the_wishlist(String specialPrice, String country) {
-		wishlistPage.evaluateSpecialPriceAtPLP(specialPrice, country);
+		wishlistPage.evaluateSpecialPriceAtWishlist(specialPrice, country);
 	}
 	
 	@When("^user adds the item to the cart$")
 	public void user_adds_the_item_to_the_cart() {
 		wishlistPage.addItemToBag();
+	}
+	
+	@And("^user checks the special_price in the wishlist for the \"([^\"]*)\"$")
+	public void user_checks_the_special_price_in_the_wishlist_for_the(String country) {
+		wishlistPage.evaluateSpecialPriceAtWishlist(country);
 	}
 }	

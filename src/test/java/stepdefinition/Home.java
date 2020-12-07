@@ -68,6 +68,11 @@ public class Home {
 	public void user_clicks_the_wishlist_link() {
 		homePage.clickOnWishlistInHeader();
 	}
+	
+	@Then("^user checks the special_price in the search for the \"([^\"]*)\"$")
+	public void user_checks_the_special_price_in_the_search_for_the(String country) {
+		homePage.evaluateSpecialPriceAtSearch(country);
+	}
 
 
 }

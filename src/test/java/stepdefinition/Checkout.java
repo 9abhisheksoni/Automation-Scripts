@@ -135,5 +135,17 @@ public class Checkout {
 		orderSuccess.evaluateBasePriceAtOrderSuccess(basePrice, country);
 		orderSuccess.evaluateSpecialPriceAtOrderSuccess(specialPrice, country);
 	}
+	
+	@Then("^user checks the base_Price and the special_Price in Shipment for the \"([^\"]*)\"$")
+	public void user_checks_the_base_Price_and_the_special_Price_in_Shipment_for_the(String country) {
+		shippingPage.evaluateBasePriceAtShipping(country);
+		shippingPage.evaluateSpecialPriceAtShipping(country);
+	}
+	
+	@Then("^user checks the base_Price and the special_Price in order success for the \"([^\"]*)\"$")
+	public void user_checks_the_base_Price_and_the_special_Price_in_order_success_for_the(String country) {
+		orderSuccess.evaluateBasePriceAtOrderSuccess(country);
+		orderSuccess.evaluateSpecialPriceAtOrderSuccess(country);
+	}
 
 }

@@ -21,6 +21,7 @@ public class WishlistPage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(WishlistPage.class.getName());
 
 	/**
@@ -46,7 +47,7 @@ public class WishlistPage extends CucumberRunner {
 	/*
 	 * This method fetches the special_price displaying for an item in the PLP
 	 */
-	public String getSpecialPricePLP(String country) {
+	public String getSpecialPriceWishlist(String country) {
 		log.info("Fethcing the special of the item in the Wishlist");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -66,21 +67,26 @@ public class WishlistPage extends CucumberRunner {
 		else {
 			log.info("The country code is not valid");
 		}
-		
-		specialPrice = specialPrice.trim();
 		log.info("The special price is " + specialPrice);
-		
-		return specialPrice;
+		return specialPrice.trim();
 	}
 
 	/*
-	 * This method compares the special_price displaying at PDP with the
+	 * This method compares the special_price displaying at Wishlist with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice, String country) {
-		log.info("Comparing the special displaying at PDP with the actual values");
-		String SpecialAtPDP = getSpecialPricePLP(country);
-		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PDP");
+	public void evaluateSpecialPriceAtWishlist(String actualSpecialPrice, String country) {
+		log.info("Comparing the special displaying at Wishlist with the actual values");
+		assertEquals(getSpecialPriceWishlist(country), actualSpecialPrice, "The special_price is matching at Wishlist");
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Wishlist with the
+	 * actual_price fetched at PLP
+	 */
+	public void evaluateSpecialPriceAtWishlist(String country) {
+		log.info("Comparing the special displaying at Wishlist with the actual values");
+		assertEquals(getSpecialPriceWishlist(country), searchPage.globalSpecialPrice, "The special_price is matching at Wishlist");
 	}
 	
 	public void addItemToBag() {

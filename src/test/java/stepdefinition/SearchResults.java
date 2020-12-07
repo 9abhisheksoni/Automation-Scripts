@@ -130,5 +130,11 @@ public class SearchResults {
 		searchPage.evaluateBasePriceAtPLP(base_price, country);
 		searchPage.evaluateSpecialPriceAtPLP(special_price, country);
 	}
-
+	
+	
+	@And("^user fetch the Base_Price and the Special_Price for the \"([^\"]*)\" in PLP$")
+    public void user_fetch_the_baseprice_and_the_specialprice_for_the_something_in_PLP(String country) {
+		searchPage.getBasePricePLP(country);
+		searchPage.getSpecialPricePLP(country);
+    }
 }
