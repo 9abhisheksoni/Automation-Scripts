@@ -233,5 +233,4 @@ public class Config {
 		CheckoutSandboxURL = prop.getProperty("CheckoutSandboxURL");
 		return CheckoutSandboxURL;
 	}
-
 }

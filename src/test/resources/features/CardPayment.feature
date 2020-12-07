@@ -32,7 +32,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 @CreditCardPayment @SavedCardPayment
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Saved credit card 
 		When User clicks on login link 
-		When User enters valid login details "Savedcarduser" username and "Savedcarduser" password in the login popup 
+		When User enters "Savedcarduser" login details in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 

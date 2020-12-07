@@ -1,12 +1,15 @@
 package fileReader;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 
 import base.Config;
@@ -257,5 +260,44 @@ public class JsonReader {
 	public String getPassword(String country, String userType) {
 		log.info("returning password for country " + country + " and user type " + userType);
 		return (String) this.getUserTypeData(country, userType).get("password");
+	}
+	
+	public JSONObject getCreditCardExpiryDetails() {
+		log.info("Getting card expiry details");
+		JSONObject creditCardExpiry = (JSONObject) readJson().get(0);
+		JSONObject creditCardExpiryData = ((JSONObject) creditCardExpiry.get("creditcardexpiry"));
+		return creditCardExpiryData;
+	}
+	
+	/** this method returns credit card expiry Month **/
+	public String getCCExpiryMonth() {
+		log.info("Getting Credit Card expiry Month");
+		return (String) this.getCreditCardExpiryDetails().get("expirymonth");
+	}
+	
+	/** this method returns credit card expiry Year **/
+	public String getCCExpiryYear() {
+		log.info("Getting Credit Card expiry Year");
+		return (String) this.getCreditCardExpiryDetails().get("expiryyear");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void writeCCExpirytoJson(String key, String value) {
+		ResourceHelper resourceHelper = new ResourceHelper();
+		Config config = new Config();
+		try {
+		FileReader reader = new FileReader(resourceHelper.getFilepath(config.getJsonFileName()));
+		JSONArray jsonData = (JSONArray) JSONValue.parse(reader);
+		JSONObject jsonFirstNode = (JSONObject) jsonData.get(0);
+		JSONObject creditCardExpiryData = ((JSONObject) jsonFirstNode.get("creditcardexpiry"));
+		creditCardExpiryData.put(key, value);
+//		String finalJson = users.toJSONString();
+		reader.close();
+		Writer writer = new FileWriter(resourceHelper.getFilepath(config.getJsonFileName()));
+		jsonData.writeJSONString(writer);
+		writer.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

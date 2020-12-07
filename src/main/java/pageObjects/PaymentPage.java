@@ -3,7 +3,6 @@ package pageObjects;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -199,12 +198,15 @@ public class PaymentPage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@class='action primary checkout']/span")
 	private WebElement btnSCPlaceOrder;
-	
-	@FindBy(xpath="//span[@id='block-customerbalance-heading']/ancestor::div[@id='customerbalance-placer']")
+
+	@FindBy(xpath = "//span[@id='block-customerbalance-heading']/ancestor::div[@id='customerbalance-placer']")
 	private WebElement divStoreCredit;
-	
-	@FindBy(xpath="//span[@class='club-apparel']/ancestor::div[contains(@class,'ca')]")
+
+	@FindBy(xpath = "//span[@class='club-apparel']/ancestor::div[contains(@class,'ca')]")
 	private WebElement divClubApparel;
+
+	@FindBy(xpath = "//input[@name='saveCard']")
+	private WebElement chkSaveCard;
 
 	/**
 	 * WebElement declaration ends here
@@ -533,7 +535,7 @@ public class PaymentPage extends CucumberRunner {
 			log.info("CLicked Place order button");
 		}
 	}
-	
+
 	public void verifyAvailablePaymentOptions() {
 		String env = browserFactory.getCountry();
 		if (env.equalsIgnoreCase("UAE") || env.equalsIgnoreCase("KSA")) {
@@ -558,6 +560,62 @@ public class PaymentPage extends CucumberRunner {
 			log.info("Credit Card Payment Option is available");
 			Assert.assertTrue(genericHelper.isDisplayed(divCodPayment));
 			log.info("COD Payment Option is available");
+		}
+	}
+
+	public void payUsingCreditCardAndSave(String cardType) {
+		String expiryMonth = json.getCCExpiryMonth();
+		String expiryYear = json.getCCExpiryYear();
+		String expirytemp = expiryMonth + "/";
+		String expiry = expirytemp + expiryYear;
+		String cardNumber = json.getCardnumber(cardType);
+		String cvv = json.getCVV(cardType);
+
+		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
+			waitHelper.staticWait(3000);
+			commonMethods.click(radioCreditCardPayment);
+			waitHelper.waitForSpinnerInvisibility();
+		}
+		genericHelper.switchToFrame(frameCreditCard);
+		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
+		log.info("card number is entered as :" + cardNumber);
+		genericHelper.switchToDefaulContent();
+		genericHelper.switchToFrame(frameExpiryDate);
+		commonMethods.clearAndSendKeys(txtCreditCardExpiry, expiry);
+		log.info("Expiry date is entered as : " + expiry);
+		genericHelper.switchToDefaulContent();
+		genericHelper.switchToFrame(frameCvv);
+		commonMethods.clearAndSendKeys(txtCreditCardCvv, cvv);
+		genericHelper.switchToDefaulContent();
+		log.info("CVV detail is entered as : " + cvv);
+
+		String newexpiryMonth = null;
+		String newexpiryYear = null;
+		int tempExpiryYear = Integer.parseInt(expiryYear);
+		int tempExpiryMonth = Integer.parseInt(expiryMonth);
+		if (tempExpiryMonth == 12) {
+			newexpiryMonth = "01";
+			tempExpiryYear = tempExpiryYear + 1;
+			newexpiryYear = Integer.toString(tempExpiryYear);
+			json.writeCCExpirytoJson("expirymonth", newexpiryMonth);
+			json.writeCCExpirytoJson("expiryyear", newexpiryYear);
+			log.info("Json File is updated with new Expiry values: Month: " + expiryMonth + " Year: " + expiryYear);
+		} else if (tempExpiryMonth < 12) {
+			tempExpiryMonth = tempExpiryMonth + 1;
+			if (tempExpiryMonth < 10) {
+				newexpiryMonth = Integer.toString(tempExpiryMonth);
+				newexpiryMonth = "0" + newexpiryMonth;
+			} else {
+				newexpiryMonth = Integer.toString(tempExpiryMonth);
+			}
+			json.writeCCExpirytoJson("expirymonth", newexpiryMonth);
+			json.writeCCExpirytoJson("expiryyear", expiryYear);
+			log.info("Json File is updated with new Expiry values: Month: " + expiryMonth + " Year: " + expiryYear);
+		}
+
+		if (genericHelper.isDisplayed(chkSaveCard)) {
+			commonMethods.click(chkSaveCard);
+			log.info("Save Card Checkbox is selected");
 		}
 	}
 }
