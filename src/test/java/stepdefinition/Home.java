@@ -1,6 +1,9 @@
 package stepdefinition;
 
+import java.util.Map;
+
 import commonHelper.GenericHelper;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -63,11 +66,12 @@ public class Home {
 	public void user_click_on_Home_Logo() throws Throwable {
 		homePage.clickHomeLogo();
 	}
-	
-	@When("^user verifies the customer support details$")
-	public void user_verifies_the_customer_support_details() {
-		homePage.verifySupportPhoneNumber();
-		homePage.verifySupportEmailId();
+		
+	@When("^user verifies the customer support details at Header and Footer$")
+	public void user_verifies_the_customer_support_details_at_Header_and_Footer(DataTable section)  {
+		for(Map<String,String> sec:section.asMaps(String.class, String.class)) {
+			homePage.verifySupportPhoneAndEmail(sec.get("Section"));			
+		}
 	}
 
 }

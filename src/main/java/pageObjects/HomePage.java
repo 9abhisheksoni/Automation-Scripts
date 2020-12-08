@@ -112,10 +112,19 @@ public class HomePage extends CucumberRunner {
 	private WebElement lnkFeedback;
 	
 	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[3]/span[2]")
-	private WebElement lnkCustomerCare;
+	private WebElement lnkFooterCustomerCareMail;
 	
 	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[2]")
-	private WebElement lnkSupportPhoneNo;
+	private WebElement lblFooterCustomerCarePhoneNo;
+	
+	@FindBy(xpath="//div[@id='top_header_customer_service']")
+	private WebElement divCustomerService;
+	
+	@FindBy(xpath="//header/div[2]/div[2]/p[3]/span[2]/a[1]")
+	private WebElement lnkCustomerServiceMail;
+	
+	@FindBy(xpath="//body[1]/div[4]/header[1]/div[2]/div[2]/p[2]/span[2]")
+	private WebElement lblCustomerServicePhone;
 	
 	/**
 	 * WebElement declaration ends here
@@ -246,9 +255,31 @@ public class HomePage extends CucumberRunner {
 		log.info("clicked Feedback link in Footer");
 	}
 	
-	public void verifySupportPhoneNumber() {
-		String phoneNo = commonMethods.getText(lnkSupportPhoneNo);
-		jsHelper.scrollToElement(lnkSupportPhoneNo);
+	public void verifySupportPhoneAndEmail(String section) {
+		if (section.equalsIgnoreCase("Header")) {
+			commonMethods.click(divCustomerService);
+			this.verifyHeaderPhoneNumber();
+			this.verifyHeaderMailId();
+		} else if (section.equalsIgnoreCase("Footer")) {
+			this.verifyFooterPhoneNumber();
+			this.verifyFooterMailId();
+		}				
+	}
+	
+	public void verifyFooterMailId() {
+		String emailID = commonMethods.getText(lnkFooterCustomerCareMail);
+		jsHelper.scrollToElement(lnkFooterCustomerCareMail);
+		try {
+			Assert.assertTrue((emailID.equalsIgnoreCase(config.getSupportEmailId())));
+			log.info("Email id displayed at Footer : "+emailID+ " is as expected");
+		} catch(Exception e) {
+			log.info("Email id displayed at Footer : "+emailID+ " is not as expected");
+		}		
+	}
+	
+	public void verifyFooterPhoneNumber() {
+		String phoneNo = commonMethods.getText(lblFooterCustomerCarePhoneNo);
+		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
 		try {
 			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo())));
 			log.info("Phone number displayed at Footer : "+phoneNo+ " is as expected");
@@ -257,14 +288,23 @@ public class HomePage extends CucumberRunner {
 		}		
 	}
 	
-	public void verifySupportEmailId() {
-		String emailID = commonMethods.getText(lnkCustomerCare);
-		jsHelper.scrollToElement(lnkCustomerCare);
+	public void verifyHeaderMailId() {
+		String emailID = commonMethods.getText(lnkCustomerServiceMail); 
 		try {
 			Assert.assertTrue((emailID.equalsIgnoreCase(config.getSupportEmailId())));
-			log.info("Email id displayed at Footer : "+emailID+ " is as expected");
+			log.info("Email id displayed at Header : "+emailID+ " is as expected");
 		} catch(Exception e) {
-			log.info("Email id displayed at Footer : "+emailID+ " is not as expected");
+			log.info("Email id displayed at Header : "+emailID+ " is not as expected");
+		}		
+	}
+	
+	public void verifyHeaderPhoneNumber() {
+		String phoneNo = commonMethods.getText(lblCustomerServicePhone);		
+		try {
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo())));
+			log.info("Phone number displayed at Header : "+phoneNo+ " is as expected");
+		} catch(Exception e) {
+			log.info("Phone number displayed at Header : "+phoneNo+ " is not as expected");
 		}		
 	}
 }

@@ -19,4 +19,7 @@ Feature: 6thStreet.com -  Header, Footer Validation
 		
 		@Footer
 		Scenario: TS_ContactSupport_02 - Verify whether correct customer support details are displayed or not
-		When user verifies the customer support details
+		When user verifies the customer support details at Header and Footer
+		|Section|
+		|Header|
+		|Footer|
