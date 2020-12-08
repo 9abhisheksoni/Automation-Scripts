@@ -3,14 +3,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	@Regression
 	Scenario Outline: TS_ApplyPromotionCOdes_01 - Registered User is able to apply %off coupon codes to avail discounts on sub total
 	When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
-	And User clicks on login button 
-	And user login is successfull 
-	And Home page is displayed 
-	And User clears cart
-	And User clears saved address
-	When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
+	When User enters "validuser" login details in the login popup 
 	And User clicks on login button 
 	And user login is successfull 
 	And Home page is displayed 
@@ -34,14 +27,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	@Regression
 	Scenario Outline: TS_ApplyPromotionCOdes_02 - Registered User is able to apply fixed amount off coupon codes to avail discounts on sub total
 	When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
-	And User clicks on login button 
-	And user login is successfull 
-	And Home page is displayed 
-	And User clears cart
-	And User clears saved address
-	When User clicks on login link 
-	When User enters valid login details "validuser" username and "validuser" password in the login popup 
+	When User enters "validuser" login details in the login popup
 	And User clicks on login button 
 	And user login is successfull 
 	And Home page is displayed 

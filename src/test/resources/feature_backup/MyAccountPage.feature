@@ -9,7 +9,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 	@Smoke @Regression 
 	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
+		When User enters "validuser" login details in the login popup 
 		And User clicks on login button 
 		And user login is successfull 	
 		When User Logsout 
@@ -17,7 +17,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 #		Then Logout is successfull
 		
 
-    @Regression 
+    @Regression
 	Scenario Outline: TS_OrderHistory_03 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 

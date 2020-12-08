@@ -1,6 +1,7 @@
 package stepdefinition;
 
 import org.apache.log4j.Logger;
+import org.testng.ITestResult;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -24,9 +25,6 @@ public class Hooks extends CucumberRunner{
 	public void afterMethod(Scenario scenario) {
 		log.info("After Scenario Execution");
 		attachScreen(scenario);
-		if (scenario.isFailed()) {
-		takeScreenShot(scenario);
-		}
 		quit();
 	}
 	
