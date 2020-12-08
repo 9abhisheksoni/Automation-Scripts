@@ -84,46 +84,46 @@ public class HomePage extends CucumberRunner {
 	private WebElement FirstSearchEle;
 	
 	/*Footer Links*/
-	@FindBy(xpath="//a[contains(text(),'About 6TH STREET') or contains(text(),'معلومات عن 6th Street')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'6th-street')]")
 	private WebElement lnkAbout6thStreet;
 	
-	@FindBy(xpath="//a[contains(text(),'Consumer Rights') or contains(text(),'حقوق المستهلك')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'consumerrights')]")
 	private WebElement lnkConsumerRights;
 	
-	@FindBy(xpath="//a[contains(text(),'Disclaimer') or contains(text(),'إخلاء المسؤولية')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'disclaimer')]")
 	private WebElement lnkDisclaimer;
 	
-	@FindBy(xpath="//a[contains(text(),'Privacy Policy') or contains(text(),'سياسة الخصوصية')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'privacy-policy')]")
 	private WebElement lnkPrivacyPolicy;
 	
-	@FindBy(xpath="//a[contains(text(),'Shipping Information')] | //body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'shipping-policy')]")
 	private WebElement lnkShippingInfo;
 	
-	@FindBy(xpath="//a[contains(text(),'Returns Information')] | //body/div[3]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[2]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'return-information')]")
 	private WebElement lnkReturnInfo;
 	
-	@FindBy(xpath="//a[contains(text(),'Order Tracking') or contains(text(),'تتبع الطلب')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'track')]")
 	private WebElement lnkOrderTrack;
 	
-	@FindBy(xpath="//a[contains(text(),\"FAQ's\") or contains(text(),'الأسئلة الأكثر تكراراً')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'Faq')]")
 	private WebElement lnkFAQs;
 	
-	@FindBy(xpath="//a[contains(text(),'Feedback') or contains(text(),'رأيكم يهمُّنا')]")
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'contact')]")
 	private WebElement lnkFeedback;
 	
-	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[3]/span[2]")
+	@FindBy(xpath="//div[@class='footer_nav clear']//a[contains(@href,'customercare')]")
 	private WebElement lnkFooterCustomerCareMail;
 	
-	@FindBy(xpath="//body/div[4]/footer[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/p[2]/span[2]")
+	@FindBy(xpath="//div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span")
 	private WebElement lblFooterCustomerCarePhoneNo;
 	
 	@FindBy(xpath="//div[@id='top_header_customer_service']")
 	private WebElement divCustomerService;
 	
-	@FindBy(xpath="//header/div[2]/div[2]/p[3]/span[2]/a[1]")
+	@FindBy(xpath="//div[@id='customer-service-header']//a[contains(@href,'customercare')]")
 	private WebElement lnkCustomerServiceMail;
 	
-	@FindBy(xpath="//body[1]/div[4]/header[1]/div[2]/div[2]/p[2]/span[2]")
+	@FindBy(xpath="//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
 	private WebElement lblCustomerServicePhone;
 	
 	/**
@@ -281,7 +281,7 @@ public class HomePage extends CucumberRunner {
 		String phoneNo = commonMethods.getText(lblFooterCustomerCarePhoneNo);
 		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
 		try {
-			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo())));
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo(browserFactory.getCountry()))));
 			log.info("Phone number displayed at Footer : "+phoneNo+ " is as expected");
 		} catch(Exception e) {
 			log.info("Phone number displayed at Footer : "+phoneNo+ " is not as expected");
@@ -301,7 +301,7 @@ public class HomePage extends CucumberRunner {
 	public void verifyHeaderPhoneNumber() {
 		String phoneNo = commonMethods.getText(lblCustomerServicePhone);		
 		try {
-			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo())));
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo(browserFactory.getCountry()))));
 			log.info("Phone number displayed at Header : "+phoneNo+ " is as expected");
 		} catch(Exception e) {
 			log.info("Phone number displayed at Header : "+phoneNo+ " is not as expected");

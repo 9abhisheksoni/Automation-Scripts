@@ -40,25 +40,25 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	@FindBy(xpath = "//a[contains(text(),'Consumer')]")
 	private WebElement lblConsumer;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Disclaimer') or contains(text(),'إخلاء المسؤولية')]")
+	@FindBy(xpath = "//body[contains(@class,'cms-disclaimer page')]")
 	private WebElement lblDisclaimer;
 		
-	@FindBy(xpath = "//h1[contains(text(),'سياسة الخصوصية') or contains(text(),'Privacy Policy')]")
+	@FindBy(xpath = "//body[contains(@class,'cms-privacy-policy')]")
 	private WebElement lblPrivacyPolicy;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Shipping Policy') or contains(text(),'سياسة الشحن')]")
+	@FindBy(xpath = "//body[contains(@class,'cms-shipping-policy')]")
 	private WebElement lblShippingPolicy;
 	
-	@FindBy(xpath = "//h1[contains(text(),'Return Information') or contains(text(),'معلومات إرجاع السلع')]")
+	@FindBy(xpath = "//body[contains(@class,'cms-return-information')]")
 	private WebElement lblReturnInfo;
 	
 	@FindBy(xpath = "//input[@id='tracking_id']")
 	private WebElement txtTrackID;
 	
-	@FindBy(xpath = "//h1[contains(text(),\"FAQ'S\") or contains(text(),'الأسئلة الأكثر شيوعاً')]")
+	@FindBy(xpath = "//body[contains(@class,'cms-faq page')]")
 	private WebElement lblFAQs;	
 	
-	@FindBy(xpath = "//button[@title='Submit'] | //body/div[4]/main[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/form[1]/li[5]/button[1]")
+	@FindBy(xpath = "//button[@class='action submit primary']")
 	private WebElement btnSubmitFeedback;
 	
 	/**
@@ -69,7 +69,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	public void verifyAbout6thStreetPage() {
 		waitHelper.waitForElementVisible(lblAbout6thStreet);
 		try {
-			Assert.assertTrue(commonMethods.isElementPresent(lblAbout6thStreet));
+			Assert.assertTrue(genericHelper.getPageTitle().equalsIgnoreCase("6TH STREET – Apparel Group"));
 			log.info("About 6thstreet page is displayed");
 		} catch(Exception e) {
 			log.info("About 6thstreet page is not displayed!");
@@ -81,7 +81,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 			waitHelper.waitForElementVisible(lblConsumer);
 			log.info("Looking for element"+ commonMethods.getText(lblConsumer) +" in Consumer Rights page ");
 			log.info("Title is "+ browserFactory.getDriver().getCurrentUrl() +" in Consumer Rights page ");
-			Assert.assertTrue(commonMethods.isElementPresent(lblConsumer));
+			Assert.assertTrue(genericHelper.getPageTitle().contains("DED - Economy"));
 			log.info("Consumer Rights page is displayed");
 		} catch(Exception e) {
 			log.info("Consumer Rights page is not displayed!");
