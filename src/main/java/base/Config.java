@@ -231,5 +231,27 @@ public class Config {
 		CheckoutSandboxURL = prop.getProperty("CheckoutSandboxURL");
 		return CheckoutSandboxURL;
 	}
+	
+	/** This methods returns customer support phone number from property file **/
+	public String getSupportPhoneNo(String country) {
+		String phoneNo;
+		checkToCreateProp();
+		log.info("getting support phone number from property file");
+		switch(country.toUpperCase()) {
+		case "BH": phoneNo = prop.getProperty("BHSupportPhoneNo");
+					break;
+		case "QA": phoneNo = prop.getProperty("QASupportPhoneNo");
+					break;
+		default : phoneNo = prop.getProperty("UAESupportPhoneNo");
+		}
+		return phoneNo;
+	}
+	
+	/** This methods returns customer support email id from property file **/
+	public String getSupportEmailId() {		
+		checkToCreateProp();
+		log.info("getting support email id from property file");		
+		return prop.getProperty("supportEmail");
+	}
 
 }
