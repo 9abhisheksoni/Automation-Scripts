@@ -16,6 +16,9 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import com.cucumber.listener.ExtentProperties;
+import com.cucumber.listener.Reporter;
+
 import commonHelper.BrowserFactory;
 import commonHelper.ReportHelper;
 import cucumber.api.Scenario;
@@ -23,7 +26,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import testRunner.CucumberRunner;
 import utilities.DateTimeHelper;
 
-public class CucumberBase extends AbstractTestNGCucumberTests {
+public class CucumberBase extends AbstractTestNGCucumberTests  {
 	public Properties config = null;
 	public static BrowserFactory browserFactory;
 	CucumberRunner cucumberRunner;
@@ -123,6 +126,8 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	public void beforeSuite() {
 		DOMConfigurator.configure("src/test/resources/configuration/log4j.xml");
 		log.info("Executing Before Suite");
+		ExtentProperties extentProperties = ExtentProperties.INSTANCE;
+		extentProperties.setReportPath("target/cucumber-extent-reports/extent-report.html");
 		try {
 			FileUtils.cleanDirectory(new File("./screenshots"));
 		} catch (IOException e) {
@@ -146,13 +151,21 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 	/** This method captures and saves screen shot **/
 	public void takeScreenShot(Scenario scenario) {
 		log.info("Capturing screenshot");
+		System.setProperty("org.uncommons.reportng.escape-output", "false");
+		if (scenario.isFailed()) {
+			org.testng.Reporter.log("<font color=\"#FFFFFF\" style=\"background-color:#FF0000; font-size:15px;\">"+scenario.getName()+"</font></br>");
+		} else {
+			org.testng.Reporter.log("<font color=\"#FFFFFF\" style=\"background-color:#00B32A; font-size:15px;\">"+scenario.getName()+"</font></br>");
+		}
 		File srcImageFile = ((TakesScreenshot) browserFactory.getDriver()).getScreenshotAs(OutputType.FILE);
-
-		String imageFileName = scenario.getName().replace(" ", "") + "_" + browserFactory.getBrowser() + "_"
+		String imageFileName = scenario.getName().replace(" ", "") + "_"
 				+ new DateTimeHelper().getCurrentDateTime("dd_MM_yyyy_hh_mm_ss") + ".png";
 		File destnImageFile = new File(System.getProperty("user.dir") + "/screenshots/" + imageFileName);
+		org.testng.Reporter.log("<br>  <img src='" + destnImageFile + "' height='350' width='650' /></br>");
+		org.testng.Reporter.log("<a href=" + destnImageFile + "></a>");
 		try {
 			FileHandler.copy(srcImageFile, destnImageFile);
+			Reporter.addScreenCaptureFromPath(System.getProperty("user.dir") + "/screenshots/" + imageFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -163,6 +176,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		log.info("Attaching screenshot to cucumber html report");
 		final byte[] screenshot = ((TakesScreenshot) browserFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
 		scenario.embed(screenshot, "image/png");
+		this.takeScreenShot(scenario);
 	}
 
 	/** This is generates cucumber and extent html report **/
@@ -173,11 +187,9 @@ public class CucumberBase extends AbstractTestNGCucumberTests {
 		new ReportHelper().generateCucumberReport(browser);
 		new ReportHelper().configureExtentReport(browser);
 		try {
-			if (browserFactory.getDriver().getWindowHandles().size() > 0) {
-				quit();
-			}
+			quit();
 		} catch (Exception e) {
-			log.info("no window to close");
+			log.info("No browsers to close");
 		}
 	}
 
