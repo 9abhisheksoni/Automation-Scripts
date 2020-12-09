@@ -332,4 +332,11 @@ public class GenericHelper extends CucumberRunner {
 		String mainwindow = this.getWindowOfUrl(baseurl);
 		browserFactory.getDriver().switchTo().window(mainwindow);
 	}
+	
+	public String getPageTitle() {
+		log.info("Getting the title of the current web page");
+		String title = browserFactory.getDriver().getTitle();
+		return title;
+		
+	}
 }
