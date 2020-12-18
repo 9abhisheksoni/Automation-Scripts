@@ -575,7 +575,7 @@ public class CommonMethods extends CucumberRunner {
 	
 	/** browser refresh**/
 	public void refresh() {
-		browserFactory.getDriver().navigate().refresh();;
+		browserFactory.getDriver().navigate().refresh();
 	}
 
 	/** Click this Stale element**/
