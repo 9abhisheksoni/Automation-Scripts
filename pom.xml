@@ -5,6 +5,12 @@
 	<groupId>Ecom</groupId>
 	<artifactId>Automation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+		<maven.compile.encoding>UTF-8</maven.compile.encoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -19,7 +25,7 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>3.0.6</version>
+			<version>3.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -125,14 +131,23 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 				<configuration>
+					<projectName>Sample-Cucumber-TestNG</projectName>
+					<skip>false</skip>
+					<outputDirectory>target/cucumber-extent-reports/extent-report.html</outputDirectory>
+					<inputDirectory>target/cucumber.json</inputDirectory>
+					<jsonFiles>
+						<param>**/*.json</param>
+					</jsonFiles>
 					<suiteXmlFiles>
-<!-- 						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile> -->
+
 							<suiteXmlFile>testng.xml</suiteXmlFile>
+
 					</suiteXmlFiles>
 					<properties>
+
 					<systemPropertyVariables>
-<!-- 						<propertyName>${browser}</propertyName> -->
-<!-- 						<propertyName>${environment}</propertyName> -->
+						<propertyName>${browser}</propertyName>
+						<propertyName>${environment}</propertyName>
 					</systemPropertyVariables>
 						<property>
 							<name>listener</name>
@@ -145,10 +160,10 @@
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
+				<version>3.5.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>

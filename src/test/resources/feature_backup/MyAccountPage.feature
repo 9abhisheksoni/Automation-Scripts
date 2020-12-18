@@ -1,96 +1,57 @@
 Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login/logout
 
-@Smoke
-Scenario Outline: TS_Email Creation _01 - Create user account with email_id and Password
-	When User clicks on login link 
-	Then Create account "<FirstName>""<LastName>""<EMAIL>" and "<Password>"
-	
-	Examples: 
-		|FirstName|LastName| EMAIL                |Password                   |
-		|	uat_automation_tester	|	2	|	uat_automation_tester2@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	3	|	uat_automation_tester3@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	4	|	uat_automation_tester4@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	5	|	uat_automation_tester5@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	6	|	uat_automation_tester6@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	7	|	uat_automation_tester7@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	8	|	uat_automation_tester8@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	9	|	uat_automation_tester9@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	10	|	uat_automation_tester10@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	11	|	uat_automation_tester11@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	12	|	uat_automation_tester12@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	13	|	uat_automation_tester13@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	14	|	uat_automation_tester14@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	15	|	uat_automation_tester15@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	16	|	uat_automation_tester16@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	17	|	uat_automation_tester17@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	18	|	uat_automation_tester18@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	19	|	uat_automation_tester19@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	20	|	uat_automation_tester20@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	21	|	uat_automation_tester21@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	22	|	uat_automation_tester22@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	23	|	uat_automation_tester23@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	24	|	uat_automation_tester24@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	25	|	uat_automation_tester25@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	26	|	uat_automation_tester26@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	27	|	uat_automation_tester27@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	28	|	uat_automation_tester28@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	29	|	uat_automation_tester29@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	30	|	uat_automation_tester30@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	31	|	uat_automation_tester31@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	32	|	uat_automation_tester32@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	33	|	uat_automation_tester33@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	34	|	uat_automation_tester34@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	35	|	uat_automation_tester35@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	36	|	uat_automation_tester36@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	37	|	uat_automation_tester37@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	38	|	uat_automation_tester38@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	39	|	uat_automation_tester39@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	40	|	uat_automation_tester40@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	41	|	uat_automation_tester41@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	42	|	uat_automation_tester42@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	43	|	uat_automation_tester43@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	44	|	uat_automation_tester44@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	45	|	uat_automation_tester45@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	46	|	uat_automation_tester46@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	47	|	uat_automation_tester47@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	48	|	uat_automation_tester48@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	49	|	uat_automation_tester49@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	50	|	uat_automation_tester50@yopmail.com	|	6Thstreet!	|
-		|	uat_automation_tester	|	51	|	uat_automation_tester51@yopmail.com	|	6Thstreet!	|
-		
-		Feature: 6thstreet.com - Registered User Order History Scenarios
-
-    @Smoke 
-	Scenario Outline: TS_OrderHistory_02 - Registered User of 6thstreet.com site should be able to place order using cod 
+	@Regression
+	Scenario: TS_Account_Creation _01 - Create user account with email_id and Password
 		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
+		Then Create an account using valid details
+		Then user login is successfull
+	
+	@Smoke @Regression 
+	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
+		When User clicks on login link 
+		When User enters "validuser" login details in the login popup 
+		And User clicks on login button 
+		And user login is successfull 	
+		When User Logsout 
+		Then Logout is successfull
+
+    @Regression
+	Scenario Outline: TS_OrderHistory_03 - Registered User of 6thstreet.com site should be able to place order using cod 
+		When User clicks on login link 
+		When User enters "validuser" login details in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
-		And user enters product name as "<Product>" in search text box and click search icon 
-		And user clicks on product tile in result 
-		And user selects countrySize as "EU", size as "10Y" 
-		And user clicks on ADDTOBAG button 
+		And user enters product name as "<searchTerm>" in search text box and click search icon 
+		And click on first valid product in search result
+		And user selects variation if available
+		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for "uae" shipping address 
+		And user enters the valid details for shipping address 
+		And user reset Stored Payments
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
-		And Order placing should be successful 
-		And user clicks on continue shipping button
+		Then Order placing should be successful 
+		And user clicks on my account top menu 
+		Then verify order status in history to be "Processing" 
+		And click on view order 
+		Then Verify order status in details to be "Processing" 
+		Then Verify order payment in details to be "Cash on delivery"
+		And User cancels the Order
 		And user clicks on my account top menu
-		And user selects order history option
-		Then order history page is displayed
-		Then verify order status
+		When user selects order history option
+		Then verify order status in history to be "Closed" 
+		And click on view order
+		Then Verify order status in details to be "Closed"
 		
-	Examples:  
-		| URL                 |Product                   |CountrySize|Size|Qty|
-		| SixthStreetUAEENurl |LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
+		Examples:  
+		|searchTerm|
+		|Shoes|
 		
-	@Smoke @WishlistProd
-
-		Scenario Outline: TS_Wishlist_03 - Registered User of 6thstreet.com should be able to add product to wishlist 
+		@Smoke @Regression 
+		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
-			When User enters valid login details "validuser" username and "validuser" password in the login popup 
+			When User enters "validuser" login details in the login popup 
 			And User clicks on login button 
 			And user login is successfull 
 			And Home page is displayed 
@@ -102,6 +63,20 @@ Scenario Outline: TS_Email Creation _01 - Create user account with email_id and 
 			
 			Examples: 
 				|SearchTerm|
-				|Shoes|
+				|Shoes|		
 				
-		
+		 @Smoke @Regression	
+		Scenario: TS_MyAccountAddress_05 - Registered User of 6thstreet.com site should be able to update the address
+			When User clicks on login link 
+			When User enters "validuser" login details in the login popup 
+			And User clicks on login button 
+			And user login is successfull 
+			And Home page is displayed 
+			And User clears cart
+			And User clears saved address	
+			And User saves valid Address
+			Then Address should be saved
+			And User edits, makes address Default	
+			Then Default address should be updated
+			And User Deletes saved address	
+			Then address should be deleted

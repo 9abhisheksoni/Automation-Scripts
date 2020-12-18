@@ -125,6 +125,7 @@ public class SearchResults {
         searchPage.verifySearchSuggestionDisplay();
     }
 
+
 	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PLP for the \"([^\"]*)\"$")
 	public void user_checks_the_and_the_in_PLP(String base_price, String special_price, String country) {
 		searchPage.evaluateBasePriceAtPLP(base_price, country);
@@ -137,4 +138,10 @@ public class SearchResults {
 		searchPage.getBasePricePLP(country);
 		searchPage.getSpecialPricePLP(country);
     }
+
+	@And("^click on first valid product in search result$")
+	public void click_on_first_valid_product_in_search_result() {
+		searchPage.clickFirstValidInResult();
+	}
+
 }

@@ -138,9 +138,7 @@ public class PDPPage extends CucumberRunner {
 			} else {
 				log.info("Regular price");
 				priceStr = commonMethods.getText(txtRegularPriceCart).split(" ");
-				System.out.println("priceRegularStr" + priceStr[1]);
 				priceDob = Double.parseDouble(priceStr[1]);
-				System.out.println("price amount regular" + priceDob);
 			}
 
 			priceDobDiv = priceDob / 4;
@@ -184,7 +182,6 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void chooseSize() {
-		waitHelper.waitForElementVisible(imgProductTile);
 		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
 		for (String currentSize : availableSizes) {
 			if (!currentSize.contains(" ")) {
@@ -216,7 +213,9 @@ public class PDPPage extends CucumberRunner {
 
 	public void chooseColor() {
 		waitHelper.waitForElementVisible(imgProductTile);
-		commonMethods.click(btnSelectColor);
+		if (!commonMethods.getAttribute(btnSelectColor,"class").contains("selected")) {
+			commonMethods.click(btnSelectColor);
+		}
 		log.info("Selected the color");
 	}
 

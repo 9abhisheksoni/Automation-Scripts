@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="1">
+	<test name="UAE-EN : Smoke">
+		<parameter name="country" value="UAE" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+			<class name="testRunner.TabbyScenarios" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KSA-EN : Smoke">
+		<parameter name="country" value="KSA" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+			<class name="testRunner.TabbyScenarios" />
+		</classes>
+	</test> <!--Test -->
+	<test name="OM-EN : Smoke">
+		<parameter name="country" value="OM" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="BH-EN : Smoke">
+		<parameter name="country" value="BH" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="QA-EN : Smoke">
+		<parameter name="country" value="QA" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KW-EN : Smoke">
+		<parameter name="country" value="KW" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+		<test name="UAE-AR : Smoke">
+		<parameter name="country" value="UAE" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+			<class name="testRunner.TabbyScenarios" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KSA-AR : Smoke">
+		<parameter name="country" value="KSA" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+			<class name="testRunner.TabbyScenarios" />
+		</classes>
+	</test> <!--Test -->
+	<test name="OM-AR : Smoke">
+		<parameter name="country" value="OM" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="BH-AR : Smoke">
+		<parameter name="country" value="BH" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="QA-AR : Smoke">
+		<parameter name="country" value="QA" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KW-AR : Smoke">
+		<parameter name="country" value="KW" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.Regression_AllSites" />
+		</classes>
+	</test> <!--Test -->
+</suite> <!-- Suite -->

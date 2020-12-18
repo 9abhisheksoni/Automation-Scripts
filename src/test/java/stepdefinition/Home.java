@@ -33,6 +33,11 @@ public class Home {
 		homePage.createAccount(firstName, lastName, email, pwd);
 
 	}
+	
+	@Then("^Create an account using valid details$")
+	public void create_an_account_using_valid_details()  {
+		homePage.createAccount();
+	}
 
 	@Then("^User should be landed into Checkout Sandbox dashboard$")
 	public void user_should_be_landed_into_Checkout_Sandbox_dashboard() {

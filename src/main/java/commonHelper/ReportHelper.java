@@ -3,12 +3,12 @@ package commonHelper;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.cucumber.listener.Reporter;
 
+import base.CucumberBase;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 
@@ -28,12 +28,12 @@ public class ReportHelper {
 		Configuration configuration = new Configuration(reportOutputDirectory, projectName);
 		configuration.addClassifications("Platform", System.getProperty("os.name"));
 		configuration.addClassifications("Browser", browser);
-		configuration.addClassifications("Branch", "release/1.0");
+		configuration.addClassifications("Environment", CucumberBase.environment);
 
 		// optionally add metadata presented on main page via properties file
-		List<String> classificationFiles = new ArrayList<String>();
+		/**List<String> classificationFiles = new ArrayList<String>();
 		classificationFiles.add("src/main/resources/config/config.properties");
-		configuration.addClassificationFiles(classificationFiles);
+		configuration.addClassificationFiles(classificationFiles);**/
 
 		ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
 		reportBuilder.generateReports();
