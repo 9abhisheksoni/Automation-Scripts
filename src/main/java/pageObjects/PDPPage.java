@@ -75,15 +75,16 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")
 	private WebElement btnSelectColor;
-	
-	@FindBy(xpath="//span[contains(@class,'product_name')]")
+
+	@FindBy(xpath = "//span[contains(@class,'product_name')]")
 	private WebElement msgProductName;
-	
-	@FindBy (xpath = "//span[@class='price eav-regular']")
+
+	@FindBy(xpath = "//span[@class='price eav-regular']")
 	private WebElement txtBasePrice;
-	
-	@FindBy (xpath = "//span[@class='special-price eav-final']")
+
+	@FindBy(xpath = "//span[@class='special-price eav-final']")
 	private WebElement txtSpecialPrice;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -190,8 +191,9 @@ public class PDPPage extends CucumberRunner {
 				commonMethods.SelectUsingVisibleText(drpdwnSize, currentSize);
 				log.info("Selected product size");
 				break;
-			} 
-			// To select the size if they do not have the space and displaying like 28WX28L or in any other format
+			}
+			// To select the size if they do not have the space and displaying like 28WX28L
+			// or in any other format
 			else {
 				commonMethods.SelectUsingIndex(drpdwnSize, 1);
 				log.info("Selected product size");
@@ -217,13 +219,13 @@ public class PDPPage extends CucumberRunner {
 		commonMethods.click(btnSelectColor);
 		log.info("Selected the color");
 	}
-	
+
 	public void verifyPDPDisplayed() {
 		waitHelper.waitForElementVisible(msgProductName);
 		Assert.assertTrue(genericHelper.isDisplayed(msgProductName));
 		log.info("user is on PDP");
 	}
-	
+
 	/*
 	 * This method fetches the base_price displaying for an item in the PDP
 	 */
@@ -232,26 +234,18 @@ public class PDPPage extends CucumberRunner {
 		log.info("Fethcing the basebrice of the item in the PDP");
 		waitHelper.waitForElementVisible(txtBasePrice);
 		basePrice = commonMethods.getText(txtBasePrice);
+		log.info("The base price at PDP is" + basePrice);
 		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
-		basePrice = basePrice.replaceAll(",", "");
-		basePrice = basePrice.substring(basePrice.indexOf(currencyCode)+3);
-		log.info("The base price available in the PDP is "+basePrice);
-		
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			basePrice = basePrice.replaceAll("[^0-9]", "");
-		}
-		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
-			basePrice = basePrice.replaceAll("[^\\.0-9]", "");
-		}
-		else {
-			log.info("The country code is not valid");
-		}
-		log.info("The base price is " + basePrice);	
+		log.info("The currency code is " + currencyCode);
+		//basePrice = basePrice.replaceAll(",", "");
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted base price at PDP is" + basePrice);
 		return basePrice;
 	}
-	
-	/* This method compares the base_price displaying at PDP with the
-	 * actual_price provided by the user
+
+	/*
+	 * This method compares the base_price displaying at PDP with the actual_price
+	 * provided by the user
 	 */
 	public void evaluateBasePriceAtPDP(String actualBasePrice, String country) {
 		log.info("Comparing the base_price displaying at PDP with the actual base_price provided by the user");
@@ -259,54 +253,44 @@ public class PDPPage extends CucumberRunner {
 		log.info("The base_price available in the PDP is " + getBasePricePDP(country));
 		assertEquals(getBasePricePDP(country), actualBasePrice, "The base_price is matching");
 	}
-	
+
 	public void evaluateBasePriceAtPDP(String country) {
 		log.info("Comparing the base_price displaying at PDP with the actual base_price provided by the user");
-		log.info("The global base price is "+searchPage.globalBasePrice);
+		log.info("The global base price is " + searchPage.globalBasePrice);
 		assertEquals(getBasePricePDP(country), searchPage.globalBasePrice, "The base_price is matching");
 	}
-	
-	
+
 	/*
-	 * This method fetches the special_price displaying for an item
-	 * in the PDP
+	 * This method fetches the special_price displaying for an item in the PDP
 	 */
 	public String getSpecialPricePDP(String country) {
 		log.info("Fethcing the special of the item in the PDP");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
+
+		log.info("The special price at PLP is" + specialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
 		specialPrice = specialPrice.replaceAll(",", "");
-		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
-		log.info("The special Price at PDP is "+specialPrice);
-		
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			log.info("The special Price at PDP is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^0-9]", "");
-		}
-		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
-			log.info("The special Price at PDP is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
-		}
-		else {
-			log.info("The country code is not valid");
-		}
-		return specialPrice.trim();
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is" + specialPrice);
+		return specialPrice;
 	}
 
 	/*
-	 * This method compares the special_price displaying at PDP with
-	 * the actual_price provided by the user
+	 * This method compares the special_price displaying at PDP with the
+	 * actual_price provided by the user
 	 */
 	public void evaluateSpecialPriceAtPDP(String actualSpecialPrice, String country) {
 		log.info("Comparing the special displaying at PDP with the actual values");
 		assertEquals(getSpecialPricePDP(country), actualSpecialPrice, "The special_price is matching at PDP");
 	}
-	
+
 	public void evaluateSpecialPriceAtPDP(String country) {
 		log.info("Comparing the special displaying at PDP with the actual values");
-		log.info("The global special price is "+searchPage.globalSpecialPrice);
-		assertEquals(getSpecialPricePDP(country), searchPage.globalSpecialPrice, "The special_price is matching at PDP");
+		log.info("The global special price is " + searchPage.globalSpecialPrice);
+		assertEquals(getSpecialPricePDP(country), searchPage.globalSpecialPrice,
+				"The special_price is matching at PDP");
 	}
-	
+
 }

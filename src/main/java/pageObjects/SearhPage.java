@@ -266,19 +266,11 @@ public class SearhPage extends CucumberRunner {
 		log.info("Fethcing the base brice of the item in the PLP");
 		waitHelper.waitForElementVisible(txtBasePrice);
 		basePrice = commonMethods.getText(txtBasePrice);
+		log.info("The base price at PLP is" + basePrice);
 		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
-		basePrice = basePrice.replaceAll(",", "");
-		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3);
-		log.info("The base price available in the PLP is " + basePrice);
-
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			basePrice = basePrice.replaceAll("[^0-9]", "");
-		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
-			basePrice = basePrice.replaceAll("[^\\.0-9]", "");
-		} else {
-			log.info("The country code is not valid");
-		}
-		log.info("The base price is " + basePrice);
+		log.info("The currency code is " + currencyCode);
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted base price at PLP is " + basePrice);
 		this.globalBasePrice = basePrice;
 		return basePrice;
 	}
@@ -300,24 +292,12 @@ public class SearhPage extends CucumberRunner {
 		log.info("Fethcing the special of the item in the PLP");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		log.info("The special price at PLP is" + specialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
-		specialPrice = specialPrice.replaceAll(",", "");
-		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3);
-		log.info("The special Price at PLP is " + specialPrice);
-
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			log.info("The special Price at PLP is " + specialPrice);
-			specialPrice = specialPrice.replaceAll("[^0-9]", "");
-		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
-			log.info("The special Price at PLP is " + specialPrice);
-			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
-		} else {
-			log.info("The country code is not valid");
-		}
-
-		specialPrice = specialPrice.trim();
-		log.info("The special price is " + specialPrice);
-		this.globalSpecialPrice = specialPrice;
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is " + specialPrice);
+		this.globalSpecialPrice = specialPrice.trim();
 		return specialPrice;
 	}
 

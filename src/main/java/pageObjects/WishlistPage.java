@@ -51,24 +51,15 @@ public class WishlistPage extends CucumberRunner {
 		log.info("Fethcing the special of the item in the Wishlist");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
+
+		log.info("The special price at Wishlist is" + specialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
-		specialPrice = specialPrice.replaceAll(",", "");
-		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
-		log.info("The special Price at Wishlist is "+specialPrice);
-		
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			log.info("The special Price at Wishlist is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^0-9]", "");
-		}
-		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
-			log.info("The special Price at Wishlist is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
-		}
-		else {
-			log.info("The country code is not valid");
-		}
-		log.info("The special price is " + specialPrice);
-		return specialPrice.trim();
+		log.info("The currency code is " + currencyCode);
+		//specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+
+		log.info("The extracted special price at Wishlist is" + specialPrice);
+		return specialPrice;
 	}
 
 	/*
@@ -79,16 +70,17 @@ public class WishlistPage extends CucumberRunner {
 		log.info("Comparing the special displaying at Wishlist with the actual values");
 		assertEquals(getSpecialPriceWishlist(country), actualSpecialPrice, "The special_price is matching at Wishlist");
 	}
-	
+
 	/*
 	 * This method compares the special_price displaying at Wishlist with the
 	 * actual_price fetched at PLP
 	 */
 	public void evaluateSpecialPriceAtWishlist(String country) {
 		log.info("Comparing the special displaying at Wishlist with the actual values");
-		assertEquals(getSpecialPriceWishlist(country), searchPage.globalSpecialPrice, "The special_price is matching at Wishlist");
+		assertEquals(getSpecialPriceWishlist(country), searchPage.globalSpecialPrice,
+				"The special_price is matching at Wishlist");
 	}
-	
+
 	public void addItemToBag() {
 		waitHelper.waitForElementToBeClickable(btnAddToBag);
 		commonMethods.clickUsingJS(btnAddToBag);

@@ -162,24 +162,17 @@ public class HomePage extends CucumberRunner {
 	 * This method fetches price displaying for an SKU at the Search bar
 	 */
 	public String getPriceValueAtSearch(String country) {
-		String actualPrice = null;
+		String specialPrice = null;
 		log.info("Fetching the price at the search");
 		waitHelper.waitForElementVisible(txtPriceInSearch);
-		String priceWithCurrenyCode = commonMethods.getText(txtPriceInSearch);
-		log.info("The price available in the search bar: " + priceWithCurrenyCode);
-		actualPrice = priceWithCurrenyCode.replaceAll(",", ""); // Works correctly for KSA and UAE
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			actualPrice = priceWithCurrenyCode.replaceAll("[^0-9]", "");
-		} else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")) {
-			actualPrice = priceWithCurrenyCode.replaceAll("[^\\.0-9]", "");
-			if (actualPrice.equals("^\\d*(?:\\.\\d{1,3})$")) {
-				System.out.println("3 digits available after the decimal point");
-			}
-		} else {
-			log.info("The country code is not valid");
-		}
-		log.info("The actual price is " + actualPrice);
-		return actualPrice;
+		specialPrice = commonMethods.getText(txtPriceInSearch);
+		
+		log.info("The special price at Search is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at Search is" + specialPrice);
+		return specialPrice;
 	}
 
 	/*

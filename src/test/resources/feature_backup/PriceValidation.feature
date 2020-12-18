@@ -1,12 +1,12 @@
 Feature: 6thstreet.com - validate the price in pdp,plp,wishlist,search,minicart and cart 
 
- 
+
 Scenario Outline: TS_Price_01: Given the SKU, base_price and the special_price, then they should be same in all the places of the application 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
-		And Home page is displayed
+#		And Home page is displayed
 		And User clears cart
 		And User clears saved address 
 		And user clears Wishlist 
@@ -41,8 +41,10 @@ Scenario Outline: TS_Price_01: Given the SKU, base_price and the special_price, 
 	
 	Examples: 
 		|Country|Product|Base_Price|Special_Price|
+		|UAE|19866-0029-WLRUS-MLT|320|290|
+#		|KW|19866-0029-WLRUS-MLT|10.000|9.000|
 #		|KW|17778-0259-SKYS-LIMIT|12.000|7.200|
-		|UAE|00501-2713-DARK-CEDAR|320|290|
+#		|UAE|00501-2713-DARK-CEDAR|320|290|
 #		|BH|BP-BHSS2011W-BP-LIGHT-GOLD|17|10.2|
 #		|KW|23SARDASARDA-LIGHT-PINK|6.000|3.600|
 		
@@ -52,7 +54,7 @@ Scenario Outline: TS_Price_02: Given the SKU, then the application should fetch 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
-		And Home page is displayed
+#		And Home page is displayed
 		And User clears cart
 		And User clears saved address 
 		And user clears Wishlist 
@@ -87,4 +89,10 @@ Scenario Outline: TS_Price_02: Given the SKU, then the application should fetch 
 		
 		Examples: 
 		|Country|Product|
-		|UAE|00501-2713-DARK-CEDAR|
+#		|UAE|19866-0029-WLRUS-MLT|
+#		|KW|19866-0029-WLRUS-MLT|
+#		|UAE|0A-AP01638-DARK-GREEN| prod
+#		|BH|AR-6021-2935-ARBLUE-486| Prod
+#		|KW|BP-M2265-Beige|production special character
+#		|KSA|0092508730001028| Prod
+		|UAE|18881-0307-INCGNTO-IND|

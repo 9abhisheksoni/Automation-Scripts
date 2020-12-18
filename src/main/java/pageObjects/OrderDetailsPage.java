@@ -134,23 +134,14 @@ public class OrderDetailsPage extends CucumberRunner {
 		log.info("Fethcing the special of the item in the Order Details");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
-		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
-		specialPrice = specialPrice.replaceAll(",", "");
-		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode)+3);
-		log.info("The special Price at Order Details is "+specialPrice);
 		
-		if (country.equalsIgnoreCase("UAE") || country.equalsIgnoreCase("KSA") || country.equalsIgnoreCase("QA")) {
-			log.info("The special Price at Order Details is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^0-9]", "");
-		}
-		else if (country.equalsIgnoreCase("BH") || country.equalsIgnoreCase("OM") || country.equalsIgnoreCase("KW")){
-			log.info("The special Price at Order Details is "+specialPrice);
-			specialPrice = specialPrice.replaceAll("[^\\.0-9]", "");
-		}
-		else {
-			log.info("The country code is not valid");
-		}
-		return specialPrice.trim();
+		log.info("The special price at PLP is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is" + specialPrice);
+		return specialPrice;
 	}
 	
 	/*
