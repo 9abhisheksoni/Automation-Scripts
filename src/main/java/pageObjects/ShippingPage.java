@@ -243,4 +243,9 @@ public class ShippingPage extends CucumberRunner {
 		log.info("First Name is Modified");
 	}
 	
+	public void fillShippingForm() {
+		log.info("Enter address manually");
+		this.submitShippingAddress(browserFactory.getCountry().toLowerCase());
+		this.clickDeliverToAddress();
+	}
 }

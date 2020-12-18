@@ -129,4 +129,9 @@ public class SearchResults {
 	public void click_on_first_valid_product_in_search_result() {
 		searchPage.clickFirstValidInResult();
 	}
+	
+	 @And("^user filters for tabby price range$")
+    public void user_filters_for_tabby_price_range() {
+		 searchPage.clickTabbyPriceFilter();
+	}
 }

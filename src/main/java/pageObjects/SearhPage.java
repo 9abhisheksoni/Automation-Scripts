@@ -17,17 +17,19 @@ import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
+
+
 public class SearhPage extends CucumberRunner {
 	/**
 	 * Class object declaration here
 	 **/
-	
+
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
 	private Logger log = Logger.getLogger(SearhPage.class.getName());
-	
+
 	/**
 	 * Constructor to initialize page objects
 	 **/
@@ -35,15 +37,14 @@ public class SearhPage extends CucumberRunner {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
 
-	
 	/**
 	 * WebElement declaration starts here
 	 **/
 	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
 	private WebElement lnkProduct;
-	
+
 	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
-	private List <WebElement> lnksProduct;
+	private List<WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
 	private WebElement lblSearchResultCount;
@@ -92,32 +93,41 @@ public class SearhPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgWishlistSuccess;
-	
+
 	@FindBy(xpath = "//li[@class='active']/a")
 	private WebElement lblFirstLevelActive;
-	
+
 	@FindBy(xpath = "//ul[@class='main-categories first-level']/li[not(@class)]/a")
 	private WebElement lblFirstLevelInActive;
-	
+
 	@FindBy(xpath = "//ul[@class='nav second-level men-section']/li[@class='second-sub']")
 	private WebElement lblSecondLevelCategory;
-	
+
 	@FindBy(xpath = "(//li[@class='second-sub hover']//a[@data-level='second-level-item-1'])[2]")
 	private WebElement lblThirdLevelCategory;
 
-	@FindBy(xpath="//ul[@class='breadcrumb clearfix']/li")
+	@FindBy(xpath = "//ul[@class='breadcrumb clearfix']/li")
 	private List<WebElement> lblBreadcrumb;
-	
-	@FindBy (xpath="//span[@id='you_searched_for']/following-sibling::h4")
+
+	@FindBy(xpath = "//span[@id='you_searched_for']/following-sibling::h4")
 	private WebElement msgNoSearchMsg;
-	
-	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
+
+	@FindBy(xpath = "//div[@class='aa-dataset-suggestions']/div")
 	private List<WebElement> lnkProductSuggestion;
+
+	@FindBy(xpath = "//div[contains(@data-tab,'price')]/div")
+	private WebElement drpdwnPriceRangeFilter;
+
+	@FindBy(xpath = "//input[@class='ais-refinement-list--radio']/..")
+	private List<WebElement> chkTabbyPriceFilter;
+
+	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
+	private WebElement chkTabbyPriceFilterActive;
 
 	/**
 	 * WebElement declaration ends here
 	 **/
-	
+
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);
 		log.info("clicked product on PLP");
@@ -189,8 +199,8 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public float getPriceFromText(String text) {
-		float price = (stringUtility.getDecimalValue(text)); 
-		log.info("returning price from text : "+price);
+		float price = (stringUtility.getDecimalValue(text));
+		log.info("returning price from text : " + price);
 		return price;
 	}
 
@@ -213,13 +223,13 @@ public class SearhPage extends CucumberRunner {
 		commonMethods.click(lblSecondLevelCategory);
 		log.info("Clicked second level category");
 	}
-	
+
 	public void clickOnThirdCategory() {
 		commonMethods.mouseHover(lblSecondLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
 	}
-	
+
 	public void verifyOnFirstCategory() {
 		String url = genericHelper.getCurrentUrl();
 		String activeUrl = commonMethods.getAttribute(lblFirstLevelActive, "href");
@@ -229,33 +239,46 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void verifyOnSecondCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==3);
+		Assert.assertTrue(lblBreadcrumb.size() == 3);
 		log.info("second level category page displayed");
 	}
-	
+
 	public void verifyOnThirdCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==2);
+		Assert.assertTrue(lblBreadcrumb.size() == 2);
 		log.info("third level category page displayed");
 	}
-	
+
 	public void verifyNoResultDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(msgNoSearchMsg));
 		log.info("No result page displayed");
 	}
-	
+
 	public void verifySearchSuggestionDisplay() {
-		Assert.assertTrue(lnkProductSuggestion.size()>0);
+		Assert.assertTrue(lnkProductSuggestion.size() > 0);
 		log.info("Search suggestions displayed");
 	}
 
 	public void clickFirstValidInResult() {
-		for (int i=0;i<lblprice.size();i++) {
+		for (int i = 0; i < lblprice.size(); i++) {
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
 				commonMethods.click(lnksProduct.get(i));
 				break;
 			}
 		}
 		log.info("clicked valid product on PLP");
+	}
+
+	public void clickTabbyPriceFilter() {
+		commonMethods.click(drpdwnPriceRangeFilter);
+		for (WebElement temp : chkTabbyPriceFilter) {
+			if (commonMethods.getText(temp).contains("700") && commonMethods.getText(temp).contains("800")) {
+				waitHelper.waitForElementToBeClickable(temp);
+				commonMethods.click(temp);
+				break;
+			}
+		}
+		waitHelper.staticWait(3000);
+		log.info("clicked tabby range filter");
 	}
 
 }

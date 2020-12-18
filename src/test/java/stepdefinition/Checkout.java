@@ -122,5 +122,10 @@ public class Checkout {
 		waitHelper.waitForSpinnerInvisibility();
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
+	
+	@When("^user submits the valid details for shipping address$")
+	public void user_submits_the_valid_details_for_shipping_address() {
+		shippingPage.fillShippingForm();
+	}
 
 }
