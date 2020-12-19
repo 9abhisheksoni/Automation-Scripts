@@ -126,22 +126,28 @@ public class SearchResults {
     }
 
 
-	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PLP for the \"([^\"]*)\"$")
-	public void user_checks_the_and_the_in_PLP(String base_price, String special_price, String country) {
-		searchPage.evaluateBasePriceAtPLP(base_price, country);
-		searchPage.evaluateSpecialPriceAtPLP(special_price, country);
+	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PLP")
+	public void user_checks_the_and_the_in_PLP(String base_price, String special_price) {
+		searchPage.evaluateBasePriceAtPLP(base_price);
+		searchPage.evaluateSpecialPriceAtPLP(special_price);
 	}
 	
 	
-	@And("^user fetch the Base_Price and the Special_Price for the \"([^\"]*)\" in PLP$")
-    public void user_fetch_the_baseprice_and_the_specialprice_for_the_something_in_PLP(String country) {
-		searchPage.getBasePricePLP(country);
-		searchPage.getSpecialPricePLP(country);
+	@And("^user fetch the Base_Price and the Special_Price in PLP$")
+    public void user_fetch_the_baseprice_and_the_specialprice_for_the_something_in_PLP() {
+		searchPage.getBasePricePLP();
+		searchPage.getSpecialPricePLP();
     }
 
 	@And("^click on first valid product in search result$")
 	public void click_on_first_valid_product_in_search_result() {
 		searchPage.clickFirstValidInResult();
 	}
+	
+	@When("^user filters the product based on the highest discount$")
+	public void user_filters_the_product_based_on_the_highest_discount() {
+		searchPage.clickHighestDiscountPercentage();
+	}	
+
 
 }

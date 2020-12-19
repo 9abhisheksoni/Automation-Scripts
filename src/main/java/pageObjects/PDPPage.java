@@ -228,7 +228,7 @@ public class PDPPage extends CucumberRunner {
 	/*
 	 * This method fetches the base_price displaying for an item in the PDP
 	 */
-	public String getBasePricePDP(String country) {
+	public String getBasePricePDP() {
 		String basePrice = null;
 		log.info("Fethcing the basebrice of the item in the PDP");
 		waitHelper.waitForElementVisible(txtBasePrice);
@@ -236,7 +236,6 @@ public class PDPPage extends CucumberRunner {
 		log.info("The base price at PDP is" + basePrice);
 		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
 		log.info("The currency code is " + currencyCode);
-		//basePrice = basePrice.replaceAll(",", "");
 		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3).trim();
 		log.info("The extracted base price at PDP is" + basePrice);
 		return basePrice;
@@ -246,23 +245,23 @@ public class PDPPage extends CucumberRunner {
 	 * This method compares the base_price displaying at PDP with the actual_price
 	 * provided by the user
 	 */
-	public void evaluateBasePriceAtPDP(String actualBasePrice, String country) {
+	public void evaluateBasePriceAtPDP(String actualBasePrice) {
 		log.info("Comparing the base_price displaying at PDP with the actual base_price provided by the user");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		log.info("The base_price available in the PDP is " + getBasePricePDP(country));
-		assertEquals(getBasePricePDP(country), actualBasePrice, "The base_price is matching");
+		log.info("The base_price available in the PDP is " + getBasePricePDP());
+		assertEquals(getBasePricePDP(), actualBasePrice, "The base_price is matching");
 	}
 
-	public void evaluateBasePriceAtPDP(String country) {
+	public void evaluateBasePriceAtPDP() {
 		log.info("Comparing the base_price displaying at PDP with the actual base_price provided by the user");
 		log.info("The global base price is " + searchPage.globalBasePrice);
-		assertEquals(getBasePricePDP(country), searchPage.globalBasePrice, "The base_price is matching");
+		assertEquals(getBasePricePDP(), searchPage.globalBasePrice, "The base_price is matching");
 	}
 
 	/*
 	 * This method fetches the special_price displaying for an item in the PDP
 	 */
-	public String getSpecialPricePDP(String country) {
+	public String getSpecialPricePDP() {
 		log.info("Fethcing the special of the item in the PDP");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -280,15 +279,15 @@ public class PDPPage extends CucumberRunner {
 	 * This method compares the special_price displaying at PDP with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtPDP(String actualSpecialPrice, String country) {
+	public void evaluateSpecialPriceAtPDP(String actualSpecialPrice) {
 		log.info("Comparing the special displaying at PDP with the actual values");
-		assertEquals(getSpecialPricePDP(country), actualSpecialPrice, "The special_price is matching at PDP");
+		assertEquals(getSpecialPricePDP(), actualSpecialPrice, "The special_price is matching at PDP");
 	}
 
-	public void evaluateSpecialPriceAtPDP(String country) {
+	public void evaluateSpecialPriceAtPDP() {
 		log.info("Comparing the special displaying at PDP with the actual values");
 		log.info("The global special price is " + searchPage.globalSpecialPrice);
-		assertEquals(getSpecialPricePDP(country), searchPage.globalSpecialPrice,
+		assertEquals(getSpecialPricePDP(), searchPage.globalSpecialPrice,
 				"The special_price is matching at PDP");
 	}
 

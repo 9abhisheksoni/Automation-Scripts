@@ -15,6 +15,7 @@ import com.google.common.collect.Ordering;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
 import cucumber.api.java.en.And;
 import testRunner.CucumberRunner;
@@ -32,6 +33,7 @@ public class SearhPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
+	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(SearhPage.class.getName());
 
 	/**
@@ -124,6 +126,12 @@ public class SearhPage extends CucumberRunner {
 
 	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
 	private WebElement txtSpecialPrice;
+	
+	@FindBy (xpath = "//div[@data-tab='discount']/div")
+	private WebElement drpDiscount;
+	
+	@FindBy (xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
+	private List <WebElement> radioDiscountOptions;
 
 	/**
 	 * WebElement declaration ends here
@@ -174,7 +182,7 @@ public class SearhPage extends CucumberRunner {
 		waitHelper.staticWait(3000);
 		log.info("sorted high to low");
 	}
-
+	
 	public void isPriceLowToHigh() {
 		List<Float> prices = new ArrayList<Float>();
 		for (WebElement temp : lblprice) {
@@ -263,7 +271,7 @@ public class SearhPage extends CucumberRunner {
 	/*
 	 * This method fetches the base_price displaying for an item in the PLP
 	 */
-	public String getBasePricePLP(String country) {
+	public String getBasePricePLP() {
 		String basePrice = null;
 		log.info("Fethcing the base brice of the item in the PLP");
 		waitHelper.waitForElementVisible(txtBasePrice);
@@ -281,16 +289,16 @@ public class SearhPage extends CucumberRunner {
 	 * This method compares the base_price displaying at PLP with the actual_price
 	 * provided by the user
 	 */
-	public void evaluateBasePriceAtPLP(String actualBasePrice, String country) {
+	public void evaluateBasePriceAtPLP(String actualBasePrice) {
 		log.info("Comparing the base_price displaying at PLP with the actual values");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		assertEquals(getBasePricePLP(country), actualBasePrice, "The base_price is matching");
+		assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
 	}
 
 	/*
 	 * This method fetches the special_price displaying for an item in the PLP
 	 */
-	public String getSpecialPricePLP(String country) {
+	public String getSpecialPricePLP() {
 		log.info("Fethcing the special of the item in the PLP");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -307,19 +315,31 @@ public class SearhPage extends CucumberRunner {
 	 * This method compares the special_price displaying at PLP with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice, String country) {
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
 		log.info("Comparing the special displaying at PLP with the actual values");
-		String SpecialAtPDP = getSpecialPricePLP(country);
+		String SpecialAtPDP = getSpecialPricePLP();
 		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
 	}
-
+	
 	public void clickFirstValidInResult() {
+		int index = 0;
 		for (int i=0;i<lblprice.size();i++) {
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				commonMethods.click(lnksProduct.get(i));
+				index=i;
+
 				break;
 			}
 		}
+		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
+	}
+	
+	//Filter the items having the discount above 70%
+	public void clickHighestDiscountPercentage() {
+		waitHelper.waitForElementToBeClickable(drpDiscount);
+		commonMethods.moveToElementAndClick(drpDiscount);		
+		int index=radioDiscountOptions.size()-1;
+		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
+		
 	}
 }

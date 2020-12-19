@@ -256,7 +256,7 @@ public class ShippingPage extends CucumberRunner {
 	/*
 	 * This method fetches the base_price displaying for an item in the Shipment
 	 */
-	public String getBasePriceAtShipping(String country) {
+	public String getBasePriceAtShipping() {
 		String basePrice = null;
 		log.info("Fethcing the basebrice of the item in the Shipping");
 		waitHelper.waitForElementVisible(txtBasePrice);
@@ -273,23 +273,23 @@ public class ShippingPage extends CucumberRunner {
 	/* This method compares the base_price displaying at Shipment with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateBasePriceAtShipping(String actualBasePrice, String country) {
+	public void evaluateBasePriceAtShipping(String actualBasePrice) {
 		log.info("Comparing the base_price displaying at Shipping with the actual base_price provided by the user");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping(country));
-		assertEquals(getBasePriceAtShipping(country), actualBasePrice, "The base_price is matching");
+		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping());
+		assertEquals(getBasePriceAtShipping(), actualBasePrice, "The base_price is matching");
 	}
 	
 	
 	/* This method compares the base_price displaying at Shipment with the base_price fetched at PLP
 	 */
-	public void evaluateBasePriceAtShipping(String country) {
+	public void evaluateBasePriceAtShipping() {
 		log.info("Comparing the base_price displaying at Shipping with the base_price fetched at PLP");
-		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping(country));
-		assertEquals(getBasePriceAtShipping(country), searchPage.globalBasePrice, "The base_price is matching");
+		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping());
+		assertEquals(getBasePriceAtShipping(), searchPage.globalBasePrice, "The base_price is matching");
 	}
 
-	public String getSpecialPriceAtShipping(String country) {
+	public String getSpecialPriceAtShipping() {
 		log.info("Fethcing the special of the item in the Shipping");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -306,18 +306,18 @@ public class ShippingPage extends CucumberRunner {
 	 * This method compares the special_price displaying at Shipment with
 	 * the actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtShipping(String actualSpecialPrice, String country) {
+	public void evaluateSpecialPriceAtShipping(String actualSpecialPrice) {
 		log.info("Comparing the special_price displaying at Shipping with the actual values");
-		assertEquals(getSpecialPriceAtShipping(country), actualSpecialPrice, "The special_price is matching at Shipping");
+		assertEquals(getSpecialPriceAtShipping(), actualSpecialPrice, "The special_price is matching at Shipping");
 	}
 	
 	
 	/*
 	 * This method compares the special_price displaying at Shipment with with fetched special_price at PLP
 	 */
-	public void evaluateSpecialPriceAtShipping(String country) {
+	public void evaluateSpecialPriceAtShipping() {
 		log.info("Comparing the special_price displaying at Shipping with the special price fetched at PLP");
-		assertEquals(getSpecialPriceAtShipping(country), searchPage.globalSpecialPrice, "The special_price is matching at Shipping");
+		assertEquals(getSpecialPriceAtShipping(), searchPage.globalSpecialPrice, "The special_price is matching at Shipping");
 	}
 	
 }

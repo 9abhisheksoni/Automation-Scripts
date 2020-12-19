@@ -8,9 +8,9 @@ public class Wishlist {
 	
 	WishlistPage wishlistPage = new WishlistPage();
 	
-	@And("^user checks the \"([^\"]*)\" in the wishlist for the \"([^\"]*)\"$")
-	public void user_checks_the_in_the_wishlist(String specialPrice, String country) {
-		wishlistPage.evaluateSpecialPriceAtWishlist(specialPrice, country);
+	@And("^user checks the \"([^\"]*)\" in the wishlist")
+	public void user_checks_the_in_the_wishlist(String specialPrice) {
+		wishlistPage.evaluateSpecialPriceAtWishlist(specialPrice);
 	}
 	
 	@When("^user adds the item to the cart$")
@@ -18,8 +18,8 @@ public class Wishlist {
 		wishlistPage.addItemToBag();
 	}
 	
-	@And("^user checks the special_price in the wishlist for the \"([^\"]*)\"$")
-	public void user_checks_the_special_price_in_the_wishlist_for_the(String country) {
-		wishlistPage.evaluateSpecialPriceAtWishlist(country);
+	@And("^user checks the special_price in the wishlist")
+	public void user_checks_the_special_price_in_the_wishlist() {
+		wishlistPage.evaluateSpecialPriceAtWishlist();
 	}
 }	

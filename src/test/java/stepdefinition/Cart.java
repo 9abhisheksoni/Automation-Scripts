@@ -60,17 +60,17 @@ public class Cart {
 		cartPage.verifyPercentOffApplied(percent);
 	}
 	
-	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Cart for the \"([^\"]*)\"$")
-	public void user_checks_the_and_the_in_Cart(String basePrice, String specialPrice, String country) {
-		cartPage.evaluateBasePriceAtCart(basePrice, country);
-		cartPage.evaluateSpecialPriceAtCart(specialPrice, country);
-		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice, country);
+	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Cart")
+	public void user_checks_the_and_the_in_Cart(String basePrice, String specialPrice) {
+		cartPage.evaluateBasePriceAtCart(basePrice);
+		cartPage.evaluateSpecialPriceAtCart(specialPrice);
+		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice);
 	}
 	
-	@Then("^user checks the base_Price and the special_Price in Cart for the \"([^\"]*)\"$")
-	public void user_checks_the_base_Price_and_the_special_Price_in_Cart_for_the(String country) {
-		cartPage.evaluateBasePriceAtCart(country);
-		cartPage.evaluateSpecialPriceAtCart(country);
-		cartPage.evaluateSpecialPriceAtSubtotal(country);
+	@Then("^user checks the base_Price and the special_Price in Cart")
+	public void user_checks_the_base_Price_and_the_special_Price_in_Cart_for_the() {
+		cartPage.evaluateBasePriceAtCart();
+		cartPage.evaluateSpecialPriceAtCart();
+		cartPage.evaluateSpecialPriceAtSubtotal();
 	}
 }

@@ -47,7 +47,7 @@ public class WishlistPage extends CucumberRunner {
 	/*
 	 * This method fetches the special_price displaying for an item in the PLP
 	 */
-	public String getSpecialPriceWishlist(String country) {
+	public String getSpecialPriceWishlist() {
 		log.info("Fethcing the special of the item in the Wishlist");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -55,7 +55,6 @@ public class WishlistPage extends CucumberRunner {
 		log.info("The special price at Wishlist is" + specialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
 		log.info("The currency code is " + currencyCode);
-		//specialPrice = specialPrice.replaceAll(",", "");
 		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
 
 		log.info("The extracted special price at Wishlist is" + specialPrice);
@@ -66,18 +65,18 @@ public class WishlistPage extends CucumberRunner {
 	 * This method compares the special_price displaying at Wishlist with the
 	 * actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtWishlist(String actualSpecialPrice, String country) {
+	public void evaluateSpecialPriceAtWishlist(String actualSpecialPrice) {
 		log.info("Comparing the special displaying at Wishlist with the actual values");
-		assertEquals(getSpecialPriceWishlist(country), actualSpecialPrice, "The special_price is matching at Wishlist");
+		assertEquals(getSpecialPriceWishlist(), actualSpecialPrice, "The special_price is matching at Wishlist");
 	}
 
 	/*
 	 * This method compares the special_price displaying at Wishlist with the
 	 * actual_price fetched at PLP
 	 */
-	public void evaluateSpecialPriceAtWishlist(String country) {
+	public void evaluateSpecialPriceAtWishlist() {
 		log.info("Comparing the special displaying at Wishlist with the actual values");
-		assertEquals(getSpecialPriceWishlist(country), searchPage.globalSpecialPrice,
+		assertEquals(getSpecialPriceWishlist(), searchPage.globalSpecialPrice,
 				"The special_price is matching at Wishlist");
 	}
 

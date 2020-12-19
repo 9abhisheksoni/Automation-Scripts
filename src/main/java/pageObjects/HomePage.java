@@ -169,7 +169,7 @@ public class HomePage extends CucumberRunner {
 	/*
 	 * This method fetches price displaying for an SKU at the Search bar
 	 */
-	public String getPriceValueAtSearch(String country) {
+	public String getPriceValueAtSearch() {
 		String specialPrice = null;
 		log.info("Fetching the price at the search");
 		waitHelper.waitForElementVisible(txtPriceInSearch);
@@ -187,20 +187,20 @@ public class HomePage extends CucumberRunner {
 	 * This method compares the price displaying in the search bar with the price
 	 * given by the user
 	 */
-	public void evaluateSpecialPriceAtSearch(String sellingPrice, String country) {
+	public void evaluateSpecialPriceAtSearch(String sellingPrice) {
 		log.info("comparing the price displaying at the search");
-		log.info("The price at search is " + getPriceValueAtSearch(country));
-		assertEquals(getPriceValueAtSearch(country), sellingPrice, "Prices are matching at the search");
+		log.info("The price at search is " + getPriceValueAtSearch());
+		assertEquals(getPriceValueAtSearch(), sellingPrice, "Prices are matching at the search");
 	}
 
 	/*
 	 * This method compares the price displaying in the search bar with the price
 	 * given by the user
 	 */
-	public void evaluateSpecialPriceAtSearch(String country) {
+	public void evaluateSpecialPriceAtSearch() {
 		log.info("comparing the price displaying at the search");
 		log.info("The global special price is " + searchPage.globalSpecialPrice);
-		assertEquals(getPriceValueAtSearch(country), searchPage.globalSpecialPrice, "Prices are matching at the search");
+		assertEquals(getPriceValueAtSearch(), searchPage.globalSpecialPrice, "Prices are matching at the search");
 	}
 
 

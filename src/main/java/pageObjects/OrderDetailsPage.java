@@ -130,7 +130,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	/*
 	 * This method fetches the base_price displaying for an item in the Order Details
 	 */
-	public String getSpecialPriceAtOrderDetails(String country) {
+	public String getSpecialPriceAtOrderDetails() {
 		log.info("Fethcing the special of the item in the Order Details");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
@@ -148,17 +148,17 @@ public class OrderDetailsPage extends CucumberRunner {
 	 * This method compares the special_price displaying at Order Success with
 	 * the actual_price provided by the user
 	 */
-	public void evaluateSpecialPriceAtOrderDetails(String actualSpecialPrice, String country) {
+	public void evaluateSpecialPriceAtOrderDetails(String actualSpecialPrice) {
 		log.info("Comparing the special_price displaying at Order Details with the actual values");
-		assertEquals(getSpecialPriceAtOrderDetails(country), actualSpecialPrice, "The special_price is matching at Order Details");
+		assertEquals(getSpecialPriceAtOrderDetails(), actualSpecialPrice, "The special_price is matching at Order Details");
 	}
 	
 	/*
 	 * This method compares the special_price displaying at Order Success with the special price fetched at PLP
 	 */
-	public void evaluateSpecialPriceAtOrderDetails(String country) {
+	public void evaluateSpecialPriceAtOrderDetails() {
 		log.info("Comparing the special_price displaying at Order Details with the actual values");
-		assertEquals(getSpecialPriceAtOrderDetails(country), searchPage.globalSpecialPrice, "The special_price is matching at Order Details");
+		assertEquals(getSpecialPriceAtOrderDetails(), searchPage.globalSpecialPrice, "The special_price is matching at Order Details");
 	}
 	
 }
