@@ -139,13 +139,16 @@
 						<param>**/*.json</param>
 					</jsonFiles>
 					<suiteXmlFiles>
-						<suiteXmlFile>suiteXml/${suiteXmlFile}</suiteXmlFile>
+
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+
 					</suiteXmlFiles>
 					<properties>
-						<systemPropertyVariables>
-							<propertyName>${browser}</propertyName>
-							<propertyName>${environment}</propertyName>
-						</systemPropertyVariables>
+
+					<systemPropertyVariables>
+						<propertyName>${browser}</propertyName>
+						<propertyName>${environment}</propertyName>
+					</systemPropertyVariables>
 						<property>
 							<name>listener</name>
 							<value>org.uncommons.reportng.HTMLReporter,

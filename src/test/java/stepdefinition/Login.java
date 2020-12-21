@@ -50,7 +50,7 @@ public class Login {
 		loginPage.clickOnMerchantLogin();
 	}
 
-	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup from feature$")
+	@When("^User enters valid login details \"([^\"]*)\" username and \"([^\"]*)\" password in the login popup$")
 	public void user_enters_valid_login_details_and_in_the_login_popup_from_feature(String username, String password) {
 		loginPage.enterLoginDetailsFromFeature(username, password);
 	}

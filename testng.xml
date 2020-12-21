@@ -5,6 +5,7 @@
 		<parameter name="browser" value="Chrome" />
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="EN" />
+		<parameter name="environment" value="stage"></parameter>
 		<classes>
 			<class name="testRunner.CucumberRunner" />
 		</classes>

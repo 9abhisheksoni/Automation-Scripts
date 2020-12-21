@@ -10,8 +10,14 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
+<<<<<<< HEAD
+    @Smoke @CODPayment @RegisteredUser @SCtest 
+	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 
+		
+=======
     @Smoke @CODPayment @Regression
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
+>>>>>>> branch 'feature/prasanna' of https://github.com/6thstreetdotcom/Automation-Scripts.git
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result
 		And user selects variation if available

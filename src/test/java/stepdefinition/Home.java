@@ -66,6 +66,24 @@ public class Home {
 	public void user_click_on_Home_Logo() throws Throwable {
 		homePage.clickHomeLogo();
 	}
+
+	
+	@And("^user checks the \"([^\"]*)\" in the search")
+	public void user_checks_the_in_the_search(String special_price) {
+		homePage.evaluateSpecialPriceAtSearch(special_price);
+	}
+	
+	@And("^user clicks the wishlist link$")
+	public void user_clicks_the_wishlist_link() {
+		homePage.clickOnWishlistInHeader();
+	}
+	
+	@Then("^user checks the special_price in the search")
+	public void user_checks_the_special_price_in_the_search() {
+		homePage.evaluateSpecialPriceAtSearch();
+	}
+
+
 		
 	@When("^user verifies the customer support details at Header and Footer$")
 	public void user_verifies_the_customer_support_details_at_Header_and_Footer(DataTable section)  {
@@ -73,5 +91,6 @@ public class Home {
 			homePage.verifySupportPhoneAndEmail(sec.get("Section"));			
 		}
 	}
+
 
 }

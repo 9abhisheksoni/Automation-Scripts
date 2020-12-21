@@ -59,4 +59,18 @@ public class Cart {
 	public void discount_of_something_percent_should_be_applied(String percent) {
 		cartPage.verifyPercentOffApplied(percent);
 	}
+	
+	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Cart")
+	public void user_checks_the_and_the_in_Cart(String basePrice, String specialPrice) {
+		cartPage.evaluateBasePriceAtCart(basePrice);
+		cartPage.evaluateSpecialPriceAtCart(specialPrice);
+		cartPage.evaluateSpecialPriceAtSubtotal(specialPrice);
+	}
+	
+	@Then("^user checks the base_Price and the special_Price in Cart")
+	public void user_checks_the_base_Price_and_the_special_Price_in_Cart_for_the() {
+		cartPage.evaluateBasePriceAtCart();
+		cartPage.evaluateSpecialPriceAtCart();
+		cartPage.evaluateSpecialPriceAtSubtotal();
+	}
 }

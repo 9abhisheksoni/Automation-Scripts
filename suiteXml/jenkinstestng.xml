@@ -6,7 +6,7 @@
  		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.CucumberRunner" />
-<!-- 			<class name="testRunner.TabbySmokeScenarios" /> -->
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 </suite> <!-- Suite -->

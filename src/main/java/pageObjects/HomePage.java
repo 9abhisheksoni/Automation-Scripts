@@ -1,5 +1,10 @@
 package pageObjects;
 
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.Scanner;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -24,6 +29,7 @@ public class HomePage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
+	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil=new StringUtility();
 	Config config = new Config();
@@ -76,12 +82,22 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//button[@ID='yopeso_register']")
 	private WebElement btnCreateAccount;
-	
-	@FindBy(xpath="//li[@class='header-wishlist']/a")
+
+	@FindBy(xpath = "//li[@class='header-wishlist']/a")
 	private WebElement lnkWishlist;
+
+
+	//@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]")
+
 	
 	@FindBy(xpath="//a[@class='algoliasearch-autocomplete-hit']")
 	private WebElement FirstSearchEle;
+
+
+	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']")
+	private WebElement txtPriceInSearch;
+
+
 	
 	/*Footer Links*/
 	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'6th-street')]")
@@ -126,6 +142,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath="//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
 	private WebElement lblCustomerServicePhone;
 	
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -177,26 +194,65 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(btnCreateAccount);
 
 	}
-	
+
 	public void typeInSearchField(String product) {
 		commonMethods.clearAndSendKeys(txtSearchProduct, product);
 		log.info("Entering text in Search field");
 	}
-	
+
 	public void clickHomeLogo() {
 		commonMethods.click(imgHomePage);
 		log.info("Clicked on Home Logo");
 	}
-	
+
 	public void clickOnWishlistInHeader() {
 		commonMethods.click(lnkWishlist);
 		log.info("clicked Wishlist in Header");
 	}
-	
+
 	public void clickOnFirstItemSearchResult() {
 		commonMethods.moveToElementAndClick(FirstSearchEle);
 		log.info("First Search element clicked");
 	}
+
+	/*
+	 * This method fetches price displaying for an SKU at the Search bar
+	 */
+	public String getPriceValueAtSearch() {
+		String specialPrice = null;
+		log.info("Fetching the price at the search");
+		waitHelper.waitForElementVisible(txtPriceInSearch);
+		specialPrice = commonMethods.getText(txtPriceInSearch);
+		
+		log.info("The special price at Search is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at Search is" + specialPrice);
+		return specialPrice;
+	}
+
+	/*
+	 * This method compares the price displaying in the search bar with the price
+	 * given by the user
+	 */
+	public void evaluateSpecialPriceAtSearch(String sellingPrice) {
+		log.info("comparing the price displaying at the search");
+		log.info("The price at search is " + getPriceValueAtSearch());
+		assertEquals(getPriceValueAtSearch(), sellingPrice, "Prices are matching at the search");
+	}
+
+	/*
+	 * This method compares the price displaying in the search bar with the price
+	 * given by the user
+	 */
+	public void evaluateSpecialPriceAtSearch() {
+		log.info("comparing the price displaying at the search");
+		log.info("The global special price is " + searchPage.globalSpecialPrice);
+		assertEquals(getPriceValueAtSearch(), searchPage.globalSpecialPrice, "Prices are matching at the search");
+	}
+
+
 	
 	public void createAccount() {
 		waitHelper.waitForElementVisible(btnSignUp);
@@ -209,6 +265,9 @@ public class HomePage extends CucumberRunner {
 		commonMethods.click(btnCreateAccount);
 
 	}
+
+
+
 	
 	public void clickOnAbout6thStreetFooterLink() {
 		commonMethods.click(lnkAbout6thStreet);
@@ -307,4 +366,5 @@ public class HomePage extends CucumberRunner {
 			log.info("Phone number displayed at Header : "+phoneNo+ " is not as expected");
 		}		
 	}
+
 }
