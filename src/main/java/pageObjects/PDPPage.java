@@ -69,8 +69,7 @@ public class PDPPage extends CucumberRunner {
 	@FindBy(xpath = "//span[@id='tabby-promo-close']")
 	private WebElement btnTabbyPromoClose;
 
-	//
-	@FindBy(xpath = "//button[@title='Proceed to Checkout']")
+	@FindBy(xpath = "//button[@class='action primary checkout']")
 	private WebElement btnCheckout;
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")

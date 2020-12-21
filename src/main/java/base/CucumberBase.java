@@ -145,7 +145,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests  {
 		browserFactory.setBrowser(browser);
 		browserFactory.setCountry(country);
 		browserFactory.setLanguage(language);
-
+		browserFactory.setEnvironment(environment);
 	}
 
 	/** This method captures and saves screen shot **/

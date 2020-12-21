@@ -123,6 +123,7 @@ public class Checkout {
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
 	
+
 	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Shipment")
 	public void user_checks_the_and_the_in_Shipment(String basePrice, String specialPrice) {
 		shippingPage.evaluateBasePriceAtShipping(basePrice);
@@ -145,6 +146,29 @@ public class Checkout {
 	public void user_checks_the_base_Price_and_the_special_Price_in_order_success() {
 		orderSuccess.evaluateBasePriceAtOrderSuccess();
 		orderSuccess.evaluateSpecialPriceAtOrderSuccess();
+	}
+
+
+	@When("^user clicks on place order button with Store Credits and \"([^\"]*)\" if required$")
+	public void user_clicks_on_place_order_button_with_Store_Credits_and_another_if_required(String additionalPayment) {
+		paymentPage.clickOnPlaceOrderwithSC(additionalPayment);
+	}
+	
+	@Then("^verify available Payment options in payment page$")
+	public void verify_available_Payment_options_in_payment_page() {
+		paymentPage.verifyAvailablePaymentOptions();
+	}
+	
+	@And("^user selects payment option as \"([^\"]*)\" and clicks on Save Card$")
+	public void user_selects_payment_option_and_clicks_on_Save_Card(String payment) {
+		waitHelper.waitForSpinnerInvisibility();
+		if (payment.equalsIgnoreCase("CC_VISA")) {
+			paymentPage.payUsingCreditCardAndSave("visa");
+		} else if (payment.equalsIgnoreCase("CC_MASTER")) {
+			paymentPage.payUsingCreditCardAndSave("master");
+		} else if (payment.equalsIgnoreCase("CC_AMEX")) {
+			paymentPage.payUsingCreditCardAndSave("amex");
+		}
 	}
 
 }

@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Config;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
@@ -31,6 +32,7 @@ public class HomePage extends CucumberRunner {
 	SearhPage searchPage = new SearhPage();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil=new StringUtility();
+	Config config = new Config();
 
 	/**
 	 * Constructor to initialize page objects
@@ -91,8 +93,55 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath="//a[@class='algoliasearch-autocomplete-hit']")
 	private WebElement FirstSearchEle;
 
+
 	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']")
 	private WebElement txtPriceInSearch;
+
+
+	
+	/*Footer Links*/
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'6th-street')]")
+	private WebElement lnkAbout6thStreet;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'consumerrights')]")
+	private WebElement lnkConsumerRights;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'disclaimer')]")
+	private WebElement lnkDisclaimer;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'privacy-policy')]")
+	private WebElement lnkPrivacyPolicy;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'shipping-policy')]")
+	private WebElement lnkShippingInfo;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'return-information')]")
+	private WebElement lnkReturnInfo;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'track')]")
+	private WebElement lnkOrderTrack;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'Faq')]")
+	private WebElement lnkFAQs;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']/a[contains(@href,'contact')]")
+	private WebElement lnkFeedback;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']//a[contains(@href,'customercare')]")
+	private WebElement lnkFooterCustomerCareMail;
+	
+	@FindBy(xpath="//div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span")
+	private WebElement lblFooterCustomerCarePhoneNo;
+	
+	@FindBy(xpath="//div[@id='top_header_customer_service']")
+	private WebElement divCustomerService;
+	
+	@FindBy(xpath="//div[@id='customer-service-header']//a[contains(@href,'customercare')]")
+	private WebElement lnkCustomerServiceMail;
+	
+	@FindBy(xpath="//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
+	private WebElement lblCustomerServicePhone;
+	
 
 	/**
 	 * WebElement declaration ends here
@@ -215,6 +264,107 @@ public class HomePage extends CucumberRunner {
 		waitHelper.waitForElementVisible(btnCreateAccount);
 		commonMethods.click(btnCreateAccount);
 
+	}
+
+
+
+	
+	public void clickOnAbout6thStreetFooterLink() {
+		commonMethods.click(lnkAbout6thStreet);
+		log.info("clicked About 6thstreet link in Footer");
+	}
+	
+	public void clickOnConsumerRightsFooterLink() {
+		commonMethods.click(lnkConsumerRights);
+		log.info("clicked ConsumerRights link in Footer");
+	}
+	
+	public void clickOnDisclaimerFooterLink() {
+		commonMethods.click(lnkDisclaimer);
+		log.info("clicked Disclaimer link in Footer");
+	}
+	
+	public void clickOnPrivacyPolicyFooterLink() {
+		commonMethods.click(lnkPrivacyPolicy);
+		log.info("clicked PrivacyPolicy link in Footer");
+	}
+	
+	public void clickOnShippingInfoFooterLink() {
+		commonMethods.click(lnkShippingInfo);
+		log.info("clicked ShippingInfo link in Footer");
+	}
+	
+	public void clickOnReturnInfoFooterLink() {
+		commonMethods.click(lnkReturnInfo);
+		log.info("clicked ReturnInfo link in Footer");
+	}
+	
+	public void clickOnOrderTrackFooterLink() {
+		commonMethods.click(lnkOrderTrack);
+		log.info("clicked OrderTracking lnk in Footer");
+	}
+	
+	public void clickOnFAQsFooterLink() {
+		commonMethods.click(lnkFAQs);
+		log.info("clicked FAQs link in Footer");
+	}
+	
+	public void clickOnFeedbackFooterLink() {
+		commonMethods.click(lnkFeedback);
+		log.info("clicked Feedback link in Footer");
+	}
+	
+	public void verifySupportPhoneAndEmail(String section) {
+		if (section.equalsIgnoreCase("Header")) {
+			commonMethods.click(divCustomerService);
+			this.verifyHeaderPhoneNumber();
+			this.verifyHeaderMailId();
+		} else if (section.equalsIgnoreCase("Footer")) {
+			this.verifyFooterPhoneNumber();
+			this.verifyFooterMailId();
+		}				
+	}
+	
+	public void verifyFooterMailId() {
+		String emailID = commonMethods.getText(lnkFooterCustomerCareMail);
+		jsHelper.scrollToElement(lnkFooterCustomerCareMail);
+		try {
+			Assert.assertTrue((emailID.equalsIgnoreCase(config.getSupportEmailId())));
+			log.info("Email id displayed at Footer : "+emailID+ " is as expected");
+		} catch(Exception e) {
+			log.info("Email id displayed at Footer : "+emailID+ " is not as expected");
+		}		
+	}
+	
+	public void verifyFooterPhoneNumber() {
+		String phoneNo = commonMethods.getText(lblFooterCustomerCarePhoneNo);
+		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
+		try {
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo(browserFactory.getCountry()))));
+			log.info("Phone number displayed at Footer : "+phoneNo+ " is as expected");
+		} catch(Exception e) {
+			log.info("Phone number displayed at Footer : "+phoneNo+ " is not as expected");
+		}		
+	}
+	
+	public void verifyHeaderMailId() {
+		String emailID = commonMethods.getText(lnkCustomerServiceMail); 
+		try {
+			Assert.assertTrue((emailID.equalsIgnoreCase(config.getSupportEmailId())));
+			log.info("Email id displayed at Header : "+emailID+ " is as expected");
+		} catch(Exception e) {
+			log.info("Email id displayed at Header : "+emailID+ " is not as expected");
+		}		
+	}
+	
+	public void verifyHeaderPhoneNumber() {
+		String phoneNo = commonMethods.getText(lblCustomerServicePhone);		
+		try {
+			Assert.assertTrue((phoneNo.equalsIgnoreCase(config.getSupportPhoneNo(browserFactory.getCountry()))));
+			log.info("Phone number displayed at Header : "+phoneNo+ " is as expected");
+		} catch(Exception e) {
+			log.info("Phone number displayed at Header : "+phoneNo+ " is not as expected");
+		}		
 	}
 
 }
