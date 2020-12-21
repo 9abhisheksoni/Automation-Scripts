@@ -60,6 +60,8 @@ public class PDP {
 		pdpPage.selectSizeCountry();
 		pdpPage.chooseSize();
 	}
+	
+	
 	@And("^user selects color$")
 	public void user_selects_color() {
 		pdpPage.chooseColor();
@@ -74,5 +76,18 @@ public class PDP {
 	public void user_is_on_PDP() {
 		pdpPage.verifyPDPDisplayed();
 	}
+	
+	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PDP")
+	public void user_checks_the_and_the_in_PDP(String base_price, String special_price) {
+		pdpPage.evaluateBasePriceAtPDP(base_price);
+		pdpPage.evaluateSpecialPriceAtPDP(special_price);
+	}
+	
+	@And("^valdiate the base_Price and special_Price in PDP")
+	public void valdiate_the_base_Price_and_special_Price_in_PDP() {
+		pdpPage.evaluateBasePriceAtPDP();
+		pdpPage.evaluateSpecialPriceAtPDP();
+	}
 
+	
 }

@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +15,16 @@ import com.google.common.collect.Ordering;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import cucumber.api.java.en.And;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
-
-
 public class SearhPage extends CucumberRunner {
+	private static final String String = null;
+	public static String globalBasePrice = null;
+	public static String globalSpecialPrice = null;
 	/**
 	 * Class object declaration here
 	 **/
@@ -28,6 +33,7 @@ public class SearhPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
+	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(SearhPage.class.getName());
 
 	/**
@@ -123,6 +129,18 @@ public class SearhPage extends CucumberRunner {
 
 	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
 	private WebElement chkTabbyPriceFilterActive;
+
+	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
+	private WebElement txtBasePrice;
+
+	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
+	private WebElement txtSpecialPrice;
+
+	@FindBy(xpath = "//div[@data-tab='discount']/div")
+	private WebElement drpDiscount;
+
+	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
+	private List<WebElement> radioDiscountOptions;
 
 	/**
 	 * WebElement declaration ends here
@@ -258,13 +276,68 @@ public class SearhPage extends CucumberRunner {
 		log.info("Search suggestions displayed");
 	}
 
+	/*
+	 * This method fetches the base_price displaying for an item in the PLP
+	 */
+	public String getBasePricePLP() {
+		String basePrice = null;
+		log.info("Fethcing the base brice of the item in the PLP");
+		waitHelper.waitForElementVisible(txtBasePrice);
+		basePrice = commonMethods.getText(txtBasePrice);
+		log.info("The base price at PLP is" + basePrice);
+		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted base price at PLP is " + basePrice);
+		this.globalBasePrice = basePrice;
+		return basePrice;
+	}
+
+	/*
+	 * This method compares the base_price displaying at PLP with the actual_price
+	 * provided by the user
+	 */
+	public void evaluateBasePriceAtPLP(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at PLP with the actual values");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
+	}
+
+	/*
+	 * This method fetches the special_price displaying for an item in the PLP
+	 */
+	public String getSpecialPricePLP() {
+		log.info("Fethcing the special of the item in the PLP");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		log.info("The special price at PLP is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is " + specialPrice);
+		this.globalSpecialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+
+	/*
+	 * This method compares the special_price displaying at PLP with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at PLP with the actual values");
+		String SpecialAtPDP = getSpecialPricePLP();
+		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
+	}
+
 	public void clickFirstValidInResult() {
+		int index = 0;
 		for (int i = 0; i < lblprice.size(); i++) {
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				commonMethods.click(lnksProduct.get(i));
+				index = i;
 				break;
 			}
 		}
+		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
 	}
 
@@ -281,4 +354,12 @@ public class SearhPage extends CucumberRunner {
 		log.info("clicked tabby range filter");
 	}
 
+	// Filter the items having the discount above 70%
+	public void clickHighestDiscountPercentage() {
+		waitHelper.waitForElementToBeClickable(drpDiscount);
+		commonMethods.moveToElementAndClick(drpDiscount);
+		int index = radioDiscountOptions.size() - 1;
+		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
+
+	}
 }
