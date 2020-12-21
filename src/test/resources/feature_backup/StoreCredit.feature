@@ -18,7 +18,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And selects use storecredit toggle if user is eligible to use
 		

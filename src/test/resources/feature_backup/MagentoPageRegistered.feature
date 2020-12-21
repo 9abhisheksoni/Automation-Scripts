@@ -3,7 +3,7 @@
 	
 	Background: user logs into application then adds a product into cart and navigates till shipping page
 		When User clicks on login link 
-		When User enters valid login details "validuser" username and "validuser" password in the login popup 
+		When User enters "validuser" login details in the login popup 
 		And User clicks on login button 
 		And user login is successfull 
 		And Home page is displayed 
@@ -14,7 +14,7 @@
 		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 			
 	@Regression @CODPayment  
 	Scenario: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod

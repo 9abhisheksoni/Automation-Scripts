@@ -10,7 +10,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
 		And User clicks on Guestlogin button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address
 		And user selects payment option as "COD"  
 		And user clicks on place order button 
 		Then Order placing should be successful
@@ -70,7 +70,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
 		And User clicks on Guestlogin button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address
 		And user selects payment option as "CC_Master"  
 		And user clicks on place order button 
 		Then Order placing should be successful
@@ -100,7 +100,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "tempUser" 
 		And User clicks on Guestlogin button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address
 		And user selects payment option as "CC_Amex"  
 		And user clicks on place order button 
 		Then Order placing should be successful

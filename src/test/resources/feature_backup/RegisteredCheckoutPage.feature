@@ -17,7 +17,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
@@ -47,7 +47,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 
@@ -77,7 +77,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Master" 
 		And user clicks on place order button 
@@ -107,7 +107,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Amex" 
 		And user clicks on place order button 
@@ -140,7 +140,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address
+		And user submits the valid details for shipping address
 		And user reset Stored Payments 
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
@@ -173,7 +173,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 

@@ -27,7 +27,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
