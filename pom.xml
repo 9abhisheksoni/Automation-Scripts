@@ -140,7 +140,7 @@
 					</jsonFiles>
 					<suiteXmlFiles>
 
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>suiteXml/${suiteXmlFile}</suiteXmlFile>
 
 					</suiteXmlFiles>
 					<properties>

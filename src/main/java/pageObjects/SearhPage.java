@@ -46,10 +46,10 @@ public class SearhPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
 	private WebElement lnkProduct;
 
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
 	private List<WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
