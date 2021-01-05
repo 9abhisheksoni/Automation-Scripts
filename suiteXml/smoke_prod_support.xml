@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" thread-count="1">
+<suite name="Suite">
 	<test name="UAE-EN : Smoke">
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="EN" />
