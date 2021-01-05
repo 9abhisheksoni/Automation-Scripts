@@ -139,7 +139,7 @@ public class CucumberBase extends AbstractTestNGCucumberTests  {
 	@BeforeTest(alwaysRun = true)
 	@Parameters({ "browser", "country", "language", "environment" })
 	public void beforeTest(String browser, String country, String language, String environment) {
-		log.info("Executing Before Test");
+		log.info("Executing Before Test for "+browser+" with "+country+" and "+language+" on "+environment);
 		CucumberBase.environment = environment;
 		browserFactory = BrowserFactory.getInstance();
 		browserFactory.setBrowser(browser);
