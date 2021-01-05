@@ -1,6 +1,7 @@
 package pageObjects;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -54,6 +55,12 @@ public class MagentoRmaPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[contains(text(),'You submitted the RMA request')]")
 	private WebElement lblRmaCreationConfirmation;
+	
+	@FindBy(xpath = "//input[@id=id='rmaGrid_filter_order_increment_id']")
+	private WebElement txtRmaOrderID;
+	
+	@FindBy(xpath = "//a[contains(@href,'sixadmin/admin/rma/edit/id')]")
+	private WebElement lnkView;
 
 	/**
 	 * WebElement declaration ends here
@@ -164,4 +171,19 @@ public class MagentoRmaPage extends CucumberRunner {
 		}
 		
 	}
+	
+	public void enterRmaOrderID() {
+		waitHelper.waitForElementVisible(txtRmaOrderID);
+		commonMethods.clearAndSendKeys(txtRmaOrderID, browserFactory.getOrderNumber());
+		log.info("Order ID is enterd in Returns page");
+		commonMethods.keyPressEnter();
+		log.info("Pressed enter key");
+	}
+	
+	public void clickViewLink() {
+		waitHelper.waitForElementToBeClickable(lnkView);
+		commonMethods.click(lnkView);
+		log.info("View link is clicked");
+	}
+	
 }

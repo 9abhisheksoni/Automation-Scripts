@@ -10,6 +10,7 @@ import pageObjects.LoginPage;
 import pageObjects.MagentoDashboardPage;
 import pageObjects.MagentoOrdersDetailPage;
 import pageObjects.MagentoOrdersViewPage;
+import pageObjects.MagentoRmaPage;
 import pageObjects.OrderSuccessPage;
 import pageObjects.PaymentPage;
 
@@ -23,6 +24,7 @@ public class InvoiceAndShipment {
 	PaymentPage paymentPage = new PaymentPage();
 	GenericHelper genericHelper = new GenericHelper();
 	Config config = new Config();
+	MagentoRmaPage magentoRmaPage = new MagentoRmaPage();
 
 	@When("^user clicks on sales module$")
 	public void user_clicks_on_sales_module() {
@@ -218,6 +220,12 @@ public class InvoiceAndShipment {
 	@When("^Clicks on order cancel in Magento$")
 	public void clicks_on_order_cancel_in_Magento() {
 	   paymentPage.clickOrderCancelMagento();
+	}
+	
+	@When("^user clicks Create Returns button and navigates to RMA page$")
+	public void user_clicks_Create_Returns_button_and_navigates_to_RMA_page()  {
+		magentoOrderDetailsPage.clickCreateReturns();
+		magentoRmaPage.verifyRmaPage();
 	}
 
 

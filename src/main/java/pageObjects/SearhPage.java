@@ -34,7 +34,6 @@ public class SearhPage extends CucumberRunner {
 	public SearhPage() {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
-
 	
 	/**
 	 * WebElement declaration starts here
@@ -42,7 +41,7 @@ public class SearhPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
 	private WebElement lnkProduct;
 	
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
 	private List <WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
@@ -160,7 +159,7 @@ public class SearhPage extends CucumberRunner {
 	public void clickHighToLowSort() {
 		commonMethods.click(drpdwnSortBy);
 		commonMethods.click(optionPriceHighToLow);
-		waitHelper.staticWait(3000);
+		waitHelper.staticWait(5000);
 		log.info("sorted high to low");
 	}
 
@@ -249,12 +248,16 @@ public class SearhPage extends CucumberRunner {
 	}
 
 	public void clickFirstValidInResult() {
+		int index = 0;
 		for (int i=0;i<lblprice.size();i++) {
+			System.out.println("Price>>>>>>>>>>>>>>"+this.getPriceFromText(commonMethods.getText(lblprice.get(i))));
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				commonMethods.click(lnksProduct.get(i));
+				index=i;
+
 				break;
 			}
 		}
+		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
 	}
 
