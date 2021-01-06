@@ -42,6 +42,7 @@ public class BrowserFactory {
 		} else if (browser.equalsIgnoreCase("chrome")) {
 			log.info("Creating Chrome Driver Instance");
 			ChromeOptions options = new ChromeOptions();
+			options.setHeadless(true);
 			options.addArguments("--disable-notifications");
 			options.setExperimentalOption("useAutomationExtension", false);
 			webDriver.set(new ChromeDriver(options));
