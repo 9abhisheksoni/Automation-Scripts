@@ -44,9 +44,10 @@ public class BrowserFactory {
 			ChromeOptions options = new ChromeOptions();
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
 			options.setBinary(chromeDriverPath);
-			options.setHeadless(true);
 			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--headless"); //should be enabled for Jenkins
+			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
+			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			webDriver.set(new ChromeDriver(options));
 		}
 	}
