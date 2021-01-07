@@ -42,6 +42,8 @@ public class BrowserFactory {
 		} else if (browser.equalsIgnoreCase("chrome")) {
 			log.info("Creating Chrome Driver Instance");
 			ChromeOptions options = new ChromeOptions();
+			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
+			options.setBinary(chromeDriverPath);
 			options.setHeadless(true);
 			options.addArguments("--disable-notifications");
 			options.setExperimentalOption("useAutomationExtension", false);
