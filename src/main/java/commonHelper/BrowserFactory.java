@@ -47,6 +47,7 @@ public class BrowserFactory {
 			options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
 			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
 			options.addArguments("--remote-debugging-port=9222");
+			options.addArguments("--disable-gpu");
 			webDriver.set(new ChromeDriver(options));
 		}
 	}
