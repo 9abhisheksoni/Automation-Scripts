@@ -1,10 +1,12 @@
 package commonHelper;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserFactory {
 	private static BrowserFactory instance = null;
@@ -43,12 +45,25 @@ public class BrowserFactory {
 			log.info("Creating Chrome Driver Instance");
 			ChromeOptions options = new ChromeOptions();
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
-			options.setBinary(chromeDriverPath);
-			options.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
-			options.addArguments("--remote-debugging-port=9222");
-			options.addArguments("--disable-gpu");
-			webDriver.set(new ChromeDriver(options));
+				options.addArguments("--no-sandbox");	
+				options.setBinary(chromeDriverPath);
+		        options.addArguments("--disable-features=VizDisplayCompositor");
+		        options.addArguments("--incognito");
+		        options.addArguments("enable-automation");
+		        options.addArguments("--headless");
+		        options.addArguments("--window-size=1920,1080");
+		        options.addArguments("--disable-gpu");
+		        options.addArguments("--disable-extensions");
+		        options.addArguments("--dns-prefetch-disable");
+		        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
+		        options.addArguments("enable-features=NetworkServiceInProcess");
+
+		        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		        capabilities.setCapability("marionette", true);
+		        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+		        webDriver.set(new ChromeDriver(capabilities));
 		}
 	}
 
