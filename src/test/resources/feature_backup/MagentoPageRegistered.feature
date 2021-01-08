@@ -134,7 +134,7 @@
 		Then Verify Magento Order Status to be "Canceled"
 		
 		
-	@Regression @CODPayment  @Giri
+	@Regression @CODPayment  
 	Scenario: TS_RegisteredCheckout_01 - User should be able to perform Agent RMA
 		And user selects payment option as "COD" 
 		And user clicks on place order button 

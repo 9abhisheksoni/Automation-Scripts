@@ -170,13 +170,18 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void chooseSize() {
+		int count=0;
 		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
 		for (String currentSize : availableSizes) {
 			if (!currentSize.contains(" ")) {
 				commonMethods.SelectUsingVisibleText(drpdwnSize, currentSize);
 				log.info("Selected product size");
+				count++;
 				break;
 			}
+		}
+		if(count==0) {
+			commonMethods.SelectUsingIndex(drpdwnSize, 1);
 		}
 	}
 
