@@ -51,7 +51,7 @@ public class BrowserFactory {
 				options.addArguments("start-maximized");
 		        options.addArguments("--disable-features=VizDisplayCompositor");
 		        options.addArguments("enable-automation");
-		        options.addArguments("--headless");
+		        //options.addArguments("--headless");
 		        options.addArguments("--window-size=1920,1080");
 		        options.addArguments("--disable-gpu");
 		        options.addArguments("disable-infobars");
