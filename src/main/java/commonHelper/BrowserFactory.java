@@ -45,14 +45,16 @@ public class BrowserFactory {
 			log.info("Creating Chrome Driver Instance");
 			ChromeOptions options = new ChromeOptions();
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
-				options.addArguments("--no-sandbox");	
+				options.addArguments("--no-sandbox");
 				options.setBinary(chromeDriverPath);
+				options.addArguments("--disable-dev-shm-usage"); 
+				options.addArguments("start-maximized");
 		        options.addArguments("--disable-features=VizDisplayCompositor");
-		        options.addArguments("--incognito");
 		        options.addArguments("enable-automation");
 		        options.addArguments("--headless");
 		        options.addArguments("--window-size=1920,1080");
 		        options.addArguments("--disable-gpu");
+		        options.addArguments("disable-infobars");
 		        options.addArguments("--disable-extensions");
 		        options.addArguments("--dns-prefetch-disable");
 		        options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
