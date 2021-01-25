@@ -44,7 +44,7 @@ public class BrowserFactory {
 			log.info("Creating Chrome Driver Instance");
 			ChromeOptions options = new ChromeOptions();
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
-			options.addArguments("--no-sandbox");
+			options.addArguments("--single-process");
 			options.setBinary(chromeDriverPath);
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("start-maximized");
