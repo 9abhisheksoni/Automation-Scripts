@@ -45,7 +45,7 @@ public class BrowserFactory {
 			ChromeOptions options = new ChromeOptions();
 			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
 			options.addArguments("--no-sandbox");
-			// options.setBinary(chromeDriverPath);
+			options.setBinary(chromeDriverPath);
 			options.addArguments("--disable-dev-shm-usage");
 			options.addArguments("start-maximized");
 			options.addArguments("--disable-features=VizDisplayCompositor");
