@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BrowserFactory {
 	private static BrowserFactory instance = null;
 	ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>();
@@ -39,31 +41,18 @@ public class BrowserFactory {
 	public final void setDriver(String browser) {
 		if (browser.equalsIgnoreCase("firefox")) {
 			log.info("Creating Firefox Driver Instance");
+			WebDriverManager.firefoxdriver().setup();
 			webDriver.set(new FirefoxDriver());
 		} else if (browser.equalsIgnoreCase("chrome")) {
 			log.info("Creating Chrome Driver Instance");
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
-			options.addArguments("--single-process");
-			options.setBinary(chromeDriverPath);
-			options.addArguments("--disable-dev-shm-usage");
-			options.addArguments("start-maximized");
-			options.addArguments("--disable-features=VizDisplayCompositor");
-			options.addArguments("enable-automation");
 			options.addArguments("--headless");
-			options.addArguments("--window-size=1920,1080");
-			options.addArguments("--disable-gpu");
 			options.addArguments("disable-infobars");
-			options.addArguments("--disable-extensions");
-			options.addArguments("--dns-prefetch-disable");
-			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-
-			options.addArguments("enable-features=NetworkServiceInProcess");
-
+			options.addArguments("--window-size=1300,1000");
 			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 			capabilities.setCapability("marionette", true);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-
 			webDriver.set(new ChromeDriver(capabilities));
 		}
 	}
