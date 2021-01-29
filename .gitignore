@@ -11,3 +11,4 @@ bin
 *.settings
 /.settings/
 /target/
+!cucumber.json
