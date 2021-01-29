@@ -31,32 +31,32 @@ Feature: 6thstreet.com - User Cart Scenarios
 	Then Product QTY should be updated to "<Qty>"
 	
 	Examples:  
-		|Product|
-		|Shoes|
+		|Product|QTY|
+		|Shoes|2|
 		
-	@Regression
-	Scenario Outline: TS_Cart_03 - User is able to apply percentage off coupon to cart
-	And user enters product name as "<Product>" in search text box and click search icon 
-	And user clicks on product tile in result 
-	And user selects countrySize as "<CountrySize>", size as "<Size>" 
-	And user clicks on ADDTOBAG button 
-	And User applies "6stest"
-	Then Discount of "10" percent should be applied
-	
-	Examples:  
-		|Product                   |CountrySize|Size|
-		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
-		
-	@Regression
-	Scenario Outline: TS_Cart_04 - User is able to apply fixed amount off coupon to cart
-	And user enters product name as "<Product>" in search text box and click search icon 
-	And user clicks on product tile in result 
-	And user selects countrySize as "<CountrySize>", size as "<Size>" 
-	And user clicks on ADDTOBAG button 
-	And User applies "FRIENDS101"
-	Then Discount of "100" amount should be applied
-	
-	Examples:  
-		|Product                   |CountrySize|Size|
-		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
-	
+#	@Regression
+#	Scenario Outline: TS_Cart_03 - User is able to apply percentage off coupon to cart
+#	And user enters product name as "<Product>" in search text box and click search icon 
+#	And user clicks on product tile in result 
+#	And user selects countrySize as "<CountrySize>", size as "<Size>" 
+#	And user clicks on ADDTOBAG button 
+#	And User applies "6stest"
+#	Then Discount of "10" percent should be applied
+#	
+#	Examples:  
+#		|Product                   |CountrySize|Size|
+#		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
+#		
+#	@Regression
+#	Scenario Outline: TS_Cart_04 - User is able to apply fixed amount off coupon to cart
+#	And user enters product name as "<Product>" in search text box and click search icon 
+#	And user clicks on product tile in result 
+#	And user selects countrySize as "<CountrySize>", size as "<Size>" 
+#	And user clicks on ADDTOBAG button 
+#	And User applies "FRIENDS101"
+#	Then Discount of "100" amount should be applied
+#	
+#	Examples:  
+#		|Product                   |CountrySize|Size|
+#		|LCW-0SV017Z8-KUC-NAVY-BLUE |EU|52|
+#	

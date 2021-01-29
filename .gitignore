@@ -8,6 +8,6 @@ test-output/*
 logs/*.log
 *.class
 bin
-/target/
 *.settings
 /.settings/
+/target/
