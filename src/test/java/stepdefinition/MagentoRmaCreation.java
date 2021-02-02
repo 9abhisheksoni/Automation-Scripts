@@ -52,11 +52,11 @@ public class MagentoRmaCreation {
 	
 	@Then("^In magento returns page user enters the orderID$")
 	public void in_magento_returns_page_user_enters_the_orderID()  {
-	    
+		magentoRmaPage.enterRmaOrderID();
 	}
 	
 	@Then("^uses clicks view link in magento returns page$")
 	public void uses_clicks_view_link_in_magento_returns_page() {
-	   
+		magentoRmaPage.clickViewLink();
 	}
 }

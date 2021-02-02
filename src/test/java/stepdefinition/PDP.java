@@ -10,12 +10,12 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
 import pageObjects.PDPPage;
-import pageObjects.SearhPage;
+import pageObjects.SearchPage;
 
 public class PDP {
 	
 	PDPPage pdpPage = new PDPPage();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	HomePage homePage = new HomePage();
 	
 	@When("^user selects countrySize as \"([^\"]*)\", size as \"([^\"]*)\"$")

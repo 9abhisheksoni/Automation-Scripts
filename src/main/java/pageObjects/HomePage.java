@@ -1,5 +1,8 @@
 package pageObjects;
 
+import java.util.List;
+import java.util.Scanner;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -27,6 +30,7 @@ public class HomePage extends CucumberRunner {
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil=new StringUtility();
 	Config config = new Config();
+	SearchPage searchPage=new SearchPage();
 
 	/**
 	 * Constructor to initialize page objects
@@ -125,6 +129,21 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath="//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
 	private WebElement lblCustomerServicePhone;
+	
+	@FindBy(xpath="//a[contains(@title,'Women')]")
+	private WebElement lnkWomen;
+	
+	@FindBy(xpath="//a[contains(@title,'Men')]")
+	private WebElement lnkMen;
+	
+	@FindBy(xpath="//a[@title='Kids Store']")
+	private WebElement lnkKids;	
+	
+	@FindBy(xpath="//img[contains(@src,'banner')]")
+	private List<WebElement> lstBanners;
+	
+	@FindBy(xpath="//img[contains(@src,'SHOP-ALL-BRANDS')]")
+	private WebElement imgShopAllBrands;
 	
 	/**
 	 * WebElement declaration ends here
@@ -307,4 +326,48 @@ public class HomePage extends CucumberRunner {
 			log.info("Phone number displayed at Header : "+phoneNo+ " is not as expected");
 		}		
 	}
+	
+	public void clickOnMainBanner() {
+		//waitHelper.waitForElementToBeClickable(bannerHomePage);
+		waitHelper.staticWait(5000);
+		waitHelper.waitForElementVisible(bannerHomePage);
+		commonMethods.click(bannerHomePage);
+		log.info("clicked Main banner");
+	}
+	
+	public void clickLevel1Category(String category) {
+		if(category.equalsIgnoreCase("Women")) {
+			commonMethods.click(lnkWomen);
+			log.info("clicked Women L1 category");
+		} else if(category.equalsIgnoreCase("Men")) {
+			commonMethods.click(lnkMen);
+			log.info("clicked Men L1 category");
+		} else if(category.equalsIgnoreCase("Kids")) {
+			commonMethods.click(lnkKids);
+			log.info("clicked Kids L1 category");
+		}
+		
+	}
+	
+	public void clickOnAllBannersAndVerifiesPLP() {		
+		waitHelper.staticWait(10000);
+		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
+		waitHelper.waitForElementToBeClickable(imgShopAllBrands);
+		int bannerCount=lstBanners.size();
+		System.out.println("Banner count: "+bannerCount);
+		for (int i = 0; i < lstBanners.size()-1; i++) {
+			jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
+			waitHelper.waitForElementVisible(bannerHomePage);
+			waitHelper.waitForElementVisible(imgShopAllBrands);
+			waitHelper.staticWait(5000);
+			commonMethods.click(lstBanners.get(i+1));
+			log.info("clicked banner " + i);
+			waitHelper.staticWait(2000);
+			searchPage.verifyPLPIsDisplayed();
+			waitHelper.staticWait(1000);
+			this.clickHomeLogo();
+
+		}
+	}
+		
 }

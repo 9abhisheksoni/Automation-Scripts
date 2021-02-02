@@ -9,9 +9,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.HomePage;
 import pageObjects.SandboxCheckoutHomePage;
+import pageObjects.SearchPage;
 
 public class Home {
 	HomePage homePage = new HomePage();
+	SearchPage searchPage=new SearchPage();
 	GenericHelper genericHelper = new GenericHelper();
 	SandboxCheckoutHomePage checkoutHomePage = new SandboxCheckoutHomePage();
 
@@ -72,6 +74,26 @@ public class Home {
 		for(Map<String,String> sec:section.asMaps(String.class, String.class)) {
 			homePage.verifySupportPhoneAndEmail(sec.get("Section"));			
 		}
+	}
+	
+	@When("^user clicks \"([^\"]*)\"$")
+	public void user_clicks(String category) {
+		homePage.clickLevel1Category(category);
+	}
+	
+	@When("^User clicks on main banner$")
+	public void user_clicks_on_main_banner() {
+		homePage.clickOnMainBanner();
+	}
+
+	@Then("^User should be landed to respective PLP$")
+	public void user_should_be_landed_to_respective_PLP() {
+		searchPage.verifyPLPIsDisplayed();  
+	}
+	
+	@When("^User clicks on banner and verifies respective PLP$")
+	public void user_clicks_on_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifiesPLP();
 	}
 
 }
