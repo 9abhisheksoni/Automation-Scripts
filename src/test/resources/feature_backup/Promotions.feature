@@ -14,7 +14,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address
+	And user submits the valid details for shipping address
 	And user reset Stored Payments 
 	And User applies "6stest" on Payment Page
 	Then Discount of "10" percent should be applied on Payment Page
@@ -38,7 +38,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address 
+	And user submits the valid details for shipping address 
 	And user reset Stored Payments
 	And User applies "FRIENDS101" on Payment Page
 	Then Discount of "100" amount should be applied on Payment Page
@@ -54,7 +54,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And user selects countrySize as "<CountrySize>", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address 
+	And user submits the valid details for shipping address 
 	And User applies "6stest" on Payment Page
 	Then Discount of "10" percent should be applied on Payment Page
 	
@@ -69,7 +69,7 @@ Feature: 6thstreet.com - User applies different promotion codes in cart and chec
 	And user selects countrySize as "<CountrySize>", size as "<Size>"
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address 
+	And user submits the valid details for shipping address 
 	And User applies "FRIENDS101" on Payment Page
 	Then Discount of "100" amount should be applied on Payment Page
 	

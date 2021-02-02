@@ -17,7 +17,7 @@ Scenario Outline: TS_checkout_01: Checkout application Payment Success
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 
@@ -47,7 +47,7 @@ Scenario Outline: TS_Checkout_02:Checkout application Payment Refund
 		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 

@@ -10,7 +10,7 @@
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And User login as guest user "guestuser" 
 		And User clicks on Guestlogin button 
-		And user enters the valid details for shipping address
+		And user submits the valid details for shipping address
 		
 	
 	

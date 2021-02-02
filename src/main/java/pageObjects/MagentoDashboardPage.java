@@ -12,15 +12,15 @@ public class MagentoDashboardPage extends CucumberRunner {
 	
 	CommonMethods commonMethods = new CommonMethods();
 	
-	private Logger log = Logger.getLogger(MagentoDashboardPage.class.getName());
-	
-	
-	/**
+	private Logger log = Logger.getLogger(MagentoDashboardPage.class.getName());/**
 	 * Constructor to initialize page objects
 	 * **/
 	public MagentoDashboardPage() {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
+	
+	
+	
 	
 	
 	/**
@@ -31,6 +31,12 @@ public class MagentoDashboardPage extends CucumberRunner {
 	
 	@FindBy(xpath = "(//a/span[.='Orders'])[1]")
 	private WebElement lnkOrders;
+	
+	@FindBy(xpath="//li[@id='menu-magento-customer-customer']/a")
+	private WebElement lnkCustomers;
+	
+	@FindBy(xpath="//li[@id=\"menu-magento-customer-customer\"]//li[1]/a")
+	private WebElement lnkAllCustomers;
 	
 	/**
 	 * WebElement declaration ends here
@@ -47,4 +53,18 @@ public class MagentoDashboardPage extends CucumberRunner {
 		log.info("clicked Sales >> Orders link in Magento");
 	}
 	
+	public void clickCustomersMenu() {
+		commonMethods.click(lnkCustomers);
+		log.info("clicked Customers menu in Magento");
+	}
+	
+	public void clickAllCustomersMenuItem() {
+		commonMethods.click(lnkAllCustomers);
+		log.info("clicked Customers >> All Customers link in Magento");
+	}
+	
+	public void navigateToCustomersPage() {
+		this.clickCustomersMenu();
+		this.clickAllCustomersMenuItem();
+	}
 }

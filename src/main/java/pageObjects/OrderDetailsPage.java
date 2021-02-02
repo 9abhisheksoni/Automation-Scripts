@@ -1,5 +1,7 @@
 package pageObjects;
 
+import static org.testng.Assert.assertEquals;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 
 public class OrderDetailsPage extends CucumberRunner {
@@ -17,6 +20,8 @@ public class OrderDetailsPage extends CucumberRunner {
 	 **/
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
+	WaitHelper waitHelper = new WaitHelper();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(OrderDetailsPage.class.getName());
 	
 	/**
@@ -56,6 +61,9 @@ public class OrderDetailsPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//span[@class='cancel-detail']/..")
 	private WebElement msgOrderCancelSuccess;
+	
+	@FindBy (xpath = "//span[@class='cart-price']/span")
+	private WebElement txtSpecialPrice;
 	
 	/**
 	 * WebElement declaration ends here
@@ -116,6 +124,41 @@ public class OrderDetailsPage extends CucumberRunner {
 	public void verifyOrderCancelSuccessMsg() {
 		Assert.assertTrue(genericHelper.isDisplayed(msgOrderCancelSuccess));
 		log.info("Order Cancelled Successfully");
+	}
+	
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the Order Details
+	 */
+	public String getSpecialPriceAtOrderDetails() {
+		log.info("Fethcing the special of the item in the Order Details");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		
+		log.info("The special price at PLP is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.replaceAll(",", "");
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is" + specialPrice);
+		return specialPrice;
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Order Success with
+	 * the actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtOrderDetails(String actualSpecialPrice) {
+		log.info("Comparing the special_price displaying at Order Details with the actual values");
+		assertEquals(getSpecialPriceAtOrderDetails(), actualSpecialPrice, "The special_price is matching at Order Details");
+	}
+	
+	/*
+	 * This method compares the special_price displaying at Order Success with the special price fetched at PLP
+	 */
+	public void evaluateSpecialPriceAtOrderDetails() {
+		log.info("Comparing the special_price displaying at Order Details with the actual values");
+		assertEquals(getSpecialPriceAtOrderDetails(), searchPage.globalSpecialPrice, "The special_price is matching at Order Details");
 	}
 	
 }

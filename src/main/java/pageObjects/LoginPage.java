@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.Config;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
@@ -27,6 +28,12 @@ public class LoginPage extends CucumberRunner {
 	JsonReader jsonReader = new JsonReader();
 	private Logger log = Logger.getLogger(LoginPage.class.getName());
 	HomePage homePage = new HomePage();
+	StringUtility stringUtility = new StringUtility();
+	OrderSuccessPage orderSuccess = new OrderSuccessPage();
+	Config config = new Config();
+	MagentoAllCustomersPage magentoAllCustomersPage = new MagentoAllCustomersPage();
+	MagentoDashboardPage magentoDashboardPage = new MagentoDashboardPage();
+	MagentoCustomerDetailsPage magentoCustomerDetailsPage = new MagentoCustomerDetailsPage();
 
 	/**
 	 * Constructor to initialize page objects
@@ -125,53 +132,62 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//a[@class='top-link-ca-link']")
 	private WebElement lnkClubApparelLoyalty;
 
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[1]/h3")
+    private WebElement txtAvailLoyalty;
+    
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[2]/h3")
+    private WebElement txtTiersBenefit;
+    
+    @FindBy(xpath = "//div[@class='info-box box-main'][1]/div[3]/h3")
+    private WebElement txtRedValue;
+    
+    @FindBy(xpath = "//button[@id='LinkAccount']")
+    private WebElement btnLINKYOURACCOUNT;
+    
+    @FindBy(xpath = "//div[@class='apparel-link']/p")
+    private WebElement txtLinkYourCA;
+    
+    @FindBy(xpath = "//div[@class='iti__selected-dial-code']")
+    private WebElement selCountryFlag;
+    
+    @FindBy(xpath = "//input[@id='country-search']")
+    private WebElement txtSearchField;
+     
+    @FindBy(xpath = "//span[text()='']")
+    private WebElement txtCountry;
+    
+    @FindBy(xpath = "//li[@class='iti__country iti__standard iti__highlight']")
+    private WebElement txtSelectCountry;
+    
+    @FindBy(xpath = "//input[@name='mobileno']")
+    private WebElement txtTelephone;
+    
+    @FindBy(xpath = "//button[@class='button submit primary sent_otp']")
+    private WebElement btnLinkAccount;
+    
+    @FindBy(xpath = "//div[4]/div[2]/p[1]")
+    private WebElement txtEnterOTP;
+    
+    @FindBy(xpath = "//tbody/tr[@class='totals balance ca-msg']")
+    private WebElement txtLinkYourAccountCartMsg;
+    
+    @FindBy(xpath = "//div[@class='box-a1'][1]")
+    private WebElement txtSecAboutClubApparel;
+    
+    @FindBy(xpath = "//div[@class='box-a1'][2]")
+    private WebElement txtSecRewards;
+    
+    @FindBy(xpath="//li[@class='item My Account']")
+    private WebElement lblMyAccount;
+    
+    @FindBy(xpath="//div[@class='content']//div[@class='store-credit-wrap']")
+    private WebElement lblStoreCredit;
+    
+    @FindBy(xpath="//div[@class='content']//div[@class='store-credit-wrap']//span[@class='price']")
+    private WebElement lblStoreCreditAmount;
+    
 	@FindBy(xpath = "//div[@class='club-logo']")
 	private WebElement imgCALogo;
-
-	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[1]/h3")
-	private WebElement txtAvailLoyalty;
-
-	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[2]/h3")
-	private WebElement txtTiersBenefit;
-
-	@FindBy(xpath = "//div[@class='info-box box-main'][1]/div[3]/h3")
-	private WebElement txtRedValue;
-
-	@FindBy(xpath = "//button[@id='LinkAccount']")
-	private WebElement btnLINKYOURACCOUNT;
-
-	@FindBy(xpath = "//div[@class='apparel-link']/p")
-	private WebElement txtLinkYourCA;
-
-	@FindBy(xpath = "//div[@class='iti__selected-dial-code']")
-	private WebElement selCountryFlag;
-
-	@FindBy(xpath = "//input[@id='country-search']")
-	private WebElement txtSearchField;
-
-	@FindBy(xpath = "//span[text()='']")
-	private WebElement txtCountry;
-
-	@FindBy(xpath = "//li[@class='iti__country iti__standard iti__highlight']")
-	private WebElement txtSelectCountry;
-
-	@FindBy(xpath = "//input[@name='mobileno']")
-	private WebElement txtTelephone;
-
-	@FindBy(xpath = "//button[@class='button submit primary sent_otp']")
-	private WebElement btnLinkAccount;
-
-	@FindBy(xpath = "//div[4]/div[2]/p[1]")
-	private WebElement txtEnterOTP;
-
-	@FindBy(xpath = "//tbody/tr[@class='totals balance ca-msg']")
-	private WebElement txtLinkYourAccountCartMsg;
-
-	@FindBy(xpath = "//div[@class='box-a1'][1]")
-	private WebElement txtSecAboutClubApparel;
-
-	@FindBy(xpath = "//div[@class='box-a1'][2]")
-	private WebElement txtSecRewards;
 
 	@FindBy(xpath = "//div[@class='message info empty']")
 	private WebElement msgEmptyWishlist;
@@ -200,6 +216,7 @@ public class LoginPage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(this.txtUserName,
 				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
 		log.info("entered user email for "+userType);
+		browserFactory.setLoggedInUserEmail(jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
 	}
 
 	public void inputPassword(String userType) {
@@ -218,6 +235,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void verifyLogin() {
+		waitHelper.staticWait(3000);
 		commonMethods.refresh();
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
 		log.info("login is successfull");
@@ -497,10 +515,39 @@ public class LoginPage extends CucumberRunner {
 		Assert.assertTrue(genericHelper.isDisplayed(txtSecRewards));
 		log.info("Rewards section is displayed");
 	}
-
+	
 	public String getActiveCountryUserName() {
 
 		return null;
+	}
+	
+	public int getStoreCredit() {
+		int storeCreditValue = 0;
+		if(genericHelper.isDisplayed(lblMyAccount)) {
+			if(genericHelper.isDisplayed(lblStoreCredit)) {
+				storeCreditValue = stringUtility.getPriceValue(commonMethods.getText(lblStoreCreditAmount));
+				System.out.println("storeCreditValue" +storeCreditValue);
+			}
+		}
+		log.info("obtained Store Credit Value: "+storeCreditValue);
+		return storeCreditValue;
+	}
+	
+	public void verifyStoreCreditAvailability(String MagentoURL, String magentoUser, String magentoPwd) {
+		int storeCredit  = this.getStoreCredit();
+		if(storeCredit>0) {
+			log.info("Store Credit is available");
+		}else {
+			orderSuccess.controlT();
+			orderSuccess.launchURL(config.getMagentoURL(MagentoURL));
+			this.enterMagnetoUserandPwd(magentoUser, magentoPwd);
+			this.clickOnMagentoLogin();
+			this.waitForMagentoDashBoard();
+			magentoDashboardPage.navigateToCustomersPage();
+			magentoAllCustomersPage.navigateToCustomerDetailsPage();
+			magentoCustomerDetailsPage.updateStoreCreditBalance();	
+			genericHelper.switchToBaseWindow();
+		}
 	}
 
 }

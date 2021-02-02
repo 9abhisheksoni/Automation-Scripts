@@ -17,7 +17,7 @@ Background: user logins to application and navigates till shipping address page
 		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address
+		And user submits the valid details for shipping address
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -58,7 +58,7 @@ Background: user logins to application and navigates till shipping address page
 		And user selects countrySize as "EU", size as "<Size>" 
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address
+		And user submits the valid details for shipping address
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
 		And user fills all tabby details 
@@ -102,7 +102,7 @@ Background: user logins to application and navigates till shipping address page
 	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address
+	And user submits the valid details for shipping address
 	And user selects payment option as "TabbyPayInInstallments" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -194,7 +194,7 @@ Background: user logins to application and navigates till shipping address page
 	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address
+	And user submits the valid details for shipping address
 	And user selects payment option as "TabbyPayLater" 
 	And user clicks on place order button 
 	And user fills all tabby details 
@@ -285,7 +285,7 @@ Background: user logins to application and navigates till shipping address page
 	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address
+	And user submits the valid details for shipping address
     And user selects payment option as "TabbyPayInInstallments"
     And user clicks on place order button
     And user fills all tabby details
@@ -386,7 +386,7 @@ Background: user logins to application and navigates till shipping address page
 	And user selects countrySize as "EU", size as "<Size>" 
 	And user clicks on ADDTOBAG button 
 	And user navigates to shopping bag page and clicks on proceedToCheckout button 
-	And user enters the valid details for shipping address
+	And user submits the valid details for shipping address
     And user selects payment option as "TabbyPayLater"
     And user clicks on place order button
     And user fills all tabby details

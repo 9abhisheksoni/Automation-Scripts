@@ -44,29 +44,8 @@ public class CucumberBase extends AbstractTestNGCucumberTests  {
 
 	/** This method configures browser binary file path **/
 	public void configureDriverPath() throws IOException {
-		if (System.getProperty("os.name").startsWith("Linux")) {
-			log.info("OS = Linux");
-			String firefoxDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/geckodriver";
-			System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
-			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/chromedriver";
-			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		}
-		if (System.getProperty("os.name").startsWith("Mac")) {
-			log.info("OS = Mac");
-			String firefoxDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/mac/geckodriver";
-			System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
-			String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/mac/chromedriver";
-			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		}
-		if (System.getProperty("os.name").startsWith("Windows")) {
-			log.info("OS = Windows");
-			String firefoxDriverPath = System.getProperty("user.dir")
-					+ "//src//test//resources//drivers//windows//geckodriver.exe";
-			System.setProperty("webdriver.gecko.driver", firefoxDriverPath);
-			String chromeDriverPath = System.getProperty("user.dir")
-					+ "//src//test//resources//drivers//windows//chromedriver.exe";
-			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-		}
+			log.info("Starting on OS = "+System.getProperty("os.name"));
+			
 	}
 
 	/** this methods opens browser instance **/
@@ -139,13 +118,13 @@ public class CucumberBase extends AbstractTestNGCucumberTests  {
 	@BeforeTest(alwaysRun = true)
 	@Parameters({ "browser", "country", "language", "environment" })
 	public void beforeTest(String browser, String country, String language, String environment) {
-		log.info("Executing Before Test");
+		log.info("Executing Before Test for "+browser+" with "+country+" and "+language+" on "+environment);
 		CucumberBase.environment = environment;
 		browserFactory = BrowserFactory.getInstance();
 		browserFactory.setBrowser(browser);
 		browserFactory.setCountry(country);
 		browserFactory.setLanguage(language);
-
+		browserFactory.setEnvironment(environment);
 	}
 
 	/** This method captures and saves screen shot **/

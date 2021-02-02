@@ -205,7 +205,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		
 
     @Smoke @RegisteredUserAddEditDeleteAddressProd
-	Scenario: TS_ProdDepChecklist_05 - Registered User of 6thstreet.com site should be able to place order using cod 
+	Scenario: TS_ProdDepChecklist_05 - Registered User of 6thstreet.com site should be able to Save, Edit and Delete Address 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
 		And User clicks on login button 

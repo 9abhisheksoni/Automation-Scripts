@@ -119,5 +119,4 @@ public class JavaScriptHelper extends CucumberRunner {
 		log.info("Getting Scroll height of active window");
 		return Integer.parseInt(exe.executeScript("return document.body.scrollHeight").toString());
 	}
-
 }

@@ -13,11 +13,16 @@ import com.google.common.collect.Ordering;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
+import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
+
 public class SearchPage extends CucumberRunner {
+	private static final String String = null;
+	public static String globalBasePrice = null;
+	public static String globalSpecialPrice = null;
 	/**
 	 * Class object declaration here
 	 **/
@@ -27,6 +32,7 @@ public class SearchPage extends CucumberRunner {
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
+	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	
 	/**
 	 * Constructor to initialize page objects
@@ -112,6 +118,27 @@ public class SearchPage extends CucumberRunner {
 	
 	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
 	private List<WebElement> lnkProductSuggestion;
+	
+	@FindBy(xpath = "//div[contains(@data-tab,'price')]/div")
+	private WebElement drpdwnPriceRangeFilter;
+	
+	@FindBy(xpath = "//input[@class='ais-refinement-list--radio']/..")
+	private List<WebElement> chkTabbyPriceFilter;
+	
+	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
+	private WebElement chkTabbyPriceFilterActive;
+	
+	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
+	private WebElement txtBasePrice;
+	
+	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
+	private WebElement txtSpecialPrice;
+	
+	@FindBy(xpath = "//div[@data-tab='discount']/div")
+	private WebElement drpDiscount;
+	
+	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
+	private List<WebElement> radioDiscountOptions;
 
 	/**
 	 * WebElement declaration ends here
@@ -189,7 +216,7 @@ public class SearchPage extends CucumberRunner {
 
 	public float getPriceFromText(String text) {
 		float price = (stringUtility.getDecimalValue(text)); 
-		log.info("returning price from text : "+price);
+		log.info("returning price from text : " + price);
 		return price;
 	}
 
@@ -228,7 +255,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void verifyOnSecondCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==3);
+		Assert.assertTrue(lblBreadcrumb.size() == 3);
 		log.info("second level category page displayed");
 	}
 	
@@ -246,19 +273,87 @@ public class SearchPage extends CucumberRunner {
 		Assert.assertTrue(lnkProductSuggestion.size()>0);
 		log.info("Search suggestions displayed");
 	}
+	
+	/*
+	 * This method fetches the base_price displaying for an item in the PLP
+	 */
+	public String getBasePricePLP() {
+		String basePrice = null;
+		log.info("Fethcing the base brice of the item in the PLP");
+		waitHelper.waitForElementVisible(txtBasePrice);
+		basePrice = commonMethods.getText(txtBasePrice);
+		log.info("The base price at PLP is" + basePrice);
+		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		basePrice = basePrice.substring(basePrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted base price at PLP is " + basePrice);
+		this.globalBasePrice = basePrice;
+		return basePrice;
+	}
+	/*
+	 * This method compares the base_price displaying at PLP with the actual_price
+	 * provided by the user
+	 */
+	public void evaluateBasePriceAtPLP(String actualBasePrice) {
+		log.info("Comparing the base_price displaying at PLP with the actual values");
+		log.info("The base_price provided by the user is " + actualBasePrice);
+		Assert.assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
+	}
+	/*
+	 * This method fetches the special_price displaying for an item in the PLP
+	 */
+	public String getSpecialPricePLP() {
+		log.info("Fethcing the special of the item in the PLP");
+		waitHelper.waitForElementVisible(txtSpecialPrice);
+		String specialPrice = commonMethods.getText(txtSpecialPrice);
+		log.info("The special price at PLP is" + specialPrice);
+		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
+		log.info("The currency code is " + currencyCode);
+		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
+		log.info("The extracted special price at PLP is " + specialPrice);
+		this.globalSpecialPrice = specialPrice.trim();
+		return specialPrice;
+	}
+	/*
+	 * This method compares the special_price displaying at PLP with the
+	 * actual_price provided by the user
+	 */
+	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
+		log.info("Comparing the special displaying at PLP with the actual values");
+		String SpecialAtPDP = getSpecialPricePLP();
+		Assert.assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
+	}
 
 	public void clickFirstValidInResult() {
 		int index = 0;
 		for (int i=0;i<lblprice.size();i++) {
-			System.out.println("Price>>>>>>>>>>>>>>"+this.getPriceFromText(commonMethods.getText(lblprice.get(i))));
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
 				index=i;
-
 				break;
 			}
 		}
 		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
+	}
+	
+	public void clickTabbyPriceFilter() {
+		commonMethods.click(drpdwnPriceRangeFilter);
+		for (WebElement temp : chkTabbyPriceFilter) {
+			if (commonMethods.getText(temp).contains("700") && commonMethods.getText(temp).contains("800")) {
+				waitHelper.waitForElementToBeClickable(temp);
+				commonMethods.click(temp);
+				break;
+			}
+		}
+		waitHelper.staticWait(3000);
+		log.info("clicked tabby range filter");
+	}
+	// Filter the items having the discount above 70%
+	public void clickHighestDiscountPercentage() {
+		waitHelper.waitForElementToBeClickable(drpDiscount);
+		commonMethods.moveToElementAndClick(drpDiscount);
+		int index = radioDiscountOptions.size() - 1;
+		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
 	}
 	
 	public void verifyPLPIsDisplayed() {
