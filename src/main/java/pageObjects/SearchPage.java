@@ -142,6 +142,12 @@ public class SearchPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
 	private List<WebElement> radioDiscountOptions;
+	
+	@FindBy(xpath = "//img[contains(@src,'404-image')]")
+	private WebElement img404Error;
+	
+	@FindBy(xpath = "//div[@class='col-md-12']/h2")
+	private WebElement divAllBrands;
 
 	/**
 	 * WebElement declaration ends here
@@ -372,19 +378,29 @@ public class SearchPage extends CucumberRunner {
 	
 	/* To verify whether the PLP has products or not, if no products test case will be failed after checking all the banners */
 	public void verifyPLP() {
-		System.out.println("Product Count: "+lnksProduct.size());
+		log.info("\n<<<<<<<Product Count: "+lnksProduct.size());
+		String plpURL = genericHelper.getCurrentUrl();
 		if(lnksProduct.size()>0) {
 			log.info("PLP has products");
-		} else {
+			jsHelper.scrollToElement(lnksProduct.get(1));
+		}  else if(this.isLeadingTo404()) {
+			log.info("ATTENTION!!! - encountered 404 error");
+			softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL);			
+		} else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
 			log.info("Allert! - PLP has no products!!!");
-			String plpURL = genericHelper.getCurrentUrl();
-			softAssert.fail("No Products or page is blank!! >>>" + plpURL);
-		}
-		
+			softAssert.fail("No Products!! >>> " + plpURL);
+		} else if (!genericHelper.isElementPresent(divAllBrands)){
+			log.info("ATTENTION! - PLP is blank!!!");
+			softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL);
+		}		
 	}
 	
 	public void customAssertAll() {
 		softAssert.assertAll();
+	}
+	
+	public boolean isLeadingTo404() {		
+		return genericHelper.isElementPresent(img404Error);		
 	}
 
 }

@@ -6,6 +6,7 @@ import static org.testng.Assert.assertEquals;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,7 +51,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//img[@id='mainBannerImage']")
 	private WebElement bannerHomePage;
 
-	@FindBy(xpath = "//div[@class='logo']//img")
+	@FindBy(xpath = "//div[@class='logo']//img | //div[@class='logo-center']")
 	private WebElement imgHomePage;
 
 	@FindBy(xpath = "//form[contains(@class,'active')]//span[@class='search_icon']")
@@ -409,8 +410,8 @@ public class HomePage extends CucumberRunner {
 	}
 	
 	public void clickOnAllBannersAndVerifyPLP() {
-		//this.clickOnBannersAndVerifyPLP(lstOfferBanners,"Offer");
-		//this.clickOnBannersAndVerifyPLP(lstShopByCategory,"Category");
+		this.clickOnBannersAndVerifyPLP(lstOfferBanners,"Offer");
+		this.clickOnBannersAndVerifyPLP(lstShopByCategory,"Category");
 		this.clickOnBannersAndVerifyPLP(lstShopByBrands,"Brands");
 		searchPage.customAssertAll();
 	}
@@ -421,9 +422,13 @@ public class HomePage extends CucumberRunner {
 		waitHelper.waitForElementToBeClickable(imgShopAllBrands);
 		int offerBannerCount=banner.size();
 		System.out.println(section + " Banner count: " + offerBannerCount);
-		for(int i=9; i<banner.size();i++) {
+		for(int i=0; i<banner.size();i++) {
 			waitHelper.waitForElementVisible(bannerHomePage);
-			commonMethods.click(banner.get(i));
+			try {
+				commonMethods.click(banner.get(i));
+			} catch(ElementClickInterceptedException e) {
+				commonMethods.moveToElementAndClick(banner.get(i));
+			}
 			log.info("clicked banner " + (i+1));
 			waitHelper.staticWait(2000);
 			searchPage.verifyPLP();
