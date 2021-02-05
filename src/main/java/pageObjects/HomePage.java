@@ -10,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import base.Config;
 import commonHelper.CommonMethods;
@@ -31,6 +32,7 @@ public class HomePage extends CucumberRunner {
 	StringUtility strUtil=new StringUtility();
 	Config config = new Config();
 	SearchPage searchPage=new SearchPage();
+	SoftAssert softAssert = new SoftAssert();
 
 	/**
 	 * Constructor to initialize page objects
@@ -146,7 +148,19 @@ public class HomePage extends CucumberRunner {
 	private List<WebElement> lstBanners;
 	
 	@FindBy(xpath="//img[contains(@src,'SHOP-ALL-BRANDS')]")
-	private WebElement imgShopAllBrands;
+	private WebElement imgShopAllBrands;	
+	
+	@FindBy(xpath="(//a[contains(@data-id,'Shop by Brand')])[last()]")
+	private WebElement lnkShopAllBrands;
+	
+	@FindBy(xpath="//a[contains(@data-id,'Shop by Brand')]")
+	private List<WebElement> lstShopByBrands;
+	
+	@FindBy(xpath="//a[contains(@data-id,'Shop by Category')]")
+	private List<WebElement> lstShopByCategory;
+	
+	@FindBy(xpath="//img[@class='img-responsive']")
+	private List<WebElement> lstOfferBanners;
 
 	/**
 	 * WebElement declaration ends here
@@ -394,24 +408,27 @@ public class HomePage extends CucumberRunner {
 		
 	}
 	
-	public void clickOnAllBannersAndVerifiesPLP() {		
+	public void clickOnAllBannersAndVerifyPLP() {
+		//this.clickOnBannersAndVerifyPLP(lstOfferBanners,"Offer");
+		//this.clickOnBannersAndVerifyPLP(lstShopByCategory,"Category");
+		this.clickOnBannersAndVerifyPLP(lstShopByBrands,"Brands");
+		searchPage.customAssertAll();
+	}
+	
+	public void clickOnBannersAndVerifyPLP(List<WebElement> banner, String section) {
 		waitHelper.staticWait(10000);
 		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
 		waitHelper.waitForElementToBeClickable(imgShopAllBrands);
-		int bannerCount=lstBanners.size();
-		System.out.println("Banner count: "+bannerCount);
-		for (int i = 0; i < lstBanners.size()-1; i++) {
-			jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
+		int offerBannerCount=banner.size();
+		System.out.println(section + " Banner count: " + offerBannerCount);
+		for(int i=9; i<banner.size();i++) {
 			waitHelper.waitForElementVisible(bannerHomePage);
-			waitHelper.waitForElementVisible(imgShopAllBrands);
-			waitHelper.staticWait(5000);
-			commonMethods.click(lstBanners.get(i+1));
-			log.info("clicked banner " + i);
+			commonMethods.click(banner.get(i));
+			log.info("clicked banner " + (i+1));
 			waitHelper.staticWait(2000);
-			searchPage.verifyPLPIsDisplayed();
+			searchPage.verifyPLP();
 			waitHelper.staticWait(1000);
 			this.clickHomeLogo();
-
 		}
 	}
 }

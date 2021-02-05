@@ -111,7 +111,7 @@ public class Home {
 	
 	@When("^User clicks on banner and verifies respective PLP$")
 	public void user_clicks_on_banner_and_verifies_respective_PLP()  {
-		homePage.clickOnAllBannersAndVerifiesPLP();
+		homePage.clickOnAllBannersAndVerifyPLP();
 	}
 
 

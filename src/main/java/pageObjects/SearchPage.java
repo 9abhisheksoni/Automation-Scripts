@@ -1,6 +1,7 @@
 package pageObjects;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -8,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import com.google.common.collect.Ordering;
 
@@ -33,6 +35,7 @@ public class SearchPage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
+	private SoftAssert softAssert = new SoftAssert();
 	
 	/**
 	 * Constructor to initialize page objects
@@ -356,6 +359,7 @@ public class SearchPage extends CucumberRunner {
 		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
 	}
 	
+	/* To verify whether the PLP has products or not, if no products test case fails by skipping the further steps */
 	public void verifyPLPIsDisplayed() {
 		System.out.println("Product Count: "+lnksProduct.size());
 		try {
@@ -364,6 +368,23 @@ public class SearchPage extends CucumberRunner {
 		} catch(Exception e) {
 			log.info("PLP is not displayed");
 		}		
+	}
+	
+	/* To verify whether the PLP has products or not, if no products test case will be failed after checking all the banners */
+	public void verifyPLP() {
+		System.out.println("Product Count: "+lnksProduct.size());
+		if(lnksProduct.size()>0) {
+			log.info("PLP has products");
+		} else {
+			log.info("Allert! - PLP has no products!!!");
+			String plpURL = genericHelper.getCurrentUrl();
+			softAssert.fail("No Products or page is blank!! >>>" + plpURL);
+		}
+		
+	}
+	
+	public void customAssertAll() {
+		softAssert.assertAll();
 	}
 
 }
