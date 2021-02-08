@@ -34,6 +34,7 @@ public class HomePage extends CucumberRunner {
 	Config config = new Config();
 	SearchPage searchPage=new SearchPage();
 	SoftAssert softAssert = new SoftAssert();
+	String category="";
 
 	/**
 	 * Constructor to initialize page objects
@@ -396,6 +397,7 @@ public class HomePage extends CucumberRunner {
 	}
 	
 	public void clickLevel1Category(String category) {
+		this.category=category;
 		if(category.equalsIgnoreCase("Women")) {
 			commonMethods.click(lnkWomen);
 			log.info("clicked Women L1 category");
@@ -434,6 +436,7 @@ public class HomePage extends CucumberRunner {
 			searchPage.verifyPLP();
 			waitHelper.staticWait(1000);
 			this.clickHomeLogo();
+			this.clickLevel1Category(this.category);
 		}
 	}
 }

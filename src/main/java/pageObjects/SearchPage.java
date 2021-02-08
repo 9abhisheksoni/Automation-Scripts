@@ -380,19 +380,23 @@ public class SearchPage extends CucumberRunner {
 	public void verifyPLP() {
 		log.info("\n<<<<<<<Product Count: "+lnksProduct.size());
 		String plpURL = genericHelper.getCurrentUrl();
-		if(lnksProduct.size()>0) {
-			log.info("PLP has products");
-			jsHelper.scrollToElement(lnksProduct.get(1));
+		if(lnksProduct.size()>0 || genericHelper.isElementPresent(divAllBrands)) {
+			if(lnksProduct.size()>0) {
+				jsHelper.scrollToElement(lnksProduct.get(1));
+				log.info("PLP has products");
+			} else {
+				log.info("All brands page is displayed");
+			}
+		}  else if (!genericHelper.isElementPresent(msgNoSearchMsg) && !this.isLeadingTo404()){
+			log.info("ATTENTION! - PLP is blank!!!");
+			softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL);
 		}  else if(this.isLeadingTo404()) {
 			log.info("ATTENTION!!! - encountered 404 error");
 			softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL);			
 		} else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
 			log.info("Allert! - PLP has no products!!!");
 			softAssert.fail("No Products!! >>> " + plpURL);
-		} else if (!genericHelper.isElementPresent(divAllBrands)){
-			log.info("ATTENTION! - PLP is blank!!!");
-			softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL);
-		}		
+		}	
 	}
 	
 	public void customAssertAll() {
