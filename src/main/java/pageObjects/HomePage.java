@@ -421,17 +421,17 @@ public class HomePage extends CucumberRunner {
 	public void clickOnBannersAndVerifyPLP(List<WebElement> banner, String section) {
 		waitHelper.staticWait(10000);
 		jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
-		waitHelper.waitForElementToBeClickable(imgShopAllBrands);
-		int offerBannerCount=banner.size();
-		System.out.println(section + " Banner count: " + offerBannerCount);
+		waitHelper.waitForElementToBeClickable(lnkShopAllBrands);
+		int bannerCount=banner.size();
+		System.out.println(section + " Banner count: " + bannerCount);
 		for(int i=0; i<banner.size();i++) {
-			waitHelper.waitForElementVisible(bannerHomePage);
+			waitHelper.waitForElementVisible(imgHomePage);
 			try {
 				commonMethods.click(banner.get(i));
 			} catch(ElementClickInterceptedException e) {
 				commonMethods.moveToElementAndClick(banner.get(i));
 			}
-			log.info("clicked banner " + (i+1));
+			log.info("clicked " + section + "banner " + (i+1) +" of " + bannerCount);
 			waitHelper.staticWait(2000);
 			searchPage.verifyPLP();
 			waitHelper.staticWait(1000);
