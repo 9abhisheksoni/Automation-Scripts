@@ -148,6 +148,14 @@ public class SearchPage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[@class='col-md-12']/h2")
 	private WebElement divAllBrands;
+	
+	/* PWA elements */
+	
+	@FindBy(xpath = "//div[@class='PageNotFound-Image']")
+	private WebElement imgPwa404Error;
+	
+	@FindBy(xpath = "//div[@class='Image Image_ratio_square Image_imageStatus_1 Image_hasSrc  ']")
+	private List<WebElement> lstPwaProducts;
 
 	/**
 	 * WebElement declaration ends here
@@ -387,16 +395,19 @@ public class SearchPage extends CucumberRunner {
 			} else {
 				log.info("All brands page is displayed");
 			}
-		}  else if (!genericHelper.isElementPresent(msgNoSearchMsg) && !this.isLeadingTo404()){
-			log.info("ATTENTION! - PLP is blank!!!");
-			softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL);
-		}  else if(this.isLeadingTo404()) {
+			
+		} /*
+			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
+			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
+			 * softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL); }
+			 */  else if(this.isLeadingTo404()) {
 			log.info("ATTENTION!!! - encountered 404 error");
 			softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL);			
 		} else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
 			log.info("Allert! - PLP has no products!!!");
 			softAssert.fail("No Products!! >>> " + plpURL);
-		}	
+		}
+		
 	}
 	
 	public void customAssertAll() {
@@ -404,7 +415,12 @@ public class SearchPage extends CucumberRunner {
 	}
 	
 	public boolean isLeadingTo404() {		
-		return genericHelper.isElementPresent(img404Error);		
+		return genericHelper.isElementPresent(imgPwa404Error);		
+	}
+	
+	public void clickBrowserBackButton() {
+		commonMethods.navigateBack();
+		log.info("Browse back button is clicked");
 	}
 
 }
