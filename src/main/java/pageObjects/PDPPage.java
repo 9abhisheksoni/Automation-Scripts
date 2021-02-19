@@ -29,7 +29,7 @@ public class PDPPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	GenericHelper genericHelper = new GenericHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(PDPPage.class.getName());
 
 	/**
@@ -181,11 +181,13 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void chooseSize() {
+		int count=0;
 		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
 		for (String currentSize : availableSizes) {
 			if (!currentSize.contains(" ")) {
 				commonMethods.SelectUsingVisibleText(drpdwnSize, currentSize);
 				log.info("Selected product size");
+				count++;
 				break;
 			}
 			// To select the size if they do not have the space and displaying like 28WX28L
@@ -195,6 +197,9 @@ public class PDPPage extends CucumberRunner {
 				log.info("Selected product size");
 				break;
 			}
+		}
+		if(count==0) {
+			commonMethods.SelectUsingIndex(drpdwnSize, 1);
 		}
 	}
 

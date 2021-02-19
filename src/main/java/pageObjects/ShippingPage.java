@@ -25,7 +25,7 @@ public class ShippingPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	GenericHelper genericHelper = new GenericHelper();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(ShippingPage.class.getName());
 
 	/**

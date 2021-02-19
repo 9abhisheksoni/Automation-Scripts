@@ -1,8 +1,7 @@
 package pageObjects;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
 
 import com.google.common.collect.Ordering;
 
@@ -17,11 +17,10 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
-import cucumber.api.java.en.And;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
-public class SearhPage extends CucumberRunner {
+public class SearchPage extends CucumberRunner {
 	private static final String String = null;
 	public static String globalBasePrice = null;
 	public static String globalSpecialPrice = null;
@@ -33,23 +32,24 @@ public class SearhPage extends CucumberRunner {
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
 	GenericHelper genericHelper = new GenericHelper();
+	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
-	private Logger log = Logger.getLogger(SearhPage.class.getName());
+	private SoftAssert softAssert = new SoftAssert();
 
 	/**
 	 * Constructor to initialize page objects
 	 **/
-	public SearhPage() {
+	public SearchPage() {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
 
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
 	private WebElement lnkProduct;
 
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image' or @class='PLPPage']//a[@class='product photo product-item-photo' or @class]")
 	private List<WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
@@ -142,6 +142,20 @@ public class SearhPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
 	private List<WebElement> radioDiscountOptions;
 
+	@FindBy(xpath = "//img[contains(@src,'404-image')]")
+	private WebElement img404Error;
+
+	@FindBy(xpath = "//div[@class='col-md-12']/h2")
+	private WebElement divAllBrands;
+
+	/* PWA elements */
+
+	@FindBy(xpath = "//div[@class='PageNotFound-Image']")
+	private WebElement imgPwa404Error;
+
+	@FindBy(xpath = "//div[@class='Image Image_ratio_square Image_imageStatus_1 Image_hasSrc  ']")
+	private List<WebElement> lstPwaProducts;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -188,7 +202,7 @@ public class SearhPage extends CucumberRunner {
 	public void clickHighToLowSort() {
 		commonMethods.click(drpdwnSortBy);
 		commonMethods.click(optionPriceHighToLow);
-		waitHelper.staticWait(3000);
+		waitHelper.staticWait(5000);
 		log.info("sorted high to low");
 	}
 
@@ -300,7 +314,7 @@ public class SearhPage extends CucumberRunner {
 	public void evaluateBasePriceAtPLP(String actualBasePrice) {
 		log.info("Comparing the base_price displaying at PLP with the actual values");
 		log.info("The base_price provided by the user is " + actualBasePrice);
-		assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
+		Assert.assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
 	}
 
 	/*
@@ -326,7 +340,7 @@ public class SearhPage extends CucumberRunner {
 	public void evaluateSpecialPriceAtPLP(String actualSpecialPrice) {
 		log.info("Comparing the special displaying at PLP with the actual values");
 		String SpecialAtPDP = getSpecialPricePLP();
-		assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
+		Assert.assertEquals(SpecialAtPDP, actualSpecialPrice, "The special_price is matching at PLP");
 	}
 
 	public void clickFirstValidInResult() {
@@ -360,6 +374,61 @@ public class SearhPage extends CucumberRunner {
 		commonMethods.moveToElementAndClick(drpDiscount);
 		int index = radioDiscountOptions.size() - 1;
 		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
+	}
+
+	/*
+	 * To verify whether the PLP has products or not, if no products test case fails
+	 * by skipping the further steps
+	 */
+	public void verifyPLPIsDisplayed() {
+		System.out.println("Product Count: " + lnksProduct.size());
+		try {
+			Assert.assertTrue(lnksProduct.size() > 0);
+			log.info("PLP is displayed");
+		} catch (Exception e) {
+			log.info("PLP is not displayed");
+		}
+	}
+
+	/*
+	 * To verify whether the PLP has products or not, if no products test case will
+	 * be failed after checking all the banners
+	 */
+	public void verifyPLP() {
+		log.info("\n<<<<<<<Product Count: " + lnksProduct.size());
+		String plpURL = genericHelper.getCurrentUrl();
+		if (lnksProduct.size() > 0 ) {			
+				jsHelper.scrollToElement(lnksProduct.get(1));
+				log.info("PLP has products");			
+
+		} /*
+			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
+			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
+			 * softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL); } else
+			 * if(this.isLeadingTo404()) { log.info("ATTENTION!!! - encountered 404 error");
+			 * softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL); }
+			 * else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
+			 * log.info("Allert! - PLP has no products!!!");
+			 * softAssert.fail("No Products!! >>> " + plpURL); }
+			 */
+		else {
+			log.info("Allert! - PLP has no products!!!");
+			softAssert.fail("No Products!! >>> " + plpURL);
+		}
 
 	}
+
+	public void customAssertAll() {
+		softAssert.assertAll();
+	}
+
+	public boolean isLeadingTo404() {
+		return genericHelper.isElementPresent(imgPwa404Error);
+	}
+
+	public void clickBrowserBackButton() {
+		commonMethods.navigateBack();
+		log.info("Browse back button is clicked");
+	}
+
 }

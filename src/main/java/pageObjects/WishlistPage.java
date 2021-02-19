@@ -21,7 +21,7 @@ public class WishlistPage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(WishlistPage.class.getName());
 
 	/**
