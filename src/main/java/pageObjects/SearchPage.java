@@ -399,8 +399,7 @@ public class SearchPage extends CucumberRunner {
 		String plpURL = genericHelper.getCurrentUrl();
 		if (lnksProduct.size() > 0 ) {			
 				jsHelper.scrollToElement(lnksProduct.get(1));
-				log.info("PLP has products");			
-
+				log.info("PLP has products");
 		} /*
 			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
 			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
