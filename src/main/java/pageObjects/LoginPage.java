@@ -235,6 +235,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void verifyLogin() {
+		waitHelper.staticWait(3000);
 		commonMethods.refresh();
 		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
 		log.info("login is successfull");

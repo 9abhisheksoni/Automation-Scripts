@@ -123,7 +123,11 @@ public class Checkout {
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
 	
-
+	@When("^user submits the valid details for shipping address$")
+	public void user_submits_the_valid_details_for_shipping_address() {
+		shippingPage.fillShippingForm();
+	}
+	
 	@When("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in Shipment")
 	public void user_checks_the_and_the_in_Shipment(String basePrice, String specialPrice) {
 		shippingPage.evaluateBasePriceAtShipping(basePrice);

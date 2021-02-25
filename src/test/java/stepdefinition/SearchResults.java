@@ -5,12 +5,12 @@ import org.testng.Assert;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageObjects.SearhPage;
+import pageObjects.SearchPage;
 
 public class SearchResults {
 	
 	int productCount;
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	
 	@When("^user clicks on product tile in result$")
 	public void user_clicks_on_product_tile_in_result() {
@@ -144,10 +144,14 @@ public class SearchResults {
 		searchPage.clickFirstValidInResult();
 	}
 	
-	@When("^user filters the product based on the highest discount$")
+	 @And("^user filters for tabby price range$")
+    public void user_filters_for_tabby_price_range() {
+		 searchPage.clickTabbyPriceFilter();
+	}
+
+	 @When("^user filters the product based on the highest discount$")
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
 	}	
-
 
 }

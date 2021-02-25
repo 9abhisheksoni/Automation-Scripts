@@ -23,7 +23,7 @@ Scenario Outline: TS_Bulkorder_01 - Registered User of 6thstreet.com site should
 		|CHG2007265-00-PINK|EU|13-15|
 		|BHB1601800-00-S-MULTI|EU|12-18M|		
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
 		And user fills all tabby details 

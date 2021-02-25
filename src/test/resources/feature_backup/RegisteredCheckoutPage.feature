@@ -10,20 +10,14 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-<<<<<<< HEAD
-    @Smoke @CODPayment @RegisteredUser @SCtest 
-	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 
-		
-=======
-    @Smoke @CODPayment @Regression
+   # @Smoke @CODPayment @Regression
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
->>>>>>> branch 'feature/prasanna' of https://github.com/6thstreetdotcom/Automation-Scripts.git
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
@@ -38,9 +32,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"
+		Then Verify order status in details to be "Cancelled"
 		
 		Examples:  
 		|Product|
@@ -53,7 +47,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Visa" 
 		And user clicks on place order button 
@@ -68,9 +62,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"	
+		Then Verify order status in details to be "Cancelled"	
 		
 		Examples:  
 		|Product|
@@ -83,7 +77,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Master" 
 		And user clicks on place order button 
@@ -98,9 +92,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"
+		Then Verify order status in details to be "Cancelled"
 		
 		Examples:  
 		|Product|
@@ -113,7 +107,7 @@ Background: User logs into application and clears cart - addresses
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "CC_Amex" 
 		And user clicks on place order button 
@@ -128,9 +122,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"
+		Then Verify order status in details to be "Cancelled"
 		
 		Examples:  
 		|Product|
@@ -141,11 +135,12 @@ Background: User logs into application and clears cart - addresses
 	Scenario Outline: TS_RegisteredCheckout_05 - Registered User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user sort by high to low price
+		And user filters for tabby price range
 		And click on first valid product in search result
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address
+		And user submits the valid details for shipping address
 		And user reset Stored Payments 
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
@@ -161,9 +156,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"
+		Then Verify order status in details to be "Cancelled"
 		
 		Examples:  
 		|Product|
@@ -173,11 +168,12 @@ Background: User logs into application and clears cart - addresses
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user sort by high to low price
+		And user filters for tabby price range
 		And click on first valid product in search result
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-		And user enters the valid details for shipping address 
+		And user submits the valid details for shipping address 
 		And user reset Stored Payments
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
@@ -193,9 +189,9 @@ Background: User logs into application and clears cart - addresses
 		And User cancels the Order
 		And user clicks on my account top menu
 		When user selects order history option
-		Then verify order status in history to be "Closed" 
+		Then verify order status in history to be "Cancelled" 
 		And click on view order
-		Then Verify order status in details to be "Closed"
+		Then Verify order status in details to be "Cancelled"
 		
 		Examples:  
 		|Product|

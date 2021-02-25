@@ -1,6 +1,5 @@
 Feature: 6thstreet.com - validate the price in pdp,plp,wishlist,search,minicart and cart 
 
-@run
 Scenario Outline: TS_Price_01: Given the SKU, base_price and the special_price, then they should be same in all the places of the application 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 

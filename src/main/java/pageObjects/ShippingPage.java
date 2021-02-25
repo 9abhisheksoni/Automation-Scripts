@@ -25,7 +25,7 @@ public class ShippingPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	GenericHelper genericHelper = new GenericHelper();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(ShippingPage.class.getName());
 
 	/**
@@ -253,6 +253,11 @@ public class ShippingPage extends CucumberRunner {
 		log.info("First Name is Modified");
 	}
 	
+	public void fillShippingForm() {
+		log.info("Enter address manually");
+		this.submitShippingAddress(browserFactory.getCountry().toLowerCase());
+		this.clickDeliverToAddress();
+	}
 	
 	/*
 	 * This method fetches the base_price displaying for an item in the Shipment
@@ -319,6 +324,5 @@ public class ShippingPage extends CucumberRunner {
 	public void evaluateSpecialPriceAtShipping() {
 		log.info("Comparing the special_price displaying at Shipping with the special price fetched at PLP");
 		assertEquals(getSpecialPriceAtShipping(), searchPage.globalSpecialPrice, "The special_price is matching at Shipping");
-	}
-	
+	}	
 }

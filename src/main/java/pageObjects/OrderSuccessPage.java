@@ -25,7 +25,7 @@ public class OrderSuccessPage extends CucumberRunner {
 	CommonMethods commonMethods = new CommonMethods();
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
-	SearhPage searchPage = new SearhPage();
+	SearchPage searchPage = new SearchPage();
 	private Logger log = Logger.getLogger(OrderSuccessPage.class.getName());
 
 	/**
