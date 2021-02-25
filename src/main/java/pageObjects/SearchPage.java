@@ -20,7 +20,6 @@ import commonHelper.WaitHelper;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
-
 public class SearchPage extends CucumberRunner {
 	private static final String String = null;
 	public static String globalBasePrice = null;
@@ -28,7 +27,7 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * Class object declaration here
 	 **/
-	
+
 	CommonMethods commonMethods = new CommonMethods();
 	WaitHelper waitHelper = new WaitHelper();
 	StringUtility stringUtility = new StringUtility();
@@ -36,22 +35,22 @@ public class SearchPage extends CucumberRunner {
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private SoftAssert softAssert = new SoftAssert();
-	
+
 	/**
 	 * Constructor to initialize page objects
 	 **/
 	public SearchPage() {
 		PageFactory.initElements(browserFactory.getDriver(), this);
 	}
-	
+
 	/**
 	 * WebElement declaration starts here
 	 **/
 	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
 	private WebElement lnkProduct;
-	
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']")
-	private List <WebElement> lnksProduct;
+
+	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image' or @class='PLPPage']//a[@class='product photo product-item-photo' or @class]")
+	private List<WebElement> lnksProduct;
 
 	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
 	private WebElement lblSearchResultCount;
@@ -100,59 +99,67 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgWishlistSuccess;
-	
+
 	@FindBy(xpath = "//li[@class='active']/a")
 	private WebElement lblFirstLevelActive;
-	
+
 	@FindBy(xpath = "//ul[@class='main-categories first-level']/li[not(@class)]/a")
 	private WebElement lblFirstLevelInActive;
-	
+
 	@FindBy(xpath = "//ul[@class='nav second-level men-section']/li[@class='second-sub']")
 	private WebElement lblSecondLevelCategory;
-	
+
 	@FindBy(xpath = "(//li[@class='second-sub hover']//a[@data-level='second-level-item-1'])[2]")
 	private WebElement lblThirdLevelCategory;
 
-	@FindBy(xpath="//ul[@class='breadcrumb clearfix']/li")
+	@FindBy(xpath = "//ul[@class='breadcrumb clearfix']/li")
 	private List<WebElement> lblBreadcrumb;
-	
-	@FindBy (xpath="//span[@id='you_searched_for']/following-sibling::h4")
+
+	@FindBy(xpath = "//span[@id='you_searched_for']/following-sibling::h4")
 	private WebElement msgNoSearchMsg;
-	
-	@FindBy(xpath="//div[@class='aa-dataset-suggestions']/div")
+
+	@FindBy(xpath = "//div[@class='aa-dataset-suggestions']/div")
 	private List<WebElement> lnkProductSuggestion;
-	
+
 	@FindBy(xpath = "//div[contains(@data-tab,'price')]/div")
 	private WebElement drpdwnPriceRangeFilter;
-	
+
 	@FindBy(xpath = "//input[@class='ais-refinement-list--radio']/..")
 	private List<WebElement> chkTabbyPriceFilter;
-	
+
 	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
 	private WebElement chkTabbyPriceFilterActive;
-	
+
 	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
 	private WebElement txtBasePrice;
-	
+
 	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
 	private WebElement txtSpecialPrice;
-	
+
 	@FindBy(xpath = "//div[@data-tab='discount']/div")
 	private WebElement drpDiscount;
-	
+
 	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
 	private List<WebElement> radioDiscountOptions;
-	
+
 	@FindBy(xpath = "//img[contains(@src,'404-image')]")
 	private WebElement img404Error;
-	
+
 	@FindBy(xpath = "//div[@class='col-md-12']/h2")
 	private WebElement divAllBrands;
+
+	/* PWA elements */
+
+	@FindBy(xpath = "//div[@class='PageNotFound-Image']")
+	private WebElement imgPwa404Error;
+
+	@FindBy(xpath = "//div[@class='Image Image_ratio_square Image_imageStatus_1 Image_hasSrc  ']")
+	private List<WebElement> lstPwaProducts;
 
 	/**
 	 * WebElement declaration ends here
 	 **/
-	
+
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);
 		log.info("clicked product on PLP");
@@ -224,7 +231,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public float getPriceFromText(String text) {
-		float price = (stringUtility.getDecimalValue(text)); 
+		float price = (stringUtility.getDecimalValue(text));
 		log.info("returning price from text : " + price);
 		return price;
 	}
@@ -248,13 +255,13 @@ public class SearchPage extends CucumberRunner {
 		commonMethods.click(lblSecondLevelCategory);
 		log.info("Clicked second level category");
 	}
-	
+
 	public void clickOnThirdCategory() {
 		commonMethods.mouseHover(lblSecondLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
 	}
-	
+
 	public void verifyOnFirstCategory() {
 		String url = genericHelper.getCurrentUrl();
 		String activeUrl = commonMethods.getAttribute(lblFirstLevelActive, "href");
@@ -267,22 +274,22 @@ public class SearchPage extends CucumberRunner {
 		Assert.assertTrue(lblBreadcrumb.size() == 3);
 		log.info("second level category page displayed");
 	}
-	
+
 	public void verifyOnThirdCategory() {
-		Assert.assertTrue(lblBreadcrumb.size()==2);
+		Assert.assertTrue(lblBreadcrumb.size() == 2);
 		log.info("third level category page displayed");
 	}
-	
+
 	public void verifyNoResultDisplayed() {
 		Assert.assertTrue(genericHelper.isDisplayed(msgNoSearchMsg));
 		log.info("No result page displayed");
 	}
-	
+
 	public void verifySearchSuggestionDisplay() {
-		Assert.assertTrue(lnkProductSuggestion.size()>0);
+		Assert.assertTrue(lnkProductSuggestion.size() > 0);
 		log.info("Search suggestions displayed");
 	}
-	
+
 	/*
 	 * This method fetches the base_price displaying for an item in the PLP
 	 */
@@ -299,6 +306,7 @@ public class SearchPage extends CucumberRunner {
 		this.globalBasePrice = basePrice;
 		return basePrice;
 	}
+
 	/*
 	 * This method compares the base_price displaying at PLP with the actual_price
 	 * provided by the user
@@ -308,6 +316,7 @@ public class SearchPage extends CucumberRunner {
 		log.info("The base_price provided by the user is " + actualBasePrice);
 		Assert.assertEquals(getBasePricePLP(), actualBasePrice, "The base_price is matching");
 	}
+
 	/*
 	 * This method fetches the special_price displaying for an item in the PLP
 	 */
@@ -323,6 +332,7 @@ public class SearchPage extends CucumberRunner {
 		this.globalSpecialPrice = specialPrice.trim();
 		return specialPrice;
 	}
+
 	/*
 	 * This method compares the special_price displaying at PLP with the
 	 * actual_price provided by the user
@@ -335,16 +345,16 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickFirstValidInResult() {
 		int index = 0;
-		for (int i=0;i<lblprice.size();i++) {
+		for (int i = 0; i < lblprice.size(); i++) {
 			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				index=i;
+				index = i;
 				break;
 			}
 		}
 		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
 	}
-	
+
 	public void clickTabbyPriceFilter() {
 		commonMethods.click(drpdwnPriceRangeFilter);
 		for (WebElement temp : chkTabbyPriceFilter) {
@@ -357,6 +367,7 @@ public class SearchPage extends CucumberRunner {
 		waitHelper.staticWait(3000);
 		log.info("clicked tabby range filter");
 	}
+
 	// Filter the items having the discount above 70%
 	public void clickHighestDiscountPercentage() {
 		waitHelper.waitForElementToBeClickable(drpDiscount);
@@ -364,43 +375,60 @@ public class SearchPage extends CucumberRunner {
 		int index = radioDiscountOptions.size() - 1;
 		commonMethods.moveToElementAndClick(radioDiscountOptions.get(index));
 	}
-	
-	/* To verify whether the PLP has products or not, if no products test case fails by skipping the further steps */
+
+	/*
+	 * To verify whether the PLP has products or not, if no products test case fails
+	 * by skipping the further steps
+	 */
 	public void verifyPLPIsDisplayed() {
-		System.out.println("Product Count: "+lnksProduct.size());
+		System.out.println("Product Count: " + lnksProduct.size());
 		try {
-			Assert.assertTrue(lnksProduct.size()>0);
+			Assert.assertTrue(lnksProduct.size() > 0);
 			log.info("PLP is displayed");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			log.info("PLP is not displayed");
-		}		
+		}
 	}
-	
-	/* To verify whether the PLP has products or not, if no products test case will be failed after checking all the banners */
+
+	/*
+	 * To verify whether the PLP has products or not, if no products test case will
+	 * be failed after checking all the banners
+	 */
 	public void verifyPLP() {
-		log.info("\n<<<<<<<Product Count: "+lnksProduct.size());
+		log.info("\n<<<<<<<Product Count: " + lnksProduct.size());
 		String plpURL = genericHelper.getCurrentUrl();
-		if(lnksProduct.size()>0) {
-			log.info("PLP has products");
-			jsHelper.scrollToElement(lnksProduct.get(1));
-		}  else if(this.isLeadingTo404()) {
-			log.info("ATTENTION!!! - encountered 404 error");
-			softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL);			
-		} else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
+		if (lnksProduct.size() > 0 ) {			
+				jsHelper.scrollToElement(lnksProduct.get(1));
+				log.info("PLP has products");			
+
+		} /*
+			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
+			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
+			 * softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL); } else
+			 * if(this.isLeadingTo404()) { log.info("ATTENTION!!! - encountered 404 error");
+			 * softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL); }
+			 * else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
+			 * log.info("Allert! - PLP has no products!!!");
+			 * softAssert.fail("No Products!! >>> " + plpURL); }
+			 */
+		else {
 			log.info("Allert! - PLP has no products!!!");
 			softAssert.fail("No Products!! >>> " + plpURL);
-		} else if (!genericHelper.isElementPresent(divAllBrands)){
-			log.info("ATTENTION! - PLP is blank!!!");
-			softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL);
-		}		
+		}
+
 	}
-	
+
 	public void customAssertAll() {
 		softAssert.assertAll();
 	}
-	
-	public boolean isLeadingTo404() {		
-		return genericHelper.isElementPresent(img404Error);		
+
+	public boolean isLeadingTo404() {
+		return genericHelper.isElementPresent(imgPwa404Error);
+	}
+
+	public void clickBrowserBackButton() {
+		commonMethods.navigateBack();
+		log.info("Browse back button is clicked");
 	}
 
 }

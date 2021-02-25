@@ -156,7 +156,7 @@ public class CommonMethods extends CucumberRunner {
 		Actions action = new Actions(browserFactory.getDriver());
 		WebDriverWait wait = new WebDriverWait(browserFactory.getDriver(), time);
 		wait.until(ExpectedConditions.elementToBeClickable(webElement));
-		action.doubleClick(webElement).build().perform();
+		action.moveToElement(webElement).doubleClick().build().perform();
 		log.info("double clicked on specified element");
 	}
 
@@ -571,6 +571,11 @@ public class CommonMethods extends CucumberRunner {
 	/** driver navigation to the URL **/
 	public void navigate(String value) {
 		browserFactory.getDriver().navigate().to(value);
+	}
+	
+	/** driver navigation to previous page **/
+	public void navigateBack() {
+		browserFactory.getDriver().navigate().back();
 	}
 	
 	/** browser refresh**/

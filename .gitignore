@@ -7,8 +7,8 @@ target/*
 test-output/*
 logs/*.log
 *.class
-screenshots/*
 bin
-/target/
 *.settings
 /.settings/
+/target/
+!cucumber.json

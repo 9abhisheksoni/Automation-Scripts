@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Suite" parallel="tests" thread-count="2">
+<suite name="Suite">
 	<test name="UAEEN">
-		<parameter name="browser" value="Chrome" />
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="EN" />
 		<classes>

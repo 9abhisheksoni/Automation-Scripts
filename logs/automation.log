@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 05-02-2021 18:56:45 INFO [CucumberBase]: Executing Before Suite
 05-02-2021 18:56:45 INFO [CucumberBase]: Executing Before Test for Chrome with QA and EN on prod
 05-02-2021 18:56:45 INFO [BrowserFactory]: Creating Browser Factory Instance
@@ -659,3 +660,5 @@ Session ID: 0fd9ed6dc8fb32067d15c31134a93c87
 05-02-2021 19:11:03 INFO [ReportHelper]: configuring extent reports
 05-02-2021 19:11:03 INFO [CucumberBase]: Closing all browser instances
 05-02-2021 19:11:03 INFO [BrowserFactory]: Returning Driver Instance
+=======
+>>>>>>> feature/prasanna
