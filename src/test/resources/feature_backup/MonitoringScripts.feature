@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Acceptance Test Scenarios
 
-	@MonitoringGuestCheckout
+	@Monitoring @GuestCheckout
 	Scenario Outline: TS_GuestCheckout_01 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result
@@ -16,7 +16,7 @@ Feature: 6thstreet.com - Acceptance Test Scenarios
 				|Product|
 				|Shoes|
 	
-	@MonitoringRegisteredCheckout
+	@Monitoring @RegisteredCheckout
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -38,7 +38,7 @@ Feature: 6thstreet.com - Acceptance Test Scenarios
 		|Product|
 		|Shoes|
 	
-	@MonitoringLoginLogout
+	@Monitoring @LoginLogout
 	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -47,7 +47,7 @@ Feature: 6thstreet.com - Acceptance Test Scenarios
 		When User Logsout 
 		Then Logout is successfull
 	
-	@MonitoringFooterLinks
+	@Monitoring @FooterLinks
 	Scenario Outline: TS_FooterLinkValidation_01 - Verify the whether footer links lead to respective pages
 		When User clicks on footer link "<FooterLink>"
 		Then User should be landed into "<PageName>" web page	
@@ -64,7 +64,7 @@ Feature: 6thstreet.com - Acceptance Test Scenarios
 		|FAQs          |FAQs          |
 		|Feedback      |Feedback      |
 	
-	@MonitoringWishlist
+	@Monitoring @Wishlist
 	Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters "validuser" login details in the login popup 

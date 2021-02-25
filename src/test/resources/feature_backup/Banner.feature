@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Home page banner verification Scenarios 
 
-	@HeroBanner
+	@Hero @Banner
 	Scenario Outline: BannerVerification_TC01 - User launches application and verifies the Hero banner
 	When user clicks "<category>"
 	When User clicks on hero banner
@@ -12,7 +12,7 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 	|Men|
 	|Kids|
 
-	@DynamicBanner
+	@DynamicContent @Banner
 	Scenario Outline: BannerVerification_TC02 - User launches application and verifies the Dynamic content banners
 		When user clicks "<category>"
 		When User clicks on Dynamic content banner and verifies respective PLP
@@ -23,7 +23,7 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 		|Men|
 		|Kids|
 
-	@TopCategoriesBanner
+	@TopCategories @Banner
 	Scenario Outline: BannerVerification_TC03 - User launches application and verifies the Top categories banners
 		When user clicks "<category>"
 		When User clicks on Top categories banner and verifies respective PLP
@@ -34,7 +34,7 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 		|Men|
 		|Kids|
 		
-	@BrandsBanner
+	@Brands @Banner
 	Scenario Outline: BannerVerification_TC04 - User launches application and verifies the Brands banners
 		When user clicks "<category>"
 		When User clicks on Brands banner and verifies respective PLP
@@ -45,7 +45,7 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 		|Men|
 		|Kids|
 		
-	@WhtasHot
+	@WhatsHot @Banner
 	Scenario Outline: BannerVerification_TC04 - User launches application and verifies the Brands banners
 		When user clicks "<category>"
 		When User clicks on whats hot banner and verifies respective PLP
