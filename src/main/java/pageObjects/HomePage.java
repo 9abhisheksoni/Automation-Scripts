@@ -424,6 +424,7 @@ public class HomePage extends CucumberRunner {
 		System.out.println(section + " Banner count: " + offerBannerCount);
 		for(int i=0; i<banner.size();i++) {
 			waitHelper.waitForElementVisible(bannerHomePage);
+			System.out.println("-----------------------------------------------------------------"+i+"---------------------------");
 			try {
 				commonMethods.click(banner.get(i));
 			} catch(ElementClickInterceptedException e) {

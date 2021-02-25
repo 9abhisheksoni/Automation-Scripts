@@ -19,6 +19,6 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 		
 		Examples:
 		|category|
-		|Women|
+	#	|Women|
 	#	|Men|
-	#	|Kids|
+		|Kids|
