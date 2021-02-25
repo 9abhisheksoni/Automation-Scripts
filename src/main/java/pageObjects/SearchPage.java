@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -356,6 +357,10 @@ public class SearchPage extends CucumberRunner {
 			commonMethods.click(lnksProduct.get(index));
 			log.info("clicked valid product on PLP");
 		} catch(ElementClickInterceptedException e) {
+			commonMethods.moveToElementAndClick(lnksProduct.get(index));
+			log.info("clicked valid product on PLP");
+		} catch(ElementNotInteractableException e) {
+			waitHelper.waitForElementToBeClickable(lnksProduct.get(index));
 			commonMethods.moveToElementAndClick(lnksProduct.get(index));
 			log.info("clicked valid product on PLP");
 		}
