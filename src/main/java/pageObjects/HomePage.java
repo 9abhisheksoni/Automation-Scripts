@@ -1,7 +1,9 @@
 package pageObjects;
 
-import java.util.List;
 import static org.testng.Assert.assertEquals;
+
+import java.util.List;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -45,28 +47,28 @@ public class HomePage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//input[@id='search']")
+	@FindBy(xpath = "//input[@id='search-field']")
 	private WebElement txtSearchProduct;
 
-	@FindBy(xpath = "//div[@class='DynamicContentFullWidthBannerSlider' or @class='category_banner clearfix']//img[@id='mainBannerImage' or @class='Image-Image']")
+	@FindBy(xpath = "//div[@class='DynamicContentFullWidthBannerSlider' or @class='category_banner clearfix']//img[@class='Image-Image']")
 	private WebElement bannerHomePage;
 
-	@FindBy(xpath = "//div[@class='logo']//img | //div[@class='logo-center']")
-	private WebElement imgHomePage;
+	@FindBy(xpath = "//a[@class=' HeaderLogo']//img")
+	private WebElement imgHomeLogo;
 
-	@FindBy(xpath = "//form[contains(@class,'active')]//span[@class='search_icon']")
+	@FindBy(xpath = "//button[@class='HeaderSearch-SubmitBtn']")
 	private WebElement icnSearch;
 
-	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement menuUserNameTop;
 
-	@FindBy(xpath = "//a[@class='top-link-order-history-link' and .='Order History']")
+	@FindBy(xpath = "//a[contains(@class,'MyAccountSignedInOverlay-LinkHistory')]")
 	private WebElement optionOrderHistory;
 
-	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
+	@FindBy(xpath = "//a[contains(@class,'MyAccountSignedInOverlay-ReturnAnItem')]")
 	private WebElement optionReturnHistory;
 
-	@FindBy(xpath = "//div[@id='toggleSignup']")
+	@FindBy(xpath = "//div[@class='MyAccountOverlay-Buttons']/button[@class!='Button Button_isSignIn']")
 	private WebElement btnSignUp;
 
 	@FindBy(xpath = "//input[@name='firstname']")
@@ -75,78 +77,83 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//input[@name='lastname']")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[@id='email_address']")
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtEmailID;
 
-	@FindBy(xpath = "//input[@id='popup_password']")
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPwd;
 
-	@FindBy(xpath = "//button[@ID='yopeso_register']")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isCreateAccountButton')]/button")
 	private WebElement btnCreateAccount;
 
-	@FindBy(xpath = "//li[@class='header-wishlist']/a")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[contains(@class,'HeaderWishlist')]/button")
 	private WebElement lnkWishlist;
 
-	@FindBy(xpath = "//a[@class='algoliasearch-autocomplete-hit']")
+	@FindBy(xpath = "//div[@class='SearchSuggestion-Recommended']//li/a")
 	private WebElement FirstSearchEle;
 
 	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']")
 	private WebElement txtPriceInSearch;
 
 	/* Footer Links */
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'6th-street')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'6th-street')]")
 	private WebElement lnkAbout6thStreet;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'consumerrights')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'consumerrights')]")
 	private WebElement lnkConsumerRights;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'disclaimer')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'disclaimer')]")
 	private WebElement lnkDisclaimer;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'privacy-policy')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'privacy-policy')]")
 	private WebElement lnkPrivacyPolicy;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'shipping-policy')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'shipping-policy')]")
 	private WebElement lnkShippingInfo;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'return-information')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'return-information')]")
 	private WebElement lnkReturnInfo;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'track')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'track')]")
 	private WebElement lnkOrderTrack;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'Faq')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'faq')]")
 	private WebElement lnkFAQs;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'contact')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'contact')]")
 	private WebElement lnkFeedback;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']//a[contains(@href,'customercare')]")
+	@FindBy(xpath = "//div[@class='FooterCustomerSupport']//a[contains(@href,'customercare')]")
 	private WebElement lnkFooterCustomerCareMail;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span")
+	@FindBy(xpath = "//a[@class='FooterCustomerSupport-Phone']")
 	private WebElement lblFooterCustomerCarePhoneNo;
 
-	@FindBy(xpath = "//div[@id='top_header_customer_service']")
+	@FindBy(xpath = "//header//button[contains(@class,'InlineCustomerSupport-Button')]")
 	private WebElement divCustomerService;
-
-	@FindBy(xpath = "//div[@id='customer-service-header']//a[contains(@href,'customercare')]")
+	
+	@FindBy(xpath = "//div[@class='HeaderTopBar']//a[contains(@href,'customercare')]")
 	private WebElement lnkCustomerServiceMail;
 
-	@FindBy(xpath = "//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
+	@FindBy(xpath = "//div[@class='HeaderTopBar']//div[@class='InlineCustomerSupport-DisplayPhone']//a[contains(@href,'tel')]")
 	private WebElement lblCustomerServicePhone;
 
-	@FindBy(xpath = "//a[contains(@title,'Women')]")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'women')]/button")
 	private WebElement lnkWomen;
 
-	@FindBy(xpath = "//a[contains(@title,'Men')]")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'/men')]/button")
 	private WebElement lnkMen;
 
-	@FindBy(xpath = "//a[@title='Kids Store']")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'kids')]/button")
 	private WebElement lnkKids;
 
-	@FindBy(xpath = "//img[contains(@src,'banner')]")
+	/////////
+	
+	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
+	
+	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider-Image')]/img")
+	private WebElement imgHeroBanner;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
 	private WebElement imgShopAllBrands;
@@ -163,28 +170,6 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//img[@class='img-responsive']")
 	private List<WebElement> lstOfferBanners;
 	
-	/* PWA elements */
-	@FindBy(xpath = "//a[@href!='#']//img[@class='Image-Image' and contains(@src,'AllBanners')]")
-	private List<WebElement> lstPwaAllBanners;	
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'women')])")
-	private WebElement lnkPwaWomen;
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/men')])")
-	private WebElement lnkPwaMen;
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/kids')])")
-	private WebElement lnkPwaKids;
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/kids')])")
-	private WebElement imgPwaHomeLogo;
-	
-	@FindBy(xpath = "//img[contains(@src,'Hero_Banner')]")
-	private WebElement imgPwaHeroBanner;
-	
-	@FindBy(xpath = "//div[@class='FooterMiddle-CustomerSupport']//a[@class='InlineCustomerSupport-Phone']")
-	private WebElement divPwaFooterPhone;
-
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -200,13 +185,8 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void waitForBannerLoading() {
-		try {
-			waitHelper.waitForElementVisible(imgHomePage);
-			waitHelper.staticWait(5000);
-			waitHelper.waitForElementInVisiblity(new CartPage().lblCartCount);
-		} catch (Exception e) {
-			log.info("minicart disappeared");
-		}
+		waitHelper.waitForElementVisible(imgHomeLogo);
+		waitHelper.staticWait(3000);
 		log.info("home page is banner loaded");
 	}
 
@@ -243,7 +223,7 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickHomeLogo() {
-		commonMethods.click(imgPwaHomeLogo);
+		commonMethods.click(imgHomeLogo);
 		log.info("Clicked on Home Logo");
 	}
 
@@ -415,13 +395,13 @@ public class HomePage extends CucumberRunner {
 	public void clickLevel1Category(String category) {
 		this.category = category;
 		if (category.equalsIgnoreCase("Women")) {
-			commonMethods.click(lnkPwaWomen);
+			commonMethods.click(lnkWomen);
 			log.info("clicked Women L1 category");
 		} else if (category.equalsIgnoreCase("Men")) {
-			commonMethods.click(lnkPwaMen);
+			commonMethods.click(lnkMen);
 			log.info("clicked Men L1 category");
 		} else if (category.equalsIgnoreCase("Kids")) {
-			commonMethods.click(lnkPwaKids);
+			commonMethods.click(lnkKids);
 			log.info("clicked Kids L1 category");
 		}
 
@@ -431,22 +411,21 @@ public class HomePage extends CucumberRunner {
 		//this.clickOnBannersAndVerifyPLP(lstOfferBanners,"Offer","Required");
 		//this.clickOnBannersAndVerifyPLP(lstShopByCategory, "Category", "NotRequired");
 		//this.clickOnBannersAndVerifyPLP(lstShopByBrands, "Brands", "NotRequired");
-		this.clickOnBannersAndVerifyPLP(lstPwaAllBanners, "NotRequired");
+		this.clickOnBannersAndVerifyPLP(lstBanners, "NotRequired");
 		searchPage.customAssertAll();
 	}
 
 	public void clickOnBannersAndVerifyPLP(List<WebElement> banner, String staticWait) {
-		waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
+		waitHelper.waitForElementToBeClickable(imgHeroBanner);
 		if (staticWait.equalsIgnoreCase("Required")) {
 			waitHelper.staticWait(10000);
-			jsHelper.scrollToElement(divPwaFooterPhone);
-			// waitHelper.staticWait(15000);
+			jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
 		}
 		waitHelper.staticWait(5000);
 		int bannerCount = banner.size();
 		System.out.println(" Banner count: " + bannerCount);
 		for (int i = 0; i < bannerCount ; i++) {
-			waitHelper.waitForElementVisible(imgPwaHomeLogo);
+			waitHelper.waitForElementVisible(imgHomeLogo);
 			try {
 				/*
 				 * if (section.equalsIgnoreCase("Brands")) {
