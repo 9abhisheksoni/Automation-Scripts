@@ -55,6 +55,9 @@ public class CartPage extends CucumberRunner {
 
 	@FindBy(xpath = "//a[@class='action viewcart view_bag']")
 	private WebElement btnMiniCartViewBag;
+	
+	@FindBy(xpath = "//div[contains(@class,'CartOverlay') and contains(@class,'Overlay_isVisible')]")
+	private WebElement miniCartViewBag;
 
 	@FindBy(xpath = "//span[@id='minicart-counter']")
 	public WebElement lblCartCount;
@@ -293,4 +296,8 @@ public class CartPage extends CucumberRunner {
 		assertEquals(getSpecialPriceAtSubtotal(), searchPage.globalSpecialPrice, "The special_price is matching at Cart Subtotal");
 	}
 
+	public void isMiniCartVisible() {
+		log.info("Verifying whether minicart is displayed");
+		Assert.assertTrue("minicart didnt appear",genericHelper.isDisplayed(miniCartViewBag));
+	}
 }

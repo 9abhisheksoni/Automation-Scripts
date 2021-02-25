@@ -24,6 +24,7 @@ public class StringUtility {
 			intValue = Integer.parseInt(m.group());
 
 		}
+		log.info("returning value "+intValue);
 		return intValue;
 	}
 
@@ -122,7 +123,6 @@ public class StringUtility {
 		String floatRegex = "^\\d*\\.\\d+|\\d+\\.\\d*$";
 		String intRegex = "^\\d+$";
 		String[] arr = str.split(" ");
-		System.out.println(arr.length);
 		String decimalValue = "0.0";
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].trim().matches(floatRegex) || arr[i].trim().matches(intRegex)) {
