@@ -167,7 +167,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//a[@href!='#']//img[@class='Image-Image' and contains(@src,'AllBanners')]")
 	private List<WebElement> lstPwaAllBanners;	
 	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'women')])")
+	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'women')])[1]")
 	private WebElement lnkPwaWomen;
 	
 	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/men')])")
@@ -176,7 +176,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/kids')])")
 	private WebElement lnkPwaKids;
 	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/kids')])")
+	@FindBy(xpath = "//a[@class=' HeaderLogo']")
 	private WebElement imgPwaHomeLogo;
 	
 	@FindBy(xpath = "//img[contains(@src,'Hero_Banner')]")
@@ -184,6 +184,18 @@ public class HomePage extends CucumberRunner {
 	
 	@FindBy(xpath = "//div[@class='FooterMiddle-CustomerSupport']//a[@class='InlineCustomerSupport-Phone']")
 	private WebElement divPwaFooterPhone;
+	
+	@FindBy(xpath = "//div[@class='DynamicContentBanner']//img")
+	private List<WebElement> lstDynamicBanners;
+	
+	@FindBy(xpath = "//div[@class='DynamicContentGrid'][1]//div[@class='CategoryItem-Content']")
+	private List<WebElement> lstTopCategoriesBanner;
+	
+	@FindBy(xpath = "//div[@class='DynamicContentGrid'][2]//div[@class='CategoryItem-Content']")
+	private List<WebElement> lstBrandsBanner;
+	
+	@FindBy(xpath = "//div[@class='DynamicContentGrid'][3]//div[@class='CategoryItem-Content']")
+	private List<WebElement> lstWhatsHotBanner;
 
 	/**
 	 * WebElement declaration ends here
@@ -415,23 +427,48 @@ public class HomePage extends CucumberRunner {
 	public void clickLevel1Category(String category) {
 		this.category = category;
 		if (category.equalsIgnoreCase("Women")) {
-			commonMethods.click(lnkPwaWomen);
-			log.info("clicked Women L1 category");
+			try {
+				commonMethods.clickUsingJS(lnkPwaWomen);
+				log.info("clicked Women L1 category");
+			}catch(ElementClickInterceptedException e) {
+				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
+				commonMethods.click(lnkPwaWomen);
+				log.info("clicked Women L1 category");
+			}
+			
 		} else if (category.equalsIgnoreCase("Men")) {
-			commonMethods.click(lnkPwaMen);
-			log.info("clicked Men L1 category");
+			try {
+				commonMethods.click(lnkPwaMen);
+				log.info("clicked Men L1 category");
+			}catch(ElementClickInterceptedException e) {
+				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
+				commonMethods.click(lnkPwaMen);
+				log.info("clicked Men L1 category");
+			}
 		} else if (category.equalsIgnoreCase("Kids")) {
-			commonMethods.click(lnkPwaKids);
-			log.info("clicked Kids L1 category");
+			try {
+				commonMethods.click(lnkPwaKids);
+				log.info("clicked Kids L1 category");
+			}catch(ElementClickInterceptedException e) {
+				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
+				commonMethods.click(lnkPwaKids);
+				log.info("clicked Kids L1 category");
+			}
 		}
 
 	}
 
-	public void clickOnAllBannersAndVerifyPLP() {
-		//this.clickOnBannersAndVerifyPLP(lstOfferBanners,"Offer","Required");
-		//this.clickOnBannersAndVerifyPLP(lstShopByCategory, "Category", "NotRequired");
-		//this.clickOnBannersAndVerifyPLP(lstShopByBrands, "Brands", "NotRequired");
-		this.clickOnBannersAndVerifyPLP(lstPwaAllBanners, "NotRequired");
+	public void clickOnAllBannersAndVerifyPLP(String bannerType) {
+		//this.clickOnBannersAndVerifyPLP(lstPwaAllBanners, "NotRequired");		
+		if(bannerType.equalsIgnoreCase("Dynamic")) {
+			this.clickOnBannersAndVerifyPLP(lstDynamicBanners, "Required");
+		} else if(bannerType.equalsIgnoreCase("TopCategories")) {
+			this.clickOnBannersAndVerifyPLP(lstTopCategoriesBanner, "Required");
+		} else if(bannerType.equalsIgnoreCase("Brands")) {
+			this.clickOnBannersAndVerifyPLP(lstBrandsBanner, "Required");
+		} else if(bannerType.equalsIgnoreCase("WhatsHot")) {
+			this.clickOnBannersAndVerifyPLP(lstWhatsHotBanner, "Required");
+		}
 		searchPage.customAssertAll();
 	}
 
@@ -440,9 +477,11 @@ public class HomePage extends CucumberRunner {
 		if (staticWait.equalsIgnoreCase("Required")) {
 			waitHelper.staticWait(10000);
 			jsHelper.scrollToElement(divPwaFooterPhone);
+			jsHelper.scrollToElement(imgPwaHeroBanner);
 			// waitHelper.staticWait(15000);
+			waitHelper.staticWait(1000);
 		}
-		waitHelper.staticWait(5000);
+		
 		int bannerCount = banner.size();
 		System.out.println(" Banner count: " + bannerCount);
 		for (int i = 0; i < bannerCount ; i++) {
@@ -453,21 +492,23 @@ public class HomePage extends CucumberRunner {
 				 * jsHelper.scrollToElement((banner.get(i)));
 				 * jsHelper.scrollToElement(lnkShopAllBrands); }
 				 */
-				jsHelper.scrollToElement((banner.get(i)));
-				commonMethods.click(banner.get(i));
+				//jsHelper.scrollToElement((banner.get(i)));
+				commonMethods.moveToElementAndClick(banner.get(i));
+				log.info("clicked banner " + (i + 1) + " of " + bannerCount);
 			} catch (ElementClickInterceptedException e) {
 				waitHelper.waitForElementToBeClickable(banner.get(i));
 				commonMethods.clickUsingJS(banner.get(i));
+				log.info("clicked banner " + (i + 1) + " of " + bannerCount);
 			}
-			log.info("clicked banner " + (i + 1) + " of " + bannerCount);
+			
 			waitHelper.staticWait(2000);
 			searchPage.verifyPLP();
 			waitHelper.staticWait(500);
 			this.clickHomeLogo();
 			waitHelper.staticWait(5000);
-			if(!this.category.equalsIgnoreCase("Women")) {
-			  this.clickLevel1Category(this.category); 
-			  }
+			if (!this.category.equalsIgnoreCase("Women")) {
+				this.clickLevel1Category(this.category);
+			}
 		}
 	}
 }

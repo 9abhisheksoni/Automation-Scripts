@@ -99,8 +99,8 @@ public class Home {
 		homePage.clickLevel1Category(category);
 	}
 	
-	@When("^User clicks on main banner$")
-	public void user_clicks_on_main_banner() {
+	@When("^User clicks on hero banner$")
+	public void user_clicks_on_hero_banner() {
 		homePage.clickOnMainBanner();
 	}
 
@@ -111,7 +111,27 @@ public class Home {
 	
 	@When("^User clicks on banner and verifies respective PLP$")
 	public void user_clicks_on_banner_and_verifies_respective_PLP()  {
-		homePage.clickOnAllBannersAndVerifyPLP();
+		
+	}
+	
+	@When("^User clicks on Dynamic content banner and verifies respective PLP$")
+	public void user_clicks_on_Dynamic_content_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("Dynamic");
+	}
+
+	@When("^User clicks on Top categories banner and verifies respective PLP$")
+	public void user_clicks_on_Top_categories_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("TopCategories");
+	}
+
+	@When("^User clicks on Brands banner and verifies respective PLP$")
+	public void user_clicks_on_Brands_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("Brands");
+	}
+	
+	@When("^User clicks on whats hot banner and verifies respective PLP$")
+	public void user_clicks_on_whats_hot_banner_and_verifies_respective_PLP() {
+		homePage.clickOnAllBannersAndVerifyPLP("WhatsHot");
 	}
 
 
