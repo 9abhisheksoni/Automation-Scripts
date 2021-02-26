@@ -35,31 +35,31 @@ public class OrderDetailsPage extends CucumberRunner {
 	 * WebElement declaration starts here
 	 **/
 	
-	@FindBy(xpath = "//a[@class='order-details-order']")
+	@FindBy(xpath = "//button[@class='MyAccountOrderView-BackButton']")
 	private WebElement lblBackToOrderHistory;
 	
-	@FindBy(xpath = "//span[@class='order-details-return']")
+	@FindBy(xpath = "//div[@class='MyAccountOrderView-Heading']/button")
 	private WebElement btnRetunAnItem;
 	
-	@FindBy(xpath = "//div[@class='order-details-items ordered']/div")
+	@FindBy(xpath = "//div[@class='MyAccountOrderView-Status']/p[1]/span")
 	private WebElement lblOrderStatus;
 	
-	@FindBy(xpath = "//div[@class='order-details-items ordered']/div[2]")
+	@FindBy(xpath = "//p[@class='MyAccountOrderView-StatusDate']/span")
 	private WebElement lblOrderDate;
 	
-	@FindBy(xpath = "//div[@class='cash-content']")
+	@FindBy(xpath = "//div[@class='MyAccountOrderView-PaymentType']/p")
 	private WebElement lblPayMentType;
 	
-	@FindBy(xpath="//div[contains(@class,'cancel-btn')]/a")
+	@FindBy(xpath="//div[@class='MyAccountOrderView-Heading']/button")
 	private WebElement btnCancelOrder;
 	
-	@FindBy(xpath="//label[@class='cancel-check']/span")
+	@FindBy(xpath="//div[contains(@class,'MyAccountReturnCreateItem-Checkbo')]")
 	private WebElement radioCancelProduct;
 	
-	@FindBy(xpath="//input[@id='clickToCancel']")
+	@FindBy(xpath="//button[contains(@class,'MyAccountReturnCreate-ButtonSubmit')]")
 	private WebElement btnCancelItems;
 	
-	@FindBy(xpath = "//span[@class='cancel-detail']/..")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOrderView-StatusFailed')]/p")
 	private WebElement msgOrderCancelSuccess;
 	
 	@FindBy (xpath = "//span[@class='cart-price']/span")

@@ -34,28 +34,28 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 * **/
-	@FindBy(xpath = "//h3[contains(text(),'ABOUT 6TH STREET')]")
+	@FindBy(xpath = "//a[normalize-space()='About 6TH STREET']")
 	private WebElement lblAbout6thStreet;
 	
 	@FindBy(xpath = "//a[contains(text(),'Consumer')]")
 	private WebElement lblConsumer;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-disclaimer page')]")
+	@FindBy(xpath = "//a[normalize-space()='Consumer Rights']")
 	private WebElement lblDisclaimer;
 		
-	@FindBy(xpath = "//body[contains(@class,'cms-privacy-policy')]")
+	@FindBy(xpath = "//a[normalize-space()='Privacy Policy']")
 	private WebElement lblPrivacyPolicy;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-shipping-policy')]")
+	@FindBy(xpath = "//a[normalize-space()='Shipping Information']")
 	private WebElement lblShippingPolicy;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-return-information')]")
+	@FindBy(xpath = "//a[normalize-space()='Returns Information']")
 	private WebElement lblReturnInfo;
 	
-	@FindBy(xpath = "//input[@id='tracking_id']")
+	@FindBy(xpath = "//a[normalize-space()='Order Tracking']")
 	private WebElement txtTrackID;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-faq page')]")
+	@FindBy(xpath = "//a[normalize-space()=\"FAQ's\"]")
 	private WebElement lblFAQs;	
 	
 	@FindBy(xpath = "//button[@class='action submit primary']")

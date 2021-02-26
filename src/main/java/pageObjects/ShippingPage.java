@@ -38,28 +38,34 @@ public class ShippingPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//button[@class='action action-show-popup add_new_address']")
+	//@FindBy(xpath = "//button[@class='action action-show-popup add_new_address']") -- old
+	@FindBy(xpath = "//button[@class='MyAccountAddressBook-NewAddress button primary small']")
 	private WebElement btnNewAddress;
 
-	@FindBy(xpath = "//input[@name='firstname' and contains(@class,'input-text')]")
+	//@FindBy(xpath = "//input[@name='firstname' and contains(@class,'input-text')]") -- old
+	@FindBy(xpath = "//input[@id='firstname']")
 	private WebElement txtFirstName;
 
-	@FindBy(xpath = "//input[@name='lastname' and contains(@class,'input-text')]")
+	//@FindBy(xpath = "//input[@name='lastname' and contains(@class,'input-text')]") -- old
+	@FindBy(xpath = "//input[@id='lastname']")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[contains(@name,'street')]")
+	//@FindBy(xpath = "//input[contains(@name,'street')]") -- old
+	@FindBy(xpath = "//input[@id='street']")
 	private WebElement txtStreetAddress;
 
 	@FindBy(xpath = "//select[@name='city']")
 	private WebElement drpdwnCity;
 
-	@FindBy(xpath = "//select[@name='postcode']")
+	//@FindBy(xpath = "//select[@name='postcode']") -- old
+	@FindBy(xpath = "//select[@id='region_string']")
 	private WebElement drpdwnArea;
 
 	@FindBy(xpath = "//select[@name='cn_carriercode']")
 	private WebElement drpdwnCarrierCode;
 
-	@FindBy(xpath = "//input[contains(@name,'contact') and @type='text']")
+	//@FindBy(xpath = "//input[contains(@name,'contact') and @type='text']") -- old
+	@FindBy(xpath = "//input[@id='telephone']")
 	private WebElement txtPhoneNumber;
 
 	@FindBy(xpath = "//button[@class='button action continue primary']")
@@ -74,10 +80,12 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[contains(@class,'shipping-address-item')]")
 	private WebElement sectionSaveAddresses;
 
-	@FindBy(xpath = "//button[@class='action primary action-save-address']")
+	//@FindBy(xpath = "//button[@class='action primary action-save-address']") -- old
+	@FindBy(xpath = "//button[@class='MyAccountBtn button primary']")
 	private WebElement btnSaveAddress;
 
-	@FindBy(xpath = "//button[@class='action secondary action-hide-popup']")
+	//@FindBy(xpath = "//button[@class='action secondary action-hide-popup']") -- old
+	@FindBy(xpath = "//button[@class='MyAccountBtn-Discart']")
 	private WebElement btnCancelAddressPopUp;
 	
 	
@@ -87,7 +95,8 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='shipping-address-item selected-item']")
 	private WebElement sectionSelectedAddress;
 
-	@FindBy(xpath = "//div[@class='shipping-address-items']//div")
+	//@FindBy(xpath = "//div[@class='shipping-address-items']//div") -- old
+	@FindBy(xpath = "//div[@class='CheckoutAddressBook-Wrapper']")
 	private List<WebElement> listSavedShippingAddress;
 
 	@FindBy(xpath = "//div[@class='shipping-address-items']//div/input")

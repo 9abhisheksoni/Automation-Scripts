@@ -48,7 +48,7 @@ public class PDPPage extends CucumberRunner {
 	@FindBy(xpath = "//select[@id='countrySize']/parent::div/../..//select[@class='super-attribute-select']")
 	private WebElement drpdwnSize;
 
-	@FindBy(xpath = "//button[@id='product-addtocart-button']")
+	@FindBy(xpath = "//button[@class='PDPAddToCart-AddToCartButton PDPAddToCart-AddToCartButton']")
 	private WebElement btnAddToBag;
 
 	@FindBy(xpath = "//div[@class='gallery-placeholder']")
@@ -69,7 +69,7 @@ public class PDPPage extends CucumberRunner {
 	@FindBy(xpath = "//span[@id='tabby-promo-close']")
 	private WebElement btnTabbyPromoClose;
 
-	@FindBy(xpath = "//button[@class='action primary checkout']")
+	@FindBy(xpath = "///button[@class='CartOverlay-CheckoutButton']")
 	private WebElement btnCheckout;
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")

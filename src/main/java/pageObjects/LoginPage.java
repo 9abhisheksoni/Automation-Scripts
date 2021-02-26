@@ -45,16 +45,17 @@ public class LoginPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//span[@class='login-label']")
+	//@FindBy(xpath = "//span[@class='login-label']") - old
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']//label[@for='Account']")
 	private WebElement labelLoginOrRegister;
 
-	@FindBy(xpath = "//input[@name='username']")
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtUserName;
 
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPassword;
 
-	@FindBy(css = "button#login_button")
+	@FindBy(xpath = "//button[@class='Button'][normalize-space()='Sign in']")
 	private WebElement btnLogin;
 
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
@@ -213,6 +214,8 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputUserName(String userType) {
+		System.out.println("The user type Login Page "+userType);
+		
 		commonMethods.clearAndSendKeys(this.txtUserName,
 				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
 		log.info("entered user email for "+userType);
@@ -246,6 +249,7 @@ public class LoginPage extends CucumberRunner {
 		if (userType.equalsIgnoreCase("validuser")) {
 			this.inputUserName(browserFactory.getLanguage().toLowerCase()+userType);
 			this.inputPassword(browserFactory.getLanguage().toLowerCase()+userType);
+			
 		} else {
 			this.inputUserName(userType);
 			this.inputPassword(userType);

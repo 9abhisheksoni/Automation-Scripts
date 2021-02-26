@@ -46,85 +46,107 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	@FindBy(xpath = "//div[@class='PLPPage']/li[1]//a")
 	private WebElement lnkProduct;
 
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image' or @class='PLPPage']//a[@class='product photo product-item-photo' or @class]")
+	@FindBy(xpath = "//div[contains(@class,'Image_hasSrc')]/..")
 	private List<WebElement> lnksProduct;
 
-	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
+	@FindBy(xpath = "//div[@class='PLPFilters-ProductsCount']/span")
 	private WebElement lblSearchResultCount;
 
-	@FindBy(xpath = "//div[@data-tab='categories_without_path']/div")
+	@FindBy(xpath = "//div[2]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
 	private WebElement drpdwnCategoryGroupFilter;
 
-	@FindBy(xpath = "//div[@data-tab='size']/div")
+	@FindBy(xpath = "//div[7]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
 	private WebElement drpdwnSizeGroupFilter;
+	
+	@FindBy(xpath = "//div[7]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
+	private WebElement drpdwnSizeGroupFilterEU;
+	
+	@FindBy(xpath = "//div[8]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
+	private WebElement drpdwnSizeGroupFilterUK;
+	
+	@FindBy(xpath = "//div[9]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
+	private WebElement drpdwnSizeGroupFilterUS;
 
-	@FindBy(xpath = "//div[@data-tab='categories_without_path']//label")
+	@FindBy(xpath = "//li[1]//input[@name='categories_without_path']")
 	private WebElement chkCategoryGroupFirstFilter;
 
-	@FindBy(xpath = "(//div[@data-tab='categories_without_path']//label)[2]")
+	@FindBy(xpath = "//li[2]//input[@name='categories_without_path']")
 	private WebElement chkCategoryGroupSecondFilter;
 
-	@FindBy(xpath = "//div[@data-tab='size']//label")
+	@FindBy(xpath = "//li[1]//input[@name='size_eu']")
 	private WebElement chkSizeGroupFirstFilter;
 
-	@FindBy(xpath = "(//div[@data-tab='size']//label)[2]")
+	@FindBy(xpath = "//li[2]//input[@name='size_eu']")
 	private WebElement chkSizeGroupSecondFilter;
+	
+	@FindBy(xpath = "//li[1]//input[@name='size_uk']")
+	private WebElement chkSizeGroupFirstFilteruk;
+
+	@FindBy(xpath = "//li[2]//input[@name='size_uk']")
+	private WebElement chkSizeGroupSecondFilteruk;
+	
+	@FindBy(xpath = "//li[1]//input[@name='size_us']")
+	private WebElement chkSizeGroupFirstFilterus;
+
+	@FindBy(xpath = "//li[2]//input[@name='size_us']")
+	private WebElement chkSizeGroupSecondFilterus;
 
 	@FindBy(xpath = "//div[@data-tab='categories_without_path']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
 	private WebElement chkFirstCategoryFilterActive;
 
+	// need to check
 	@FindBy(xpath = "(//div[@data-tab='categories_without_path']//div[@class='ais-refinement-list--item ais-refinement-list--item__active'])[2]")
 	private WebElement chkSecondCategoryFilterActive;
 
 	@FindBy(xpath = "//div[@data-tab='size']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
 	private WebElement chkFirstSizeFilterActive;
 
-	@FindBy(xpath = "//div[@data-tab='sort-by']/div")
+	@FindBy(xpath = "//div[1]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
 	private WebElement drpdwnSortBy;
 
-	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_asc')]//label")
+	@FindBy(xpath = "//input[@id='price_lowsort']")
 	private WebElement optionPriceLowToHigh;
 
-	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_desc')]//label")
+	@FindBy(xpath = "//input[@id='price_highsort']")
 	private WebElement optionPriceHighToLow;
 
-	@FindBy(xpath = "//span[@class='price']")
+	@FindBy(xpath = "//span[@class='Price-Base']")
 	private List<WebElement> lblprice;
 
-	@FindBy(xpath = "//div[contains(@class,'list_wishlist')]")
+	@FindBy(xpath = "//div[@class='WishlistIcon']")
 	private WebElement iconWishlist;
 
-	@FindBy(xpath = "//div[contains(@class,'message-success')]")
+	@FindBy(xpath = "//div[@class='NotificationList']/div[contains(@class,'success')]")
 	private WebElement msgWishlistSuccess;
 
-	@FindBy(xpath = "//li[@class='active']/a")
+	@FindBy(xpath = "//div[contains(@class,'HeaderMainSection')]//button[contains(@class,'Button_isCurrentGender')]")
 	private WebElement lblFirstLevelActive;
 
-	@FindBy(xpath = "//ul[@class='main-categories first-level']/li[not(@class)]/a")
+	@FindBy(xpath = "//div[contains(@class,'HeaderMainSection')]//button[not(contains(@class,'Button_isCurrentGender'))]")
 	private WebElement lblFirstLevelInActive;
 
-	@FindBy(xpath = "//ul[@class='nav second-level men-section']/li[@class='second-sub']")
+	@FindBy(xpath = "//div[@class='MenuCategory-CategoryLink-Label']")
 	private WebElement lblSecondLevelCategory;
 
-	@FindBy(xpath = "(//li[@class='second-sub hover']//a[@data-level='second-level-item-1'])[2]")
+	@FindBy(xpath = "//div[@class='MenuGrid-ItemLabel']")
 	private WebElement lblThirdLevelCategory;
 
-	@FindBy(xpath = "//ul[@class='breadcrumb clearfix']/li")
+	@FindBy(xpath = "//li[@itemprop='itemListElement']")
 	private List<WebElement> lblBreadcrumb;
 
-	@FindBy(xpath = "//span[@id='you_searched_for']/following-sibling::h4")
+	@FindBy(xpath = "//p[@class='EmptySearch-Sorry']")
 	private WebElement msgNoSearchMsg;
 
-	@FindBy(xpath = "//div[@class='aa-dataset-suggestions']/div")
+	@FindBy(xpath = "//div[@class='SearchSuggestion-Content']//li")
 	private List<WebElement> lnkProductSuggestion;
 
-	@FindBy(xpath = "//div[contains(@data-tab,'price')]/div")
+	@FindBy(xpath = "//div[3]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
 	private WebElement drpdwnPriceRangeFilter;
 
-	@FindBy(xpath = "//input[@class='ais-refinement-list--radio']/..")
+	@FindBy(xpath = "//input[@class='PLPFilterOption-Input']/../label[not(contains(@for,'sort'))]")
 	private List<WebElement> chkTabbyPriceFilter;
 
 	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
@@ -136,10 +158,10 @@ public class SearchPage extends CucumberRunner {
 	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
 	private WebElement txtSpecialPrice;
 
-	@FindBy(xpath = "//div[@data-tab='discount']/div")
+	@FindBy(xpath = "//div[11]/div/button[contains(@class,'FieldMultiselect-FilterButton')]")
 	private WebElement drpDiscount;
 
-	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
+	@FindBy(xpath = "//input[@name='discount']")
 	private List<WebElement> radioDiscountOptions;
 
 	@FindBy(xpath = "//img[contains(@src,'404-image')]")
