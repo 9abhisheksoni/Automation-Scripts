@@ -40,22 +40,22 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 	@FindBy(xpath = "//a[contains(text(),'Consumer')]")
 	private WebElement lblConsumer;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-disclaimer page')]")
+	@FindBy(xpath = "//div[@class='disclaimer']")
 	private WebElement lblDisclaimer;
 		
-	@FindBy(xpath = "//body[contains(@class,'cms-privacy-policy')]")
+	@FindBy(xpath = "//div[@class='privacy-policy']")
 	private WebElement lblPrivacyPolicy;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-shipping-policy')]")
+	@FindBy(xpath = "//div[@class='shipping-policy']")
 	private WebElement lblShippingPolicy;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-return-information')]")
+	@FindBy(xpath = "//div[@class='return-information']")
 	private WebElement lblReturnInfo;
 	
 	@FindBy(xpath = "//input[@id='tracking_id']")
 	private WebElement txtTrackID;
 	
-	@FindBy(xpath = "//body[contains(@class,'cms-faq page')]")
+	@FindBy(xpath = "//div[@class='faq']")
 	private WebElement lblFAQs;	
 	
 	@FindBy(xpath = "//button[@class='action submit primary']")

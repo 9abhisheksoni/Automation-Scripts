@@ -32,6 +32,7 @@ public class HomePage extends CucumberRunner {
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil = new StringUtility();
+	FooterLinksRedirectPage footerLinks = new FooterLinksRedirectPage();
 	Config config = new Config();
 	SearchPage searchPage = new SearchPage();
 	SoftAssert softAssert = new SoftAssert();
@@ -165,6 +166,9 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//img[@class='img-responsive']")
 	private List<WebElement> lstOfferBanners;
 	
+	@FindBy(xpath = "//div[@class='CategoryItem-Content']")
+	private WebElement spinner;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -283,53 +287,53 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnAbout6thStreetFooterLink() {
-		commonMethods.click(lnkAbout6thStreet);
+		jsHelper.scrollIntoViewAndClick(lnkAbout6thStreet);
 		log.info("clicked About 6thstreet link in Footer");
 	}
 
 	public void clickOnConsumerRightsFooterLink() {
-		commonMethods.click(lnkConsumerRights);
+		jsHelper.scrollIntoViewAndClick(lnkConsumerRights);
 		log.info("clicked ConsumerRights link in Footer");
 	}
 
 	public void clickOnDisclaimerFooterLink() {
-		commonMethods.click(lnkDisclaimer);
+		jsHelper.scrollIntoViewAndClick(lnkDisclaimer);
 		log.info("clicked Disclaimer link in Footer");
 	}
 
 	public void clickOnPrivacyPolicyFooterLink() {
-		commonMethods.click(lnkPrivacyPolicy);
+		jsHelper.scrollIntoViewAndClick(lnkPrivacyPolicy);
 		log.info("clicked PrivacyPolicy link in Footer");
 	}
 
 	public void clickOnShippingInfoFooterLink() {
-		commonMethods.click(lnkShippingInfo);
+		jsHelper.scrollIntoViewAndClick(lnkShippingInfo);
 		log.info("clicked ShippingInfo link in Footer");
 	}
 
 	public void clickOnReturnInfoFooterLink() {
-		commonMethods.click(lnkReturnInfo);
+		jsHelper.scrollIntoViewAndClick(lnkReturnInfo);
 		log.info("clicked ReturnInfo link in Footer");
 	}
 
 	public void clickOnOrderTrackFooterLink() {
-		commonMethods.click(lnkOrderTrack);
+		jsHelper.scrollIntoViewAndClick(lnkOrderTrack);
 		log.info("clicked OrderTracking lnk in Footer");
 	}
 
 	public void clickOnFAQsFooterLink() {
-		commonMethods.click(lnkFAQs);
+		jsHelper.scrollIntoViewAndClick(lnkFAQs);
 		log.info("clicked FAQs link in Footer");
 	}
 
 	public void clickOnFeedbackFooterLink() {
-		commonMethods.click(lnkFeedback);
+		jsHelper.scrollIntoViewAndClick(lnkFeedback);
 		log.info("clicked Feedback link in Footer");
 	}
 
 	public void verifySupportPhoneAndEmail(String section) {
 		if (section.equalsIgnoreCase("Header")) {
-			commonMethods.click(divCustomerService);
+			commonMethods.moveToElementAndClick(divCustomerService);
 			this.verifyHeaderPhoneNumber();
 			this.verifyHeaderMailId();
 		} else if (section.equalsIgnoreCase("Footer")) {
@@ -443,4 +447,50 @@ public class HomePage extends CucumberRunner {
 			  }
 		}
 	}
+		
+		public void clickOnFooterLink(String footerLink){
+			waitHelper.staticWait(5000);
+			 if(footerLink.equalsIgnoreCase("About6thStreet")) {
+			    	clickOnAbout6thStreetFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("ConsumerRights")) {
+			    	clickOnConsumerRightsFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("Disclaimer")) {
+			    	clickOnDisclaimerFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("PrivacyPolicy")) {
+			    	clickOnPrivacyPolicyFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("ShippingInfo")) {
+			    	clickOnShippingInfoFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("ReturnInfo")) {
+			    	clickOnReturnInfoFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("OrderTrack")) {
+			    	clickOnOrderTrackFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("FAQs")) {
+			    	clickOnFAQsFooterLink();
+			    } else if(footerLink.equalsIgnoreCase("Feedback")) {
+			    	clickOnFeedbackFooterLink();
+			    }
+	}
+		
+		public void verifyFooterLanding(String landingPage){
+			if(landingPage.equalsIgnoreCase("About6thStreet")) {
+				footerLinks.verifyAbout6thStreetPage();
+		    } else if(landingPage.equalsIgnoreCase("ConsumerRights")) {
+		    	footerLinks.switchToConsumerRightsPage();
+		    	footerLinks.verifyConsumerRightsPage();
+		    } else if(landingPage.equalsIgnoreCase("Disclaimer")) {
+		    	footerLinks.verifyDisclaimerPage();
+		    } else if(landingPage.equalsIgnoreCase("PrivacyPolicy")) {
+		    	footerLinks.verifyPrivacyPolicyPage();
+		    } else if(landingPage.equalsIgnoreCase("ShippingPolicy")) {
+		    	footerLinks.verifyShippingPolicyPage();
+		    } else if(landingPage.equalsIgnoreCase("ReturnInfo")) {
+		    	footerLinks.verifyReturnInfoPage();
+		    } else if(landingPage.equalsIgnoreCase("OrderTracking")) {
+		    	footerLinks.verifyTrackingPage();
+		    } else if(landingPage.equalsIgnoreCase("FAQs")) {
+		    	footerLinks.verifyFAQsPage();
+		    } else if(landingPage.equalsIgnoreCase("Feedback")) {
+		    	footerLinks.verifyFeedbackPage();
+		    }
+		}
 }

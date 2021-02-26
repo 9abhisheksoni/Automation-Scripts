@@ -15,9 +15,9 @@ Feature: 6thStreet.com -  Header, Footer Validation
 		|ReturnInfo    |ReturnInfo    |
 		|OrderTrack    |OrderTracking |
 		|FAQs          |FAQs          |
-		|Feedback      |Feedback      |
+	#	|Feedback      |Feedback      |
 		
-		@Footer
+		@Footer @run
 		Scenario: TS_ContactSupport_02 - Verify whether correct customer support details are displayed or not
 		When user verifies the customer support details at Header and Footer
 		|Section|
