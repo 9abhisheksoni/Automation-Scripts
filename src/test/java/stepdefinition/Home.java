@@ -13,7 +13,7 @@ import pageObjects.SearchPage;
 
 public class Home {
 	HomePage homePage = new HomePage();
-	SearchPage searchPage=new SearchPage();
+	SearchPage searchPage = new SearchPage();
 	GenericHelper genericHelper = new GenericHelper();
 	SandboxCheckoutHomePage checkoutHomePage = new SandboxCheckoutHomePage();
 
@@ -24,7 +24,7 @@ public class Home {
 
 	@When("^user enters product name as \"([^\"]*)\" in search text box and click search icon$")
 	public void user_enters_product_name_as_in_search_text_box_and_click_search_icon(String productID) {
-		//homePage.clickHomeLogo();
+		// homePage.clickHomeLogo();
 		homePage.searchProduct(productID);
 	}
 
@@ -38,9 +38,9 @@ public class Home {
 		homePage.createAccount(firstName, lastName, email, pwd);
 
 	}
-	
+
 	@Then("^Create an account using valid details$")
-	public void create_an_account_using_valid_details()  {
+	public void create_an_account_using_valid_details() {
 		homePage.createAccount();
 	}
 
@@ -69,36 +69,33 @@ public class Home {
 		homePage.clickHomeLogo();
 	}
 
-	
 	@And("^user checks the \"([^\"]*)\" in the search")
 	public void user_checks_the_in_the_search(String special_price) {
 		homePage.evaluateSpecialPriceAtSearch(special_price);
 	}
-	
+
 	@And("^user clicks the wishlist link$")
 	public void user_clicks_the_wishlist_link() {
 		homePage.clickOnWishlistInHeader();
 	}
-	
+
 	@Then("^user checks the special_price in the search")
 	public void user_checks_the_special_price_in_the_search() {
 		homePage.evaluateSpecialPriceAtSearch();
 	}
 
-
-		
 	@When("^user verifies the customer support details at Header and Footer$")
-	public void user_verifies_the_customer_support_details_at_Header_and_Footer(DataTable section)  {
-		for(Map<String,String> sec:section.asMaps(String.class, String.class)) {
-			homePage.verifySupportPhoneAndEmail(sec.get("Section"));			
+	public void user_verifies_the_customer_support_details_at_Header_and_Footer(DataTable section) {
+		for (Map<String, String> sec : section.asMaps(String.class, String.class)) {
+			homePage.verifySupportPhoneAndEmail(sec.get("Section"));
 		}
 	}
-	
+
 	@When("^user clicks \"([^\"]*)\"$")
 	public void user_clicks(String category) {
 		homePage.clickLevel1Category(category);
 	}
-	
+
 	@When("^User clicks on main banner$")
 	public void user_clicks_on_main_banner() {
 		homePage.clickOnMainBanner();
@@ -106,13 +103,21 @@ public class Home {
 
 	@Then("^User should be landed to respective PLP$")
 	public void user_should_be_landed_to_respective_PLP() {
-		searchPage.verifyPLPIsDisplayed();  
+		searchPage.verifyPLPIsDisplayed();
 	}
-	
+
 	@When("^User clicks on banner and verifies respective PLP$")
-	public void user_clicks_on_banner_and_verifies_respective_PLP()  {
+	public void user_clicks_on_banner_and_verifies_respective_PLP() {
 		homePage.clickOnAllBannersAndVerifyPLP();
 	}
 
+	@When("^user clicks on \"([^\"]*)\" on L(\\d+)$")
+	public void user_clicks_on_on_L(String arg1, int arg2) {
 
+	}
+
+	@When("^hover on L One and validate all L Three link$")
+	public void hover_on_L1_and_validate_all_L3_link(int arg1, int arg2) {
+
+	}
 }
