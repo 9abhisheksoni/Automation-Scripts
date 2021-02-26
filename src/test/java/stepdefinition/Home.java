@@ -3,6 +3,7 @@ package stepdefinition;
 import java.util.Map;
 
 import commonHelper.GenericHelper;
+import commonHelper.WaitHelper;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;

@@ -6,6 +6,7 @@ Scenario Outline: TS_PDP_01:User should be able add product with size
 		And user clicks on product tile in result 
 		And user selects Country and Size
 		And user clicks on ADDTOBAG button
+		Then mini cart should be displayed
 	
 	Examples: 
 				|Product|
@@ -16,6 +17,7 @@ Scenario Outline: TS_PDP_02:User should be able add product without variations
  		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
 		And user clicks on ADDTOBAG button
+		Then mini cart should be displayed
 		
 	Examples: 
 				|Product|
@@ -27,6 +29,7 @@ Scenario Outline: TS_PDP_03:User should be able add product with color
 		And user clicks on product tile in result 
 		And user selects color
 		And user clicks on ADDTOBAG button
+		Then mini cart should be displayed
 	
 	Examples: 
 				|Product|
@@ -38,6 +41,7 @@ Scenario Outline: TS_PDP_04:User should be able add any product
 		And click on first valid product in search result
 		And user selects variation if available
 		And user clicks on ADDTOBAG button
+		Then mini cart should be displayed
 	
 	Examples: 
 				|searchTerm|

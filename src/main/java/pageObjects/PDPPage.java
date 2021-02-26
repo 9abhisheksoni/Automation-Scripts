@@ -2,16 +2,13 @@ package pageObjects;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.http.util.Asserts;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
@@ -42,31 +39,31 @@ public class PDPPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//select[@id='countrySize']")
+	@FindBy(xpath = "//select[contains(@class,'SizeTypeSelectElement')]")
 	private WebElement drpdwnCountry;
 
-	@FindBy(xpath = "//select[@id='countrySize']/parent::div/../..//select[@class='super-attribute-select']")
+	@FindBy(xpath = "//select[contains(@class,'SizeSelectElement')]")
 	private WebElement drpdwnSize;
 
-	@FindBy(xpath = "//button[@id='product-addtocart-button']")
+	@FindBy(xpath = "//button[contains(@class,'AddToCartButton')]")
 	private WebElement btnAddToBag;
 
-	@FindBy(xpath = "//div[@class='gallery-placeholder']")
+	@FindBy(xpath = "//div[contains(@class,'PDPGallery-Slider')]//img")
 	private WebElement imgProductTile;
 
-	@FindBy(xpath = "//span[@class='special-price eav-final']")
-	private WebElement txtSpcialPriceCart;
+	@FindBy(xpath = "//span[contains(@class,'Price-Special_discount')]")
+	private WebElement txtSpcialPrice;
 
-	@FindBy(xpath = "//span[@class='regular-price eav-regular']")
-	private WebElement txtRegularPriceCart;
+	@FindBy(xpath = "//span[contains(@class,'Price-Base')]")
+	private WebElement txtRegularPrice;
 
-	@FindBy(xpath = "//div[@class='priceInstaDiv']")
+	@FindBy(xpath = "//button[@class='PDPSummary-Tabby']")
 	private WebElement txtTabbyPriceDivison;
 
-	@FindBy(xpath = "//div[@id='tabby-promo']")
+	@FindBy(xpath = "//div[@class='TabbyMiniPopup-Content']")
 	private WebElement txtTabbyPromo;
 
-	@FindBy(xpath = "//span[@id='tabby-promo-close']")
+	@FindBy(xpath = "//button[@class='TabbyMiniPopup-CloseBtn']")
 	private WebElement btnTabbyPromoClose;
 
 	@FindBy(xpath = "//button[@class='action primary checkout']")
@@ -74,8 +71,11 @@ public class PDPPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='swatch-option color']")
 	private WebElement btnSelectColor;
+	
+	@FindBy(xpath = "//div[@class='PDPSummary-ProductColorBlock']")
+	private WebElement txtColorMsg;
 
-	@FindBy(xpath = "//span[contains(@class,'product_name')]")
+	@FindBy(xpath = "//p[@class='PDPSummary-Name']")
 	private WebElement msgProductName;
 
 	@FindBy(xpath = "//span[@class='price eav-regular']")
@@ -127,16 +127,16 @@ public class PDPPage extends CucumberRunner {
 		String[] priceStr, priceStrTabby;
 		double priceDob = 0.0, priceDobTabby = 0.0, priceDobDiv = 0.0;
 		if (commonMethods.isElementPresent(txtTabbyPriceDivison)) {
-			if (commonMethods.isElementPresent(txtSpcialPriceCart)) {
+			if (commonMethods.isElementPresent(txtSpcialPrice)) {
 				log.info("special price");
 
-				priceStr = commonMethods.getText(txtSpcialPriceCart).split(" ");
+				priceStr = commonMethods.getText(txtSpcialPrice).split(" ");
 
 				priceDob = Double.parseDouble(priceStr[1]);
 
 			} else {
 				log.info("Regular price");
-				priceStr = commonMethods.getText(txtRegularPriceCart).split(" ");
+				priceStr = commonMethods.getText(txtRegularPrice).split(" ");
 				priceDob = Double.parseDouble(priceStr[1]);
 			}
 
@@ -181,7 +181,7 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void chooseSize() {
-		int count=0;
+		int count = 0;
 		List<String> availableSizes = commonMethods.getAllDropDownValues(drpdwnSize);
 		for (String currentSize : availableSizes) {
 			if (!currentSize.contains(" ")) {
@@ -198,7 +198,7 @@ public class PDPPage extends CucumberRunner {
 				break;
 			}
 		}
-		if(count==0) {
+		if (count == 0) {
 			commonMethods.SelectUsingIndex(drpdwnSize, 1);
 		}
 	}
@@ -217,14 +217,14 @@ public class PDPPage extends CucumberRunner {
 
 	public void chooseColor() {
 		waitHelper.waitForElementVisible(imgProductTile);
-		if (!commonMethods.getAttribute(btnSelectColor,"class").contains("selected")) {
+		System.out.println("--------------------"+commonMethods.getText(txtColorMsg));
+		if (!commonMethods.getAttribute(btnSelectColor, "class").contains("selected")) {
 			commonMethods.click(btnSelectColor);
 		}
 		log.info("Selected the color");
 	}
 
 	public void verifyPDPDisplayed() {
-		waitHelper.waitForElementVisible(msgProductName);
 		Assert.assertTrue(genericHelper.isDisplayed(msgProductName));
 		log.info("user is on PDP");
 	}
@@ -291,8 +291,7 @@ public class PDPPage extends CucumberRunner {
 	public void evaluateSpecialPriceAtPDP() {
 		log.info("Comparing the special displaying at PDP with the actual values");
 		log.info("The global special price is " + searchPage.globalSpecialPrice);
-		assertEquals(getSpecialPricePDP(), searchPage.globalSpecialPrice,
-				"The special_price is matching at PDP");
+		assertEquals(getSpecialPricePDP(), searchPage.globalSpecialPrice, "The special_price is matching at PDP");
 	}
 
 }

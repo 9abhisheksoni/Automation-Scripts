@@ -73,4 +73,9 @@ public class Cart {
 		cartPage.evaluateSpecialPriceAtCart();
 		cartPage.evaluateSpecialPriceAtSubtotal();
 	}
+	
+	@Then("^mini cart should be displayed$")
+	public void mini_cart_should_be_displayed() {
+		cartPage.isMiniCartVisible();
+	}
 }

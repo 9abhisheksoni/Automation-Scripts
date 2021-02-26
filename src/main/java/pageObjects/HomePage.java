@@ -50,9 +50,6 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//input[@id='search-field']")
 	private WebElement txtSearchProduct;
 
-	@FindBy(xpath = "//div[@class='DynamicContentFullWidthBannerSlider' or @class='category_banner clearfix']//img[@class='Image-Image']")
-	private WebElement bannerHomePage;
-
 	@FindBy(xpath = "//a[@class=' HeaderLogo']//img")
 	private WebElement imgHomeLogo;
 
@@ -147,8 +144,6 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'kids')]/button")
 	private WebElement lnkKids;
 
-	/////////
-
 	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
 
@@ -180,13 +175,12 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void verifyHomePageDisplayed() {
-		Assert.assertTrue(genericHelper.isDisplayed(bannerHomePage));
+		Assert.assertTrue(genericHelper.isDisplayed(imgHeroBanner));
 		log.info("home page is loaded");
 	}
 
 	public void waitForBannerLoading() {
-		waitHelper.waitForElementVisible(imgHomeLogo);
-		waitHelper.staticWait(3000);
+		waitHelper.waitForElementVisible(imgHeroBanner);
 		log.info("home page is banner loaded");
 	}
 
@@ -218,6 +212,7 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void typeInSearchField(String product) {
+		commonMethods.moveToElementAndClick(txtSearchProduct);
 		commonMethods.clearAndSendKeys(txtSearchProduct, product);
 		log.info("Entering text in Search field");
 	}
@@ -233,7 +228,8 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnFirstItemSearchResult() {
-		commonMethods.moveToElementAndClick(FirstSearchEle);
+		waitHelper.waitForElementVisible(FirstSearchEle);
+		commonMethods.clickUsingJS(FirstSearchEle);
 		log.info("First Search element clicked");
 	}
 
@@ -385,10 +381,8 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnMainBanner() {
-		// waitHelper.waitForElementToBeClickable(bannerHomePage);
-		waitHelper.staticWait(5000);
-		waitHelper.waitForElementVisible(bannerHomePage);
-		commonMethods.click(bannerHomePage);
+		waitHelper.waitForElementVisible(imgHeroBanner);
+		commonMethods.click(imgHeroBanner);
 		log.info("clicked Main banner");
 	}
 

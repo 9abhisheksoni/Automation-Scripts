@@ -45,19 +45,19 @@ public class LoginPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//span[@class='login-label']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement labelLoginOrRegister;
 
-	@FindBy(xpath = "//input[@name='username']")
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtUserName;
 
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPassword;
 
-	@FindBy(css = "button#login_button")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isSignInValidated')]/button")
 	private WebElement btnLogin;
 
-	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement lblCustomerName;
 
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
@@ -226,18 +226,13 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clickLoginButton() {
-		commonMethods.click(btnLogin);
+		commonMethods.moveToElementAndClick(btnLogin);
 		log.info("login button clicked");
-		waitHelper.staticWait(10);
-		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
-			commonMethods.refresh();
-		}
 	}
 
 	public void verifyLogin() {
 		waitHelper.staticWait(3000);
-		commonMethods.refresh();
-		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
+		Assert.assertFalse(commonMethods.getText(lblCustomerName).contains("/"));
 		log.info("login is successfull");
 	}
 
