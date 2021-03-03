@@ -53,7 +53,7 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@id='top-cart-btn-checkout']")
 	private WebElement btnMiniCartCheckout;
 
-	@FindBy(xpath = "//a[@class='action viewcart view_bag']")
+	@FindBy(xpath = "//a[@class=' CartOverlay-CartButton']")
 	private WebElement btnMiniCartViewBag;
 	
 	@FindBy(xpath = "//div[contains(@class,'CartOverlay') and contains(@class,'Overlay_isVisible')]")
@@ -299,5 +299,10 @@ public class CartPage extends CucumberRunner {
 	public void isMiniCartVisible() {
 		log.info("Verifying whether minicart is displayed");
 		Assert.assertTrue("minicart didnt appear",genericHelper.isDisplayed(miniCartViewBag));
+	}
+	
+	public void clickOnViewBag() {
+		log.info("Clicking View Bag In Mini Cart");
+		
 	}
 }

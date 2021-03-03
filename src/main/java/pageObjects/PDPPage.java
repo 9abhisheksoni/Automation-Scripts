@@ -204,7 +204,6 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void addAnyProduct() {
-		waitHelper.waitForSpinnerInvisibility();
 		if (commonMethods.isElementPresent(drpdwnCountry) && commonMethods.isElementPresent(drpdwnSize)) {
 			this.selectSizeCountry();
 			this.chooseSize();
@@ -217,7 +216,6 @@ public class PDPPage extends CucumberRunner {
 
 	public void chooseColor() {
 		waitHelper.waitForElementVisible(imgProductTile);
-		System.out.println("--------------------"+commonMethods.getText(txtColorMsg));
 		if (!commonMethods.getAttribute(btnSelectColor, "class").contains("selected")) {
 			commonMethods.click(btnSelectColor);
 		}

@@ -11,6 +11,7 @@ public class Cart {
 
 	@When("^user navigates to shopping bag page and clicks on proceedToCheckout button$")
 	public void user_navigates_to_shopping_bag_page_and_clicks_on_proceedToCheckout_button() {
+		cartPage.clickOnViewBag();
 		cartPage.clickCheckout();
 	}
 

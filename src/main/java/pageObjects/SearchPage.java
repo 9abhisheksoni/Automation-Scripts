@@ -88,9 +88,12 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//input[@type='radio' and @id='price_highsort']")
 	private WebElement optionPriceHighToLow;
+	
+	@FindBy(xpath = "//span[not(contains(@class,'Price-Base_discount'))]/span[@class='Price-Currency']/..")
+	private WebElement lblprice;
 
 	@FindBy(xpath = "//span[not(contains(@class,'Price-Base_discount'))]/span[@class='Price-Currency']/..")
-	private List<WebElement> lblprice;
+	private List<WebElement> lblprices;
 
 	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon')]")
 	private WebElement iconWishlist;
@@ -332,13 +335,17 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickFirstValidInResult() {
 		int index = 0;
-		for (int i = 0; i < lblprice.size(); i++) {
-			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				index = i;
-				break;
+		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
+			commonMethods.click(lnkProduct);
+		} else {
+			for (int i = 0; i < lblprices.size(); i++) {
+				if (this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0) {
+					index = i;
+					break;
+				}
 			}
+			commonMethods.click(lnksProduct.get(index));
 		}
-		commonMethods.click(lnksProduct.get(index));
 		log.info("clicked valid product on PLP");
 	}
 
@@ -421,10 +428,10 @@ public class SearchPage extends CucumberRunner {
 		List<Float> prices = new ArrayList<Float>();
 		waitHelper.waitForElementVisible(lnkProduct);
 		waitHelper.staticWait(3000);
-		for (WebElement temp : lblprice) {
+		for (WebElement temp : lblprices) {
 			float price = this.getPriceFromText(temp.getText());
 			prices.add(price);
-		}		
+		}
 		log.info("The Price From PLP Collected Are " + prices);
 		return prices;
 	}
