@@ -8,8 +8,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user selects variation if available
 		And user clicks on ADDTOBAG button 
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+		And User clicks on Guestlogin button
 		And User login as guest user "tempUser" 
-		And User clicks on Guestlogin button 
 		And user submits the valid details for shipping address
 		And user selects payment option as "COD"  
 		And user clicks on place order button 
@@ -38,8 +38,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And user selects variation if available 
 #		And user clicks on ADDTOBAG button 
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+#		And User clicks on Guestlogin button
 #		And User login as guest user "tempUser" 
-#		And User clicks on Guestlogin button 
 #		And user enters the valid details for shipping address
 #		And user selects payment option as "CC_VISA"  
 #		And user clicks on place order button 
@@ -68,8 +68,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And user selects variation if available
 #		And user clicks on ADDTOBAG button 
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+#		And User clicks on Guestlogin button
 #		And User login as guest user "tempUser" 
-#		And User clicks on Guestlogin button 
 #		And user submits the valid details for shipping address
 #		And user selects payment option as "CC_Master"  
 #		And user clicks on place order button 
@@ -98,8 +98,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And user selects variation if available
 #		And user clicks on ADDTOBAG button 
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+#		And User clicks on Guestlogin button
 #		And User login as guest user "tempUser" 
-#		And User clicks on Guestlogin button 
 #		And user submits the valid details for shipping address
 #		And user selects payment option as "CC_Amex"  
 #		And user clicks on place order button 
@@ -130,8 +130,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And user selects variation if available 
 #		And user clicks on ADDTOBAG button 
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+#		And User clicks on Guestlogin button
 #		And User login as guest user "tempUser" 
-#		And User clicks on Guestlogin button 
 #		And user enters the valid details for shipping address
 #		And user selects payment option as "TabbyPayInInstallments" 
 #		And user clicks on place order button 
@@ -164,8 +164,8 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And user selects variation if available
 #		And user clicks on ADDTOBAG button 
 #		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+#		And User clicks on Guestlogin button
 #		And User login as guest user "tempUser" 
-#		And User clicks on Guestlogin button 
 #		And user submits the valid details for shipping address
 #		And user selects payment option as "TabbyPayLater" 
 #		And user clicks on place order button 

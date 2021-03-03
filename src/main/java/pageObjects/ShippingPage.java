@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -50,19 +51,16 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//input[@id='street']")
 	private WebElement txtStreetAddress;
 
-	@FindBy(xpath = "//select[@name='city']")
+	@FindBy(id = "city")
 	private WebElement drpdwnCity;
 
-	@FindBy(xpath = "//select[@id='region_string']")
+	@FindBy(id = "region_id")
 	private WebElement drpdwnArea;
-
-	@FindBy(xpath = "//select[@name='cn_carriercode']")
-	private WebElement drpdwnCarrierCode;
 
 	@FindBy(xpath = "//input[@id='telephone']")
 	private WebElement txtPhoneNumber;
 
-	@FindBy(xpath = "//button[@class='button action continue primary']")
+	@FindBy(xpath = "//div[@class='CheckoutShippingStep-DeliveryButton']/button")
 	private WebElement btnDeliverToAddress;
 
 	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
@@ -133,21 +131,23 @@ public class ShippingPage extends CucumberRunner {
 
 	public void selectCity(String country) {
 		log.info("City is Value " + json.getCity(country));
+		waitHelper.staticWait(5000);
+//		commonMethods.moveToElementAndClick(drpdwnCity);
+//		WebElement ele = browserFactory.getDriver().findElement(By.xpath("//option[@value='"+json.getCity(country)+"']"));
+//		commonMethods.clickUsingJS(ele);
 		commonMethods.SelectUsingValue(drpdwnCity, json.getCity(country));
 		log.info("City is selected");
 	}
 
 	public void selectArea(String country) {
-		waitHelper.waitForElementVisible(drpdwnArea);
-		waitHelper.staticWait(1000);
+		waitHelper.staticWait(5000);
+//		WebElement ele = browserFactory.getDriver().findElement(By.xpath("//option[@value='"+json.getArea(country)+"']"));
+//		commonMethods.moveToElementAndClick(drpdwnArea);
+//		commonMethods.clickUsingJS(ele);
 		commonMethods.SelectUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
 
-	public void selectCarrierCode(String country) {
-		commonMethods.SelectUsingValue(drpdwnCarrierCode, json.getCareerCode(country));
-		log.info("Carrier Code is selected");
-	}
 
 	public void enterPhoneNumber(String country) {
 		commonMethods.clearAndSendKeys(txtPhoneNumber, json.getContactnumber(country));
@@ -218,7 +218,6 @@ public class ShippingPage extends CucumberRunner {
 		this.enterAddress(country);
 		this.selectCity(country);
 		this.selectArea(country);
-		this.selectCarrierCode(country);
 		this.enterPhoneNumber(country);
 	}
 

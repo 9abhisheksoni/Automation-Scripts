@@ -109,17 +109,6 @@ public class CartPage extends CucumberRunner {
 	 **/
 
 	public void clickCheckout() {
-
-		try {
-			waitHelper.waitForElementVisible(lblSubTotal);
-		} catch (Exception e) {
-			try {
-				waitHelper.waitForElementVisible(lblLinkCa);
-			} catch (Exception excep) {
-				waitHelper.waitForElementVisible(lblTax);
-			}
-		}
-
 		commonMethods.click(btnCheckout);
 		log.info("clicked checkout button in cart page");
 	}
@@ -306,6 +295,6 @@ public class CartPage extends CucumberRunner {
 	
 	public void clickOnViewBag() {
 		log.info("Clicking View Bag In Mini Cart");
-		commonMethods.click(btnMiniCartViewBag);
+		commonMethods.moveToElementAndClick(btnMiniCartViewBag);
 	}
 }

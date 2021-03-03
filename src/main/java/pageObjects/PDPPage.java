@@ -113,11 +113,9 @@ public class PDPPage extends CucumberRunner {
 	}
 
 	public void clickAddToBag() {
-		// commonMethods.click(btnAddToBag);
-		// jsHelper.scrollIntoViewAndClick(btnAddToBag);
-		commonMethods.sendKeys(btnAddToBag, Keys.ENTER);
+		commonMethods.moveToElementAndClick(btnAddToBag);
 		log.info("clicked on add to bag");
-		waitHelper.waitForElementVisible(btnCheckout);
+		new CartPage().isMiniCartVisible();
 	}
 
 	/**

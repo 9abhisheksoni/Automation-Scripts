@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import com.google.common.collect.Ordering;
@@ -32,6 +33,13 @@ public class SearchPage extends CucumberRunner {
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private SoftAssert softAssert = new SoftAssert();
+	
+	/**
+	 * Constructor to initialize page objects
+	 **/
+	public SearchPage() {
+		PageFactory.initElements(browserFactory.getDriver(), this);
+	}
 
 	/**
 	 * WebElement declaration starts here
@@ -328,9 +336,9 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickFirstValidInResult() {
 		int index = 0;
-		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
-			commonMethods.click(lnkProduct);
-		} else {
+	//	if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
+			commonMethods.moveToElementAndClick(lnkProduct);
+		/*} else {
 			for (int i = 0; i < lblprices.size(); i++) {
 				if (this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0) {
 					index = i;
@@ -338,7 +346,7 @@ public class SearchPage extends CucumberRunner {
 				}
 			}
 			commonMethods.click(lnksProduct.get(index));
-		}
+		}*/
 		log.info("clicked valid product on PLP");
 	}
 

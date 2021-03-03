@@ -63,10 +63,10 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
 	private WebElement lblCurrentCountry;
 
-	@FindBy(css = "#customer-email")
+	@FindBy(css = "#guest_email")
 	private WebElement txtGuestEmail;
 
-	@FindBy(xpath = "//button[@class='action login primary button-guest']")
+	@FindBy(xpath = "//div[@class='Checkout-GuestButton']/button/span")
 	private WebElement btnContinueAsGuest;
 
 	@FindBy(xpath = "//input[@name='email']")
