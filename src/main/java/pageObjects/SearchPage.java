@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import com.google.common.collect.Ordering;
@@ -33,13 +32,6 @@ public class SearchPage extends CucumberRunner {
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private SoftAssert softAssert = new SoftAssert();
-
-	/**
-	 * Constructor to initialize page objects
-	 **/
-	public SearchPage() {
-		PageFactory.initElements(browserFactory.getDriver(), this);
-	}
 
 	/**
 	 * WebElement declaration starts here
@@ -146,6 +138,7 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * WebElement declaration ends here
 	 **/
+
 
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);

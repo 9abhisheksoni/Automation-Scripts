@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
@@ -33,72 +34,74 @@ public class CartPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//tr[@class='totals shipping excl' or @class='totals-tax']")
+	@FindBy(xpath = "//div/li[2]/Strong[@class='CartPage-Text']")
 	private WebElement lblOrderSummary;
 
 	// added element
-	@FindBy(xpath = "//span[contains(text(),'Link your Club Apparel account to earn')]")
+	@FindBy(xpath = "//div[@class= 'CartPage-ClubApparelText']")
 	private WebElement lblLinkCa;
 
 	@FindBy(xpath = "//tr[@class='totals-tax']")
 	private WebElement lblTax;
 
-	@FindBy(xpath = "//tr[@class='totals sub']")
+	@FindBy(xpath = "//div[@class='CartPage-Subtotals']/li[1]/Strong[@class='CartPage-Text']")
 	private WebElement lblSubTotal;
 	//
 
-	@FindBy(xpath = "//button[@class='action primary checkout']")
+	@FindBy(xpath = "//button[contains(@class,'CartPage-CheckoutButton')]")
 	private WebElement btnCheckout;
 
-	@FindBy(xpath = "//button[@id='top-cart-btn-checkout']")
+	@FindBy(xpath = "//button[@class='CartOverlay-CheckoutButton']")
 	private WebElement btnMiniCartCheckout;
 
-	@FindBy(xpath = "//a[@class=' CartOverlay-CartButton']")
+	@FindBy(xpath = "//a[contains(@class,'CartOverlay-CartButton')]")
 	private WebElement btnMiniCartViewBag;
-	
-	@FindBy(xpath = "//div[contains(@class,'CartOverlay') and contains(@class,'Overlay_isVisible')]")
-	private WebElement miniCartViewBag;
 
-	@FindBy(xpath = "//span[@id='minicart-counter']")
+	@FindBy(xpath = "//div[@class='HeaderCart-Count']")
 	public WebElement lblCartCount;
 
-	@FindBy(xpath = "//span[@class='cart_icon']")
+	@FindBy(xpath = "//button[@class='HeaderCart-Button']")
 	private WebElement iconCart;
 
-	@FindBy(xpath = "//div[@class='remove_cart']//span[@class='cart_icon_remove']")
+	@FindBy(xpath = "//button[@id='RemoveItem']")
 	private List<WebElement> iconRemove;
 
-	@FindBy(xpath = "//div[@class='cart-empty_icon']")
+	@FindBy(xpath = "//div[@class='CartPage-EmptyCartIcon']")
 	private WebElement iconEmptyCart;
 
-	@FindBy(xpath = "//select[contains(@class,'change-cart-qty')]")
+	// now it is displayed as + and - instead of drop down
+	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[1]")
 	private WebElement drpdwnQTY;
+	
+	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[2]")
+	private WebElement btnMinusQTY;
 
 	@FindBy(xpath = "//div[@class='block discount']")
 	private WebElement drawCouponDrawer;
 
-	@FindBy(xpath = "//input[@id='coupon_code']")
+	@FindBy(xpath = "//input[@id='couponCode']")
 	private WebElement txtCouponCode;
 
-	@FindBy(xpath = "//button[@value='Apply Discount']")
+	@FindBy(xpath = "//button[@class='CartCoupon-Button Button']")
 	private WebElement btnApplyDiscount;
 
-	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
+	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
 	private WebElement lblSubTotalAmount;
 
+	// need to change for the below one
 	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
 	private WebElement lblDiscountAmount;
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgSuccess;
 
-	@FindBy(xpath = "//span[@class='old-price']")
+	@FindBy(xpath = "//div[@class='CartItem-Price']/div/div/span")
 	private WebElement txtBasePrice;
 
-	@FindBy(xpath = "//span[@class='special-price']//span[@class='price']")
+	@FindBy(xpath = "//div[@class='CartItem-DiscountPrice']/span")
 	private WebElement txtSpecialPrice;
 
-	@FindBy(xpath = "//span[@data-th='Subtotal']")
+	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
 	private WebElement txtSpecialPriceAtSubtotal;
 
 	/**
@@ -298,11 +301,11 @@ public class CartPage extends CucumberRunner {
 
 	public void isMiniCartVisible() {
 		log.info("Verifying whether minicart is displayed");
-		Assert.assertTrue("minicart didnt appear",genericHelper.isDisplayed(miniCartViewBag));
+		Assert.assertTrue("minicart didnt appear",genericHelper.isDisplayed(btnMiniCartViewBag));
 	}
 	
 	public void clickOnViewBag() {
 		log.info("Clicking View Bag In Mini Cart");
-		
+		commonMethods.click(btnMiniCartViewBag);
 	}
 }

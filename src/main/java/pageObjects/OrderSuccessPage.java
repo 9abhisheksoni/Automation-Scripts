@@ -41,13 +41,13 @@ public class OrderSuccessPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='checkout-success']/div[@class='title']")
 	private WebElement msgthankYou;
 
-	@FindBy(xpath = "//div[@class='order-number']")
+	@FindBy(xpath = "//div[@class='TotalItems-OrderId']")
 	private WebElement msgordernumber;
 
-	@FindBy(xpath = "//a[@class='check_button']")
+	@FindBy(xpath = "//button[normalize-space()='Continue shopping']")
 	private WebElement btncontinueShopping;
 
-	@FindBy(xpath = "//div[@class='box-order-billing-method']//div[@class='box-content']")
+	@FindBy(xpath = "//div[@class='Details-TypeTitle']")
 	private WebElement msgpaymentMethod;
 
 	@FindBy(xpath = "//div[@class='Payments__paymentsTable--ee1']//tbody//tr//td//span")
