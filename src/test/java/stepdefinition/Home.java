@@ -112,13 +112,4 @@ public class Home {
 		homePage.clickOnAllBannersAndVerifyPLP();
 	}
 
-	@When("^user clicks on \"([^\"]*)\" on L(\\d+)$")
-	public void user_clicks_on_on_L(String arg1, int arg2) {
-
-	}
-
-	@When("^hover on L One and validate all L Three link$")
-	public void hover_on_L1_and_validate_all_L3_link(int arg1, int arg2) {
-
-	}
 }
