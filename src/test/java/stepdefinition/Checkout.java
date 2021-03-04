@@ -35,7 +35,6 @@ public class Checkout {
 
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
-		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("COD")) {
 			paymentPage.payUsingCOD();
 		} else if (payment.equalsIgnoreCase("CC_VISA")) {
@@ -45,12 +44,11 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("CC_AMEX")) {
 			paymentPage.payUsingCreditCard("amex");
 		} else if (payment.equalsIgnoreCase("TabbyPayLater")) {
-			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayLater();
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
-			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
+		waitHelper.staticWait(3000);
 
 	}
 

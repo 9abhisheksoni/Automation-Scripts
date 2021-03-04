@@ -38,16 +38,16 @@ public class OrderSuccessPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div[@class='checkout-success']/div[@class='title']")
+	@FindBy(xpath = "//div[@class='SuccessMessage-Text-Message']")
 	private WebElement msgthankYou;
 
 	@FindBy(xpath = "//div[@class='TotalItems-OrderId']")
 	private WebElement msgordernumber;
 
-	@FindBy(xpath = "//button[normalize-space()='Continue shopping']")
+	@FindBy(xpath = "//a[@class=' CheckoutSuccess-ContinueButton']/button")
 	private WebElement btncontinueShopping;
 
-	@FindBy(xpath = "//div[@class='Details-TypeTitle']")
+	@FindBy(xpath = "//div[@class='PaymentType']//div[@class='Details-TypeTitle']")
 	private WebElement msgpaymentMethod;
 
 	@FindBy(xpath = "//div[@class='Payments__paymentsTable--ee1']//tbody//tr//td//span")
@@ -97,9 +97,7 @@ public class OrderSuccessPage extends CucumberRunner {
 	}
 
 	public void controlT() {
-
 		commonMethods.keyPressControlTab();
-
 	}
 
 	public void launchURL(String merchantURL) {

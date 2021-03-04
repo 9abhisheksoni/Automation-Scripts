@@ -598,4 +598,10 @@ public class CommonMethods extends CucumberRunner {
 		}
 	}
 
+	public void SelectJSUsingValue(WebElement element, String value) {
+		((JavascriptExecutor)browserFactory.getDriver()).executeScript("arguments[0].value='"+value+"';", element);
+		((JavascriptExecutor)browserFactory.getDriver()).executeScript("var evt = document.createEvent('HTMLEvents');evt.initEvent('change',true,true);arguments[0].dispatchEvent(evt);",element);
+		log.info("selected drppdown using value "+value);
+	}
+
 }

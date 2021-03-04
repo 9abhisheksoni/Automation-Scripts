@@ -14,36 +14,36 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		And user selects payment option as "COD"  
 		And user clicks on place order button 
 		Then Order placing should be successful
-		And user clicks on my account top menu
-		When user selects order history option 
-		Then verify order status in history to be "Processing" 
-		And click on view order 
-		Then Verify order status in details to be "Processing" 
-		Then Verify order payment in details to be "Cash on delivery"
-		And User cancels the Order
-		And user clicks on my account top menu
-		When user selects order history option
-		Then verify order status in history to be "Cancelled" 
-		And click on view order
-		Then Verify order status in details to be "Cancelled" 
-	  
+#		And user clicks on my account top menu
+#		When user selects order history option 
+#		Then verify order status in history to be "Processing" 
+#		And click on view order 
+#		Then Verify order status in details to be "Processing" 
+#		Then Verify order payment in details to be "Cash on delivery"
+#		And User cancels the Order
+#		And user clicks on my account top menu
+#		When user selects order history option
+#		Then verify order status in history to be "Cancelled" 
+#		And click on view order
+#		Then Verify order status in details to be "Cancelled" 
+#	  
 		Examples: 
 				|Product|
 				|Shoes|
 		
-#	@CreditCardPayment @Regression
-#	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
-#		And user enters product name as "<Product>" in search text box and click search icon 
-#		And click on first valid product in search result
-#		And user selects variation if available 
-#		And user clicks on ADDTOBAG button 
-#		And user navigates to shopping bag page and clicks on proceedToCheckout button 
-#		And User clicks on Guestlogin button
-#		And User login as guest user "tempUser" 
-#		And user enters the valid details for shipping address
-#		And user selects payment option as "CC_VISA"  
-#		And user clicks on place order button 
-#		Then Order placing should be successful 
+	@CreditCardPayment @Regression
+	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
+		And user enters product name as "<Product>" in search text box and click search icon 
+		And click on first valid product in search result
+		And user selects variation if available 
+		And user clicks on ADDTOBAG button 
+		And user navigates to shopping bag page and clicks on proceedToCheckout button 
+		And User clicks on Guestlogin button
+		And User login as guest user "tempUser" 
+		And user enters the valid details for shipping address
+		And user selects payment option as "CC_VISA"  
+		And user clicks on place order button 
+		Then Order placing should be successful 
 #		And user clicks on my account top menu
 #		When user selects order history option 
 #		Then verify order status in history to be "Payment_success" 
@@ -57,9 +57,9 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		And click on view order
 #		Then Verify order status in details to be "Cancelled"
 #
-#		Examples: 
-#				|Product|
-#				|Shoes|
+		Examples: 
+				|Product|
+				|Shoes|
 #		
 #	@CreditCardPayment @Regression 
 #	Scenario Outline: TS_GuestCheckout_03 - Guest User of 6thstreet.com site should be able to place order using master card 
@@ -90,7 +90,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		Examples: 
 #				|Product|
 #				|Shoes|
-#		
+#	
 #	@CreditCardPayment @Regression
 #	Scenario Outline: TS_GuestCheckout_04 - Guest User of 6thstreet.com site should be able to place order using amex card 
 #		And user enters product name as "<Product>" in search text box and click search icon 
@@ -120,7 +120,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		Examples: 
 #				|Product|
 #				|Shoes|
-#		
+		
 #	@TabbyPayInInstallments @Regression 
 #	Scenario Outline: TS_GuestCheckout_05 - Guest User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 #		And user enters product name as "<Product>" in search text box and click search icon 
@@ -150,7 +150,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 #		Then verify order status in history to be "Cancelled" 
 #		And click on view order
 #		Then Verify order status in details to be "Cancelled"
-#			
+		
 #		Examples: 
 #				|Product|
 #				|Shoes|

@@ -130,21 +130,12 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void selectCity(String country) {
-		log.info("City is Value " + json.getCity(country));
-		waitHelper.staticWait(5000);
-//		commonMethods.moveToElementAndClick(drpdwnCity);
-//		WebElement ele = browserFactory.getDriver().findElement(By.xpath("//option[@value='"+json.getCity(country)+"']"));
-//		commonMethods.clickUsingJS(ele);
-		commonMethods.SelectUsingValue(drpdwnCity, json.getCity(country));
+		commonMethods.SelectJSUsingValue(drpdwnCity, json.getCity(country));
 		log.info("City is selected");
 	}
 
 	public void selectArea(String country) {
-		waitHelper.staticWait(5000);
-//		WebElement ele = browserFactory.getDriver().findElement(By.xpath("//option[@value='"+json.getArea(country)+"']"));
-//		commonMethods.moveToElementAndClick(drpdwnArea);
-//		commonMethods.clickUsingJS(ele);
-		commonMethods.SelectUsingValue(drpdwnArea, json.getArea(country));
+		commonMethods.SelectJSUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
 
