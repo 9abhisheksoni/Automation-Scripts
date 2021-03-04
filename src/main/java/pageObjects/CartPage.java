@@ -34,19 +34,9 @@ public class CartPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div/li[2]/Strong[@class='CartPage-Text']")
-	private WebElement lblOrderSummary;
 
-	// added element
 	@FindBy(xpath = "//div[@class= 'CartPage-ClubApparelText']")
 	private WebElement lblLinkCa;
-
-	@FindBy(xpath = "//tr[@class='totals-tax']")
-	private WebElement lblTax;
-
-	@FindBy(xpath = "//div[@class='CartPage-Subtotals']/li[1]/Strong[@class='CartPage-Text']")
-	private WebElement lblSubTotal;
-	//
 
 	@FindBy(xpath = "//button[contains(@class,'CartPage-CheckoutButton')]")
 	private WebElement btnCheckout;
@@ -68,27 +58,28 @@ public class CartPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='CartPage-EmptyCartIcon']")
 	private WebElement iconEmptyCart;
-
-	// now it is displayed as + and - instead of drop down
+	
 	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[1]")
+	private WebElement btnPlusQTY;
+
+	@FindBy(css = "#item_qty")
 	private WebElement drpdwnQTY;
 	
 	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[2]")
 	private WebElement btnMinusQTY;
 
-	@FindBy(xpath = "//div[@class='block discount']")
+	@FindBy(xpath = "//button[contains(@class,'CartPage-ExpandableContentButton')]")
 	private WebElement drawCouponDrawer;
 
 	@FindBy(xpath = "//input[@id='couponCode']")
 	private WebElement txtCouponCode;
 
-	@FindBy(xpath = "//button[@class='CartCoupon-Button Button']")
+	@FindBy(xpath = "//button[contains(@class,'CartCoupon-Button')]")
 	private WebElement btnApplyDiscount;
 
 	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
 	private WebElement lblSubTotalAmount;
 
-	// need to change for the below one
 	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
 	private WebElement lblDiscountAmount;
 
@@ -141,7 +132,7 @@ public class CartPage extends CucumberRunner {
 	}
 
 	public void increaseProductQTY(String QTY) {
-		commonMethods.SelectUsingValue(drpdwnQTY, QTY);
+		commonMethods.SelectUsingValue(btnPlusQTY, QTY);
 	}
 
 	public void verifyProductQTY(String QTY) {

@@ -61,13 +61,10 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//button[contains(@class,'CheckoutBilling-Button')]")
 	private WebElement btnPlaceOrder;
 
-	@FindBy(xpath = "//span[@class='discount_icon']")
-	private WebElement drawCouponDrawer;
-
-	@FindBy(xpath = "//input[@id='discount-code']")
+	@FindBy(xpath = "//input[@id='couponCode']")
 	private WebElement txtCouponCode;
 
-	@FindBy(xpath = "//button[contains(@class,'action-apply')]")
+	@FindBy(xpath = "//button[contains(@class,'CartCoupon-Button')]")
 	private WebElement btnApplyDiscount;
 
 	@FindBy(xpath = "//input[@type='tel']")
@@ -224,7 +221,6 @@ public class PaymentPage extends CucumberRunner {
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
 			waitHelper.staticWait(3000);
 			commonMethods.click(radioCreditCardPayment);
-			waitHelper.waitForSpinnerInvisibility();
 		}
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
 		log.info("card number is entered as :" + cardNumber);
@@ -237,7 +233,6 @@ public class PaymentPage extends CucumberRunner {
 	public void payUsingCOD() {
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
-			waitHelper.waitForSpinnerInvisibility();
 			log.info("Payment method selected as :COD");
 		}
 
@@ -290,8 +285,6 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void applyCoupon(String couponCode) {
-		waitHelper.waitForSpinnerInvisibility();
-		commonMethods.click(drawCouponDrawer);
 		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
 		commonMethods.click(btnApplyDiscount);
 		log.info("applied discount coupon on checkout");
@@ -365,44 +358,36 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOffStoreCredit() {
 		log.info("turning store credit off if present");
 		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
 				commonMethods.click(btnStoreCreditToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOffCAPoints() {
 		log.info("turning CA credit off if present");
 		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
 				commonMethods.click(btnClubApparelToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOnStoreCredit() {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
 				commonMethods.click(btnStoreCreditToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOnCAPoints() {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
 				commonMethods.click(btnClubApparelToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
@@ -522,7 +507,6 @@ public class PaymentPage extends CucumberRunner {
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
 			commonMethods.click(radioCreditCardPayment);
-			waitHelper.waitForSpinnerInvisibility();
 		}
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
 		log.info("card number is entered as :" + cardNumber);

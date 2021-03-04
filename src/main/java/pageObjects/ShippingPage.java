@@ -63,34 +63,21 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='CheckoutShippingStep-DeliveryButton']/button")
 	private WebElement btnDeliverToAddress;
 
-	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
-	public	WebElement checkoutSpinner;
-
-	@FindBy(xpath = "//input[@id = 'shipping-save-in-address-book' and @type='checkbox']")
-	private WebElement chkSaveAddressCheckbox;
-
-	@FindBy(xpath = "//div[contains(@class,'shipping-address-item')]")
-	private WebElement sectionSaveAddresses;
-
-	@FindBy(xpath = "//button[@class='MyAccountBtn button primary']")
+	@FindBy(className = "Field-Toggle")
 	private WebElement btnSaveAddress;
 
-	@FindBy(xpath = "//button[@class='MyAccountBtn-Discart']")
-	private WebElement btnCancelAddressPopUp;
+	@FindBy(className = "CheckoutAddressBook-Wrapper")
+	private WebElement sectionSaveAddresses;
 	
-	
-	@FindBy(xpath = "//h1/following-sibling::button[@class='action-close']")
-	private WebElement iconCancelAddressPopUp;
-
-	@FindBy(xpath = "//div[@class='shipping-address-item selected-item']")
+	@FindBy(xpath = "//div[@class='MyAccountAddressCard MyAccountAddressCard_isSelected']")
 	private WebElement sectionSelectedAddress;
 
-	@FindBy(xpath = "//div[@class='CheckoutAddressBook-Wrapper']")
+	@FindBy(xpath = "//div[@class='MyAccountAddressTable ']/div[contains(@class,'MyAccountAddressCard')]")
 	private List<WebElement> listSavedShippingAddress;
-
-	@FindBy(xpath = "//div[@class='shipping-address-items']//div/input")
-	private List<WebElement> radioSavedShippingAddress;
 	
+	@FindBy(className = "MyAccountAddressCard-City")
+	private List<WebElement> listSavedShippingAddressCity;
+
 	@FindBy(xpath = "//div[@class='preventAddress mage-error']")
 	private WebElement msgSavedShippingAddressError;
 	
@@ -163,9 +150,9 @@ public class ShippingPage extends CucumberRunner {
 	
 	private void submitSavedAddress(String country) {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
-			if (commonMethods.getAttribute(listSavedShippingAddress.get(i), "innerHTML").contains(this.getCurrentCountry())) {
+			if (commonMethods.getAttribute(listSavedShippingAddressCity.get(i), "innerHTML").contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
-				commonMethods.moveToElementAndClick(radioSavedShippingAddress.get(i));
+				commonMethods.moveToElementAndClick(listSavedShippingAddress.get(i));
 				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
 				break;
 			} else if (i==listSavedShippingAddress.size()-1) {
@@ -181,17 +168,17 @@ public class ShippingPage extends CucumberRunner {
 		String env = browserFactory.getCountry();
 		String country = "";
 		if (env.equalsIgnoreCase("UAE")) {
-			country = "United Arab Emirates";
+			country = "AE";
 		} else if (env.equalsIgnoreCase("KSA")) {
-			country = "Saudi Arabia";
+			country = "SA";
 		} else if (env.equalsIgnoreCase("KW")) {
-			country = "Kuwait";
+			country = "KW";
 		}else if (env.equalsIgnoreCase("QA")) {
-			country = "Qatar";
+			country = "QA";
 		}else if (env.equalsIgnoreCase("OM")) {
-			country = "Oman";
+			country = "OM";
 		}else if (env.equalsIgnoreCase("BH")) {
-			country = "Bahrain";
+			country = "BH";
 		}
 		return country;
 	}
