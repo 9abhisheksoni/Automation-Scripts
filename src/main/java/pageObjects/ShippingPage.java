@@ -63,42 +63,43 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='CheckoutShippingStep-DeliveryButton']/button")
 	private WebElement btnDeliverToAddress;
 
-	@FindBy(className = "Field-Toggle")
+	@FindBy(className = "//button[@class='MyAccountBtn button primary']")
 	private WebElement btnSaveAddress;
 
 	@FindBy(className = "CheckoutAddressBook-Wrapper")
 	private WebElement sectionSaveAddresses;
-	
+
 	@FindBy(xpath = "//div[@class='MyAccountAddressCard MyAccountAddressCard_isSelected']")
 	private WebElement sectionSelectedAddress;
 
 	@FindBy(xpath = "//div[@class='MyAccountAddressTable ']/div[contains(@class,'MyAccountAddressCard')]")
 	private List<WebElement> listSavedShippingAddress;
-	
+
 	@FindBy(className = "MyAccountAddressCard-City")
 	private List<WebElement> listSavedShippingAddressCity;
 
 	@FindBy(xpath = "//div[@class='preventAddress mage-error']")
 	private WebElement msgSavedShippingAddressError;
-	
-	@FindBy (xpath = "//div[@class='original-price']/span")
+
+	@FindBy(xpath = "//div[@class='original-price']/span")
 	private WebElement txtBasePrice;
-	
-	@FindBy (xpath = "//div[@class='price with-discount']/span")
+
+	@FindBy(xpath = "//div[@class='price with-discount']/span")
 	private WebElement txtSpecialPrice;
 	
+	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
+	public	WebElement checkoutSpinner;
+
 	/**
 	 * WebElement declaration ends here
 	 **/
 
 	public void clickNewAddress() {
-			commonMethods.click(btnNewAddress);
-			this.deSelectSaveAddressCheckbox();
+		commonMethods.click(btnNewAddress);
 	}
-	
+
 	public void clickNewAddressToSave() {
 		commonMethods.click(btnNewAddress);
-		this.selectSaveAddressCheckbox();
 	}
 
 	public void enterFirstName(String country) {
@@ -126,7 +127,6 @@ public class ShippingPage extends CucumberRunner {
 		log.info("Area is selected");
 	}
 
-
 	public void enterPhoneNumber(String country) {
 		commonMethods.clearAndSendKeys(txtPhoneNumber, json.getContactnumber(country));
 		log.info("Phone Number is entered");
@@ -139,28 +139,28 @@ public class ShippingPage extends CucumberRunner {
 
 	public void selectSavedAddress() {
 		String country = browserFactory.getCountry().toLowerCase();
-		if(listSavedShippingAddress.size()>0) {
+		if (listSavedShippingAddress.size() > 0) {
 			this.submitSavedAddress(country);
-		}  else {
+		} else {
 			log.info("Enter address manually");
 			this.submitShippingAddress(country);
 			this.clickDeliverToAddress();
 		}
 	}
-	
+
 	private void submitSavedAddress(String country) {
 		for (int i = 0; i < listSavedShippingAddress.size(); i++) {
-			if (commonMethods.getAttribute(listSavedShippingAddressCity.get(i), "innerHTML").contains(this.getCurrentCountry())) {
+			if (commonMethods.getAttribute(listSavedShippingAddressCity.get(i), "innerHTML")
+					.contains(this.getCurrentCountry())) {
 				log.info("Selecting a saved address radio");
 				commonMethods.moveToElementAndClick(listSavedShippingAddress.get(i));
-				log.info("Clicked "+this.getCurrentCountry()+" address radio button");
+				log.info("Clicked " + this.getCurrentCountry() + " address radio button");
 				break;
-			} else if (i==listSavedShippingAddress.size()-1) {
+			} else if (i == listSavedShippingAddress.size() - 1) {
 				log.info("no saved address for selected country");
 				this.saveNewAddress(country);
 			}
-		} 		
-		waitHelper.waitForSpinnerInvisibility();
+		}
 		this.clickDeliverToAddress();
 	}
 
@@ -173,11 +173,11 @@ public class ShippingPage extends CucumberRunner {
 			country = "SA";
 		} else if (env.equalsIgnoreCase("KW")) {
 			country = "KW";
-		}else if (env.equalsIgnoreCase("QA")) {
+		} else if (env.equalsIgnoreCase("QA")) {
 			country = "QA";
-		}else if (env.equalsIgnoreCase("OM")) {
+		} else if (env.equalsIgnoreCase("OM")) {
 			country = "OM";
-		}else if (env.equalsIgnoreCase("BH")) {
+		} else if (env.equalsIgnoreCase("BH")) {
 			country = "BH";
 		}
 		return country;
@@ -185,11 +185,10 @@ public class ShippingPage extends CucumberRunner {
 
 	private void saveNewAddress(String country) {
 		this.clickNewAddress();
-		this.deSelectSaveAddressCheckbox();
 		this.submitShippingAddress(country);
 		commonMethods.click(btnSaveAddress);
 	}
-	
+
 	public void submitShippingAddress(String country) {
 		this.enterFirstName(country);
 		this.enterLastName(country);
@@ -199,43 +198,17 @@ public class ShippingPage extends CucumberRunner {
 		this.enterPhoneNumber(country);
 	}
 
-	public void selectSaveAddressCheckbox() {
-			if (!commonMethods.isSelected(chkSaveAddressCheckbox)) {
-			commonMethods.click(chkSaveAddressCheckbox);
-			log.info("save address checkbox is selected");
-			} else {
-				log.info("Save address checkbox already selected");
-			}
-	}
-	
-	public void deSelectSaveAddressCheckbox() {
-		if (commonMethods.isSelected(chkSaveAddressCheckbox)) {
-		commonMethods.click(chkSaveAddressCheckbox);
-		log.info("deselected saved address checkbox");
-		} else {
-			log.info("Save address checkbox already deselected");
-		}
-}
-
-	public void clickCancelButton() {
-		if (commonMethods.isElementPresent(btnSaveAddress)) {
-			waitHelper.waitForSpinnerInvisibility();
-			commonMethods.click(btnCancelAddressPopUp);
-			log.info("clicked cancel save address popup");
-		}
-	}
-	
 	public void editAndEnterFirstName(String firstName) {
 		commonMethods.clearAndSendKeys(txtFirstName, firstName);
 		log.info("First Name is Modified");
 	}
-	
+
 	public void fillShippingForm() {
 		log.info("Enter address manually");
 		this.submitShippingAddress(browserFactory.getCountry().toLowerCase());
 		this.clickDeliverToAddress();
 	}
-	
+
 	/*
 	 * This method fetches the base_price displaying for an item in the Shipment
 	 */
@@ -244,7 +217,7 @@ public class ShippingPage extends CucumberRunner {
 		log.info("Fethcing the basebrice of the item in the Shipping");
 		waitHelper.waitForElementVisible(txtBasePrice);
 		basePrice = commonMethods.getText(txtBasePrice);
-		
+
 		log.info("The base price at Shipment is" + basePrice);
 		String currencyCode = basePrice.replaceAll("[^A-Za-z]+", "");
 		log.info("The currency code is " + currencyCode);
@@ -252,8 +225,9 @@ public class ShippingPage extends CucumberRunner {
 		log.info("The extracted base price at Shipment is" + basePrice);
 		return basePrice.trim();
 	}
-	
-	/* This method compares the base_price displaying at Shipment with the
+
+	/*
+	 * This method compares the base_price displaying at Shipment with the
 	 * actual_price provided by the user
 	 */
 	public void evaluateBasePriceAtShipping(String actualBasePrice) {
@@ -262,9 +236,10 @@ public class ShippingPage extends CucumberRunner {
 		log.info("The base_price available in the Shipping is " + getBasePriceAtShipping());
 		assertEquals(getBasePriceAtShipping(), actualBasePrice, "The base_price is matching");
 	}
-	
-	
-	/* This method compares the base_price displaying at Shipment with the base_price fetched at PLP
+
+	/*
+	 * This method compares the base_price displaying at Shipment with the
+	 * base_price fetched at PLP
 	 */
 	public void evaluateBasePriceAtShipping() {
 		log.info("Comparing the base_price displaying at Shipping with the base_price fetched at PLP");
@@ -276,7 +251,7 @@ public class ShippingPage extends CucumberRunner {
 		log.info("Fethcing the special of the item in the Shipping");
 		waitHelper.waitForElementVisible(txtSpecialPrice);
 		String specialPrice = commonMethods.getText(txtSpecialPrice);
-		
+
 		log.info("The special price at PLP is" + specialPrice);
 		String currencyCode = specialPrice.replaceAll("[^A-Za-z]+", "");
 		log.info("The currency code is " + currencyCode);
@@ -284,22 +259,23 @@ public class ShippingPage extends CucumberRunner {
 		log.info("The extracted special price at PLP is" + specialPrice);
 		return specialPrice;
 	}
-	
+
 	/*
-	 * This method compares the special_price displaying at Shipment with
-	 * the actual_price provided by the user
+	 * This method compares the special_price displaying at Shipment with the
+	 * actual_price provided by the user
 	 */
 	public void evaluateSpecialPriceAtShipping(String actualSpecialPrice) {
 		log.info("Comparing the special_price displaying at Shipping with the actual values");
 		assertEquals(getSpecialPriceAtShipping(), actualSpecialPrice, "The special_price is matching at Shipping");
 	}
-	
-	
+
 	/*
-	 * This method compares the special_price displaying at Shipment with with fetched special_price at PLP
+	 * This method compares the special_price displaying at Shipment with with
+	 * fetched special_price at PLP
 	 */
 	public void evaluateSpecialPriceAtShipping() {
 		log.info("Comparing the special_price displaying at Shipping with the special price fetched at PLP");
-		assertEquals(getSpecialPriceAtShipping(), searchPage.globalSpecialPrice, "The special_price is matching at Shipping");
-	}	
+		assertEquals(getSpecialPriceAtShipping(), searchPage.globalSpecialPrice,
+				"The special_price is matching at Shipping");
+	}
 }
