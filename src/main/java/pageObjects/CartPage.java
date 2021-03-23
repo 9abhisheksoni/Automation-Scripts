@@ -77,11 +77,14 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath = "//button[contains(@class,'CartCoupon-Button')]")
 	private WebElement btnApplyDiscount;
 
-	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
+	@FindBy(xpath = "//ul//strong[text()='Subtotal' or text()='الإجمالي']/following-sibling::strong")
 	private WebElement lblSubTotalAmount;
 
-	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
+	@FindBy(xpath = "//ul//strong[contains(text(),'Discount') or contains(text(),'خصم')]/following-sibling::strong")
 	private WebElement lblDiscountAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Shipping fee' or text()='الشحن']/following-sibling::strong")
+	private WebElement lblShippingAmount;
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgSuccess;

@@ -142,14 +142,20 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//input[@type='checkbox' and contains(@class,'ClubApparel-Toggle')]")
 	private WebElement btnClubApparelToggle;
 
-	@FindBy(xpath = "//div[@class='CheckoutOrderSummary-Subtotals']//strong[@class='CheckoutOrderSummary-Price']")
+	@FindBy(xpath = "//ul//strong[text()='Subtotal' or text()='الإجمالي']/following-sibling::strong")
 	private WebElement lblSubTotalAmount;
 
-	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
+	@FindBy(xpath = "//ul//strong[contains(text(),'Discount') or contains(text(),'خصم')]/following-sibling::strong")
 	private WebElement lblDiscountAmount;
 
-	@FindBy(xpath = "//table[contains(@class,'table-totals')]")
-	private WebElement tblOrderSummary;
+	@FindBy(xpath = "//ul//strong[text()='Shipping' or text()='تكلفة التوصيل']/following-sibling::strong")
+	private WebElement lblShippingAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Club Apparel Redemption' or text()='استرداد نقاط كلوب أباريل']/following-sibling::strong")
+	private WebElement lblCaAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Store Credit' or text()='رصيد المتجر']/following-sibling::strong")
+	private WebElement lblScAmount;
 
 	@FindBy(xpath = "//span[text()='Saved Cards']//ancestor::div/input[@class='radio']")
 	private WebElement radioSavedCard;
@@ -380,6 +386,7 @@ public class PaymentPage extends CucumberRunner {
 				commonMethods.click(btnStoreCreditToggle);
 			}
 		}
+		Assert.assertTrue(genericHelper.isDisplayed(lblScAmount));
 	}
 
 	public void turnOnCAPoints() {
@@ -389,6 +396,7 @@ public class PaymentPage extends CucumberRunner {
 				commonMethods.click(btnClubApparelToggle);
 			}
 		}
+		Assert.assertTrue(genericHelper.isDisplayed(lblCaAmount));
 	}
 
 	public void verifyAmountOffApplied(String expectedamount) {
