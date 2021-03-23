@@ -436,5 +436,10 @@ public class SearchPage extends CucumberRunner {
 		log.info("The Price From PLP Collected Are " + prices);
 		return prices;
 	}
+	
+	public boolean verifyProductsVisible() {
+		log.info("Verifying product counts");
+		return lnksProduct.size()>0;
+	}
 
 }

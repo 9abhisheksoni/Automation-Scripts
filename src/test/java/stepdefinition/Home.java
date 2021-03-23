@@ -110,5 +110,17 @@ public class Home {
 	public void user_clicks_on_banner_and_verifies_respective_PLP() {
 		homePage.clickOnAllBannersAndVerifyPLP();
 	}
+	
+	@And("^User Verifies Product CategoryLinks Navigation$")
+	public void user_verifies_product_categoryLinks_Navigation() {
+		homePage.verifyProductCategoryLinks();
+	}
+	
+	@And("^User Verifies Brand CategoryLinks Navigation$")
+	public void user_verifies_brand_categoryLinks_Navigation() {
+		homePage.verifyBrandCategoryLinks();
+	}
+
+
 
 }

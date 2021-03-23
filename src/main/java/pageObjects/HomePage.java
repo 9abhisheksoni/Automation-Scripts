@@ -2,11 +2,13 @@ package pageObjects;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,6 +21,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import fileReader.TextFileHandler;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
@@ -168,6 +171,9 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='CategoryItem-Content']")
 	private WebElement spinner;
+
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a")
+	private List<WebElement> lnkLevel1Categories;
 
 	/**
 	 * WebElement declaration ends here
@@ -493,5 +499,82 @@ public class HomePage extends CucumberRunner {
 		} else if (landingPage.equalsIgnoreCase("Feedback")) {
 			footerLinks.verifyFeedbackPage();
 		}
+	}
+
+	public void verifyProductCategoryLinks() {
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String filename = browserFactory.getCountry()+"_"+browserFactory.getLanguage()+"_brokenCategoryLinks";
+		textFileHandler.deleteFile(filename);
+		List<String> brokenLinks = new ArrayList<String>();
+		int level1Size = lnkLevel1Categories.size();
+		log.info("There Are Following Number Of Root Categories : " + level1Size);
+		for (int i = 0; i < level1Size; i++) {
+			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			int level2Size = this.getLevel2Links().size();
+			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
+			for (int j = 0; j < level2Size; j++) {
+				commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+				int level3Size = this.getLevel3ProductLinks().size();
+				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
+				for (int k = 0; k < level3Size; k++) {
+					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+					commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
+					if (!(new SearchPage().verifyProductsVisible())) {
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(),filename);
+					}
+					commonMethods.navigateBack();
+				}
+			}
+
+		}
+		Assert.assertTrue("Broken Category Links Were Found ",brokenLinks.size()==0);
+	}
+
+	public void verifyBrandCategoryLinks() {
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String filename = browserFactory.getCountry()+"_"+browserFactory.getLanguage()+"brokenBrandLinks";
+		textFileHandler.deleteFile(filename);
+		List<String> brokenLinks = new ArrayList<String>();
+		int level1Size = lnkLevel1Categories.size();
+		log.info("There Are Following Number Of Root Categories : " + level1Size);
+		for (int i = 0; i < level1Size; i++) {
+			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			int level2Size = this.getLevel2Links().size();
+			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
+			for (int j = 0; j < level2Size; j++) {
+				commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+				int level3Size = this.getLevel3BrandLinks().size();
+				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
+				for (int k = 0; k < level3Size; k++) {
+					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+					commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
+					if (!(new SearchPage().verifyProductsVisible())) {
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(),filename);
+					}
+					commonMethods.navigateBack();
+				}
+			}
+
+		}
+		Assert.assertTrue("Broken Brand Links Were Found ",brokenLinks.size()==0);
+	}
+
+	public List<WebElement> getLevel2Links() {
+		waitHelper.staticWait(3000);
+		return browserFactory.getDriver().findElements(
+				By.xpath("//div[contains(@class,'HeaderBottomBar-Content')]//div[contains(@class,'MenuCategory')]//a"));
+	}
+
+	public List<WebElement> getLevel3ProductLinks() {
+		waitHelper.staticWait(1000);
+		return browserFactory.getDriver()
+				.findElements(By.xpath("//div[contains(@class,'MenuGrid-Column-Content')]/a/div/../../a"));
+	}
+
+	public List<WebElement> getLevel3BrandLinks() {
+		waitHelper.staticWait(1000);
+		return browserFactory.getDriver().findElements(By.xpath("//div[@class='MenuBrands']//a"));
 	}
 }
