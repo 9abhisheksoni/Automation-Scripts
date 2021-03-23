@@ -91,3 +91,9 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 		Examples: 
 				|SearchTerm|
 				|Shoes|
+				
+		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
+			And User Verifies Product CategoryLinks Navigation 
+			
+		Scenario: TS_Search_09 - Verify whether brand level3 category navigation have valid links 
+			And User Verifies Brand CategoryLinks Navigation 
