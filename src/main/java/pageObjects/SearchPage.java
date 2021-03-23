@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -33,7 +35,7 @@ public class SearchPage extends CucumberRunner {
 	private Logger log = Logger.getLogger(SearchPage.class.getName());
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private SoftAssert softAssert = new SoftAssert();
-	
+
 	/**
 	 * Constructor to initialize page objects
 	 **/
@@ -88,7 +90,7 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//input[@type='radio' and @id='price_highsort']")
 	private WebElement optionPriceHighToLow;
-	
+
 	@FindBy(xpath = "//span[not(contains(@class,'Price-Base_discount'))]/span[@class='Price-Currency']/..")
 	private WebElement lblprice;
 
@@ -146,7 +148,6 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * WebElement declaration ends here
 	 **/
-
 
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);
@@ -336,9 +337,9 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickFirstValidInResult() {
 		int index = 0;
-	//	if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
+		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
 			commonMethods.moveToElementAndClick(lnkProduct);
-		/*} else {
+		} else {
 			for (int i = 0; i < lblprices.size(); i++) {
 				if (this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0) {
 					index = i;
@@ -346,7 +347,7 @@ public class SearchPage extends CucumberRunner {
 				}
 			}
 			commonMethods.click(lnksProduct.get(index));
-		}*/
+		}
 		log.info("clicked valid product on PLP");
 	}
 
@@ -389,25 +390,14 @@ public class SearchPage extends CucumberRunner {
 	 * be failed after checking all the banners
 	 */
 	public void verifyPLP() {
-		log.info("\n<<<<<<<Product Count: " + lnksProduct.size());
+		log.info("Product Count on PLP: " + lnksProduct.size());
 		String plpURL = genericHelper.getCurrentUrl();
 		if (lnksProduct.size() > 0) {
 			jsHelper.scrollToElement(lnksProduct.get(1));
 			log.info("PLP has products");
-
-		} /*
-			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
-			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
-			 * softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL); } else
-			 * if(this.isLeadingTo404()) { log.info("ATTENTION!!! - encountered 404 error");
-			 * softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL); }
-			 * else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
-			 * log.info("Allert! - PLP has no products!!!");
-			 * softAssert.fail("No Products!! >>> " + plpURL); }
-			 */
-		else {
+		} else {
 			log.info("Allert! - PLP has no products!!!");
-			softAssert.fail("No Products!! >>> " + plpURL);
+			softAssert.fail("No Products!! -- " + plpURL);
 		}
 
 	}
@@ -436,10 +426,10 @@ public class SearchPage extends CucumberRunner {
 		log.info("The Price From PLP Collected Are " + prices);
 		return prices;
 	}
-	
+
 	public boolean verifyProductsVisible() {
 		log.info("Verifying product counts");
-		return lnksProduct.size()>0;
+		return lnksProduct.size() > 0;
 	}
 
 }

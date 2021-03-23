@@ -3,7 +3,6 @@ package stepdefinition;
 import java.util.Map;
 
 import commonHelper.GenericHelper;
-import commonHelper.WaitHelper;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -106,9 +105,24 @@ public class Home {
 		searchPage.verifyPLPIsDisplayed();
 	}
 
-	@When("^User clicks on banner and verifies respective PLP$")
-	public void user_clicks_on_banner_and_verifies_respective_PLP() {
-		homePage.clickOnAllBannersAndVerifyPLP();
+	@When("^User clicks on Dynamic content banner and verifies respective PLP$")
+	public void user_clicks_on_Dynamic_content_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("Dynamic");
+	}
+
+	@When("^User clicks on Top categories banner and verifies respective PLP$")
+	public void user_clicks_on_Top_categories_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("TopCategories");
+	}
+
+	@When("^User clicks on Brands banner and verifies respective PLP$")
+	public void user_clicks_on_Brands_banner_and_verifies_respective_PLP()  {
+		homePage.clickOnAllBannersAndVerifyPLP("Brands");
+	}
+	
+	@When("^User clicks on whats hot banner and verifies respective PLP$")
+	public void user_clicks_on_whats_hot_banner_and_verifies_respective_PLP() {
+		homePage.clickOnAllBannersAndVerifyPLP("WhatsHot");
 	}
 	
 	@And("^User Verifies Product CategoryLinks Navigation$")
