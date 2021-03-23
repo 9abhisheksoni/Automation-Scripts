@@ -11,6 +11,7 @@ public class Cart {
 
 	@When("^user navigates to shopping bag page and clicks on proceedToCheckout button$")
 	public void user_navigates_to_shopping_bag_page_and_clicks_on_proceedToCheckout_button() {
+		cartPage.clickOnViewBag();
 		cartPage.clickCheckout();
 	}
 
@@ -72,5 +73,10 @@ public class Cart {
 		cartPage.evaluateBasePriceAtCart();
 		cartPage.evaluateSpecialPriceAtCart();
 		cartPage.evaluateSpecialPriceAtSubtotal();
+	}
+	
+	@Then("^mini cart should be displayed$")
+	public void mini_cart_should_be_displayed() {
+		cartPage.isMiniCartVisible();
 	}
 }

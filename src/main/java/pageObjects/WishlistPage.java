@@ -34,7 +34,7 @@ public class WishlistPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//span[@data-price-type='finalPrice']")
+	@FindBy(xpath = "//p[@class='Price']")
 	WebElement txtSpecialPrice;
 
 	@FindBy(xpath = "//span[@class='wishlist-tocart']")

@@ -45,28 +45,28 @@ public class LoginPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//span[@class='login-label']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement labelLoginOrRegister;
 
-	@FindBy(xpath = "//input[@name='username']")
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtUserName;
 
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPassword;
 
-	@FindBy(css = "button#login_button")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isSignInValidated')]/button")
 	private WebElement btnLogin;
 
-	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement lblCustomerName;
 
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
 	private WebElement lblCurrentCountry;
 
-	@FindBy(css = "#customer-email")
+	@FindBy(css = "#guest_email")
 	private WebElement txtGuestEmail;
 
-	@FindBy(xpath = "//button[@class='action login primary button-guest']")
+	@FindBy(xpath = "//div[@class='Checkout-GuestButton']/button/span")
 	private WebElement btnContinueAsGuest;
 
 	@FindBy(xpath = "//input[@name='email']")
@@ -213,6 +213,8 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputUserName(String userType) {
+		System.out.println("The user type Login Page "+userType);
+		
 		commonMethods.clearAndSendKeys(this.txtUserName,
 				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
 		log.info("entered user email for "+userType);
@@ -226,18 +228,13 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clickLoginButton() {
-		commonMethods.click(btnLogin);
+		commonMethods.moveToElementAndClick(btnLogin);
 		log.info("login button clicked");
-		waitHelper.staticWait(10);
-		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
-			commonMethods.refresh();
-		}
 	}
 
 	public void verifyLogin() {
 		waitHelper.staticWait(3000);
-		commonMethods.refresh();
-		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
+		Assert.assertFalse(commonMethods.getText(lblCustomerName).contains("/"));
 		log.info("login is successfull");
 	}
 
@@ -246,6 +243,7 @@ public class LoginPage extends CucumberRunner {
 		if (userType.equalsIgnoreCase("validuser")) {
 			this.inputUserName(browserFactory.getLanguage().toLowerCase()+userType);
 			this.inputPassword(browserFactory.getLanguage().toLowerCase()+userType);
+			
 		} else {
 			this.inputUserName(userType);
 			this.inputPassword(userType);

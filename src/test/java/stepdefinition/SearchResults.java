@@ -8,18 +8,18 @@ import cucumber.api.java.en.When;
 import pageObjects.SearchPage;
 
 public class SearchResults {
-	
+
 	int productCount;
 	SearchPage searchPage = new SearchPage();
-	
+
 	@When("^user clicks on product tile in result$")
 	public void user_clicks_on_product_tile_in_result() {
 		searchPage.clickProdcuctInSearchPage();
 	}
-	
+
 	@And("^user reads number of products on page$")
 	public void user_reads_number_of_products_on_page() {
-	   productCount = searchPage.getProductsCount();
+		productCount = searchPage.getProductsCount();
 	}
 
 	@And("^user filters using first group filter$")
@@ -29,7 +29,7 @@ public class SearchResults {
 
 	@Then("^products count should be decreased$")
 	public void products_count_should_be_decreased() {
-		Assert.assertTrue(searchPage.getProductsCount()<this.productCount); 
+		Assert.assertTrue(searchPage.getProductsCount() < this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 
@@ -45,7 +45,7 @@ public class SearchResults {
 
 	@Then("^products count should be increased$")
 	public void products_count_should_be_increased() {
-		Assert.assertTrue(searchPage.getProductsCount()>this.productCount); 
+		Assert.assertTrue(searchPage.getProductsCount() > this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 
@@ -68,7 +68,7 @@ public class SearchResults {
 	public void products_should_be_sorted_with_high_to_low_price() {
 		searchPage.isPriceHighToLow();
 	}
-	
+
 	@When("^User clicks wishlist icon$")
 	public void user_clicks_wishlist_icon() {
 		searchPage.clickOnWishListIcon();
@@ -108,50 +108,48 @@ public class SearchResults {
 	public void third_level_category_should_be_displayed() {
 		searchPage.verifyOnThirdCategory();
 	}
-	
+
 	@And("^products should be displayed$")
 	public void products_should_be_displayed() {
-	   productCount = searchPage.getProductsCount();
-	   Assert.assertTrue(productCount>0, "No Products to display");
+		productCount = searchPage.getProductsCount();
+		Assert.assertTrue(productCount > 0, "No Products to display");
 	}
-	
+
 	@And("^no products should be displayed$")
 	public void no_products_should_be_displayed() {
-		searchPage.verifyNoResultDisplayed();	   
+		searchPage.verifyNoResultDisplayed();
 	}
-	
-	@Then("^search suggestions should be displayed$")
-    public void search_suggestions_should_be_displayed() {
-        searchPage.verifySearchSuggestionDisplay();
-    }
 
+	@Then("^search suggestions should be displayed$")
+	public void search_suggestions_should_be_displayed() {
+		searchPage.verifySearchSuggestionDisplay();
+	}
 
 	@And("^user checks the \"([^\"]*)\" and the \"([^\"]*)\" in PLP")
 	public void user_checks_the_and_the_in_PLP(String base_price, String special_price) {
 		searchPage.evaluateBasePriceAtPLP(base_price);
 		searchPage.evaluateSpecialPriceAtPLP(special_price);
 	}
-	
-	
+
 	@And("^user fetch the Base_Price and the Special_Price in PLP$")
-    public void user_fetch_the_baseprice_and_the_specialprice_for_the_something_in_PLP() {
+	public void user_fetch_the_baseprice_and_the_specialprice_for_the_something_in_PLP() {
 		searchPage.getBasePricePLP();
 		searchPage.getSpecialPricePLP();
-    }
+	}
 
 	@And("^click on first valid product in search result$")
 	public void click_on_first_valid_product_in_search_result() {
 		searchPage.clickFirstValidInResult();
 	}
-	
-	 @And("^user filters for tabby price range$")
-    public void user_filters_for_tabby_price_range() {
-		 searchPage.clickTabbyPriceFilter();
+
+	@And("^user filters for tabby price range$")
+	public void user_filters_for_tabby_price_range() {
+		searchPage.clickTabbyPriceFilter();
 	}
 
-	 @When("^user filters the product based on the highest discount$")
+	@When("^user filters the product based on the highest discount$")
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
-	}	
+	}
 
 }

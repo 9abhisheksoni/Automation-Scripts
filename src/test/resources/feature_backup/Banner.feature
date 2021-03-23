@@ -3,7 +3,7 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 	@Hero @Banner
 	Scenario Outline: BannerVerification_TC01 - User launches application and verifies the Hero banner
 	When user clicks "<category>"
-	When User clicks on hero banner
+	When User clicks on main banner
 	Then User should be landed to respective PLP
 	
 	Examples:
@@ -45,11 +45,3 @@ Feature: 6thstreet.com - Home page banner verification Scenarios
 		|Men|
 		|Kids|
 		
-	@WhatsHot @Banner
-	Scenario Outline: BannerVerification_TC04 - User launches application and verifies the Brands banners
-		When user clicks "<category>"
-		When User clicks on whats hot banner and verifies respective PLP
-				
-		Examples:
-		|category|
-		|Kids|

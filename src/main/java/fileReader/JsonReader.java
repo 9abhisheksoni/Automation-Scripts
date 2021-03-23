@@ -244,8 +244,12 @@ public class JsonReader {
 
 	/** this method returns user type object **/
 	private JSONObject getUserTypeData(String country, String userType) {
+		
+		System.out.println(userType +"" +country);
 		log.info("returning user type object");
 		JSONObject userdata = this.getUserCredentials(country);
+		
+		
 		return (JSONObject) userdata.get(userType);
 
 	}

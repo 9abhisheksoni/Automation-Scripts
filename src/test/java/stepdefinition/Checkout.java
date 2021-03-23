@@ -29,13 +29,11 @@ public class Checkout {
 
 	@When("^user enters the valid details for shipping address$")
 	public void user_enters_the_valid_details_for_shipping_address() {
-		shippingPage.clickCancelButton();
 		shippingPage.selectSavedAddress();
 	}
 
 	@When("^user selects payment option as \"([^\"]*)\"$")
 	public void user_selects_payment_option_as(String payment) {
-		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("COD")) {
 			paymentPage.payUsingCOD();
 		} else if (payment.equalsIgnoreCase("CC_VISA")) {
@@ -45,12 +43,11 @@ public class Checkout {
 		} else if (payment.equalsIgnoreCase("CC_AMEX")) {
 			paymentPage.payUsingCreditCard("amex");
 		} else if (payment.equalsIgnoreCase("TabbyPayLater")) {
-			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayLater();
 		} else if (payment.equalsIgnoreCase("TabbyPayInInstallments")) {
-			waitHelper.staticWait(2000);
 			paymentPage.payUsingTabbyPayInInstallments();
 		}
+		waitHelper.staticWait(3000);
 
 	}
 
@@ -119,7 +116,6 @@ public class Checkout {
 	
 	@And("^user selects saved card and enters cvv$")
 	public void user_selects_saved_card_and_enters_cvv() {
-		waitHelper.waitForSpinnerInvisibility();
 		paymentPage.payUsingFirstSavedCreditCard();
 	}
 	
@@ -165,7 +161,6 @@ public class Checkout {
 	
 	@And("^user selects payment option as \"([^\"]*)\" and clicks on Save Card$")
 	public void user_selects_payment_option_and_clicks_on_Save_Card(String payment) {
-		waitHelper.waitForSpinnerInvisibility();
 		if (payment.equalsIgnoreCase("CC_VISA")) {
 			paymentPage.payUsingCreditCardAndSave("visa");
 		} else if (payment.equalsIgnoreCase("CC_MASTER")) {

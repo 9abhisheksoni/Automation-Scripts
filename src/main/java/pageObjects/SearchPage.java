@@ -1,7 +1,6 @@
 package pageObjects;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -23,7 +22,6 @@ import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
 public class SearchPage extends CucumberRunner {
-	private static final String String = null;
 	public static String globalBasePrice = null;
 	public static String globalSpecialPrice = null;
 	/**
@@ -48,31 +46,31 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image']/a")
+	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//img")
 	private WebElement lnkProduct;
 
-	@FindBy(xpath = "//div[@class='product_image arw-hover-actions arw-hover-image' or @class='PLPPage']//a[@class='product photo product-item-photo' or @class]")
+	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//img")
 	private List<WebElement> lnksProduct;
 
-	@FindBy(xpath = "//div[@class='ais-body ais-stats--body']//strong")
+	@FindBy(xpath = "//div[contains(@class,'PLPFilters-ProductsCount')]/span")
 	private WebElement lblSearchResultCount;
 
-	@FindBy(xpath = "//div[@data-tab='categories_without_path']/div")
+	@FindBy(xpath = "//input[contains(@name,'categories')]/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpdwnCategoryGroupFilter;
 
-	@FindBy(xpath = "//div[@data-tab='size']/div")
+	@FindBy(xpath = "//input[contains(@name,'size')]/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpdwnSizeGroupFilter;
 
-	@FindBy(xpath = "//div[@data-tab='categories_without_path']//label")
+	@FindBy(xpath = "//input[@name='categories_without_path']")
 	private WebElement chkCategoryGroupFirstFilter;
 
-	@FindBy(xpath = "(//div[@data-tab='categories_without_path']//label)[2]")
+	@FindBy(xpath = "(//input[@name='categories_without_path'])[2]")
 	private WebElement chkCategoryGroupSecondFilter;
 
-	@FindBy(xpath = "//div[@data-tab='size']//label")
+	@FindBy(xpath = "//input[contains(@name,'size')]")
 	private WebElement chkSizeGroupFirstFilter;
 
-	@FindBy(xpath = "(//div[@data-tab='size']//label)[2]")
+	@FindBy(xpath = "(//input[contains(@name,'size')])[2]")
 	private WebElement chkSizeGroupSecondFilter;
 
 	@FindBy(xpath = "//div[@data-tab='categories_without_path']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
@@ -84,79 +82,68 @@ public class SearchPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@data-tab='size']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
 	private WebElement chkFirstSizeFilterActive;
 
-	@FindBy(xpath = "//div[@data-tab='sort-by']/div")
+	@FindBy(xpath = "//input[@type='radio' and @id='price_lowsort']/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpdwnSortBy;
 
-	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_asc')]//label")
+	@FindBy(xpath = "//input[@type='radio' and @id='price_lowsort']")
 	private WebElement optionPriceLowToHigh;
 
-	@FindBy(xpath = "//div[contains(@item-key,'products_price_default_desc')]//label")
+	@FindBy(xpath = "//input[@type='radio' and @id='price_highsort']")
 	private WebElement optionPriceHighToLow;
 
-	@FindBy(xpath = "//span[@class='price']")
-	private List<WebElement> lblprice;
+	@FindBy(xpath = "//span[not(contains(@class,'Price-Base_discount'))]/span[@class='Price-Currency']/..")
+	private WebElement lblprice;
 
-	@FindBy(xpath = "//div[contains(@class,'list_wishlist')]")
+	@FindBy(xpath = "//span[not(contains(@class,'Price-Base_discount'))]/span[@class='Price-Currency']/..")
+	private List<WebElement> lblprices;
+
+	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon')]")
 	private WebElement iconWishlist;
 
-	@FindBy(xpath = "//div[contains(@class,'message-success')]")
-	private WebElement msgWishlistSuccess;
-
-	@FindBy(xpath = "//li[@class='active']/a")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[contains(@class,'GenderButton-Button_isCurrentGender')]/..")
 	private WebElement lblFirstLevelActive;
 
-	@FindBy(xpath = "//ul[@class='main-categories first-level']/li[not(@class)]/a")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[not(contains(@class,'GenderButton-Button_isCurrentGender')) and contains(@class,'GenderButton-Button')]")
 	private WebElement lblFirstLevelInActive;
 
-	@FindBy(xpath = "//ul[@class='nav second-level men-section']/li[@class='second-sub']")
+	@FindBy(xpath = "//div[@class='HeaderBottomBar']//div[@class='MenuCategory']")
 	private WebElement lblSecondLevelCategory;
 
-	@FindBy(xpath = "(//li[@class='second-sub hover']//a[@data-level='second-level-item-1'])[2]")
+	@FindBy(xpath = "//div[@class='DynamicContent']//div[contains(@class,'Menu')]//div[contains(@class,'Content')]/a")
 	private WebElement lblThirdLevelCategory;
 
-	@FindBy(xpath = "//ul[@class='breadcrumb clearfix']/li")
+	@FindBy(xpath = "//a[contains(@class,'Breadcrumb-Link')]")
 	private List<WebElement> lblBreadcrumb;
 
-	@FindBy(xpath = "//span[@id='you_searched_for']/following-sibling::h4")
+	@FindBy(xpath = "//p[@class='EmptySearch-Check']")
 	private WebElement msgNoSearchMsg;
 
-	@FindBy(xpath = "//div[@class='aa-dataset-suggestions']/div")
+	@FindBy(xpath = "//div[@class='SearchSuggestion-Recommended']//a")
 	private List<WebElement> lnkProductSuggestion;
 
-	@FindBy(xpath = "//div[contains(@data-tab,'price')]/div")
+	@FindBy(xpath = "//input[contains(@name,'price')]/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpdwnPriceRangeFilter;
 
-	@FindBy(xpath = "//input[@class='ais-refinement-list--radio']/..")
-	private List<WebElement> chkTabbyPriceFilter;
+	@FindBy(xpath = "//input[@type='radio' and contains(@name,'price')]")
+	private List<WebElement> radioPriceFilter;
 
 	@FindBy(xpath = "//input[@class = 'ais-refinement-list--radio' and @checked]")
-	private WebElement chkTabbyPriceFilterActive;
+	private WebElement radioPriceFilterActive;
 
-	@FindBy(xpath = "//span[@data-price-type='oldPrice']")
+	@FindBy(xpath = "//span[contains(@class,'Price-Base_discount')]")
 	private WebElement txtBasePrice;
 
-	@FindBy(xpath = "//span[@data-price-type='finalPrice']/span[@class='price']")
+	@FindBy(xpath = "//span[contains(@class,'Price-Special_discount')]/span[@class='Price-Currency']/../text()")
 	private WebElement txtSpecialPrice;
 
-	@FindBy(xpath = "//div[@data-tab='discount']/div")
+	@FindBy(xpath = "//input[contains(@name,'discount')]/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpDiscount;
 
-	@FindBy(xpath = "//div[@id='algo-filter-item--abs-discount']//input[@class='ais-refinement-list--radio']")
+	@FindBy(xpath = "//input[@type='radio' and @name='discount']")
 	private List<WebElement> radioDiscountOptions;
 
-	@FindBy(xpath = "//img[contains(@src,'404-image')]")
-	private WebElement img404Error;
-
-	@FindBy(xpath = "//div[@class='col-md-12']/h2")
-	private WebElement divAllBrands;
-
-	/* PWA elements */
-
 	@FindBy(xpath = "//div[@class='PageNotFound-Image']")
-	private WebElement imgPwa404Error;
-
-	@FindBy(xpath = "//div[@class='Image Image_ratio_square Image_imageStatus_1 Image_hasSrc  ']")
-	private List<WebElement> lstPwaProducts;
+	private WebElement img404Error;
 
 	/**
 	 * WebElement declaration ends here
@@ -169,63 +156,62 @@ public class SearchPage extends CucumberRunner {
 
 	public int getProductsCount() {
 		log.info("returning products on page");
+		commonMethods.mouseHover(drpdwnCategoryGroupFilter);
 		return new StringUtility().getIntValue(commonMethods.getText(lblSearchResultCount));
 	}
 
 	public void clickFirstCategoryFilter() {
 		commonMethods.click(drpdwnCategoryGroupFilter);
-		commonMethods.click(chkCategoryGroupFirstFilter);
-		waitHelper.waitForElementVisible(chkFirstCategoryFilterActive);
+		commonMethods.moveToElementAndClick(chkCategoryGroupFirstFilter);
+		waitHelper.staticWait(3000);
+		Assert.assertTrue("Filter Not Selected", commonMethods.isSelected(chkCategoryGroupFirstFilter));
 		log.info("clicked first category filter");
 	}
 
 	public void clickSecondCategoryFilter() {
 		commonMethods.click(drpdwnCategoryGroupFilter);
-		commonMethods.click(chkCategoryGroupSecondFilter);
-		waitHelper.waitForElementVisible(chkSecondCategoryFilterActive);
+		commonMethods.moveToElementAndClick(chkCategoryGroupSecondFilter);
+		waitHelper.staticWait(3000);
+		Assert.assertTrue("Filter Not Selected", commonMethods.isSelected(chkCategoryGroupSecondFilter));
 		log.info("clicked second category filter");
 	}
 
 	public void clickFirstSizeFilter() {
 		commonMethods.click(drpdwnSizeGroupFilter);
-		waitHelper.waitForElementToBeClickable(chkSizeGroupFirstFilter);
-		commonMethods.click(chkSizeGroupFirstFilter);
-		waitHelper.waitForElementVisible(chkFirstSizeFilterActive);
+		commonMethods.moveToElementAndClick(chkSizeGroupFirstFilter);
+		waitHelper.staticWait(3000);
+		Assert.assertTrue("Filter Not Selected", commonMethods.isSelected(chkSizeGroupFirstFilter));
 		log.info("clicked first size filter");
 	}
 
 	public void clickLowToHighSort() {
-		commonMethods.click(drpdwnSortBy);
-		commonMethods.click(optionPriceLowToHigh);
 		waitHelper.staticWait(3000);
+		commonMethods.click(drpdwnSortBy);
+		commonMethods.moveToElementAndClick(optionPriceLowToHigh);
+		commonMethods.click(drpdwnSortBy);
+		waitHelper.waitForElementVisible(lnkProduct);
 		log.info("sorted low to high");
 	}
 
 	public void clickHighToLowSort() {
+		waitHelper.staticWait(3000);
 		commonMethods.click(drpdwnSortBy);
-		commonMethods.click(optionPriceHighToLow);
-		waitHelper.staticWait(5000);
+		commonMethods.moveToElementAndClick(optionPriceHighToLow);
+		commonMethods.click(drpdwnSortBy);
+		waitHelper.waitForElementVisible(lnkProduct);
 		log.info("sorted high to low");
 	}
 
 	public void isPriceLowToHigh() {
-		List<Float> prices = new ArrayList<Float>();
-		for (WebElement temp : lblprice) {
-			float price = this.getPriceFromText(temp.getText());
-			prices.add(price);
-		}
+		List<Float> prices = getPLPPrices();
 		boolean sorted = Ordering.natural().isOrdered(prices);
-
 		Assert.assertTrue(sorted);
 		log.info("sorted low to high");
 	}
 
 	public void isPriceHighToLow() {
-		List<Float> prices = new ArrayList<Float>();
-		for (WebElement temp : lblprice) {
-			float price = this.getPriceFromText(temp.getText());
-			prices.add(price);
-		}
+		List<Float> prices = this.getPLPPrices();
+		log.info("The Price From PLP Collected Are " + prices);
 		boolean sorted = Ordering.natural().reverse().isOrdered(prices);
 
 		Assert.assertTrue(sorted);
@@ -239,12 +225,15 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickOnWishListIcon() {
+		if (commonMethods.getAttribute(iconWishlist, "class").contains("Icon_black")) {
+			commonMethods.click(iconWishlist);
+		}
 		commonMethods.click(iconWishlist);
 		log.info("clicked on wishlist icon");
 	}
 
 	public void verifyWishlistSuccessDisplay() {
-		Assert.assertTrue(genericHelper.isElementPresentInDOM(msgWishlistSuccess));
+		Assert.assertTrue(commonMethods.getAttribute(iconWishlist, "class").contains("Icon_black"));
 		log.info("product wishlisted successfully");
 	}
 
@@ -260,6 +249,7 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickOnThirdCategory() {
 		commonMethods.mouseHover(lblSecondLevelCategory);
+		waitHelper.waitForElementVisible(lblThirdLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
 	}
@@ -278,7 +268,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void verifyOnThirdCategory() {
-		Assert.assertTrue(lblBreadcrumb.size() == 2);
+		Assert.assertTrue(lblBreadcrumb.size() == 4);
 		log.info("third level category page displayed");
 	}
 
@@ -332,7 +322,7 @@ public class SearchPage extends CucumberRunner {
 		specialPrice = specialPrice.substring(specialPrice.indexOf(currencyCode) + 3).trim();
 		log.info("The extracted special price at PLP is " + specialPrice);
 		this.globalSpecialPrice = specialPrice.trim();
-		return specialPrice;
+		return globalSpecialPrice;
 	}
 
 	/*
@@ -347,29 +337,23 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickFirstValidInResult() {
 		int index = 0;
-		for (int i = 0; i < lblprice.size(); i++) {
-			if (this.getPriceFromText(commonMethods.getText(lblprice.get(i))) > 0) {
-				index = i;
-				break;
+		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
+			commonMethods.moveToElementAndClick(lnkProduct);
+		} else {
+			for (int i = 0; i < lblprices.size(); i++) {
+				if (this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0) {
+					index = i;
+					break;
+				}
 			}
-		}
-		try {
 			commonMethods.click(lnksProduct.get(index));
-			log.info("clicked valid product on PLP");
-		} catch(ElementClickInterceptedException e) {
-			commonMethods.moveToElementAndClick(lnksProduct.get(index));
-			log.info("clicked valid product on PLP");
-		} catch(ElementNotInteractableException e) {
-			waitHelper.waitForElementToBeClickable(lnksProduct.get(index));
-			commonMethods.moveToElementAndClick(lnksProduct.get(index));
-			log.info("clicked valid product on PLP");
 		}
-		
+		log.info("clicked valid product on PLP");
 	}
 
 	public void clickTabbyPriceFilter() {
 		commonMethods.click(drpdwnPriceRangeFilter);
-		for (WebElement temp : chkTabbyPriceFilter) {
+		for (WebElement temp : radioPriceFilter) {
 			if (commonMethods.getText(temp).contains("700") && commonMethods.getText(temp).contains("800")) {
 				waitHelper.waitForElementToBeClickable(temp);
 				commonMethods.click(temp);
@@ -393,7 +377,6 @@ public class SearchPage extends CucumberRunner {
 	 * by skipping the further steps
 	 */
 	public void verifyPLPIsDisplayed() {
-		System.out.println("Product Count: " + lnksProduct.size());
 		try {
 			Assert.assertTrue(lnksProduct.size() > 0);
 			log.info("PLP is displayed");
@@ -407,24 +390,14 @@ public class SearchPage extends CucumberRunner {
 	 * be failed after checking all the banners
 	 */
 	public void verifyPLP() {
-		log.info("\n<<<<<<<Product Count: " + lnksProduct.size());
+		log.info("Product Count on PLP: " + lnksProduct.size());
 		String plpURL = genericHelper.getCurrentUrl();
-		if (lnksProduct.size() > 0 ) {			
-				jsHelper.scrollToElement(lnksProduct.get(1));
-				log.info("PLP has products");
-		} /*
-			 * else if (!genericHelper.isElementPresent(msgNoSearchMsg) &&
-			 * !this.isLeadingTo404()){ log.info("ATTENTION! - PLP is blank!!!");
-			 * softAssert.fail("ATTENTION! - PLP is blank!!! >>> " + plpURL); } else
-			 * if(this.isLeadingTo404()) { log.info("ATTENTION!!! - encountered 404 error");
-			 * softAssert.fail("ATTENTION!!! - encountered 404 error>>>>> " + plpURL); }
-			 * else if(genericHelper.isElementPresent(msgNoSearchMsg)) {
-			 * log.info("Allert! - PLP has no products!!!");
-			 * softAssert.fail("No Products!! >>> " + plpURL); }
-			 */
-		else {
+		if (lnksProduct.size() > 0) {
+			jsHelper.scrollToElement(lnksProduct.get(1));
+			log.info("PLP has products");
+		} else {
 			log.info("Allert! - PLP has no products!!!");
-			softAssert.fail("No Products!! >>> " + plpURL);
+			softAssert.fail("No Products!! -- " + plpURL);
 		}
 
 	}
@@ -434,12 +407,29 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public boolean isLeadingTo404() {
-		return genericHelper.isElementPresent(imgPwa404Error);
+		return genericHelper.isElementPresent(img404Error);
 	}
 
 	public void clickBrowserBackButton() {
 		commonMethods.navigateBack();
 		log.info("Browse back button is clicked");
+	}
+
+	public List<Float> getPLPPrices() {
+		List<Float> prices = new ArrayList<Float>();
+		waitHelper.waitForElementVisible(lnkProduct);
+		waitHelper.staticWait(3000);
+		for (WebElement temp : lblprices) {
+			float price = this.getPriceFromText(temp.getText());
+			prices.add(price);
+		}
+		log.info("The Price From PLP Collected Are " + prices);
+		return prices;
+	}
+
+	public boolean verifyProductsVisible() {
+		log.info("Verifying product counts");
+		return lnksProduct.size() > 0;
 	}
 
 }

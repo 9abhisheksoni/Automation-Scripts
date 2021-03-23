@@ -37,16 +37,20 @@ public class OrderHistoryPage extends CucumberRunner {
 	 * WebElement declaration starts here
 	 **/
 
-	@FindBy(xpath = "//div[@class='order-history-title' and .='Order History']")
+
+	@FindBy(xpath = "//h1[@class='MyAccount-Heading']")
 	private WebElement lblOrderHistory;
 
-	@FindBy(xpath = "//a[@class='id-link']/span[contains(.,'Order')]")
+
+	@FindBy(xpath = "//button[@class='MyAccountOrderListItem']/p")
 	private List<WebElement> lnkOrderNumbers;
 
-	@FindBy(xpath = "//div[@class='top-order-details']/span")
+
+	@FindBy(xpath = "//button[@class='MyAccountOrderListItem']/p/span")	
 	private List<WebElement> lblOrderStatus;
 
-	@FindBy(xpath = "//a[@class='view']")
+
+	@FindBy(xpath = "//button[@class='MyAccountOrderListItem']/p")
 	private List<WebElement> imgViewOrder;
 
 	/**

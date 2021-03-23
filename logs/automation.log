@@ -1,0 +1,664 @@
+<<<<<<< HEAD
+05-02-2021 18:56:45 INFO [CucumberBase]: Executing Before Suite
+05-02-2021 18:56:45 INFO [CucumberBase]: Executing Before Test for Chrome with QA and EN on prod
+05-02-2021 18:56:45 INFO [BrowserFactory]: Creating Browser Factory Instance
+05-02-2021 18:56:45 INFO [BrowserFactory]: Creating Browser Instance Chrome
+05-02-2021 18:56:45 INFO [BrowserFactory]: Setting Execution Country QA
+05-02-2021 18:56:45 INFO [BrowserFactory]: Setting Execution language EN
+05-02-2021 18:56:45 INFO [BrowserFactory]: Creating environment Instance prod
+05-02-2021 18:56:46 INFO [Hooks]: Before Scenario Execution
+05-02-2021 18:56:46 INFO [CucumberBase]: identifying browser to launch
+05-02-2021 18:56:46 INFO [CucumberBase]: loading property file
+05-02-2021 18:56:46 INFO [Config]: Creating config object
+05-02-2021 18:56:46 INFO [Config]: Setting Config Path
+05-02-2021 18:56:46 INFO [CucumberBase]: Starting on OS = Windows 10
+05-02-2021 18:56:46 INFO [BrowserFactory]: Creating Browser Factory Instance
+05-02-2021 18:56:46 INFO [BrowserFactory]: Returning Browser Instance
+05-02-2021 18:56:46 INFO [BrowserFactory]: Creating Chrome Driver Instance
+05-02-2021 18:56:50 INFO [CucumberBase]: maximizing browser window
+05-02-2021 18:56:50 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:52 INFO [Config]: getting implicit wait from property file in sec
+05-02-2021 18:56:52 INFO [CucumberBase]: Setting up implicit wait in secs 15
+05-02-2021 18:56:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:52 INFO [CucumberBase]: Clearing browser cookies
+05-02-2021 18:56:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:52 INFO [BrowserFactory]: Getting Execution Country
+05-02-2021 18:56:52 INFO [BrowserFactory]: Getting Execution language
+05-02-2021 18:56:52 INFO [CucumberBase]: Setting up browser url for country QA, language EN and environment as prod
+05-02-2021 18:56:52 INFO [CucumberBase]: loading property file
+05-02-2021 18:56:52 INFO [Config]: Creating config object
+05-02-2021 18:56:52 INFO [Config]: Setting Config Path
+05-02-2021 18:56:52 INFO [Config]: getting base URL from property file
+05-02-2021 18:56:52 INFO [Config]: the site URL for given country QA and language EN is https://en-qa.6thstreet.com
+05-02-2021 18:56:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:59 INFO [Config]: Setting Config object if null
+05-02-2021 18:56:59 INFO [Config]: Creating config object
+05-02-2021 18:56:59 INFO [Config]: Setting Config Path
+05-02-2021 18:56:59 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:56:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:56:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:00 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[@title='Kids Store']]
+05-02-2021 18:57:00 INFO [HomePage]: clicked Kids L1 category
+05-02-2021 18:57:00 INFO [WaitHelper]: Waiting for 10000 ms
+05-02-2021 18:57:10 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:10 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 18:57:10 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span]
+05-02-2021 18:57:12 INFO [WaitHelper]: waitForelementToBeClickable[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[contains(@src,'SHOP-ALL-BRANDS')]]
+05-02-2021 18:57:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:12 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 18:57:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:12 INFO [WaitHelper]: element found...
+05-02-2021 18:57:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 18:57:19 INFO [HomePage]: clicked banner 1
+05-02-2021 18:57:19 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 18:57:36 INFO [SearchPage]: 
+<<<<<<<Product Count: 0
+05-02-2021 18:57:36 INFO [GenericHelper]: getting current page url
+05-02-2021 18:57:36 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:57:51 INFO [GenericHelper]: checking whether element is present
+05-02-2021 18:57:51 INFO [Config]: Setting Config object if null
+05-02-2021 18:57:51 INFO [Config]: Creating config object
+05-02-2021 18:57:51 INFO [Config]: Setting Config Path
+05-02-2021 18:57:51 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:58:06 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]'
+05-02-2021 18:58:06 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:58:51 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 18:58:51 INFO [GenericHelper]: checking whether element is present
+05-02-2021 18:58:51 INFO [Config]: Setting Config object if null
+05-02-2021 18:58:51 INFO [Config]: Creating config object
+05-02-2021 18:58:51 INFO [Config]: Setting Config Path
+05-02-2021 18:58:51 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:58:51 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //span[@id='you_searched_for']/following-sibling::h4]
+05-02-2021 18:58:51 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 18:59:22 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //span[@id='you_searched_for']/following-sibling::h4] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'DESKTOP-H1A13NM', ip: '192.168.29.14', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 86.0.4240.75, chrome: {chromedriverVersion: 86.0.4240.22 (398b0743353ff..., userDataDir: C:\Users\ABHISH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49610}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 0fd9ed6dc8fb32067d15c31134a93c87
+05-02-2021 18:59:22 INFO [GenericHelper]: checking whether element is present
+05-02-2021 18:59:22 INFO [Config]: Setting Config object if null
+05-02-2021 18:59:22 INFO [Config]: Creating config object
+05-02-2021 18:59:22 INFO [Config]: Setting Config Path
+05-02-2021 18:59:22 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 18:59:37 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2'
+05-02-2021 18:59:37 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:22 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:00:22 INFO [SearchPage]: ATTENTION! - PLP is blank!!!
+05-02-2021 19:00:22 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:00:23 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:27 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:00:27 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:00:27 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:00:27 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:27 INFO [WaitHelper]: element found...
+05-02-2021 19:00:27 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:29 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:00:29 INFO [HomePage]: clicked banner 2
+05-02-2021 19:00:29 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:00:33 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:00:33 INFO [GenericHelper]: getting current page url
+05-02-2021 19:00:33 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:33 INFO [SearchPage]: PLP has products
+05-02-2021 19:00:33 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:33 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:00:33 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:00:33 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:00:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:35 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:00:35 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:00:35 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:00:35 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:35 INFO [WaitHelper]: element found...
+05-02-2021 19:00:36 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:38 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:00:38 INFO [HomePage]: clicked banner 3
+05-02-2021 19:00:38 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:00:40 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:00:40 INFO [GenericHelper]: getting current page url
+05-02-2021 19:00:40 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:40 INFO [SearchPage]: PLP has products
+05-02-2021 19:00:41 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:41 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:00:41 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:00:41 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:00:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:42 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:00:42 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:00:42 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:00:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:42 INFO [WaitHelper]: element found...
+05-02-2021 19:00:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:00:43 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:00:43 INFO [HomePage]: clicked banner 4
+05-02-2021 19:00:43 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:01:00 INFO [SearchPage]: 
+<<<<<<<Product Count: 0
+05-02-2021 19:01:00 INFO [GenericHelper]: getting current page url
+05-02-2021 19:01:00 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:01:15 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:01:15 INFO [Config]: Setting Config object if null
+05-02-2021 19:01:15 INFO [Config]: Creating config object
+05-02-2021 19:01:15 INFO [Config]: Setting Config Path
+05-02-2021 19:01:15 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:01:30 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]'
+05-02-2021 19:01:30 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:02:16 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:02:16 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:02:16 INFO [Config]: Setting Config object if null
+05-02-2021 19:02:16 INFO [Config]: Creating config object
+05-02-2021 19:02:16 INFO [Config]: Setting Config Path
+05-02-2021 19:02:16 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:02:31 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //span[@id='you_searched_for']/following-sibling::h4'
+05-02-2021 19:02:31 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:03:16 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[@id='you_searched_for']/following-sibling::h4' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:03:16 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:03:16 INFO [Config]: Setting Config object if null
+05-02-2021 19:03:16 INFO [Config]: Creating config object
+05-02-2021 19:03:16 INFO [Config]: Setting Config Path
+05-02-2021 19:03:16 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:03:31 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2'
+05-02-2021 19:03:31 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:17 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:04:17 INFO [SearchPage]: ATTENTION! - PLP is blank!!!
+05-02-2021 19:04:17 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:18 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:20 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:20 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:20 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:20 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:20 INFO [WaitHelper]: element found...
+05-02-2021 19:04:20 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:20 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:04:20 INFO [HomePage]: clicked banner 5
+05-02-2021 19:04:20 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:04:23 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:04:23 INFO [GenericHelper]: getting current page url
+05-02-2021 19:04:23 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:23 INFO [SearchPage]: PLP has products
+05-02-2021 19:04:23 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:23 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:04:23 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:04:23 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:24 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:26 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:26 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:26 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:26 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:26 INFO [WaitHelper]: element found...
+05-02-2021 19:04:26 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:28 INFO [CommonMethods]: Moving to element and clicking [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:04:28 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:32 INFO [HomePage]: clicked banner 6
+05-02-2021 19:04:32 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:04:34 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:04:34 INFO [GenericHelper]: getting current page url
+05-02-2021 19:04:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:34 INFO [SearchPage]: PLP has products
+05-02-2021 19:04:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:34 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:04:34 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:04:34 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:35 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:37 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:37 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:38 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:38 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:38 INFO [WaitHelper]: element found...
+05-02-2021 19:04:38 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:40 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:04:40 INFO [HomePage]: clicked banner 7
+05-02-2021 19:04:40 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:04:42 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:04:42 INFO [GenericHelper]: getting current page url
+05-02-2021 19:04:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:42 INFO [SearchPage]: PLP has products
+05-02-2021 19:04:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:42 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:04:42 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:04:42 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:43 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:44 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:44 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:45 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:45 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:45 INFO [WaitHelper]: element found...
+05-02-2021 19:04:45 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:47 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:04:47 INFO [HomePage]: clicked banner 8
+05-02-2021 19:04:47 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:04:49 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:04:49 INFO [GenericHelper]: getting current page url
+05-02-2021 19:04:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:49 INFO [SearchPage]: PLP has products
+05-02-2021 19:04:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:49 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:04:49 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:04:49 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:50 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:52 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:52 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:52 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:52 INFO [WaitHelper]: element found...
+05-02-2021 19:04:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:55 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:04:55 INFO [HomePage]: clicked banner 9
+05-02-2021 19:04:55 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:04:57 INFO [SearchPage]: 
+<<<<<<<Product Count: 17
+05-02-2021 19:04:57 INFO [GenericHelper]: getting current page url
+05-02-2021 19:04:57 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:57 INFO [SearchPage]: PLP has products
+05-02-2021 19:04:57 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:57 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:04:57 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:04:57 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:04:58 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:04:59 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:04:59 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:04:59 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:04:59 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:00 INFO [WaitHelper]: element found...
+05-02-2021 19:05:00 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:00 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:05:00 INFO [HomePage]: clicked banner 10
+05-02-2021 19:05:00 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:02 INFO [SearchPage]: 
+<<<<<<<Product Count: 4
+05-02-2021 19:05:02 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:02 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:02 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:02 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:02 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:02 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:02 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:03 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:05 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:05 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:05 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:05 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:06 INFO [WaitHelper]: element found...
+05-02-2021 19:05:06 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:08 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:05:08 INFO [HomePage]: clicked banner 11
+05-02-2021 19:05:08 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:11 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:05:11 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:11 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:12 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:12 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:12 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:12 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:13 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:15 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:15 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:15 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:15 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:15 INFO [WaitHelper]: element found...
+05-02-2021 19:05:15 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@class='img-responsive']]
+05-02-2021 19:05:19 INFO [HomePage]: clicked banner 12
+05-02-2021 19:05:19 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:21 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:05:21 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:21 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:21 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:21 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:21 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:21 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:21 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:22 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:24 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:24 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:24 INFO [WaitHelper]: Waiting for 10000 ms
+05-02-2021 19:05:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:34 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:34 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span]
+05-02-2021 19:05:34 INFO [WaitHelper]: waitForelementToBeClickable[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[contains(@src,'SHOP-ALL-BRANDS')]]
+05-02-2021 19:05:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:34 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:35 INFO [WaitHelper]: element found...
+05-02-2021 19:05:35 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:37 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Category')]]
+05-02-2021 19:05:37 INFO [HomePage]: clicked banner 1
+05-02-2021 19:05:37 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:39 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:05:39 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:39 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:39 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:39 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:39 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:39 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:39 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:40 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:41 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:41 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:42 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:42 INFO [WaitHelper]: element found...
+05-02-2021 19:05:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:43 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Category')]]
+05-02-2021 19:05:43 INFO [HomePage]: clicked banner 2
+05-02-2021 19:05:43 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:45 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:05:45 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:45 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:45 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:45 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:45 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:45 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:45 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:46 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:49 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:49 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:49 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:49 INFO [WaitHelper]: element found...
+05-02-2021 19:05:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:49 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Category')]]
+05-02-2021 19:05:49 INFO [HomePage]: clicked banner 3
+05-02-2021 19:05:49 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:05:52 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:05:52 INFO [GenericHelper]: getting current page url
+05-02-2021 19:05:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:52 INFO [SearchPage]: PLP has products
+05-02-2021 19:05:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:52 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:05:52 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:05:52 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:05:53 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:54 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:05:54 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:05:54 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:05:54 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:55 INFO [WaitHelper]: element found...
+05-02-2021 19:05:55 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:05:55 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Category')]]
+05-02-2021 19:05:55 INFO [HomePage]: clicked banner 4
+05-02-2021 19:05:55 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:06:12 INFO [SearchPage]: 
+<<<<<<<Product Count: 0
+05-02-2021 19:06:12 INFO [GenericHelper]: getting current page url
+05-02-2021 19:06:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:06:28 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:06:28 INFO [Config]: Setting Config object if null
+05-02-2021 19:06:28 INFO [Config]: Creating config object
+05-02-2021 19:06:28 INFO [Config]: Setting Config Path
+05-02-2021 19:06:28 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:06:43 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]'
+05-02-2021 19:06:43 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:07:28 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //img[contains(@src,'404-image')]' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:07:28 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:07:28 INFO [Config]: Setting Config object if null
+05-02-2021 19:07:28 INFO [Config]: Creating config object
+05-02-2021 19:07:28 INFO [Config]: Setting Config Path
+05-02-2021 19:07:28 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:07:43 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //span[@id='you_searched_for']/following-sibling::h4'
+05-02-2021 19:07:43 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:08:29 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[@id='you_searched_for']/following-sibling::h4' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:08:29 INFO [GenericHelper]: checking whether element is present
+05-02-2021 19:08:29 INFO [Config]: Setting Config object if null
+05-02-2021 19:08:29 INFO [Config]: Creating config object
+05-02-2021 19:08:29 INFO [Config]: Setting Config Path
+05-02-2021 19:08:29 INFO [Config]: getting explicit wait from property file in sec
+05-02-2021 19:08:44 INFO [WaitHelper]: fluentwaitForvisibilityOfElementProxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2'
+05-02-2021 19:08:44 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:29 INFO [GenericHelper]: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[@class='col-md-12']/h2' (tried for 30 second(s) with 500 milliseconds interval)
+05-02-2021 19:09:29 INFO [SearchPage]: ATTENTION! - PLP is blank!!!
+05-02-2021 19:09:29 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:09:30 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:32 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:09:32 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:09:32 INFO [WaitHelper]: Waiting for 10000 ms
+05-02-2021 19:09:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:42 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:09:42 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span]
+05-02-2021 19:09:42 INFO [WaitHelper]: waitForelementToBeClickable[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[contains(@src,'SHOP-ALL-BRANDS')]]
+05-02-2021 19:09:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:42 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:09:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:42 INFO [WaitHelper]: element found...
+05-02-2021 19:09:42 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:46 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:09:46 INFO [HomePage]: clicked banner 1
+05-02-2021 19:09:46 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:09:48 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:09:48 INFO [GenericHelper]: getting current page url
+05-02-2021 19:09:48 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:48 INFO [SearchPage]: PLP has products
+05-02-2021 19:09:48 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:48 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:09:48 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:09:48 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:09:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:50 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:09:50 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:09:51 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:09:51 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:51 INFO [WaitHelper]: element found...
+05-02-2021 19:09:51 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:51 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:09:51 INFO [HomePage]: clicked banner 2
+05-02-2021 19:09:51 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:09:54 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:09:54 INFO [GenericHelper]: getting current page url
+05-02-2021 19:09:54 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:55 INFO [SearchPage]: PLP has products
+05-02-2021 19:09:55 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:55 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:09:55 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:09:55 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:09:56 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:57 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:09:57 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:09:58 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:09:58 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:58 INFO [WaitHelper]: element found...
+05-02-2021 19:09:58 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:09:58 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:09:58 INFO [HomePage]: clicked banner 3
+05-02-2021 19:09:58 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:02 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:02 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:02 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:02 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:02 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:02 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:02 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:02 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:03 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:05 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:05 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:05 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:05 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:05 INFO [WaitHelper]: element found...
+05-02-2021 19:10:05 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:06 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:06 INFO [HomePage]: clicked banner 4
+05-02-2021 19:10:06 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:09 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:09 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:09 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:09 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:09 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:09 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:09 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:09 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:10 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:11 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:11 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:11 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:11 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:12 INFO [WaitHelper]: element found...
+05-02-2021 19:10:12 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:13 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:13 INFO [HomePage]: clicked banner 5
+05-02-2021 19:10:13 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:17 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:17 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:17 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:17 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:17 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:17 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:17 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:17 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:18 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:19 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:19 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:20 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:20 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:20 INFO [WaitHelper]: element found...
+05-02-2021 19:10:20 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:20 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:20 INFO [HomePage]: clicked banner 6
+05-02-2021 19:10:20 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:24 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:24 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:24 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:24 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:24 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:24 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:24 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:24 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:25 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:27 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:27 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:27 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:27 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:28 INFO [WaitHelper]: element found...
+05-02-2021 19:10:28 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:30 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:30 INFO [HomePage]: clicked banner 7
+05-02-2021 19:10:30 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:33 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:33 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:33 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:33 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:33 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:33 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:33 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:33 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:34 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:36 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:36 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:36 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:36 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:37 INFO [WaitHelper]: element found...
+05-02-2021 19:10:37 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:37 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:37 INFO [HomePage]: clicked banner 8
+05-02-2021 19:10:37 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:40 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:40 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:40 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:40 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:40 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:40 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:40 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:40 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:41 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:44 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:44 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:44 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:44 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:44 INFO [WaitHelper]: element found...
+05-02-2021 19:10:44 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:46 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:46 INFO [HomePage]: clicked banner 9
+05-02-2021 19:10:46 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:49 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:49 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:49 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:49 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:49 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:49 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:49 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:50 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:52 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:52 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:52 INFO [WaitHelper]: fluentwaitForvisibilityOfElement[[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //img[@id='mainBannerImage']]
+05-02-2021 19:10:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:52 INFO [WaitHelper]: element found...
+05-02-2021 19:10:52 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:53 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //a[contains(@data-id,'Shop by Brand')]]
+05-02-2021 19:10:53 INFO [HomePage]: clicked banner 10
+05-02-2021 19:10:53 INFO [WaitHelper]: Waiting for 2000 ms
+05-02-2021 19:10:56 INFO [SearchPage]: 
+<<<<<<<Product Count: 60
+05-02-2021 19:10:56 INFO [GenericHelper]: getting current page url
+05-02-2021 19:10:56 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:56 INFO [SearchPage]: PLP has products
+05-02-2021 19:10:56 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:56 INFO [JavaScriptHelper]: window.scrollTo(arguments[0],arguments[1])
+05-02-2021 19:10:56 INFO [JavaScriptHelper]: Scrolling to : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='product_image arw-hover-actions arw-hover-image']//a[@class='product photo product-item-photo']]
+05-02-2021 19:10:56 INFO [WaitHelper]: Waiting for 1000 ms
+05-02-2021 19:10:57 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:10:58 INFO [CommonMethods]: Clicked on Webelement : [[ChromeDriver: chrome on WINDOWS (0fd9ed6dc8fb32067d15c31134a93c87)] -> xpath: //div[@class='logo']//img | //div[@class='logo-center']]
+05-02-2021 19:10:58 INFO [HomePage]: Clicked on Home Logo
+05-02-2021 19:10:58 INFO [Hooks]: After Scenario Execution
+05-02-2021 19:10:58 INFO [CucumberBase]: Attaching screenshot to cucumber html report
+05-02-2021 19:10:58 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:11:00 INFO [CucumberBase]: Capturing screenshot
+05-02-2021 19:11:00 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:11:00 INFO [DateTimeHelper]: currentDateTime is : 05_02_2021_07_11_00
+05-02-2021 19:11:00 INFO [CucumberBase]: Closing all browser instances
+05-02-2021 19:11:00 INFO [BrowserFactory]: Returning Driver Instance
+05-02-2021 19:11:02 INFO [CucumberBase]: Generating reports after suite execution
+05-02-2021 19:11:02 INFO [ReportHelper]: Generating Cucumber Reports
+05-02-2021 19:11:03 INFO [ReportHelper]: configuring extent reports
+05-02-2021 19:11:03 INFO [CucumberBase]: Closing all browser instances
+05-02-2021 19:11:03 INFO [BrowserFactory]: Returning Driver Instance
+=======
+>>>>>>> feature/prasanna

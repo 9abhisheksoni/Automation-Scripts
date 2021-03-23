@@ -1,10 +1,14 @@
 package pageObjects;
 
-import java.util.List;
 import static org.testng.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -17,6 +21,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import fileReader.TextFileHandler;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
@@ -30,6 +35,7 @@ public class HomePage extends CucumberRunner {
 	JavaScriptHelper jsHelper = new JavaScriptHelper();
 	private Logger log = Logger.getLogger(HomePage.class.getName());
 	StringUtility strUtil = new StringUtility();
+	FooterLinksRedirectPage footerLinks = new FooterLinksRedirectPage();
 	Config config = new Config();
 	SearchPage searchPage = new SearchPage();
 	SoftAssert softAssert = new SoftAssert();
@@ -45,28 +51,25 @@ public class HomePage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//input[@id='search']")
+	@FindBy(xpath = "//input[@id='search-field']")
 	private WebElement txtSearchProduct;
 
-	@FindBy(xpath = "//div[@class='DynamicContentFullWidthBannerSlider' or @class='category_banner clearfix']//img[@id='mainBannerImage' or @class='Image-Image']")
-	private WebElement bannerHomePage;
+	@FindBy(xpath = "//a[@class=' HeaderLogo']//img")
+	private WebElement imgHomeLogo;
 
-	@FindBy(xpath = "//div[@class='logo']//img | //div[@class='logo-center']")
-	private WebElement imgHomePage;
-
-	@FindBy(xpath = "//form[contains(@class,'active')]//span[@class='search_icon']")
+	@FindBy(xpath = "//button[@class='HeaderSearch-SubmitBtn']")
 	private WebElement icnSearch;
 
-	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement menuUserNameTop;
 
-	@FindBy(xpath = "//a[@class='top-link-order-history-link' and .='Order History']")
+	@FindBy(xpath = "//a[contains(@class,'MyAccountSignedInOverlay-LinkHistory')]")
 	private WebElement optionOrderHistory;
 
-	@FindBy(xpath = "//a[@class='top-link-return-item-link']")
+	@FindBy(xpath = "//a[contains(@class,'MyAccountSignedInOverlay-ReturnAnItem')]")
 	private WebElement optionReturnHistory;
 
-	@FindBy(xpath = "//div[@id='toggleSignup']")
+	@FindBy(xpath = "//div[@class='MyAccountOverlay-Buttons']/button[@class!='Button Button_isSignIn']")
 	private WebElement btnSignUp;
 
 	@FindBy(xpath = "//input[@name='firstname']")
@@ -75,78 +78,81 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//input[@name='lastname']")
 	private WebElement txtLastName;
 
-	@FindBy(xpath = "//input[@id='email_address']")
+	@FindBy(xpath = "//input[@id='email']")
 	private WebElement txtEmailID;
 
-	@FindBy(xpath = "//input[@id='popup_password']")
+	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPwd;
 
-	@FindBy(xpath = "//button[@ID='yopeso_register']")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isCreateAccountButton')]/button")
 	private WebElement btnCreateAccount;
 
-	@FindBy(xpath = "//li[@class='header-wishlist']/a")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[contains(@class,'HeaderWishlist')]/button")
 	private WebElement lnkWishlist;
 
-	@FindBy(xpath = "//a[@class='algoliasearch-autocomplete-hit']")
+	@FindBy(xpath = "//div[@class='SearchSuggestion-Recommended']//li/a")
 	private WebElement FirstSearchEle;
 
 	@FindBy(xpath = "(//div[@class='aa-dataset-products']//div[@class='aa-suggestion'])[1]//span[@class='after_special']")
 	private WebElement txtPriceInSearch;
 
 	/* Footer Links */
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'6th-street')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'6th-street')]")
 	private WebElement lnkAbout6thStreet;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'consumerrights')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'consumerrights')]")
 	private WebElement lnkConsumerRights;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'disclaimer')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'disclaimer')]")
 	private WebElement lnkDisclaimer;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'privacy-policy')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'privacy-policy')]")
 	private WebElement lnkPrivacyPolicy;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'shipping-policy')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'shipping-policy')]")
 	private WebElement lnkShippingInfo;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'return-information')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'return-information')]")
 	private WebElement lnkReturnInfo;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'track')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'track')]")
 	private WebElement lnkOrderTrack;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'Faq')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'faq')]")
 	private WebElement lnkFAQs;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']/a[contains(@href,'contact')]")
+	@FindBy(xpath = "//div[@class='FooterMain-Nav']//a[contains(@href,'contact')]")
 	private WebElement lnkFeedback;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']//a[contains(@href,'customercare')]")
+	@FindBy(xpath = "//div[@class='FooterCustomerSupport']//a[contains(@href,'customercare')]")
 	private WebElement lnkFooterCustomerCareMail;
 
-	@FindBy(xpath = "//div[@class='footer_nav clear']//span[@class='cst_phone_icon']/following-sibling::span")
+	@FindBy(xpath = "//a[@class='FooterCustomerSupport-Phone']")
 	private WebElement lblFooterCustomerCarePhoneNo;
 
-	@FindBy(xpath = "//div[@id='top_header_customer_service']")
+	@FindBy(xpath = "//header//button[contains(@class,'InlineCustomerSupport-Button')]")
 	private WebElement divCustomerService;
 
-	@FindBy(xpath = "//div[@id='customer-service-header']//a[contains(@href,'customercare')]")
+	@FindBy(xpath = "//div[@class='HeaderTopBar']//a[contains(@href,'customercare')]")
 	private WebElement lnkCustomerServiceMail;
 
-	@FindBy(xpath = "//div[@id='customer-service-header']//span[@class='cst_phone_icon']//following-sibling::span")
+	@FindBy(xpath = "//div[@class='HeaderTopBar']//div[@class='InlineCustomerSupport-DisplayPhone']//a[contains(@href,'tel')]")
 	private WebElement lblCustomerServicePhone;
 
-	@FindBy(xpath = "//a[contains(@title,'Women')]")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'women')]/button")
 	private WebElement lnkWomen;
 
-	@FindBy(xpath = "//a[contains(@title,'Men')]")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'/men')]/button")
 	private WebElement lnkMen;
 
-	@FindBy(xpath = "//a[@title='Kids Store']")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a[contains(@href,'kids')]/button")
 	private WebElement lnkKids;
 
-	@FindBy(xpath = "//img[contains(@src,'banner')]")
+	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
+
+	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider-Image')]/img")
+	private WebElement imgHeroBanner;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
 	private WebElement imgShopAllBrands;
@@ -162,28 +168,12 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//img[@class='img-responsive']")
 	private List<WebElement> lstOfferBanners;
-	
-	/* PWA elements */
-	@FindBy(xpath = "//a[@href!='#']//img[@class='Image-Image' and contains(@src,'AllBanners')]")
-	private List<WebElement> lstPwaAllBanners;	
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'women')])[1]")
-	private WebElement lnkPwaWomen;
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/men')])")
-	private WebElement lnkPwaMen;
-	
-	@FindBy(xpath = "(//div[@class='GenderButton-Container']/a[contains(@href,'/kids')])")
-	private WebElement lnkPwaKids;
-	
-	@FindBy(xpath = "//a[@class=' HeaderLogo']")
-	private WebElement imgPwaHomeLogo;
-	
-	@FindBy(xpath = "//img[contains(@src,'Hero_Banner')]")
-	private WebElement imgPwaHeroBanner;
-	
-	@FindBy(xpath = "//div[@class='FooterMiddle-CustomerSupport']//a[@class='InlineCustomerSupport-Phone']")
-	private WebElement divPwaFooterPhone;
+
+	@FindBy(xpath = "//div[@class='CategoryItem-Content']")
+	private WebElement spinner;
+
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a")
+	private List<WebElement> lnkLevel1Categories;
 	
 	@FindBy(xpath = "//div[@class='DynamicContentBanner']//img")
 	private List<WebElement> lstDynamicBanners;
@@ -207,18 +197,12 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void verifyHomePageDisplayed() {
-		Assert.assertTrue(genericHelper.isDisplayed(bannerHomePage));
+		Assert.assertTrue(genericHelper.isDisplayed(imgHeroBanner));
 		log.info("home page is loaded");
 	}
 
 	public void waitForBannerLoading() {
-		try {
-			waitHelper.waitForElementVisible(imgHomePage);
-			waitHelper.staticWait(5000);
-			waitHelper.waitForElementInVisiblity(new CartPage().lblCartCount);
-		} catch (Exception e) {
-			log.info("minicart disappeared");
-		}
+		waitHelper.waitForElementVisible(imgHeroBanner);
 		log.info("home page is banner loaded");
 	}
 
@@ -250,12 +234,13 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void typeInSearchField(String product) {
+		commonMethods.moveToElementAndClick(txtSearchProduct);
 		commonMethods.clearAndSendKeys(txtSearchProduct, product);
 		log.info("Entering text in Search field");
 	}
 
 	public void clickHomeLogo() {
-		commonMethods.click(imgPwaHomeLogo);
+		commonMethods.click(imgHomeLogo);
 		log.info("Clicked on Home Logo");
 	}
 
@@ -265,7 +250,8 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnFirstItemSearchResult() {
-		commonMethods.moveToElementAndClick(FirstSearchEle);
+		waitHelper.waitForElementVisible(FirstSearchEle);
+		commonMethods.clickUsingJS(FirstSearchEle);
 		log.info("First Search element clicked");
 	}
 
@@ -319,53 +305,53 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnAbout6thStreetFooterLink() {
-		commonMethods.click(lnkAbout6thStreet);
+		jsHelper.scrollIntoViewAndClick(lnkAbout6thStreet);
 		log.info("clicked About 6thstreet link in Footer");
 	}
 
 	public void clickOnConsumerRightsFooterLink() {
-		commonMethods.click(lnkConsumerRights);
+		jsHelper.scrollIntoViewAndClick(lnkConsumerRights);
 		log.info("clicked ConsumerRights link in Footer");
 	}
 
 	public void clickOnDisclaimerFooterLink() {
-		commonMethods.click(lnkDisclaimer);
+		jsHelper.scrollIntoViewAndClick(lnkDisclaimer);
 		log.info("clicked Disclaimer link in Footer");
 	}
 
 	public void clickOnPrivacyPolicyFooterLink() {
-		commonMethods.click(lnkPrivacyPolicy);
+		jsHelper.scrollIntoViewAndClick(lnkPrivacyPolicy);
 		log.info("clicked PrivacyPolicy link in Footer");
 	}
 
 	public void clickOnShippingInfoFooterLink() {
-		commonMethods.click(lnkShippingInfo);
+		jsHelper.scrollIntoViewAndClick(lnkShippingInfo);
 		log.info("clicked ShippingInfo link in Footer");
 	}
 
 	public void clickOnReturnInfoFooterLink() {
-		commonMethods.click(lnkReturnInfo);
+		jsHelper.scrollIntoViewAndClick(lnkReturnInfo);
 		log.info("clicked ReturnInfo link in Footer");
 	}
 
 	public void clickOnOrderTrackFooterLink() {
-		commonMethods.click(lnkOrderTrack);
+		jsHelper.scrollIntoViewAndClick(lnkOrderTrack);
 		log.info("clicked OrderTracking lnk in Footer");
 	}
 
 	public void clickOnFAQsFooterLink() {
-		commonMethods.click(lnkFAQs);
+		jsHelper.scrollIntoViewAndClick(lnkFAQs);
 		log.info("clicked FAQs link in Footer");
 	}
 
 	public void clickOnFeedbackFooterLink() {
-		commonMethods.click(lnkFeedback);
+		jsHelper.scrollIntoViewAndClick(lnkFeedback);
 		log.info("clicked Feedback link in Footer");
 	}
 
 	public void verifySupportPhoneAndEmail(String section) {
 		if (section.equalsIgnoreCase("Header")) {
-			commonMethods.click(divCustomerService);
+			commonMethods.moveToElementAndClick(divCustomerService);
 			this.verifyHeaderPhoneNumber();
 			this.verifyHeaderMailId();
 		} else if (section.equalsIgnoreCase("Footer")) {
@@ -417,49 +403,26 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnMainBanner() {
-		// waitHelper.waitForElementToBeClickable(bannerHomePage);
-		waitHelper.staticWait(5000);
-		waitHelper.waitForElementVisible(bannerHomePage);
-		commonMethods.click(bannerHomePage);
+		waitHelper.waitForElementVisible(imgHeroBanner);
+		commonMethods.click(imgHeroBanner);
 		log.info("clicked Main banner");
 	}
 
 	public void clickLevel1Category(String category) {
 		this.category = category;
 		if (category.equalsIgnoreCase("Women")) {
-			try {
-				commonMethods.clickUsingJS(lnkPwaWomen);
-				log.info("clicked Women L1 category");
-			}catch(ElementClickInterceptedException e) {
-				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
-				commonMethods.click(lnkPwaWomen);
-				log.info("clicked Women L1 category");
-			}
-			
+			commonMethods.click(lnkWomen);
+			log.info("clicked Women L1 category");
 		} else if (category.equalsIgnoreCase("Men")) {
-			try {
-				commonMethods.click(lnkPwaMen);
-				log.info("clicked Men L1 category");
-			}catch(ElementClickInterceptedException e) {
-				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
-				commonMethods.click(lnkPwaMen);
-				log.info("clicked Men L1 category");
-			}
+			commonMethods.click(lnkMen);
+			log.info("clicked Men L1 category");
 		} else if (category.equalsIgnoreCase("Kids")) {
-			try {
-				commonMethods.click(lnkPwaKids);
-				log.info("clicked Kids L1 category");
-			}catch(ElementClickInterceptedException e) {
-				waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
-				commonMethods.click(lnkPwaKids);
-				log.info("clicked Kids L1 category");
-			}
+			commonMethods.click(lnkKids);
+			log.info("clicked Kids L1 category");
 		}
-
 	}
 
 	public void clickOnAllBannersAndVerifyPLP(String bannerType) {
-		//this.clickOnBannersAndVerifyPLP(lstPwaAllBanners, "NotRequired");		
 		if(bannerType.equalsIgnoreCase("Dynamic")) {
 			this.clickOnBannersAndVerifyPLP(lstDynamicBanners, "Required");
 		} else if(bannerType.equalsIgnoreCase("TopCategories")) {
@@ -473,26 +436,18 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnBannersAndVerifyPLP(List<WebElement> banner, String staticWait) {
-		waitHelper.waitForElementToBeClickable(imgPwaHeroBanner);
+		waitHelper.waitForElementToBeClickable(imgHeroBanner);
 		if (staticWait.equalsIgnoreCase("Required")) {
 			waitHelper.staticWait(10000);
-			jsHelper.scrollToElement(divPwaFooterPhone);
-			jsHelper.scrollToElement(imgPwaHeroBanner);
-			// waitHelper.staticWait(15000);
-			waitHelper.staticWait(1000);
+			jsHelper.scrollToElement(lblFooterCustomerCarePhoneNo);
 		}
-		
+		waitHelper.staticWait(5000);
 		int bannerCount = banner.size();
 		System.out.println(" Banner count: " + bannerCount);
-		for (int i = 0; i < bannerCount ; i++) {
-			waitHelper.waitForElementVisible(imgPwaHomeLogo);
+		for (int i = 0; i < bannerCount; i++) {
+			waitHelper.waitForElementVisible(imgHomeLogo);
 			try {
-				/*
-				 * if (section.equalsIgnoreCase("Brands")) {
-				 * jsHelper.scrollToElement((banner.get(i)));
-				 * jsHelper.scrollToElement(lnkShopAllBrands); }
-				 */
-				//jsHelper.scrollToElement((banner.get(i)));
+				jsHelper.scrollToElement((banner.get(i)));
 				commonMethods.moveToElementAndClick(banner.get(i));
 				log.info("clicked banner " + (i + 1) + " of " + bannerCount);
 			} catch (ElementClickInterceptedException e) {
@@ -500,7 +455,6 @@ public class HomePage extends CucumberRunner {
 				commonMethods.clickUsingJS(banner.get(i));
 				log.info("clicked banner " + (i + 1) + " of " + bannerCount);
 			}
-			
 			waitHelper.staticWait(2000);
 			searchPage.verifyPLP();
 			waitHelper.staticWait(500);
@@ -510,5 +464,128 @@ public class HomePage extends CucumberRunner {
 				this.clickLevel1Category(this.category);
 			}
 		}
+	}
+
+	public void clickOnFooterLink(String footerLink) {
+		waitHelper.staticWait(5000);
+		if (footerLink.equalsIgnoreCase("About6thStreet")) {
+			clickOnAbout6thStreetFooterLink();
+		} else if (footerLink.equalsIgnoreCase("ConsumerRights")) {
+			clickOnConsumerRightsFooterLink();
+		} else if (footerLink.equalsIgnoreCase("Disclaimer")) {
+			clickOnDisclaimerFooterLink();
+		} else if (footerLink.equalsIgnoreCase("PrivacyPolicy")) {
+			clickOnPrivacyPolicyFooterLink();
+		} else if (footerLink.equalsIgnoreCase("ShippingInfo")) {
+			clickOnShippingInfoFooterLink();
+		} else if (footerLink.equalsIgnoreCase("ReturnInfo")) {
+			clickOnReturnInfoFooterLink();
+		} else if (footerLink.equalsIgnoreCase("OrderTrack")) {
+			clickOnOrderTrackFooterLink();
+		} else if (footerLink.equalsIgnoreCase("FAQs")) {
+			clickOnFAQsFooterLink();
+		} else if (footerLink.equalsIgnoreCase("Feedback")) {
+			clickOnFeedbackFooterLink();
+		}
+	}
+
+	public void verifyFooterLanding(String landingPage) {
+		if (landingPage.equalsIgnoreCase("About6thStreet")) {
+			footerLinks.verifyAbout6thStreetPage();
+		} else if (landingPage.equalsIgnoreCase("ConsumerRights")) {
+			footerLinks.switchToConsumerRightsPage();
+			footerLinks.verifyConsumerRightsPage();
+		} else if (landingPage.equalsIgnoreCase("Disclaimer")) {
+			footerLinks.verifyDisclaimerPage();
+		} else if (landingPage.equalsIgnoreCase("PrivacyPolicy")) {
+			footerLinks.verifyPrivacyPolicyPage();
+		} else if (landingPage.equalsIgnoreCase("ShippingPolicy")) {
+			footerLinks.verifyShippingPolicyPage();
+		} else if (landingPage.equalsIgnoreCase("ReturnInfo")) {
+			footerLinks.verifyReturnInfoPage();
+		} else if (landingPage.equalsIgnoreCase("OrderTracking")) {
+			footerLinks.verifyTrackingPage();
+		} else if (landingPage.equalsIgnoreCase("FAQs")) {
+			footerLinks.verifyFAQsPage();
+		} else if (landingPage.equalsIgnoreCase("Feedback")) {
+			footerLinks.verifyFeedbackPage();
+		}
+	}
+
+	public void verifyProductCategoryLinks() {
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String filename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "_brokenCategoryLinks";
+		textFileHandler.deleteFile(filename);
+		List<String> brokenLinks = new ArrayList<String>();
+		int level1Size = lnkLevel1Categories.size();
+		log.info("There Are Following Number Of Root Categories : " + level1Size);
+		for (int i = 0; i < level1Size; i++) {
+			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			int level2Size = this.getLevel2Links().size();
+			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
+			for (int j = 0; j < level2Size; j++) {
+				commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+				int level3Size = this.getLevel3ProductLinks().size();
+				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
+				for (int k = 0; k < level3Size; k++) {
+					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+					commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
+					if (!(new SearchPage().verifyProductsVisible())) {
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
+					}
+					commonMethods.navigateBack();
+				}
+			}
+
+		}
+		Assert.assertTrue("Broken Category Links Were Found ", brokenLinks.size() == 0);
+	}
+
+	public void verifyBrandCategoryLinks() {
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String filename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenBrandLinks";
+		textFileHandler.deleteFile(filename);
+		List<String> brokenLinks = new ArrayList<String>();
+		int level1Size = lnkLevel1Categories.size();
+		log.info("There Are Following Number Of Root Categories : " + level1Size);
+		for (int i = 0; i < level1Size; i++) {
+			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			int level2Size = this.getLevel2Links().size();
+			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
+			for (int j = 0; j < level2Size; j++) {
+				commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+				int level3Size = this.getLevel3BrandLinks().size();
+				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
+				for (int k = 0; k < level3Size; k++) {
+					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
+					commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
+					if (!(new SearchPage().verifyProductsVisible())) {
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
+					}
+					commonMethods.navigateBack();
+				}
+			}
+
+		}
+		Assert.assertTrue("Broken Brand Links Were Found ", brokenLinks.size() == 0);
+	}
+
+	public List<WebElement> getLevel2Links() {
+		waitHelper.staticWait(3000);
+		return browserFactory.getDriver().findElements(
+				By.xpath("//div[contains(@class,'HeaderBottomBar-Content')]//div[contains(@class,'MenuCategory')]//a"));
+	}
+
+	public List<WebElement> getLevel3ProductLinks() {
+		waitHelper.staticWait(1000);
+		return browserFactory.getDriver()
+				.findElements(By.xpath("//div[contains(@class,'MenuGrid-Column-Content')]/a/div/../../a"));
+	}
+
+	public List<WebElement> getLevel3BrandLinks() {
+		waitHelper.staticWait(1000);
+		return browserFactory.getDriver().findElements(By.xpath("//div[@class='MenuBrands']//a"));
 	}
 }

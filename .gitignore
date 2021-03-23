@@ -5,7 +5,7 @@ target/*
 *.project
 *.DS_Store
 test-output/*
-logs/*.log
+.log
 *.class
 bin
 *.settings

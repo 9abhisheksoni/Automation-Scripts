@@ -31,61 +31,40 @@ public class PaymentPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//form[@id='frames-element-card-number']/input[@id='checkout-frames-card-number']")
+	@FindBy(xpath = "//div[@class='CreditCard']//input[@id='number']")
 	private WebElement txtCreditCardNumber;
 
-	@FindBy(xpath = "//form[@id='frames-element-expiry-date']/input[@id='checkout-frames-expiry-date']")
+	@FindBy(xpath = "//div[@class='CreditCard']//input[@id='expData']")
 	private WebElement txtCreditCardExpiry;
 
-	@FindBy(xpath = "//form[@id='frames-element-cvv']/input[@id='checkout-frames-cvv']")
+	@FindBy(xpath = "//div[@class='CreditCard']//input[@id='cvv']")
 	private WebElement txtCreditCardCvv;
 
-	@FindBy(xpath = "//input[@id = 'checkoutcom_card_payment']")
+	@FindBy(xpath = "//div[contains(@class,'CheckoutPayment-Method_card')]/..")
 	private WebElement radioCreditCardPayment;
 
-	@FindBy(xpath = "//input[@id = 'msp_cashondelivery']")
+	@FindBy(xpath = "//div[contains(@class,'CheckoutPayment-Method_cash')]/..")
 	private WebElement radioCodPayment;
 
-	@FindBy(xpath = "//input[@id = 'tabby_checkout']")
+	@FindBy(xpath = "//div[contains(@class,'CheckoutPayment-Method_cash')]/ancestor::li/preceding-sibling::li[contains(@class,'isTabby')][1]//div/..")
+	private WebElement radioTabby;
+	
+	@FindBy(xpath = "//div[@class='CheckoutPayments-TabbyPaymentContentDescription' and contains(text(),'14')]/ancestor::div[@class='CheckoutPayments-TabbyPayment']//button[contains(@class,'CheckoutPayment-Button')]")
 	private WebElement radioTabbyPayLater;
 
-	@FindBy(xpath = "//input[@id = 'tabby_installments']")
+	@FindBy(xpath = "//div[@class='CheckoutPayments-TabbyPaymentContentDescription' and contains(text(),'6')]/ancestor::div[@class='CheckoutPayments-TabbyPayment']//button[contains(@class,'CheckoutPayment-Button')]")
 	private WebElement radioTabbyPayInInstallments;
-
-	@FindBy(xpath = "//input[@id = 'checkoutcom_card_payment']/ancestor::div[contains(@class,'payment-method')][2]")
-	private WebElement divCreditCardPayment;
 
 	@FindBy(xpath = "//input[@id='checkoutcom_vault']/ancestor::div[@class='payment-method-title field choice']/..")
 	private WebElement divSavedCardPayment;
 
-	@FindBy(xpath = "//input[@id = 'msp_cashondelivery']/ancestor::div[contains(@class,'payment-method')][2]")
-	private WebElement divCodPayment;
+	@FindBy(xpath = "//button[contains(@class,'CheckoutBilling-Button')]")
+	private WebElement btnPlaceOrder;
 
-	@FindBy(xpath = "//input[@id = 'tabby_checkout']/ancestor::div[contains(@class,'payment-method')][2]")
-	private WebElement divTabbyPayLater;
-
-	@FindBy(xpath = "//input[@id = 'tabby_installments']/ancestor::div[contains(@class,'payment-method')][2]")
-	private WebElement divTabbyPayInInstallments;
-
-	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout button default']")
-	private WebElement btnCodPlaceOrder;
-
-	@FindBy(xpath = "//button[@id='checkoutcom_card_payment_btn']") // updated
-	private WebElement btnCcPlaceOrder;//
-
-	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_checkout']")
-	private WebElement btnTabbyPayLaterPlaceOrder;
-
-	@FindBy(xpath = "//button[@type = 'submit' and @class='action primary checkout tabby tabby_installments']")
-	private WebElement btnTabbyPayInInstallmentsPlaceOrder;
-
-	@FindBy(xpath = "//span[@class='discount_icon']")
-	private WebElement drawCouponDrawer;
-
-	@FindBy(xpath = "//input[@id='discount-code']")
+	@FindBy(xpath = "//input[@id='couponCode']")
 	private WebElement txtCouponCode;
 
-	@FindBy(xpath = "//button[contains(@class,'action-apply')]")
+	@FindBy(xpath = "//button[contains(@class,'CartCoupon-Button')]")
 	private WebElement btnApplyDiscount;
 
 	@FindBy(xpath = "//input[@type='tel']")
@@ -109,21 +88,12 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "//div[contains(@class,'styles_react-code-input')]/input")
 	private WebElement txtTabbyOTP;
 
-	@FindBy(xpath = "//iframe[@id='cardNumber']")
-	private WebElement frameCreditCard;
-
-	@FindBy(xpath = "//iframe[@id='expiryDate']")
-	private WebElement frameExpiryDate;
-
-	@FindBy(xpath = "//iframe[@id='cvv']")
-	private WebElement frameCvv;
-
-	@FindBy(xpath = "//div[@class='secure-checkout-right']/span")
-	private WebElement lblSecureCheckout;
-
 	@FindBy(xpath = "//button[contains(@class,'Button__disabled')]")
 	private WebElement btnTabbyInActiveCompleteOrder;
 
+	@FindBy(xpath = "//iframe[contains(@id,'tabby_popup')]")
+	private WebElement frameTabbyParent;
+	
 	@FindBy(xpath = "//iframe[contains(@class,'integration__iframe')]")
 	private WebElement frameTabby;
 
@@ -160,26 +130,32 @@ public class PaymentPage extends CucumberRunner {
 	@FindBy(xpath = "(//div[contains(@class,'IdConfirm__field')]/input)[4]")
 	private WebElement txtTabbyDOB;
 
-	@FindBy(css = "#aw-storecredit-pt-checkbox")
+	@FindBy(xpath = "//input[@type='checkbox' and contains(@class,'StoreCredit-Toggle')]")
 	private List<WebElement> chkStoreCreditToggle;
 
-	@FindBy(css = "#aw-ca-pt-checkbox")
+	@FindBy(xpath = "//input[@type='checkbox' and contains(@class,'ClubApparel-Toggle')]")
 	private List<WebElement> chkClubApparelToggle;
 
-	@FindBy(xpath = "//label[@for='aw-storecredit-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
+	@FindBy(xpath = "//input[@type='checkbox' and contains(@class,'StoreCredit-Toggle')]")
 	private WebElement btnStoreCreditToggle;
 
-	@FindBy(xpath = "//label[@for='aw-ca-pt-checkbox']/ancestor::div[@class='switch-toggle-main']")
+	@FindBy(xpath = "//input[@type='checkbox' and contains(@class,'ClubApparel-Toggle')]")
 	private WebElement btnClubApparelToggle;
 
-	@FindBy(xpath = "//tr[@class='totals sub']/td/span[@class='price']")
+	@FindBy(xpath = "//ul//strong[text()='Subtotal' or text()='الإجمالي']/following-sibling::strong")
 	private WebElement lblSubTotalAmount;
 
-	@FindBy(xpath = "//tr[@class='totals discount']//span[@class='price']")
+	@FindBy(xpath = "//ul//strong[contains(text(),'Discount') or contains(text(),'خصم')]/following-sibling::strong")
 	private WebElement lblDiscountAmount;
 
-	@FindBy(xpath = "//table[contains(@class,'table-totals')]")
-	private WebElement tblOrderSummary;
+	@FindBy(xpath = "//ul//strong[text()='Shipping' or text()='تكلفة التوصيل']/following-sibling::strong")
+	private WebElement lblShippingAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Club Apparel Redemption' or text()='استرداد نقاط كلوب أباريل']/following-sibling::strong")
+	private WebElement lblCaAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Store Credit' or text()='رصيد المتجر']/following-sibling::strong")
+	private WebElement lblScAmount;
 
 	@FindBy(xpath = "//span[text()='Saved Cards']//ancestor::div/input[@class='radio']")
 	private WebElement radioSavedCard;
@@ -222,17 +198,18 @@ public class PaymentPage extends CucumberRunner {
 	public String checkGetActivePayment() {
 		String paymentMethod = "";
 		try {
-			if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
+			if (commonMethods.getAttribute(radioCreditCardPayment, "class").contains("CheckoutPayment-Button_isSelected")) {
 				paymentMethod = "creditCardPayment";
-			} else if (commonMethods.getAttribute(divCreditCardPayment, "class").contains("active")) {
-				paymentMethod = "creditCardPayment";
-			} else if (commonMethods.getAttribute(divCodPayment, "class").contains("active")) {
+			} else if (commonMethods.getAttribute(radioCodPayment, "class").contains("CheckoutPayment-Button_isSelected")) {
 				paymentMethod = "codPayment";
-			} else if (commonMethods.getAttribute(divTabbyPayLater, "class").contains("active")) {
+			} else if (commonMethods.getAttribute(radioTabby, "class").contains("CheckoutPayment-Button_isSelected")) {
+				if (commonMethods.getAttribute(radioTabbyPayLater, "class").contains("CheckoutPayment-Button_isSelected")) {
 				paymentMethod = "tabbyPayLater";
-			} else if (commonMethods.getAttribute(divTabbyPayInInstallments, "class").contains("active")) {
+				}
+				else if (commonMethods.getAttribute(radioTabbyPayInInstallments, "class").contains("CheckoutPayment-Button_isSelected")) {
 				paymentMethod = "tabbyPayInInstallments";
-			} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("active")) {
+				}
+			} else if (commonMethods.getAttribute(divSavedCardPayment, "class").contains("CheckoutPayment-Button_isSelected")) {
 				paymentMethod = "savedCardsPayment";
 			}
 		} catch (Exception e) {
@@ -250,44 +227,27 @@ public class PaymentPage extends CucumberRunner {
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
 			waitHelper.staticWait(3000);
 			commonMethods.click(radioCreditCardPayment);
-			waitHelper.waitForSpinnerInvisibility();
 		}
-		genericHelper.switchToFrame(frameCreditCard);
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
 		log.info("card number is entered as :" + cardNumber);
-		genericHelper.switchToDefaulContent();
-		genericHelper.switchToFrame(frameExpiryDate);
 		commonMethods.clearAndSendKeys(txtCreditCardExpiry, expiry);
 		log.info("Expiry date is entered as : " + expiry);
-		genericHelper.switchToDefaulContent();
-		genericHelper.switchToFrame(frameCvv);
 		commonMethods.clearAndSendKeys(txtCreditCardCvv, cvv);
-		genericHelper.switchToDefaulContent();
 		log.info("CVV detail is entered as : " + cvv);
-
 	}
 
 	public void payUsingCOD() {
-		// waitHelper.staticWait(2000);
 		if (!checkGetActivePayment().equalsIgnoreCase("codPayment")) {
 			commonMethods.click(radioCodPayment);
-			waitHelper.waitForSpinnerInvisibility();
 			log.info("Payment method selected as :COD");
 		}
 
 	}
 
 	public void fillTabbyForm(String phone, String email, String otp) {
+		genericHelper.switchToFrame(frameTabbyParent);
 		genericHelper.switchToFrame(frameTabby);
-		/*
-		 * if (commonMethods.isElementPresent(lnkTabbyPhoneEdit)) {
-		 * commonMethods.click(lnkTabbyPhoneEdit); }
-		 */
 		commonMethods.clearAndSendKeys(txtTabbyPhone, phone);
-		/*
-		 * if (commonMethods.isElementPresent(lnkTabbyEmailEdit)) {
-		 * commonMethods.click(lnkTabbyEmailEdit); }
-		 */
 		commonMethods.clearAndSendKeys(txtTabbyEmail, email);
 		if (commonMethods.getAttribute(chkTabbyTerms, "checked") == null) {
 			commonMethods.click(chkTabbyTerms);
@@ -314,42 +274,32 @@ public class PaymentPage extends CucumberRunner {
 	}
 
 	public void payUsingTabbyPayLater() {
-		waitHelper.waitForSpinnerInvisibility();
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
+			commonMethods.click(radioTabby);
+			waitHelper.staticWait(3000);
 			commonMethods.click(radioTabbyPayLater);
-			waitHelper.waitForSpinnerInvisibility();
 		}
 		log.info("selected using tabby pay later ");
 	}
 
 	public void payUsingTabbyPayInInstallments() {
 		if (!checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
+			commonMethods.click(radioTabby);
+			waitHelper.staticWait(3000);
 			commonMethods.moveToElementAndClick(radioTabbyPayInInstallments);
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void applyCoupon(String couponCode) {
-		waitHelper.waitForSpinnerInvisibility();
-		commonMethods.click(drawCouponDrawer);
 		commonMethods.clearAndSendKeys(txtCouponCode, couponCode);
 		commonMethods.click(btnApplyDiscount);
 		log.info("applied discount coupon on checkout");
 	}
 
 	public void clickOnPlaceOrder() {
-		commonMethods.click(lblSecureCheckout);
 		log.info("Active payment: " + this.checkGetActivePayment());
-		if (this.checkGetActivePayment().equalsIgnoreCase("codPayment")) {
-			commonMethods.staleElementClick(btnCodPlaceOrder);
-		} else if (this.checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			commonMethods.staleElementClick(btnCcPlaceOrder);
-		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayLater")) {
-			commonMethods.staleElementClick(btnTabbyPayLaterPlaceOrder);
-		} else if (this.checkGetActivePayment().equalsIgnoreCase("tabbyPayInInstallments")) {
-			commonMethods.staleElementClick(btnTabbyPayInInstallmentsPlaceOrder);
-		} else
-			commonMethods.staleElementClick(btnSavedCCPlaceOrder);
+		waitHelper.staticWait(3000);
+		commonMethods.moveToElementAndClick(btnPlaceOrder);
 		log.info("clicked on place order");
 	}
 
@@ -414,45 +364,39 @@ public class PaymentPage extends CucumberRunner {
 	public void turnOffStoreCredit() {
 		log.info("turning store credit off if present");
 		if (chkStoreCreditToggle.size() > 0 && this.isStoreCreditActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
 				commonMethods.click(btnStoreCreditToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOffCAPoints() {
 		log.info("turning CA credit off if present");
 		if (chkClubApparelToggle.size() > 0 && this.isClubApparelPointsActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
 				commonMethods.click(btnClubApparelToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
 	}
 
 	public void turnOnStoreCredit() {
 		log.info("turning store credit ON if present");
 		if (!this.isStoreCreditActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnStoreCreditToggle)) {
 				commonMethods.click(btnStoreCreditToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
+		Assert.assertTrue(genericHelper.isDisplayed(lblScAmount));
 	}
 
 	public void turnOnCAPoints() {
 		log.info("turning CA credit ON if present");
 		if (!this.isClubApparelPointsActive()) {
-			waitHelper.waitForSpinnerInvisibility();
 			if (genericHelper.isElementPresent(btnClubApparelToggle)) {
 				commonMethods.click(btnClubApparelToggle);
 			}
-			waitHelper.waitForSpinnerInvisibility();
 		}
+		Assert.assertTrue(genericHelper.isDisplayed(lblCaAmount));
 	}
 
 	public void verifyAmountOffApplied(String expectedamount) {
@@ -543,22 +487,20 @@ public class PaymentPage extends CucumberRunner {
 			log.info("Store Credit Payment Option is available");
 			Assert.assertTrue(genericHelper.isDisplayed(divClubApparel));
 			log.info("Club Appareal Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divCreditCardPayment));
+			Assert.assertTrue(genericHelper.isDisplayed(radioCreditCardPayment));
 			log.info("Credit Card Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divCodPayment));
+			Assert.assertTrue(genericHelper.isDisplayed(radioCodPayment));
 			log.info("COD Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divTabbyPayLater));
-			log.info("Tabby Pay Later Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divTabbyPayInInstallments));
-			log.info("Tabby Pay In Installments Payment Option is available");
+			Assert.assertTrue(genericHelper.isDisplayed(radioTabby));
+			log.info("Tabby Payment Option is available");
 		} else {
 			Assert.assertTrue(genericHelper.isDisplayed(divStoreCredit));
 			log.info("Store Credit Payment Option is available");
 			Assert.assertTrue(genericHelper.isDisplayed(divClubApparel));
 			log.info("Club Appareal Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divCreditCardPayment));
+			Assert.assertTrue(genericHelper.isDisplayed(radioCreditCardPayment));
 			log.info("Credit Card Payment Option is available");
-			Assert.assertTrue(genericHelper.isDisplayed(divCodPayment));
+			Assert.assertTrue(genericHelper.isDisplayed(radioCodPayment));
 			log.info("COD Payment Option is available");
 		}
 	}
@@ -572,21 +514,13 @@ public class PaymentPage extends CucumberRunner {
 		String cvv = json.getCVV(cardType);
 
 		if (!checkGetActivePayment().equalsIgnoreCase("creditCardPayment")) {
-			waitHelper.staticWait(3000);
 			commonMethods.click(radioCreditCardPayment);
-			waitHelper.waitForSpinnerInvisibility();
 		}
-		genericHelper.switchToFrame(frameCreditCard);
 		commonMethods.clearAndSendKeys(txtCreditCardNumber, cardNumber);
 		log.info("card number is entered as :" + cardNumber);
-		genericHelper.switchToDefaulContent();
-		genericHelper.switchToFrame(frameExpiryDate);
 		commonMethods.clearAndSendKeys(txtCreditCardExpiry, expiry);
 		log.info("Expiry date is entered as : " + expiry);
-		genericHelper.switchToDefaulContent();
-		genericHelper.switchToFrame(frameCvv);
 		commonMethods.clearAndSendKeys(txtCreditCardCvv, cvv);
-		genericHelper.switchToDefaulContent();
 		log.info("CVV detail is entered as : " + cvv);
 
 		String newexpiryMonth = null;
