@@ -60,6 +60,9 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement lblCustomerName;
 
+	@FindBy(xpath = "//div[contains(@class,'Notification_type_success')]")
+	private WebElement msgSuccess;
+	
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
 	private WebElement lblCurrentCountry;
 
@@ -233,7 +236,11 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void verifyLogin() {
-		waitHelper.staticWait(3000);
+		int count = 0;
+		while(commonMethods.getText(lblCustomerName).contains("/") && count<10) {
+			waitHelper.staticWait(1000);
+			count++;
+		}
 		Assert.assertFalse(commonMethods.getText(lblCustomerName).contains("/"));
 		log.info("login is successfull");
 	}

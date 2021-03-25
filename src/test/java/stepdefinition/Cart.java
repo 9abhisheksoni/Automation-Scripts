@@ -79,4 +79,9 @@ public class Cart {
 	public void mini_cart_should_be_displayed() {
 		cartPage.isMiniCartVisible();
 	}
+	
+	@And("^user navigates to cart")
+	public void user_navigates_to_cart() {
+		cartPage.clickOnViewBag();
+	}
 }

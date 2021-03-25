@@ -97,6 +97,9 @@ public class CartPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
 	private WebElement txtSpecialPriceAtSubtotal;
+	
+	@FindBy(xpath = "//h1[@class='CartPage-Heading']")
+	private WebElement lblMyCart;
 
 	/**
 	 * WebElement declaration ends here
@@ -289,6 +292,11 @@ public class CartPage extends CucumberRunner {
 	
 	public void clickOnViewBag() {
 		log.info("Clicking View Bag In Mini Cart");
+		log.info("Navigating To Cart");	
+		if(!genericHelper.isDisplayed(btnMiniCartViewBag)) {
+			commonMethods.click(iconCart);
+		}
 		commonMethods.moveToElementAndClick(btnMiniCartViewBag);
+		Assert.assertTrue(genericHelper.isDisplayed(lblMyCart));
 	}
 }

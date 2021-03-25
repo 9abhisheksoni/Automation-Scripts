@@ -51,6 +51,9 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//img")
 	private List<WebElement> lnksProduct;
+	
+	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//a")
+	private List<WebElement> lnksProductname;
 
 	@FindBy(xpath = "//div[contains(@class,'PLPFilters-ProductsCount')]/span")
 	private WebElement lblSearchResultCount;
@@ -72,15 +75,6 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "(//input[contains(@name,'size')])[2]")
 	private WebElement chkSizeGroupSecondFilter;
-
-	@FindBy(xpath = "//div[@data-tab='categories_without_path']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
-	private WebElement chkFirstCategoryFilterActive;
-
-	@FindBy(xpath = "(//div[@data-tab='categories_without_path']//div[@class='ais-refinement-list--item ais-refinement-list--item__active'])[2]")
-	private WebElement chkSecondCategoryFilterActive;
-
-	@FindBy(xpath = "//div[@data-tab='size']//div[@class='ais-refinement-list--item ais-refinement-list--item__active']")
-	private WebElement chkFirstSizeFilterActive;
 
 	@FindBy(xpath = "//input[@type='radio' and @id='price_lowsort']/ancestor::div[contains(@class,'FieldMultiselect-OptionListContainer')]/preceding-sibling::button")
 	private WebElement drpdwnSortBy;
@@ -430,6 +424,17 @@ public class SearchPage extends CucumberRunner {
 	public boolean verifyProductsVisible() {
 		log.info("Verifying product counts");
 		return lnksProduct.size() > 0;
+	}
+
+	public List<String> getBrokenPriceProducts() {
+		this.clickLowToHighSort();
+		List <String> links = new ArrayList<String>();
+		for (int i = 0; i < lblprices.size(); i++) {
+			if (!(this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0)) {
+				links.add(commonMethods.getAttribute(lnksProductname.get(i),"href"));
+			}
+		}
+		return links;
 	}
 
 }
