@@ -88,5 +88,5 @@ public class PDP {
 		pdpPage.evaluateBasePriceAtPDP();
 		pdpPage.evaluateSpecialPriceAtPDP();
 	}
-
+	
 }

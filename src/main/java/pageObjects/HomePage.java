@@ -151,7 +151,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
 
-	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider-Image')]/img")
+	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider')]//img")
 	private WebElement imgHeroBanner;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
@@ -174,16 +174,16 @@ public class HomePage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a")
 	private List<WebElement> lnkLevel1Categories;
-	
+
 	@FindBy(xpath = "//div[@class='DynamicContentBanner']//img")
 	private List<WebElement> lstDynamicBanners;
-	
+
 	@FindBy(xpath = "//div[@class='DynamicContentGrid'][1]//div[@class='CategoryItem-Content']")
 	private List<WebElement> lstTopCategoriesBanner;
-	
+
 	@FindBy(xpath = "//div[@class='DynamicContentGrid'][2]//div[@class='CategoryItem-Content']")
 	private List<WebElement> lstBrandsBanner;
-	
+
 	@FindBy(xpath = "//div[@class='DynamicContentGrid'][3]//div[@class='CategoryItem-Content']")
 	private List<WebElement> lstWhatsHotBanner;
 
@@ -423,13 +423,13 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnAllBannersAndVerifyPLP(String bannerType) {
-		if(bannerType.equalsIgnoreCase("Dynamic")) {
+		if (bannerType.equalsIgnoreCase("Dynamic")) {
 			this.clickOnBannersAndVerifyPLP(lstDynamicBanners, "Required");
-		} else if(bannerType.equalsIgnoreCase("TopCategories")) {
+		} else if (bannerType.equalsIgnoreCase("TopCategories")) {
 			this.clickOnBannersAndVerifyPLP(lstTopCategoriesBanner, "Required");
-		} else if(bannerType.equalsIgnoreCase("Brands")) {
+		} else if (bannerType.equalsIgnoreCase("Brands")) {
 			this.clickOnBannersAndVerifyPLP(lstBrandsBanner, "Required");
-		} else if(bannerType.equalsIgnoreCase("WhatsHot")) {
+		} else if (bannerType.equalsIgnoreCase("WhatsHot")) {
 			this.clickOnBannersAndVerifyPLP(lstWhatsHotBanner, "Required");
 		}
 		searchPage.customAssertAll();
@@ -587,5 +587,39 @@ public class HomePage extends CucumberRunner {
 	public List<WebElement> getLevel3BrandLinks() {
 		waitHelper.staticWait(1000);
 		return browserFactory.getDriver().findElements(By.xpath("//div[@class='MenuBrands']//a"));
+	}
+
+	public void verifyCatlogPrices() {
+		List<String> brokenPriceLinks=new ArrayList<String>();
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String plpBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenplpLinks";
+		String priceBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenpriceLinks"
+				+ "brokenPriceLinks";
+		textFileHandler.deleteFile(plpBrokenfilename);
+		textFileHandler.deleteFile(priceBrokenfilename);
+		List<String> brokenLinks = new ArrayList<String>();
+		int level1Size = lnkLevel1Categories.size();
+		log.info("There Are Following Number Of Root Categories : " + level1Size);
+		for (int i = 0; i < level1Size; i++) {
+			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			int level2Size = this.getLevel2Links().size();
+			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
+			for (int j = 0; j < level2Size; j++) {
+				commonMethods.moveToElementAndClick(this.getLevel2Links().get(j));
+				if (!(new SearchPage().verifyProductsVisible())) {
+					brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+					textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), plpBrokenfilename);
+				} else {
+					SearchPage searchPage = new SearchPage();
+					brokenPriceLinks.addAll(searchPage.getBrokenPriceProducts());
+					for (String temp : brokenPriceLinks) {
+						textFileHandler.writeToFile(temp, priceBrokenfilename);
+					}
+				}
+				commonMethods.navigateBack();
+			}
+
+		}
+		Assert.assertTrue("Broken Price Links Were Found ", brokenPriceLinks.size() == 0);
 	}
 }
