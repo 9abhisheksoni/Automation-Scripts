@@ -18,6 +18,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import fileReader.TextFileHandler;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
@@ -51,6 +52,12 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//img")
 	private List<WebElement> lnksProduct;
+	
+	@FindBy(xpath = "//p[@class='Price']/parent::a")
+	private List<WebElement> lnksProductWithPrice;
+	
+	@FindBy(xpath = "//span[starts-with(text(),'0.0')]/ancestor::a")
+	private List<WebElement> lnksProductWithZeroPrice;
 	
 	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//a")
 	private List<WebElement> lnksProductname;
@@ -426,15 +433,64 @@ public class SearchPage extends CucumberRunner {
 		return lnksProduct.size() > 0;
 	}
 
-	public List<String> getBrokenPriceProducts() {
-		this.clickLowToHighSort();
-		List <String> links = new ArrayList<String>();
-		for (int i = 0; i < lblprices.size(); i++) {
-			if (!(this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0)) {
-				links.add(commonMethods.getAttribute(lnksProductname.get(i),"href"));
-			}
+	public List<String> getPriceProducts() {
+		List <String> nonZeroPriceLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductWithPrice) {
+			nonZeroPriceLinks.add(commonMethods.getAttribute(ele, "href"));
 		}
-		return links;
+		log.info("Price Product Links count "+nonZeroPriceLinks.size());
+		return nonZeroPriceLinks;
+	}
+	
+	public List<String> getZeroPriceProducts() {
+		List <String> zeroPriceLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductWithZeroPrice) {
+			zeroPriceLinks.add(commonMethods.getAttribute(ele, "href"));
+		}
+		log.info("Zero Price Product Links count "+zeroPriceLinks.size());
+		return zeroPriceLinks;
+	}
+	
+	public List<String> getNoPriceProducts() {
+		List <String> noPriceLinks = new ArrayList<String>();
+		noPriceLinks.addAll(this.getAllProducts());
+		noPriceLinks.removeAll(this.getPriceProducts());	
+		log.info("No Price Product Links count "+noPriceLinks.size());
+		return noPriceLinks;
+	}
+	
+	public List<String> getAllProducts() {
+		List <String> allProductLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductname) {
+			allProductLinks.add(commonMethods.getAttribute(ele, "href"));
+		}
+		log.info("All Product Links count "+allProductLinks.size());
+		return allProductLinks;
+	}
+	
+	public List<String> getErrorPriceProducts() {
+		List <String> errorProductLinks = new ArrayList<String>();
+		errorProductLinks.addAll(this.getZeroPriceProducts());
+		errorProductLinks.addAll(this.getNoPriceProducts());
+		return errorProductLinks;
 	}
 
+	public void verifyCatlogPrices() {
+		List<String> brokenPriceLinks=new ArrayList<String>();
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String priceBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenpriceLinks"
+				+ "brokenPriceLinks";
+		textFileHandler.deleteFile(priceBrokenfilename);
+		brokenPriceLinks.addAll(getErrorPriceProducts());
+		for (String ele : brokenPriceLinks) {
+			textFileHandler.writeToFile(ele, priceBrokenfilename);
+		}
+		
+		Assert.assertTrue("Broken Price Links Were Found ", brokenPriceLinks.size() == 0);
+	}
+
+	public void loadMoreProducts() {
+		jsHelper.scrollDownVertically();
+		jsHelper.scrollDownVertically();		
+	}
 }

@@ -151,5 +151,14 @@ public class SearchResults {
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
 	}
+	
+	@Then("^broken price products are collected$")
+	public void broken_price_products_are_collected() {
+		searchPage.verifyCatlogPrices();
+	}
 
+	@And("^scroll two lazy loads$")
+	public void scroll_two_lazy_loads() {
+		searchPage.loadMoreProducts();
+	}
 }

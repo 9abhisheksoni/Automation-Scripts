@@ -20,7 +20,7 @@ Feature: 6thstreet.com - User Cart Scenarios
 	
 	Examples:  
 		|Product|
-		|Shoes|
+		|Shirt|
 	
 	@Regression @Smoke
 	Scenario Outline: TS_Cart_02 - User is able to update the product qty

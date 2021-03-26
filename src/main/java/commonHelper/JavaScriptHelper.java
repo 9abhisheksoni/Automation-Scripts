@@ -67,6 +67,7 @@ public class JavaScriptHelper extends CucumberRunner {
 	public void scrollDownVertically() {
 		log.info("Scrolling to window vertical height");
 		executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		new WaitHelper().staticWait(3000);
 	}
 
 	/** Scroll horizontal to scroll width **/

@@ -134,7 +134,7 @@ public class CommonMethods extends CucumberRunner {
 	public void mouseHoverOn(WebElement webElement) {
 		Actions action = new Actions(browserFactory.getDriver());
 		WebDriverWait wait = new WebDriverWait(browserFactory.getDriver(), time);
-		wait.until(ExpectedConditions.elementToBeClickable(webElement));
+		wait.until(ExpectedConditions.visibilityOf(webElement));
 		action.moveToElement(webElement).build().perform();
 		log.info("cursor movement to specified element");
 	}
@@ -146,7 +146,7 @@ public class CommonMethods extends CucumberRunner {
 	public void mouseHover(WebElement webElement) {
 		Actions action = new Actions(browserFactory.getDriver());
 		WebDriverWait wait = new WebDriverWait(browserFactory.getDriver(), time);
-		wait.until(ExpectedConditions.elementToBeClickable(webElement));
+		wait.until(ExpectedConditions.visibilityOf(webElement));
 		action.moveToElement(webElement, 0, 0).build().perform();
 		log.info("cursor movement to specified element");
 	}
@@ -575,7 +575,9 @@ public class CommonMethods extends CucumberRunner {
 	
 	/** driver navigation to previous page **/
 	public void navigateBack() {
+		new WaitHelper().staticWait(500);
 		browserFactory.getDriver().navigate().back();
+		new WaitHelper().staticWait(500);
 	}
 	
 	/** browser refresh**/

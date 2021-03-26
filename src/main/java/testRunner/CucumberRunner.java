@@ -5,8 +5,8 @@ import cucumber.api.CucumberOptions;
 
 
 
-@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/feature_backup/GuestCheckoutPage.feature", 
-glue = "stepdefinition", format = {	"pretty"}, tags = {  }, 
+@CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/feature_backup/SearchResultsPage.feature", 
+glue = "stepdefinition", format = {	"pretty"}, tags = {"@catrun"}, 
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html","json:target/cucumber.json"}, dryRun = false)
 
 
