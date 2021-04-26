@@ -45,8 +45,7 @@ public class LoginPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	//@FindBy(xpath = "//span[@class='login-label']") - old
-	@FindBy(xpath = "//button[@class='HeaderAccount-Button']//label[@for='Account']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
 	private WebElement labelLoginOrRegister;
 
 	@FindBy(xpath = "//input[@id='email']")
@@ -55,19 +54,23 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//input[@id='password']")
 	private WebElement txtPassword;
 
-	@FindBy(xpath = "//button[@class='Button'][normalize-space()='Sign in']")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isSignInValidated')]/button")
 	private WebElement btnLogin;
 
-	@FindBy(xpath = "//button[@class='HeaderAccount-Button']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
+
 	private WebElement lblCustomerName;
 
+	@FindBy(xpath = "//div[contains(@class,'Notification_type_success')]")
+	private WebElement msgSuccess;
+	
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
 	private WebElement lblCurrentCountry;
 
-	@FindBy(css = "#customer-email")
+	@FindBy(css = "#guest_email")
 	private WebElement txtGuestEmail;
 
-	@FindBy(xpath = "//button[@class='action login primary button-guest']")
+	@FindBy(xpath = "//div[@class='Checkout-GuestButton']/button/span")
 	private WebElement btnContinueAsGuest;
 
 	@FindBy(xpath = "//input[@name='email']")
@@ -229,18 +232,17 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clickLoginButton() {
-		commonMethods.click(btnLogin);
+		commonMethods.moveToElementAndClick(btnLogin);
 		log.info("login button clicked");
-		waitHelper.staticWait(10);
-		if (commonMethods.isElementPresent(labelLoginOrRegister)) {
-			commonMethods.refresh();
-		}
 	}
 
 	public void verifyLogin() {
-		waitHelper.staticWait(3000);
-		commonMethods.refresh();
-		Assert.assertTrue(genericHelper.isDisplayed(lblCustomerName));
+		int count = 0;
+		while(commonMethods.getText(lblCustomerName).contains("/") && count<10) {
+			waitHelper.staticWait(1000);
+			count++;
+		}
+		Assert.assertFalse(commonMethods.getText(lblCustomerName).contains("/"));
 		log.info("login is successfull");
 	}
 

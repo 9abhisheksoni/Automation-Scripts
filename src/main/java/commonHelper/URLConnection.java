@@ -1,14 +1,12 @@
 package commonHelper;
 
-import java.io.IOException;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 import org.apache.log4j.Logger;
-
-import pageObjects.CartPage;
 
 public class URLConnection {
 
@@ -36,39 +34,46 @@ public class URLConnection {
 		} catch (Exception e) {
 			System.out.println("Error occured during connection request");
 		}
-		
+
 		return respCode;
 	}
-	
+
 	public String getResponseMessage(String url) {
 		getConnectionResponseCode(url);
 		String responseMessage = "";
 		try {
 			responseMessage = huc.getResponseMessage();
-			System.out.println("Response Message "+responseMessage);
+
+			BufferedReader br = new BufferedReader(new InputStreamReader((huc.getInputStream())));
+			StringBuilder sb = new StringBuilder();
+			String output;
+			while ((output = br.readLine()) != null) {
+				sb.append(output);
+			}
+
 		} catch (Exception e) {
-			
+
 		}
-		
+
 		return responseMessage;
 	}
-	
+
 	public boolean validateResponseCode(String url) {
 		int responseCode = getConnectionResponseCode(url);
-		
+
 		boolean result = false;
-		if(responseCode >= 200 && responseCode <= 299) {
+		if (responseCode >= 200 && responseCode <= 299) {
 			result = true;
 		}
-		System.out.println("The link broken state is: "+result);
+		System.out.println("The link broken state is: " + result);
 		return result;
-		
+
 	}
-	
-	
-	public static void main(String[] args) {
-		
+
+	public static void main(String... test) {
+
 		URLConnection uc = new URLConnection();
-		uc.getResponseMessage("https://en-bh.6thstreet.com/catalogsearch/gfhkjhkkjgfhdhgjlkj/?q=%2B#&idx=enterprise_magento_english_products&p=0&dFR%5Bbrand_name%5D%5B0%5D=Rituals&nR%5Bvisibility_search%5D%5B%3D%5D%5B0%5D=1");
+		uc.getResponseMessage("https://en-ae.6thstreet.com/women-adidas-clothing.html");
 	}
 }
+

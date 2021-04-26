@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.WaitHelper;
@@ -33,19 +34,9 @@ public class CartPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//div/li[2]/Strong[@class='CartPage-Text']")
-	private WebElement lblOrderSummary;
 
-	// added element
 	@FindBy(xpath = "//div[@class= 'CartPage-ClubApparelText']")
 	private WebElement lblLinkCa;
-
-	@FindBy(xpath = "//tr[@class='totals-tax']")
-	private WebElement lblTax;
-
-	@FindBy(xpath = "//div[@class='CartPage-Subtotals']/li[1]/Strong[@class='CartPage-Text']")
-	private WebElement lblSubTotal;
-	//
 
 	@FindBy(xpath = "//button[contains(@class,'CartPage-CheckoutButton')]")
 	private WebElement btnCheckout;
@@ -67,29 +58,33 @@ public class CartPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='CartPage-EmptyCartIcon']")
 	private WebElement iconEmptyCart;
-
-	// now it is displayed as + and - instead of drop down
+	
 	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[1]")
+	private WebElement btnPlusQTY;
+
+	@FindBy(css = "#item_qty")
 	private WebElement drpdwnQTY;
 	
 	@FindBy(xpath = "//div[contains(@class,'CartItem-Qty')]/button[2]")
 	private WebElement btnMinusQTY;
 
-	@FindBy(xpath = "//div[@class='block discount']")
+	@FindBy(xpath = "//button[contains(@class,'CartPage-ExpandableContentButton')]")
 	private WebElement drawCouponDrawer;
 
 	@FindBy(xpath = "//input[@id='couponCode']")
 	private WebElement txtCouponCode;
 
-	@FindBy(xpath = "//button[@class='CartCoupon-Button Button']")
+	@FindBy(xpath = "//button[contains(@class,'CartCoupon-Button')]")
 	private WebElement btnApplyDiscount;
 
-	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
+	@FindBy(xpath = "//ul//strong[text()='Subtotal' or text()='الإجمالي']/following-sibling::strong")
 	private WebElement lblSubTotalAmount;
 
-	// need to change for the below one
-	@FindBy(xpath = "//tr[@class='totals']//span[@class='price']")
+	@FindBy(xpath = "//ul//strong[contains(text(),'Discount') or contains(text(),'خصم')]/following-sibling::strong")
 	private WebElement lblDiscountAmount;
+	
+	@FindBy(xpath = "//ul//strong[text()='Shipping fee' or text()='الشحن']/following-sibling::strong")
+	private WebElement lblShippingAmount;
 
 	@FindBy(xpath = "//div[contains(@class,'message-success')]")
 	private WebElement msgSuccess;
@@ -102,23 +97,15 @@ public class CartPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[@class='CartPage-Subtotals']//strong[2]")
 	private WebElement txtSpecialPriceAtSubtotal;
+	
+	@FindBy(xpath = "//h1[@class='CartPage-Heading']")
+	private WebElement lblMyCart;
 
 	/**
 	 * WebElement declaration ends here
 	 **/
 
 	public void clickCheckout() {
-
-		try {
-			waitHelper.waitForElementVisible(lblSubTotal);
-		} catch (Exception e) {
-			try {
-				waitHelper.waitForElementVisible(lblLinkCa);
-			} catch (Exception excep) {
-				waitHelper.waitForElementVisible(lblTax);
-			}
-		}
-
 		commonMethods.click(btnCheckout);
 		log.info("clicked checkout button in cart page");
 	}
@@ -151,7 +138,7 @@ public class CartPage extends CucumberRunner {
 	}
 
 	public void increaseProductQTY(String QTY) {
-		commonMethods.SelectUsingValue(drpdwnQTY, QTY);
+		commonMethods.SelectUsingValue(btnPlusQTY, QTY);
 	}
 
 	public void verifyProductQTY(String QTY) {
@@ -298,4 +285,18 @@ public class CartPage extends CucumberRunner {
 		assertEquals(getSpecialPriceAtSubtotal(), searchPage.globalSpecialPrice, "The special_price is matching at Cart Subtotal");
 	}
 
+	public void isMiniCartVisible() {
+		log.info("Verifying whether minicart is displayed");
+		Assert.assertTrue("minicart didnt appear",genericHelper.isDisplayed(btnMiniCartViewBag));
+	}
+	
+	public void clickOnViewBag() {
+		log.info("Clicking View Bag In Mini Cart");
+		log.info("Navigating To Cart");	
+		if(!genericHelper.isDisplayed(btnMiniCartViewBag)) {
+			commonMethods.click(iconCart);
+		}
+		commonMethods.moveToElementAndClick(btnMiniCartViewBag);
+		Assert.assertTrue(genericHelper.isDisplayed(lblMyCart));
+	}
 }

@@ -33,41 +33,41 @@ public class ReturnHistoryPage extends CucumberRunner {
 	 * WebElement declaration starts here
 	 **/
 
-	@FindBy(xpath = "//div[@class='round']/label[contains(@for,'item')]")
-	private WebElement radioItemToBeReturned;
+	@FindBy(xpath = "//div[contains(@class,'Checkbox')]/label")
+	private WebElement radioItemToBeReturned; 
 
-	@FindBy(xpath = "//div[@class='round']/input")
-	private WebElement radioItemToBeReturnedState;
+	@FindBy(xpath = "//div[contains(@class,'Checkbox')]/input")
+	private WebElement radioItemToBeReturnedState;  
 
-	@FindBy(xpath = "//select[contains(@id,'items:reason')]")
-	private WebElement drpdwnReturnReason;
+	@FindBy(xpath = "//div[contains(@class,'Reasons')]/div/select")
+	private WebElement drpdwnReturnReason; 
 
-	@FindBy(xpath = "//select[@id='rma_resolution']")
-	private WebElement drpdwnReturnResolution;
+	@FindBy(xpath = "//div[contains(@class,'Resolutions')]/div/select")
+	private WebElement drpdwnReturnResolution; 
 
-	@FindBy(xpath = "//button[@id='submit.save']")
-	private WebElement btnReturnSubmit;
+	@FindBy(xpath = "//*[contains(text(),'Return') and @type='submit']")
+	private WebElement btnReturnSubmit; 
 
-	@FindBy(xpath = "//td[contains(@class,'return_id')]/a")
-	private WebElement lblReturnID;
+	@FindBy(xpath = "//a[@class=' MyAccountReturnListItem']/span[1]")
+	private WebElement lblReturnID; 
 
-	@FindBy(xpath = "//td[contains(@class,'shipping')]/a")
-	private WebElement lblShippingOrderID;
+	@FindBy(xpath = "//div[contains(@class,'OrderNumber')]")
+	private WebElement lblShippingOrderID; 
 
-	@FindBy(xpath = "//td[contains(@class,'actions')]/a[@class='action view']")
-	private WebElement iconViewReturn;
+	@FindBy(xpath = "//a[contains(@class,'MyAccountReturnListItem')]")
+	private WebElement iconViewReturn; 
 
-	@FindBy(xpath = "//td[contains(@class,'return_id')]/a")
-	private List<WebElement> lblReturnIDs;
+	@FindBy(xpath = "//a[@class=' MyAccountReturnListItem']/child::span[1]")
+	private List<WebElement> lblReturnIDs; 
 
-	@FindBy(xpath = "//td[contains(@class,'actions')]/a[@class='action view']")
-	private List<WebElement> iconViewReturns;
+	@FindBy(xpath = "//span[@class='MyAccountReturnListItem-Status']")
+	private List<WebElement> iconViewReturns; 
 
-	@FindBy(xpath = "//td[contains(@class,'shipping')]/a")
-	private List<WebElement> lblShippingOrderIDs;
+	@FindBy(xpath = "//div[@class='MyAccountReturnListItem-OrderNumber']")
+	private List<WebElement> lblShippingOrderIDs; 
 
-	@FindBy(xpath = "//div[@class='return-statement']")
-	private WebElement lblReturnHistory;
+	@FindBy(xpath = "//h1[@class='MyAccount-Heading']")
+	private WebElement lblReturnHistory; 
 
 	/**
 	 * WebElement declaration ends here
