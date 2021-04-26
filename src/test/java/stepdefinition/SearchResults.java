@@ -152,6 +152,11 @@ public class SearchResults {
 	 @When("^user filters the product based on the highest discount$")
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
-	}	
+	}
+	 
+    @And("^verifies the \"([^\"]*)\" in the PLP$")
+    public void verifies_the_something_in_the_plp(String productcount) {
+    	searchPage.verifyPLPIsDisplayed(productcount);
+    }
 
 }

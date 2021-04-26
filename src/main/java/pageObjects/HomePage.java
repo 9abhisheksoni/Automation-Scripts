@@ -7,14 +7,17 @@ import java.util.List;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
 import base.Config;
+import commonHelper.BrowserFactory;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
@@ -23,6 +26,7 @@ import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
 public class HomePage extends CucumberRunner {
+	
 	/**
 	 * Class object declaration here
 	 **/
@@ -170,6 +174,20 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//img[@class='img-responsive']")
 	private List<WebElement> lstOfferBanners;
 	
+	@FindBy (xpath = "//div[@class='HeaderGenders HeaderGenders_isMobile']//button[contains(@class,'GenderButton-Button GenderButton-Button_isCurrentGender')][normalize-space()='Women']")
+	private WebElement L1MenuWomen;
+	
+	@FindBy (xpath = "//div[@class='HeaderBottomBar-Content']//div[@class='MenuCategory-CategoryLink-Label'][normalize-space()='Clothing']")
+	private WebElement L2MenuClothing;
+	
+	@FindBy (xpath = "//div[@class='MenuCategory-CategoryLink-Label'][normalize-space()='Shoes']")
+	private WebElement L2MenuShoes;
+	
+	//@FindBy (xpath = "//div[@class='MenuGrid-Column-Content']//div[@class='MenuGrid-ItemLabel']")
+	//@FindBy (xpath = "//ul[@class='third-level-sub dropdowns-content-column double-column'][1]")
+	//@FindBy (xpath = "//a[@href='https://en-ae.6thstreet.com/women/clothing.html']/..//ul[@class='third-level-sub dropdowns-content-column double-column']//a[@data-level='second-level-item-1']")
+	//private List<WebElement> L3Menu;
+	
 	/**
 	 * WebElement declaration ends here
 	 **/
@@ -180,7 +198,7 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void verifyHomePageDisplayed() {
-		Assert.assertTrue(genericHelper.isDisplayed(bannerHomePage));
+		//Assert.assertTrue(genericHelper.isDisplayed(bannerHomePage));
 		log.info("home page is loaded");
 	}
 
@@ -449,4 +467,104 @@ public class HomePage extends CucumberRunner {
 			  }
 		}
 	}
+	
+	public void hoverOnL1Menu(String L1menu) {
+		if (L1menu.equalsIgnoreCase("women")) {
+			commonMethods.mouseHoverOn(L1MenuWomen);
+		}
+		else {
+			log.info("L1 menu not found");
+		}
+	}
+	
+	public void hoverOnL2Menu(String L2menu) {
+		if (L2menu.equalsIgnoreCase("clothing")) {
+			commonMethods.mouseHoverOn(L2MenuClothing);
+		}
+		else if (L2menu.equalsIgnoreCase("shoes")){
+			commonMethods.mouseHoverOn(L2MenuShoes);
+		}
+		else {
+			log.info("L1 menu not found");
+		}
+	}
+	
+		
+	
+	
+	public void verifyPLPCount(String L1, String L2, String productCount) {
+		String currentCountry = browserFactory.getCountry().toLowerCase();
+		
+		if (currentCountry.equalsIgnoreCase("UAE")) {
+			currentCountry = "ae";
+		}
+		
+		String currentLaunguage = browserFactory.getLanguage().toLowerCase();
+		
+		WebElement L1Menu = browserFactory.getDriver().findElement(By.xpath("(//a[@href='https://" + currentLaunguage + "-" + currentCountry + ".6thstreet.com/" + L1 + ".html'])[2]"));
+		
+		
+		System.out.println("L1 Menu is "+L1Menu);
+		commonMethods.mouseHoverOn(L1Menu);
+		
+		WebElement L2Menu = browserFactory.getDriver().findElement(By.xpath("(//a[@href='https://" + currentLaunguage
+				+ "-" + currentCountry + ".6thstreet.com/" + L1 + "/" + L2 + ".html'])[5]"));
+		
+		System.out.println("L2 Menu is "+L2Menu);
+		
+		commonMethods.mouseHoverOn(L2Menu);
+		
+		List <WebElement> L3Menu =browserFactory.getDriver().findElements(By.xpath("//a[@href='https://"+currentLaunguage+"-"+currentCountry+".6thstreet.com/" + L1 + "/" + L2 + ".html']/..//ul[@class='third-level-sub dropdowns-content-column double-column']//a[@data-level='second-level-item-1']"));
+		//List <WebElement> L3Menu =browserFactory.getDriver().findElements(By.xpath("//a[@href='https://en-ae.6thstreet.com/women/clothing.html']/..//ul[@class='third-level-sub dropdowns-content-column double-column']//a[@data-level='second-level-item-1']"));
+		System.out.println("L3 Menu is "+L3Menu);
+		
+		
+		
+		for (int i =0; i< L3Menu.size();i++) {
+			System.out.println("L3 Menu is "+L3Menu.get(i).getText());
+		}
+		
+		
+		
+		int counter = L3Menu.size() - 1;
+		System.out.println("L3 menu size " + L3Menu.size());
+
+		for (int i = 0; i <= counter; i++) {
+			System.out.println("The counter value is " + counter + " the value of index is " + i);
+			commonMethods.mouseHoverOn(L1Menu);
+			commonMethods.mouseHoverOn(L2Menu);
+			System.out.println("Clicking Menu "+L3Menu.get(i).getText());
+			commonMethods.click(L3Menu.get(i));
+			//waitHelper.staticWait(10000);
+			searchPage.verifyPLPIsDisplayed(productCount);
+			System.out.println("The counter value is " + counter + " the value of index is " + i);
+		}
+	}
+
+	
+	
+	
+	/*
+	public void clickL3Menu(String productCount, String L1menu, String L2menu) {
+			if (L1menu.equalsIgnoreCase("women")) {
+				commonMethods.mouseHoverOn(L1MenuWomen);
+				if (L2menu.equalsIgnoreCase("clothing")) {
+					commonMethods.mouseHoverOn(L2MenuClothing);
+					int counter = L3Menu.size()-1; //counter =10
+					System.out.println("L3 menu size" + L3Menu.size());
+					
+					for (int i =0;i <= counter; i++) {
+						System.out.println("The counter value is "+counter+" the value of index is "+i);
+						commonMethods.mouseHoverOn(L1MenuWomen);
+						commonMethods.mouseHoverOn(L2MenuClothing);
+						commonMethods.click(L3Menu.get(i));
+						//waitHelper.staticWait(10000);
+						searchPage.verifyPLPIsDisplayed(productCount);
+						//counter--; //counter =9
+					}
+			} 
+		}
+	}
+	*/
+	
 }

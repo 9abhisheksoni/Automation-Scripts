@@ -58,7 +58,7 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='Button'][normalize-space()='Sign in']")
 	private WebElement btnLogin;
 
-	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
+	@FindBy(xpath = "//button[@class='HeaderAccount-Button']")
 	private WebElement lblCustomerName;
 
 	@FindBy(xpath = "//span[@id='customer_name_top_menu']")
@@ -106,13 +106,13 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
 	private WebElement lnkLogout;
 
-	@FindBy(xpath = "//a[@class='top-link-address-link']")
+	@FindBy(xpath = "//a[contains(@class,'MyAccountSignedInOverlay-LinkDelivery')]")
 	private WebElement lnkDeliveryAddress;
 
-	@FindBy(xpath = "//a[contains(@class,'delete')]")
+	@FindBy(xpath = "//img[@class='MyAccountAddressTable-Icon MyAccountAddressTable-Icon_trash']")
 	private List<WebElement> iconRemoveAddress;
 
-	@FindBy(xpath = "//button[contains(@class,'action-accept')]")
+	@FindBy(xpath = "//button[normalize-space()='Yes']")
 	private WebElement btnConfirmDelete;
 
 	@FindBy(xpath = "//button[@data-action='save-address']")

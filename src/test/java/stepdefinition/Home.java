@@ -113,6 +113,22 @@ public class Home {
 	public void user_clicks_on_banner_and_verifies_respective_PLP()  {
 		homePage.clickOnAllBannersAndVerifyPLP();
 	}
+	
+    @When("^the user hovers the mouse on the \"([^\"]*)\" menu$")
+    public void the_user_hovers_the_mouse_on_the_something_menu(String l1) {
+    	homePage.hoverOnL1Menu(l1);
+    }
+
+    @And("^hovers the mouse on the \"([^\"]*)\" menu$")
+    public void hovers_the_mouse_on_the_something_menu(String l2) {
+    	homePage.hoverOnL2Menu(l2);
+    }
+    
+    @And("^checks the \"([^\"]*)\" in the PLP based on \"([^\"]*)\" menu and \"([^\"]*)\" menu$")
+    public void checks_the_number_of_items_in_the_plp_based_on_something_menu_and_something_menu(String productCount, String l1, String l2) {
+    	// homePage.clickL3Menu(productCount, l1,l2);
+    	 homePage.verifyPLPCount(l1, l2, productCount);
+    }
 
 
 }

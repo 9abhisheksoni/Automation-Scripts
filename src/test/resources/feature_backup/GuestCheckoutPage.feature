@@ -1,7 +1,7 @@
 Feature: 6thstreet.com - Guest User Place Order Scenarios
 
 
-#	@Smoke @CODPayment @Regression	
+	@Smoke @CODPayment 
 	Scenario Outline: TS_GuestCheckout_01 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result
