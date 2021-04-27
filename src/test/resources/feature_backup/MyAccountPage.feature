@@ -15,24 +15,24 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		When User Logsout 
 		Then Logout is successfull
 		
-		@Smoke @Regression 
-		Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
-			When User clicks on login link 
-			When User enters "validuser" login details in the login popup 
-			And User clicks on login button 
-			And user login is successfull 
-			And Home page is displayed 
-			And user clears Wishlist
-			And user enters product name as "<SearchTerm>" in search text box and click search icon 
-			And User clicks wishlist icon
-			Then wishlist success message should be displayed
-			Then user should be able to see product in Wishlist
+	@Smoke @Regression 
+	Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
+		When User clicks on login link 
+		When User enters "validuser" login details in the login popup 
+		And User clicks on login button 
+		And user login is successfull 
+		And Home page is displayed 
+		And user clears Wishlist
+		And user enters product name as "<SearchTerm>" in search text box and click search icon 
+		And User clicks wishlist icon
+		Then wishlist success message should be displayed
+		Then user should be able to see product in Wishlist
 			
-			Examples: 
-				|SearchTerm|
-				|Shoes|		
+		Examples: 
+			|SearchTerm|
+			|Shoes|		
 				
-		 @Smoke @Regression	
+		@Smoke @Regression	
 		Scenario: TS_MyAccountAddress_05 - Registered User of 6thstreet.com site should be able to update the address
 			When User clicks on login link 
 			When User enters "validuser" login details in the login popup 

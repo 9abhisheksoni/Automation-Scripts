@@ -344,6 +344,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickFirstValidInResult() {
+		waitHelper.staticWait(2000);
 		int index = 0;
 		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
 			commonMethods.moveToElementAndClick(lnkProduct);

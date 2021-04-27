@@ -316,47 +316,47 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickOnAbout6thStreetFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkAbout6thStreet);
+		commonMethods.click(lnkAbout6thStreet);
 		log.info("clicked About 6thstreet link in Footer");
 	}
 
 	public void clickOnConsumerRightsFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkConsumerRights);
+		commonMethods.click(lnkConsumerRights);
 		log.info("clicked ConsumerRights link in Footer");
 	}
 
 	public void clickOnDisclaimerFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkDisclaimer);
+		commonMethods.click(lnkDisclaimer);
 		log.info("clicked Disclaimer link in Footer");
 	}
 
 	public void clickOnPrivacyPolicyFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkPrivacyPolicy);
+		commonMethods.click(lnkPrivacyPolicy);
 		log.info("clicked PrivacyPolicy link in Footer");
 	}
 
 	public void clickOnShippingInfoFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkShippingInfo);
+		commonMethods.click(lnkShippingInfo);
 		log.info("clicked ShippingInfo link in Footer");
 	}
 
 	public void clickOnReturnInfoFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkReturnInfo);
+		commonMethods.click(lnkReturnInfo);
 		log.info("clicked ReturnInfo link in Footer");
 	}
 
 	public void clickOnOrderTrackFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkOrderTrack);
+		commonMethods.click(lnkOrderTrack);
 		log.info("clicked OrderTracking lnk in Footer");
 	}
 
 	public void clickOnFAQsFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkFAQs);
+		commonMethods.click(lnkFAQs);
 		log.info("clicked FAQs link in Footer");
 	}
 
 	public void clickOnFeedbackFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkFeedback);
+		commonMethods.click(lnkFeedback);
 		log.info("clicked Feedback link in Footer");
 	}
 
