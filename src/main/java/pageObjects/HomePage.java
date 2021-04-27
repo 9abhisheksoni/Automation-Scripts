@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.asserts.SoftAssert;
 
 import base.Config;
@@ -57,7 +58,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//input[@id='search-field']")
 	private WebElement txtSearchProduct;
 
-	@FindBy(xpath = "//a[@class=' HeaderLogo']//img")
+	@FindBy(xpath = "//a[contains(@class,' HeaderLogo')]//img")
 	private WebElement imgHomeLogo;
 
 	@FindBy(xpath = "//button[@class='HeaderSearch-SubmitBtn']")
@@ -90,7 +91,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isCreateAccountButton')]/button")
 	private WebElement btnCreateAccount;
 
-	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[contains(@class,'HeaderWishlist')]/button")
+	@FindBy(xpath = "//div[contains(@class,'HeaderMainSection')]//div[contains(@class,'HeaderWishlist')]/button")
 	private WebElement lnkWishlist;
 
 	@FindBy(xpath = "//div[@class='SearchSuggestion-Recommended']//li/a")
@@ -154,8 +155,11 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
 
-	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider')]") ////div[contains(@class,'DynamicContentFullWidthBannerSlider')]//img
+	@FindBy(xpath = "//div[contains(@class,'tns-slider') and contains(@class,'tns-carousel')]")
 	private WebElement imgHeroBanner;
+
+	@FindBy(xpath = "//div[@id='ori-chatbot-root']//img")
+	private WebElement imgChatBot;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
 	private WebElement imgShopAllBrands;
@@ -192,7 +196,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='CategoryItem-Content']")
 	private WebElement spinner;
 
-	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a")
+	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[@class='GenderButton-Container']//a/button")
 	private List<WebElement> lnkLevel1Categories;
 
 	@FindBy(xpath = "//div[@class='DynamicContentBanner']//img")
@@ -218,12 +222,14 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void verifyHomePageDisplayed() {
+		this.waitForBannerLoading();
 		Assert.assertTrue(genericHelper.isDisplayed(imgHeroBanner));
 		log.info("home page is loaded");
 	}
 
 	public void waitForBannerLoading() {
-		waitHelper.waitForElementVisible(imgHeroBanner);
+		waitHelper.staticWait(5000);
+		waitHelper.waitForElementVisible(imgChatBot);
 		log.info("home page is banner loaded");
 	}
 
@@ -261,7 +267,8 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void clickHomeLogo() {
-		commonMethods.click(imgHomeLogo);
+		commonMethods.moveToElementAndClick(imgHomeLogo);
+		this.verifyHomePageDisplayed();
 		log.info("Clicked on Home Logo");
 	}
 
@@ -321,52 +328,56 @@ public class HomePage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(txtEmailID, strUtil.generateRandomEmailID());
 		commonMethods.clearAndSendKeys(txtPwd, "India@123");
 		waitHelper.waitForElementVisible(btnCreateAccount);
-		commonMethods.click(btnCreateAccount);
+		EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(browserFactory.getDriver());
+		eventFiringWebDriver.executeScript(
+				"document.querySelector('div[class=\"MyAccountOverlay-Action MyAccountOverlay-Action_state_createAccount\"]').scrollTop=500");
+
+		commonMethods.moveToElementAndClick(btnCreateAccount);
 
 	}
 
 	public void clickOnAbout6thStreetFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkAbout6thStreet);
+		commonMethods.click(lnkAbout6thStreet);
 		log.info("clicked About 6thstreet link in Footer");
 	}
 
 	public void clickOnConsumerRightsFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkConsumerRights);
+		commonMethods.click(lnkConsumerRights);
 		log.info("clicked ConsumerRights link in Footer");
 	}
 
 	public void clickOnDisclaimerFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkDisclaimer);
+		commonMethods.click(lnkDisclaimer);
 		log.info("clicked Disclaimer link in Footer");
 	}
 
 	public void clickOnPrivacyPolicyFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkPrivacyPolicy);
+		commonMethods.click(lnkPrivacyPolicy);
 		log.info("clicked PrivacyPolicy link in Footer");
 	}
 
 	public void clickOnShippingInfoFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkShippingInfo);
+		commonMethods.click(lnkShippingInfo);
 		log.info("clicked ShippingInfo link in Footer");
 	}
 
 	public void clickOnReturnInfoFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkReturnInfo);
+		commonMethods.click(lnkReturnInfo);
 		log.info("clicked ReturnInfo link in Footer");
 	}
 
 	public void clickOnOrderTrackFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkOrderTrack);
+		commonMethods.click(lnkOrderTrack);
 		log.info("clicked OrderTracking lnk in Footer");
 	}
 
 	public void clickOnFAQsFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkFAQs);
+		commonMethods.click(lnkFAQs);
 		log.info("clicked FAQs link in Footer");
 	}
 
 	public void clickOnFeedbackFooterLink() {
-		jsHelper.scrollIntoViewAndClick(lnkFeedback);
+		commonMethods.click(lnkFeedback);
 		log.info("clicked Feedback link in Footer");
 	}
 
@@ -642,6 +653,7 @@ public class HomePage extends CucumberRunner {
 		log.info("There Are Following Number Of Root Categories : " + level1Size);
 		for (int i = 0; i < level1Size; i++) {
 			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			waitHelper.staticWait(5000);
 			int level2Size = this.getLevel2Links().size();
 			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
 			for (int j = 0; j < level2Size; j++) {
@@ -649,13 +661,23 @@ public class HomePage extends CucumberRunner {
 				int level3Size = this.getLevel3ProductLinks().size();
 				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
 				for (int k = 0; k < level3Size; k++) {
+					waitHelper.waitForElementVisible(this.getLevel2Links().get(j));
 					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
-					commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
+					try {
+						commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
+					} catch (org.openqa.selenium.TimeoutException e) {
+						log.info("Broken Link Found");
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
+					}
 					if (!(new SearchPage().verifyProductsVisible())) {
 						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
 						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
 					}
-					commonMethods.navigateBack();
+					this.clickHomeLogo();
+					if (!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
+						commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+					}
 				}
 			}
 
@@ -672,20 +694,31 @@ public class HomePage extends CucumberRunner {
 		log.info("There Are Following Number Of Root Categories : " + level1Size);
 		for (int i = 0; i < level1Size; i++) {
 			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+			waitHelper.staticWait(5000);
 			int level2Size = this.getLevel2Links().size();
 			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
 			for (int j = 0; j < level2Size; j++) {
+				waitHelper.waitForElementVisible(this.getLevel2Links().get(j));
 				commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
 				int level3Size = this.getLevel3BrandLinks().size();
 				log.info("There Are Following Number Of Level 3 Categories : " + level3Size);
 				for (int k = 0; k < level3Size; k++) {
 					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
-					commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
+					try {
+						commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
+					} catch (org.openqa.selenium.TimeoutException e) {
+						log.info("Broken Link Found");
+						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
+						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
+					}
 					if (!(new SearchPage().verifyProductsVisible())) {
 						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
 						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
 					}
-					commonMethods.navigateBack();
+					this.clickHomeLogo();
+					if (!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
+						commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
+					}
 				}
 			}
 
@@ -700,48 +733,16 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public List<WebElement> getLevel3ProductLinks() {
-		waitHelper.staticWait(1000);
+		waitHelper.staticWait(1500);
 		return browserFactory.getDriver()
 				.findElements(By.xpath("//div[contains(@class,'MenuGrid-Column-Content')]/a/div/../../a"));
 	}
 
 	public List<WebElement> getLevel3BrandLinks() {
-		waitHelper.staticWait(1000);
+		waitHelper.staticWait(1500);
 		return browserFactory.getDriver().findElements(By.xpath("//div[@class='MenuBrands']//a"));
 	}
 
-	public void verifyCatlogPrices() {
-		List<String> brokenPriceLinks=new ArrayList<String>();
-		TextFileHandler textFileHandler = new TextFileHandler();
-		String plpBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenplpLinks";
-		String priceBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenpriceLinks"
-				+ "brokenPriceLinks";
-		textFileHandler.deleteFile(plpBrokenfilename);
-		textFileHandler.deleteFile(priceBrokenfilename);
-		List<String> brokenLinks = new ArrayList<String>();
-		int level1Size = lnkLevel1Categories.size();
-		log.info("There Are Following Number Of Root Categories : " + level1Size);
-		for (int i = 0; i < level1Size; i++) {
-			commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
-			int level2Size = this.getLevel2Links().size();
-			log.info("There Are Following Number Of Level 2 Categories : " + level2Size);
-			for (int j = 0; j < level2Size; j++) {
-				commonMethods.moveToElementAndClick(this.getLevel2Links().get(j));
-				if (!(new SearchPage().verifyProductsVisible())) {
-					brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
-					textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), plpBrokenfilename);
-				} else {
-					SearchPage searchPage = new SearchPage();
-					brokenPriceLinks.addAll(searchPage.getBrokenPriceProducts());
-					for (String temp : brokenPriceLinks) {
-						textFileHandler.writeToFile(temp, priceBrokenfilename);
-					}
-				}
-				commonMethods.navigateBack();
-			}
 
-		}
-		Assert.assertTrue("Broken Price Links Were Found ", brokenPriceLinks.size() == 0);
-	}
-
+	
 }

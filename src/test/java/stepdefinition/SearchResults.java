@@ -29,7 +29,7 @@ public class SearchResults {
 
 	@Then("^products count should be decreased$")
 	public void products_count_should_be_decreased() {
-		Assert.assertTrue(searchPage.getProductsCount() < this.productCount);
+		Assert.assertTrue(searchPage.getProductsCount() <= this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 
@@ -45,7 +45,7 @@ public class SearchResults {
 
 	@Then("^products count should be increased$")
 	public void products_count_should_be_increased() {
-		Assert.assertTrue(searchPage.getProductsCount() > this.productCount);
+		Assert.assertTrue(searchPage.getProductsCount() >= this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 
@@ -151,11 +151,20 @@ public class SearchResults {
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
 	}
-	 
+
     @And("^verifies the \"([^\"]*)\" in the PLP$")
     public void verifies_the_something_in_the_plp(String productcount) {
     	searchPage.verifyPLPIsDisplayed(productcount);
     }
 
 
+	@Then("^broken price products are collected$")
+	public void broken_price_products_are_collected() {
+		searchPage.verifyCatlogPrices();
+	}
+
+	@And("^scroll two lazy loads$")
+	public void scroll_two_lazy_loads() {
+		searchPage.loadMoreProducts();
+	}
 }

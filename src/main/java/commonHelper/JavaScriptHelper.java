@@ -67,6 +67,7 @@ public class JavaScriptHelper extends CucumberRunner {
 	public void scrollDownVertically() {
 		log.info("Scrolling to window vertical height");
 		executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		new WaitHelper().staticWait(3000);
 	}
 
 	/** Scroll horizontal to scroll width **/
@@ -118,5 +119,12 @@ public class JavaScriptHelper extends CucumberRunner {
 		JavascriptExecutor exe = (JavascriptExecutor) browserFactory.getDriver();
 		log.info("Getting Scroll height of active window");
 		return Integer.parseInt(exe.executeScript("return document.body.scrollHeight").toString());
+	}
+
+	public void mousehover(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) browserFactory.getDriver();
+		log.info("MouseHover Using JS");
+		String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover',true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
+		js.executeScript(mouseOverScript, element);
 	}
 }

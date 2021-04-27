@@ -18,6 +18,7 @@ import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
 import commonHelper.WaitHelper;
+import fileReader.TextFileHandler;
 import testRunner.CucumberRunner;
 import utilities.StringUtility;
 
@@ -51,6 +52,12 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//img")
 	private List<WebElement> lnksProduct;
+	
+	@FindBy(xpath = "//p[@class='Price']/parent::a")
+	private List<WebElement> lnksProductWithPrice;
+	
+	@FindBy(xpath = "//span[starts-with(text(),'0.0')]/ancestor::a")
+	private List<WebElement> lnksProductWithZeroPrice;
 	
 	@FindBy(xpath = "//li[contains(@class,'ProductItem')]//a")
 	private List<WebElement> lnksProductname;
@@ -93,6 +100,9 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon')]")
 	private WebElement iconWishlist;
+	
+	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon') and contains(@class,'Icon_black')]")
+	private WebElement iconWishlistHiglighted;
 
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[contains(@class,'GenderButton-Button_isCurrentGender')]/..")
 	private WebElement lblFirstLevelActive;
@@ -100,7 +110,7 @@ public class SearchPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[not(contains(@class,'GenderButton-Button_isCurrentGender')) and contains(@class,'GenderButton-Button')]")
 	private WebElement lblFirstLevelInActive;
 
-	@FindBy(xpath = "//div[@class='HeaderBottomBar']//div[@class='MenuCategory']")
+	@FindBy(xpath = "//div[contains(@class,'HeaderBottomBar')]//div[@class='MenuCategory-CategoryLink-Label']/..")
 	private WebElement lblSecondLevelCategory;
 
 	@FindBy(xpath = "//div[@class='DynamicContent']//div[contains(@class,'Menu')]//div[contains(@class,'Content')]/a")
@@ -164,8 +174,9 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickSecondCategoryFilter() {
 		commonMethods.click(drpdwnCategoryGroupFilter);
-		commonMethods.moveToElementAndClick(chkCategoryGroupSecondFilter);
-		waitHelper.staticWait(3000);
+		waitHelper.staticWait(1500);
+		commonMethods.click(chkCategoryGroupSecondFilter);
+		waitHelper.staticWait(1500);
 		Assert.assertTrue("Filter Not Selected", commonMethods.isSelected(chkCategoryGroupSecondFilter));
 		log.info("clicked second category filter");
 	}
@@ -227,6 +238,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void verifyWishlistSuccessDisplay() {
+		waitHelper.waitForElementVisible(iconWishlistHiglighted);
 		Assert.assertTrue(commonMethods.getAttribute(iconWishlist, "class").contains("Icon_black"));
 		log.info("product wishlisted successfully");
 	}
@@ -237,12 +249,14 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickOnSecondCategory() {
-		commonMethods.click(lblSecondLevelCategory);
+		waitHelper.waitForElementVisible(lblSecondLevelCategory);
+		commonMethods.moveToElementAndClick(lblSecondLevelCategory);
 		log.info("Clicked second level category");
 	}
 
 	public void clickOnThirdCategory() {
-		commonMethods.mouseHover(lblSecondLevelCategory);
+		waitHelper.staticWait(3000);
+		jsHelper.mousehover(lblSecondLevelCategory);
 		waitHelper.waitForElementVisible(lblThirdLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
@@ -330,6 +344,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickFirstValidInResult() {
+		waitHelper.staticWait(2000);
 		int index = 0;
 		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
 			commonMethods.moveToElementAndClick(lnkProduct);
@@ -451,15 +466,64 @@ public class SearchPage extends CucumberRunner {
 		return lnksProduct.size() > 0;
 	}
 
-	public List<String> getBrokenPriceProducts() {
-		this.clickLowToHighSort();
-		List <String> links = new ArrayList<String>();
-		for (int i = 0; i < lblprices.size(); i++) {
-			if (!(this.getPriceFromText(commonMethods.getText(lblprices.get(i))) > 0)) {
-				links.add(commonMethods.getAttribute(lnksProductname.get(i),"href"));
-			}
+	public List<String> getPriceProducts() {
+		List <String> nonZeroPriceLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductWithPrice) {
+			nonZeroPriceLinks.add(commonMethods.getAttribute(ele, "href"));
 		}
-		return links;
+		log.info("Price Product Links count "+nonZeroPriceLinks.size());
+		return nonZeroPriceLinks;
+	}
+	
+	public List<String> getZeroPriceProducts() {
+		List <String> zeroPriceLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductWithZeroPrice) {
+			zeroPriceLinks.add(commonMethods.getAttribute(ele, "href"));
+		}
+		log.info("Zero Price Product Links count "+zeroPriceLinks.size());
+		return zeroPriceLinks;
+	}
+	
+	public List<String> getNoPriceProducts() {
+		List <String> noPriceLinks = new ArrayList<String>();
+		noPriceLinks.addAll(this.getAllProducts());
+		noPriceLinks.removeAll(this.getPriceProducts());	
+		log.info("No Price Product Links count "+noPriceLinks.size());
+		return noPriceLinks;
+	}
+	
+	public List<String> getAllProducts() {
+		List <String> allProductLinks = new ArrayList<String>();
+		for (WebElement ele: lnksProductname) {
+			allProductLinks.add(commonMethods.getAttribute(ele, "href"));
+		}
+		log.info("All Product Links count "+allProductLinks.size());
+		return allProductLinks;
+	}
+	
+	public List<String> getErrorPriceProducts() {
+		List <String> errorProductLinks = new ArrayList<String>();
+		errorProductLinks.addAll(this.getZeroPriceProducts());
+		errorProductLinks.addAll(this.getNoPriceProducts());
+		return errorProductLinks;
 	}
 
+	public void verifyCatlogPrices() {
+		List<String> brokenPriceLinks=new ArrayList<String>();
+		TextFileHandler textFileHandler = new TextFileHandler();
+		String priceBrokenfilename = browserFactory.getCountry() + "_" + browserFactory.getLanguage() + "brokenpriceLinks"
+				+ "brokenPriceLinks";
+		textFileHandler.deleteFile(priceBrokenfilename);
+		brokenPriceLinks.addAll(getErrorPriceProducts());
+		for (String ele : brokenPriceLinks) {
+			textFileHandler.writeToFile(ele, priceBrokenfilename);
+		}
+		
+		Assert.assertTrue("Broken Price Links Were Found ", brokenPriceLinks.size() == 0);
+	}
+
+	public void loadMoreProducts() {
+		jsHelper.scrollDownVertically();
+		jsHelper.scrollDownVertically();		
+	}
 }

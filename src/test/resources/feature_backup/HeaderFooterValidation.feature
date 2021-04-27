@@ -1,6 +1,6 @@
 Feature: 6thStreet.com -  Header, Footer Validation
 
-	
+	@RunSanity
 	Scenario Outline: TS_FooterLinkValidation_01 - Verify the whether footer links lead to respective pages
 		When User clicks on footer link "<FooterLink>"
 		Then User should be landed into "<PageName>" web page	
@@ -17,7 +17,7 @@ Feature: 6thStreet.com -  Header, Footer Validation
 		|FAQs          |FAQs          |
 	#	|Feedback      |Feedback      |
 		
-		@Footer @run
+		@Footer @run @RunSanity
 		Scenario: TS_ContactSupport_02 - Verify whether correct customer support details are displayed or not
 		When user verifies the customer support details at Header and Footer
 		|Section|
