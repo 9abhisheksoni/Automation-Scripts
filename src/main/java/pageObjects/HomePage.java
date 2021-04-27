@@ -154,7 +154,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
 
-	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider')]//img")
+	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider')]") ////div[contains(@class,'DynamicContentFullWidthBannerSlider')]//img
 	private WebElement imgHeroBanner;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
