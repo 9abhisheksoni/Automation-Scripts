@@ -29,7 +29,7 @@ public class SearchResults {
 
 	@Then("^products count should be decreased$")
 	public void products_count_should_be_decreased() {
-		Assert.assertTrue(searchPage.getProductsCount() < this.productCount);
+		Assert.assertTrue(searchPage.getProductsCount() <= this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 
@@ -45,7 +45,7 @@ public class SearchResults {
 
 	@Then("^products count should be increased$")
 	public void products_count_should_be_increased() {
-		Assert.assertTrue(searchPage.getProductsCount() > this.productCount);
+		Assert.assertTrue(searchPage.getProductsCount() >= this.productCount);
 		this.productCount = searchPage.getProductsCount();
 	}
 

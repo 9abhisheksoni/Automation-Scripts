@@ -54,7 +54,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(id = "city")
 	private WebElement drpdwnCity;
 
-	@FindBy(id = "region_id")
+	@FindBy(id = "region_string")
 	private WebElement drpdwnArea;
 
 	@FindBy(xpath = "//input[@id='telephone']")

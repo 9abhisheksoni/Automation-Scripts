@@ -10,7 +10,7 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-   # @Smoke @CODPayment @Regression
+    @Smoke @CODPayment @Regression
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result

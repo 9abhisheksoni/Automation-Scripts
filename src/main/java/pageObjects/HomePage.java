@@ -14,6 +14,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.asserts.SoftAssert;
 
 import base.Config;
@@ -87,7 +88,7 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isCreateAccountButton')]/button")
 	private WebElement btnCreateAccount;
 
-	@FindBy(xpath = "//div[@class='HeaderMainSection']//div[contains(@class,'HeaderWishlist')]/button")
+	@FindBy(xpath = "//div[contains(@class,'HeaderMainSection')]//div[contains(@class,'HeaderWishlist')]/button")
 	private WebElement lnkWishlist;
 
 	@FindBy(xpath = "//div[@class='SearchSuggestion-Recommended']//li/a")
@@ -151,8 +152,11 @@ public class HomePage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='DynamicContent']//img")
 	private List<WebElement> lstBanners;
 
-	@FindBy(xpath = "//div[contains(@class,'DynamicContentFullWidthBannerSlider')]//img")
+	@FindBy(xpath = "//div[contains(@class,'tns-slider') and contains(@class,'tns-carousel')]")
 	private WebElement imgHeroBanner;
+
+	@FindBy(xpath = "//div[@id='ori-chatbot-root']//img")
+	private WebElement imgChatBot;
 
 	@FindBy(xpath = "//img[contains(@src,'SHOP-ALL-BRANDS')]")
 	private WebElement imgShopAllBrands;
@@ -197,13 +201,14 @@ public class HomePage extends CucumberRunner {
 	}
 
 	public void verifyHomePageDisplayed() {
-		waitHelper.waitForElementVisible(imgHeroBanner);
+		this.waitForBannerLoading();
 		Assert.assertTrue(genericHelper.isDisplayed(imgHeroBanner));
 		log.info("home page is loaded");
 	}
 
 	public void waitForBannerLoading() {
-		waitHelper.waitForElementVisible(imgHeroBanner);
+		waitHelper.staticWait(5000);
+		waitHelper.waitForElementVisible(imgChatBot);
 		log.info("home page is banner loaded");
 	}
 
@@ -302,7 +307,11 @@ public class HomePage extends CucumberRunner {
 		commonMethods.clearAndSendKeys(txtEmailID, strUtil.generateRandomEmailID());
 		commonMethods.clearAndSendKeys(txtPwd, "India@123");
 		waitHelper.waitForElementVisible(btnCreateAccount);
-		commonMethods.click(btnCreateAccount);
+		EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(browserFactory.getDriver());
+		eventFiringWebDriver.executeScript(
+				"document.querySelector('div[class=\"MyAccountOverlay-Action MyAccountOverlay-Action_state_createAccount\"]').scrollTop=500");
+
+		commonMethods.moveToElementAndClick(btnCreateAccount);
 
 	}
 
@@ -534,7 +543,7 @@ public class HomePage extends CucumberRunner {
 					waitHelper.waitForElementVisible(this.getLevel2Links().get(j));
 					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
 					try {
-					commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
+						commonMethods.moveToElementAndClick(this.getLevel3ProductLinks().get(k));
 					} catch (org.openqa.selenium.TimeoutException e) {
 						log.info("Broken Link Found");
 						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
@@ -545,7 +554,7 @@ public class HomePage extends CucumberRunner {
 						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
 					}
 					this.clickHomeLogo();
-					if(!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
+					if (!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
 						commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
 					}
 				}
@@ -575,7 +584,7 @@ public class HomePage extends CucumberRunner {
 				for (int k = 0; k < level3Size; k++) {
 					commonMethods.mouseHoverOn(this.getLevel2Links().get(j));
 					try {
-					commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
+						commonMethods.moveToElementAndClick(this.getLevel3BrandLinks().get(k));
 					} catch (org.openqa.selenium.TimeoutException e) {
 						log.info("Broken Link Found");
 						brokenLinks.add(browserFactory.getDriver().getCurrentUrl());
@@ -586,7 +595,7 @@ public class HomePage extends CucumberRunner {
 						textFileHandler.writeToFile(browserFactory.getDriver().getCurrentUrl(), filename);
 					}
 					this.clickHomeLogo();
-					if(!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
+					if (!commonMethods.getAttribute(lnkLevel1Categories.get(i), "class").contains("isCurrentGender")) {
 						commonMethods.moveToElementAndClick(lnkLevel1Categories.get(i));
 					}
 				}
@@ -613,5 +622,4 @@ public class HomePage extends CucumberRunner {
 		return browserFactory.getDriver().findElements(By.xpath("//div[@class='MenuBrands']//a"));
 	}
 
-	
 }

@@ -45,7 +45,7 @@ public class LoginPage extends CucumberRunner {
 	/**
 	 * WebElement declaration starts here
 	 **/
-	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
+	@FindBy(xpath = "//button[contains(@class,'HeaderAccount-Button')]/label")
 	private WebElement labelLoginOrRegister;
 
 	@FindBy(xpath = "//input[@id='email']")
@@ -57,7 +57,7 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//div[contains(@class,'MyAccountOverlay-Button_isSignInValidated')]/button")
 	private WebElement btnLogin;
 
-	@FindBy(xpath = "//button[@class='HeaderAccount-Button']/label")
+	@FindBy(xpath = "//button[contains(@class,'HeaderAccount-Button')]/label")
 	private WebElement lblCustomerName;
 
 	@FindBy(xpath = "//div[contains(@class,'Notification_type_success')]")
@@ -102,31 +102,34 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@id='login-btn']")
 	private WebElement btnCheckoutSandboxLogin;
 
-	@FindBy(xpath = "//li[@class='product-item']//a[@data-role='remove']")
+	@FindBy(xpath = "//div[@class='WishlistIcon']")
 	private List<WebElement> iconWishlistRemove;
 
-	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
+	@FindBy(xpath = "//button[@class='MyAccountSignedInOverlay-ButtonDelivery']")
 	private WebElement lnkLogout;
 
-	@FindBy(xpath = "//a[@class='top-link-address-link']")
+	@FindBy(xpath = "//a[@class=' MyAccountSignedInOverlay-LinkDelivery']")
 	private WebElement lnkDeliveryAddress;
 
-	@FindBy(xpath = "//a[contains(@class,'delete')]")
+	@FindBy(xpath = "//img[contains(@class,'MyAccountAddressTable-Icon_trash')]")
 	private List<WebElement> iconRemoveAddress;
 
-	@FindBy(xpath = "//button[contains(@class,'action-accept')]")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountAddressPopup-DeletePopupContainer')]//button[contains(@class,'button')]")
 	private WebElement btnConfirmDelete;
 
-	@FindBy(xpath = "//button[@data-action='save-address']")
+	@FindBy(xpath = "//form[contains(@class,'MyAccountAddressFieldForm')]//button[@type='submit']")
 	private WebElement btnSaveAddress;
+	
+	@FindBy(xpath = "//button[@class='MyAccountAddressBook-NewAddress']")
+	private WebElement btnAddNewAddress;
 
-	@FindBy(xpath = "//a[@class='action edit']/img")
+	@FindBy(xpath = "//img[contains(@class,'MyAccountAddressTable-Icon_pencil')]")
 	private WebElement lnkEditAddress;
 
-	@FindBy(xpath = "//div[@class='field choice set billing']/input[@type='checkbox']/following-sibling::label")
+	@FindBy(xpath = "//div[contains(@class,'Field-Toggle')]")
 	private WebElement chkDefaultShippingAddress;
 
-	@FindBy(xpath = "//div[@class='box-content']//span[@class='default-shipping']")
+	@FindBy(xpath = "//div[contains(@class,'MyAccountAddressCard-Default') and text()!=' ']")
 	private WebElement lblDefaultAddress;
 
 	@FindBy(xpath = "//span[@class='customer-name']")
@@ -192,7 +195,7 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='club-logo']")
 	private WebElement imgCALogo;
 
-	@FindBy(xpath = "//div[@class='message info empty']")
+	@FindBy(xpath = "//div[@class='MyAccountMyWishlist']/p")
 	private WebElement msgEmptyWishlist;
 
 	/**
@@ -216,7 +219,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void inputUserName(String userType) {
-		System.out.println("The user type Login Page "+userType);
+		log.info("The user type Login Page "+userType);
 		
 		commonMethods.clearAndSendKeys(this.txtUserName,
 				jsonReader.getUsername(browserFactory.getCountry().toLowerCase(),userType));
@@ -357,6 +360,7 @@ public class LoginPage extends CucumberRunner {
 		homePage.clickOnWishlistInHeader();
 		while (iconWishlistRemove.size() > 0) {
 			commonMethods.click(iconWishlistRemove.get(0));
+			waitHelper.staticWait(5000);
 			log.info("Wishlist remove icon clicked");
 		}
 		waitHelper.waitForElementVisible(msgEmptyWishlist);
@@ -386,6 +390,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void saveAddress() {
+		commonMethods.click(btnAddNewAddress);
 		ShippingPage shippingPage = new ShippingPage();
 		String country = browserFactory.getCountry().toLowerCase();
 		log.info("Enter address manually");
@@ -425,6 +430,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void verifyEmptyAddressBook() {
+		waitHelper.staticWait(3000);
 		Assert.assertEquals(iconRemoveAddress.size(), 0);
 		log.info("Address book is empty");
 	}
