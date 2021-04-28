@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
-Background: User logs into application and clears cart - addresses
+	Background: User logs into application and clears cart - addresses
 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -10,7 +10,8 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-   # @Smoke @CODPayment @Regression
+
+    @Smoke @CODPayment @Regress
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result

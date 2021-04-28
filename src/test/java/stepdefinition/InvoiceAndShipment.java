@@ -6,6 +6,7 @@ import base.Config;
 import commonHelper.GenericHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import jdk.internal.org.jline.utils.Log;
 import pageObjects.LoginPage;
 import pageObjects.MagentoDashboardPage;
 import pageObjects.MagentoOrdersDetailPage;
@@ -91,7 +92,7 @@ public class InvoiceAndShipment {
 		} else if (captureType.equalsIgnoreCase("Not Capture")) {
 			magentoOrderDetailsPage.notCapture();
 		} else {
-			System.out.println("Payment capture type is undefined");
+			Log.info("Payment capture type is undefined");
 		}
 	}
 

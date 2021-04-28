@@ -1,5 +1,5 @@
 Feature: 6thstreet.com - User Cart Scenarios 
-
+	
 	Background: User logs into application and clears cart - addresses
 	When User clicks on login link 
 	When User enters "validuser" login details in the login popup 
@@ -20,7 +20,7 @@ Feature: 6thstreet.com - User Cart Scenarios
 	
 	Examples:  
 		|Product|
-		|Shoes|
+		|Shirt|
 	
 	@Regression @Smoke
 	Scenario Outline: TS_Cart_02 - User is able to update the product qty

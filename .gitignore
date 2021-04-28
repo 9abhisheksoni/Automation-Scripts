@@ -5,10 +5,10 @@ target/*
 *.project
 *.DS_Store
 test-output/*
-.log
+logs/*.log
 *.class
 bin
-*.settings
-/.settings/
 /target/
 !cucumber.json
+*.settings
+/.settings/
