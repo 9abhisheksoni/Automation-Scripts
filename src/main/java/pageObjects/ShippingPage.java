@@ -134,7 +134,9 @@ public class ShippingPage extends CucumberRunner {
 
 	public void clickDeliverToAddress() {
 		waitHelper.waitForSpinnerInvisibility();
+		System.out.println("===========waitForSpinnerInvisibility=============");
 		commonMethods.click(btnDeliverToAddress);
+		System.out.println("===========clicked btnDeliverToAddress=============");
 		log.info("Delivered to this adrress button is clicked");
 	}
 
@@ -205,11 +207,11 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void fillShippingForm() {
+		String country = browserFactory.getCountry().toLowerCase();
 		log.info("Enter address manually");
 		this.submitShippingAddress(browserFactory.getCountry().toLowerCase());
 		commonMethods.click(btnSaveAddress);
-		this.selectSavedAddress();
-		this.clickDeliverToAddress();
+		this.submitSavedAddress(country);
 	}
 
 	/*
