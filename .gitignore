@@ -4,10 +4,15 @@ target/
 *.DS_Store
 test-output/
 *.log
+logs/
+*.log
+debug.log
 *.class
 bin
-*.settings
 !cucumber.json
+*.settings
 *.png
 *.jpeg
 *.prefs
+.settings/
+

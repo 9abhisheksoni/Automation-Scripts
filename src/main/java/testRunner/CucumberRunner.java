@@ -7,7 +7,6 @@ import cucumber.api.CucumberOptions;
 		"pretty" }, tags = {}, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html",
 				"json:target/cucumber.json" }, dryRun = false)
-
 public class CucumberRunner extends CucumberBase {
 
 }

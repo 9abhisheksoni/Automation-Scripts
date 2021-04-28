@@ -151,7 +151,13 @@ public class SearchResults {
 	public void user_filters_the_product_based_on_the_highest_discount() {
 		searchPage.clickHighestDiscountPercentage();
 	}
-	
+
+    @And("^verifies the \"([^\"]*)\" in the PLP$")
+    public void verifies_the_something_in_the_plp(String productcount) {
+    	searchPage.verifyPLPIsDisplayed(productcount);
+    }
+
+
 	@Then("^broken price products are collected$")
 	public void broken_price_products_are_collected() {
 		searchPage.verifyCatlogPrices();

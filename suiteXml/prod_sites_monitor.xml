@@ -14,11 +14,7 @@
 		<classes>
 			<class name="testRunner.ProdSitesMonitoringScripts" />
 		</classes>
-	</test> <!--Test <test name="OM-EN : UserJourny"> <parameter name="country" value="OM" 
-		/> <parameter name="language" value="EN" /> <classes> <class name="testRunner.ProdSitesMonitoringScripts" 
-		/> </classes> </test> <test name="BH-EN : UserJourny"> <parameter name="country" 
-		value="BH" /> <parameter name="language" value="EN" /> <classes> <class name="testRunner.ProdSitesMonitoringScripts" 
-		/> </classes> </test> Test -->
+	</test> 
 	<test name="QA-EN : UserJourny">
 		<parameter name="country" value="QA" />
 		<parameter name="language" value="EN" />
@@ -46,11 +42,7 @@
 		<classes>
 			<class name="testRunner.ProdSitesMonitoringScripts" />
 		</classes>
-	</test> <!--Test <test name="OM-AR : UserJourny"> <parameter name="country" value="OM" 
-		/> <parameter name="language" value="AR" /> <classes> <class name="testRunner.ProdSitesMonitoringScripts" 
-		/> </classes> </test> <test name="BH-AR : UserJourny"> <parameter name="country" 
-		value="BH" /> <parameter name="language" value="AR" /> <classes> <class name="testRunner.ProdSitesMonitoringScripts" 
-		/> </classes> </test> <Test -->
+	</test> 
 	<test name="QA-AR : UserJourny">
 		<parameter name="country" value="QA" />
 		<parameter name="language" value="AR" />

@@ -1,5 +1,6 @@
 package stepdefinition;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import base.Config;
@@ -25,6 +26,7 @@ public class InvoiceAndShipment {
 	GenericHelper genericHelper = new GenericHelper();
 	Config config = new Config();
 	MagentoRmaPage magentoRmaPage = new MagentoRmaPage();
+	private Logger log = Logger.getLogger(InvoiceAndShipment.class.getName());
 
 	@When("^user clicks on sales module$")
 	public void user_clicks_on_sales_module() {
@@ -91,7 +93,7 @@ public class InvoiceAndShipment {
 		} else if (captureType.equalsIgnoreCase("Not Capture")) {
 			magentoOrderDetailsPage.notCapture();
 		} else {
-			System.out.println("Payment capture type is undefined");
+			log.info("Payment capture type is undefined");
 		}
 	}
 
