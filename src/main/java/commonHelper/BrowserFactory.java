@@ -47,7 +47,7 @@ public class BrowserFactory {
 			log.info("Creating Chrome Driver Instance");
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");			
+//			options.addArguments("--headless");			
 			options.addArguments("disable-infobars");
 			options.addArguments("--disable-notifications");
 			options.addArguments("--window-size=1300,1000");

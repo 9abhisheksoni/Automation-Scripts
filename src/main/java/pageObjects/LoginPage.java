@@ -108,13 +108,13 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//a[@class='top-link-log-out-link']")
 	private WebElement lnkLogout;
 
-	@FindBy(xpath = "//a[@class='top-link-address-link']")
+	@FindBy(xpath = "//a[contains(@href,'address-book')]//span")
 	private WebElement lnkDeliveryAddress;
 
-	@FindBy(xpath = "//a[contains(@class,'delete')]")
+	@FindBy(xpath = "//button[contains(@class,'MyAccountAddressTable')]/img[contains(@class,'Icon_trash')]")
 	private List<WebElement> iconRemoveAddress;
 
-	@FindBy(xpath = "//button[contains(@class,'action-accept')]")
+	@FindBy(xpath = "//div[contains(@class,'DeletePopupContainer')]//button[contains(@class,'primary')]")
 	private WebElement btnConfirmDelete;
 
 	@FindBy(xpath = "//button[@data-action='save-address']")
@@ -380,8 +380,9 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clearSavedAddress() {
-		commonMethods.click(lblCustomerName);
-		commonMethods.click(lnkDeliveryAddress);
+		waitHelper.waitForSpinnerInvisibility();
+		commonMethods.moveToElementAndClick(lblCustomerName);
+		commonMethods.moveToElementAndClick(lnkDeliveryAddress);
 		this.deleteAllSavedAddress();
 	}
 
@@ -418,7 +419,8 @@ public class LoginPage extends CucumberRunner {
 	public void deleteAllSavedAddress() {
 		int removeAddressCount = iconRemoveAddress.size();
 		for (int i = 0; i < removeAddressCount; i++) {
-			commonMethods.moveToElementAndClick(iconRemoveAddress.get(0));
+			waitHelper.waitForElementToBeClickable(iconRemoveAddress.get(0));
+			commonMethods.click(iconRemoveAddress.get(0));
 			commonMethods.click(btnConfirmDelete);
 			log.info("Address deleted");
 		}

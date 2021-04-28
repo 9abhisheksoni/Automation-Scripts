@@ -22,6 +22,7 @@ public class CartPage extends CucumberRunner {
 	GenericHelper genericHelper = new GenericHelper();
 	WaitHelper waitHelper = new WaitHelper();
 	SearchPage searchPage = new SearchPage();
+	HomePage homePage = new HomePage();
 	private Logger log = Logger.getLogger(CartPage.class.getName());
 
 	/**
@@ -44,7 +45,7 @@ public class CartPage extends CucumberRunner {
 	@FindBy(xpath = "//button[@class='CartOverlay-CheckoutButton']")
 	private WebElement btnMiniCartCheckout;
 
-	@FindBy(xpath = "//a[contains(@class,'CartOverlay-CartButton')]")
+	@FindBy(xpath = "//a[contains(@class,'CartButton')]")
 	private WebElement btnMiniCartViewBag;
 
 	@FindBy(xpath = "//div[@class='HeaderCart-Count']")

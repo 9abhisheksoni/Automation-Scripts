@@ -1,7 +1,7 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
 Background: User logs into application and clears cart - addresses
-
+	
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
 		And User clicks on login button 
@@ -10,7 +10,7 @@ Background: User logs into application and clears cart - addresses
 		And User clears cart
 		And User clears saved address
 
-   # @Smoke @CODPayment @Regression
+    @Smoke @CODPayment @Regression @TestPWA
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 		
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And click on first valid product in search result
@@ -38,7 +38,7 @@ Background: User logs into application and clears cart - addresses
 		
 		Examples:  
 		|Product|
-		|Shoes|
+		|Flip Flop|
 
 	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
@@ -68,7 +68,7 @@ Background: User logs into application and clears cart - addresses
 		
 		Examples:  
 		|Product|
-		|Shoes|
+		|Flip Flop|
 		
 	@Regression @CreditCardPayment
 	Scenario Outline: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using master credit card 
