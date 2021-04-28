@@ -8,7 +8,7 @@ Feature: 6thstreet.com - User Cart Scenarios
 	And Home page is displayed 
 	And User clears cart
 	
-	@Regression @Smoke @run
+	@Regression @Sanity
 	Scenario Outline: TS_Cart_01 - User is able to clear cart
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And click on first valid product in search result
@@ -22,7 +22,7 @@ Feature: 6thstreet.com - User Cart Scenarios
 		|Product|
 		|Shirt|
 	
-	@Regression @Smoke
+	@Regression @Sanity
 	Scenario Outline: TS_Cart_02 - User is able to update the product qty
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And click on first valid product in search result

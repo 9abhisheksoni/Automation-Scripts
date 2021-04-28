@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
-@Smoke @CreditCardPayment @RegisteredUser
+@Sanity @CreditCardPayment @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

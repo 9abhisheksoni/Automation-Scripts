@@ -1,7 +1,7 @@
 Feature: 6thstreet.com - Registered user place order with StoreCredit
 
 
-	@Smoke @CODPayment @StoreCredit
+	@Sanity @CODPayment @StoreCredit
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using store credit if it is enabled
 	When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

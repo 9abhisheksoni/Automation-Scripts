@@ -4,10 +4,10 @@ import base.CucumberBase;
 import cucumber.api.CucumberOptions;
 
 @CucumberOptions(strict = true, monochrome = true, features = "src/test/resources/feature_backup", glue = "stepdefinition", format = {
-		"pretty" }, tags = { "@TabbyPayInInstallments,@TabbyPayLater,@Tabby" }, plugin = {
+		"pretty" }, tags = { "@ProductCount" }, plugin = {
 				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-extent-reports/extent-report.html",
 				"json:target/cucumber.json" }, dryRun = false)
 
-public class TabbyScenarios extends CucumberBase {
+public class CatalogProductCount extends CucumberBase {
 
 }

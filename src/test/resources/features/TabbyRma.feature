@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Tabby RMA Scenarios
 
-  @TabbyPayInInstallments @RegisteredUser @Smoke
+  @TabbyPayInInstallments @RegisteredUser @Sanity
   Scenario Outline: TS_TabbyRMA_01 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayInInstallments
     When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -98,7 +98,7 @@ Feature: 6thstreet.com - Tabby RMA Scenarios
 		|DSW425728-230-NUDE|EU|41|1|
 		
 	
-	@TabbyPayLater @RegisteredUser @Smoke
+	@TabbyPayLater @RegisteredUser @Sanity
   Scenario Outline: TS_TabbyRMA_02 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayLater
     When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 

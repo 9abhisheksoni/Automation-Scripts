@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Order History Scenarios
 
-    @Smoke 
+    @Sanity 
 	Scenario Outline: TS_OrderHistory_01 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

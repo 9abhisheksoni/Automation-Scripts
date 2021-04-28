@@ -135,6 +135,4 @@ public class Home {
 		homePage.verifyBrandCategoryLinks();
 	}
 
-
-
 }

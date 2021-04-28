@@ -256,4 +256,11 @@ public class Config {
 		return prop.getProperty("supportEmail");
 	}
 
+	public int getProductCountOnActiveLocale(String country) {
+		log.info("getting products count for "+country);
+		checkToCreateProp();
+		int productCountFromProperty = Integer.parseInt(prop.getProperty(country+"ProductCount"));
+		return productCountFromProperty;
+	}
+
 }

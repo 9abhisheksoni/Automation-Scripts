@@ -45,7 +45,7 @@
 			<class name="testRunner.Regression_AllSites" />
 		</classes>
 	</test> <!--Test -->
-		<test name="UAE-AR : Smoke">
+	<test name="UAE-AR : Smoke">
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="AR" />
 		<classes>

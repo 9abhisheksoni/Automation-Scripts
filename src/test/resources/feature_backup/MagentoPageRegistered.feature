@@ -16,7 +16,7 @@
 		And user navigates to shopping bag page and clicks on proceedToCheckout button 
 		And user submits the valid details for shipping address 
 			
-	@Regression @CODPayment  
+	 @CheckoutIntegration @CODPayment
 	Scenario: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod
 		And user selects payment option as "COD" 
 		And user clicks on place order button 
@@ -45,7 +45,7 @@
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
 		
-	@Regression @CreditCardPayment 
+	 @CheckoutIntegration @CreditCardPayment 
 	Scenario: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using VISA credit card
 		And user selects payment option as "CC_VISA" 
 		And user clicks on place order button 
@@ -74,7 +74,7 @@
 		And Clicks on order cancel in Magento 
 		Then Verify Magento Order Status to be "Canceled"
 		
-	@Regression @TabbyPayLater  
+	@CheckoutIntegration @TabbyPayLater  
 	Scenario: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay later
 		And user selects payment option as "TabbyPayLater" 
 		And user clicks on place order button 
@@ -104,7 +104,7 @@
 		Then Verify Magento Order Status to be "Canceled"
 		
 		
-	@Regression @TabbyPayInInstallments  
+	@CheckoutIntegration @TabbyPayInInstallments  
 	Scenario: TS_RegisteredCheckout_03 - Registered User of 6thstreet.com site should be able to place order using Tabby Pay installments
 		And user selects payment option as "TabbyPayInInstallments" 
 		And user clicks on place order button 
@@ -134,7 +134,7 @@
 		Then Verify Magento Order Status to be "Canceled"
 		
 		
-	@Regression @CODPayment  
+	@CheckoutIntegration @CODPayment  
 	Scenario: TS_RegisteredCheckout_01 - User should be able to perform Agent RMA
 		And user selects payment option as "COD" 
 		And user clicks on place order button 

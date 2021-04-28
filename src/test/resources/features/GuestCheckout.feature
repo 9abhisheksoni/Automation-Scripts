@@ -1,7 +1,7 @@
 Feature: 6thstreet.com - Guest User Place Order Scenarios
 
 
-	@Smoke @CODPayment @GuestUser
+	@Sanity @CODPayment @GuestUser
 	Scenario Outline: TS_GuestCheckout_01 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -19,7 +19,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@Smoke @CreditCardPayment @GuestUser @CheckoutPaymentSuccess 
+	@Sanity @CreditCardPayment @GuestUser @CheckoutPaymentSuccess 
 	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -107,7 +107,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-	@Smoke @TabbyPayInInstallments @GuestUser 
+	@Sanity @TabbyPayInInstallments @GuestUser 
 	Scenario Outline: TS_GuestCheckout_05 - Guest User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -131,7 +131,7 @@ Feature: 6thstreet.com - Guest User Place Order Scenarios
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@Smoke @TabbyPayLater @GuestUser  
+	@Sanity @TabbyPayLater @GuestUser  
 	Scenario Outline: TS_GuestCheckout_06 - Guest User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 

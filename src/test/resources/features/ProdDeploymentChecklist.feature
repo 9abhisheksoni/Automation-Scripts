@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP, Place Order - Guest and Registered User
 
-		@Smoke @PLPSORTProd		
+		@Sanity @PLPSORTProd		
 		Scenario Outline: TS_ProdDepChecklist_01 - Verify whether user is able to sort the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -13,7 +13,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 
-		@Smoke @SearchProd	
+		@Sanity @SearchProd	
 		Scenario Outline: TS_ProdDepChecklist_01 - Verify search functionality
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			Then products should be displayed 
@@ -24,12 +24,12 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 
-  		@Smoke @SearchProd @SearchTest1
+  		@Sanity @SearchProd @SearchTest1
 		Scenario: TS_ProdDepChecklist_01 - Verify search suggestion
 			And user enters product name as "a" in search text box 
 			Then search suggestions should be displayed
 			
-		@Smoke @Search @HomePageTest
+		@Sanity @Search @HomePageTest
 		Scenario: TS_Home Page Navigation_01- HOME LOGO
 			And user enters product name as "a" in search text box 
 			And search suggestions should be displayed 
@@ -39,7 +39,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 			And Home page is displayed
 			 
 					  
-		@Smoke @WishlistProd	
+		@Sanity @WishlistProd	
 		Scenario Outline: TS_ProdDepChecklist_02 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -56,7 +56,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 				|SearchTerm|
 				|Shoes|
 				
-		@Smoke @Level1Prod
+		@Sanity @Level1Prod
 		Scenario: TS_ProdDepChecklist_03 - Registered User of 6thstreet.com UAE site should be able to navigate to level1 page 
 			And Home page is displayed 
 			And user click first level Category 
@@ -66,7 +66,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 			And user click third level Category 
 			Then third level category should be displayed 
 
-	@Smoke @CODPayment @GuestUserProd
+	@Sanity @CODPayment @GuestUserProd
 	Scenario Outline: TS_ProdDepChecklist_04 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -96,7 +96,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-    @Smoke @CODPayment @RegisteredUserProd
+    @Sanity @CODPayment @RegisteredUserProd
 	Scenario Outline: TS_ProdDepChecklist_05 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -130,7 +130,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
-@Smoke @CreditCardPayment @CCRegisteredUserProd
+@Sanity @CreditCardPayment @CCRegisteredUserProd
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -163,7 +163,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 
- 	@Smoke @RegisteredUserLogoutProd
+ 	@Sanity @RegisteredUserLogoutProd
 	Scenario: TS_ProdDepChecklist_05 - Registered User of 6thstreet.com site should be able to Logout 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -172,7 +172,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		And User Logsout
 		Then Logout is successfull
 		
-	@Smoke @CreditCardPayment @GuestUser @CCCheckoutPaymentSuccessProd 
+	@Sanity @CreditCardPayment @GuestUser @CCCheckoutPaymentSuccessProd 
 	Scenario Outline: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using visa card 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -204,7 +204,7 @@ Feature: 6thstreet.com - Prod Deployment Checklist: Search, Login, PLP Sort, PDP
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 
-    @Smoke @RegisteredUserAddEditDeleteAddressProd
+    @Sanity @RegisteredUserAddEditDeleteAddressProd
 	Scenario: TS_ProdDepChecklist_05 - Registered User of 6thstreet.com site should be able to Save, Edit and Delete Address 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

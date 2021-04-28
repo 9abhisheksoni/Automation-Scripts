@@ -14,7 +14,7 @@
 		
 	
 	
-	@Regression @CODPayment
+	@CODPayment @CheckoutIntegration
 	Scenario: TS_GuestCheckout_02 - Guest User of 6thstreet.com site should be able to place order using cod		 
 		And user selects payment option as "COD"  
 		And user clicks on place order button 

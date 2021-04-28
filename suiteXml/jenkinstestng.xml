@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 	<test name="UAE_EN_Smoke">
-		<parameter name="country" value="QA" />
- 		<parameter name="language" value="EN" />
+		<parameter name="country" value="UAE" />
+		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.CucumberRunner" />
-<!-- 			<class name="testRunner.TabbySmokeScenarios" /> -->
+			<class name="testRunner.TabbySmokeScenarios" />
 		</classes>
 	</test> <!--Test -->
 </suite> <!-- Suite -->

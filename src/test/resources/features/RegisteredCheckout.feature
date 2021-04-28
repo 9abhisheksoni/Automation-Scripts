@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
-    @Smoke @CODPayment @RegisteredUser 
+    @Sanity @CODPayment @RegisteredUser 
 	Scenario Outline: TS_RegisteredCheckout_01 - Registered User of 6thstreet.com site should be able to place order using cod 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -29,7 +29,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|Product                   |CountrySize|Size|Qty|
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 
-	@Smoke @CreditCardPayment @RegisteredUser 
+	@Sanity @CreditCardPayment @RegisteredUser 
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using visa credit card 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -175,7 +175,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		| MerchantURL                 |Product |CountrySize|Size|Qty|
 		| https://merchant.tabby.ai/auth |DSW425728-230-NUDE|EU|41|1|
 		
-	@Smoke @TabbyPayLater @RegisteredUser
+	@Sanity @TabbyPayLater @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckout_06 - Registered User of 6thstreet.com site should be able to place order using TabbyPayLater 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -211,7 +211,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@Smoke @Coupon
+	@Sanity @Coupon
 	Scenario Outline: TS_RegisteredCheckout_07 - User is able to apply percentage off coupon to payment
 	When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -234,7 +234,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 
-	@Smoke @Coupon
+	@Sanity @Coupon
 	Scenario Outline: TS_RegisteredCheckout_08 - User is able to apply amount off coupon to payment
 	When User clicks on login link 
 	When User enters valid login details "validuser" username and "validuser" password in the login popup 

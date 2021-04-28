@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Search results Page 
 
-		@Smoke 
+		@Sanity 
 		Scenario Outline: TS_Search_01 - Verify whether user is able to filter the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -15,7 +15,7 @@ Feature: 6thstreet.com - Search results Page
 				|SearchTerm|
 				|Shoes|
 		
-		@Smoke		
+		@Sanity		
 		Scenario Outline: TS_Search_02 - Verify whether user is able to sort the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -28,7 +28,7 @@ Feature: 6thstreet.com - Search results Page
 				|SearchTerm|
 				|Shoes|
 		
-		@Smoke		
+		@Sanity		
 		Scenario Outline: TS_Search_03 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters valid login details "validuser" username and "validuser" password in the login popup 
@@ -43,7 +43,7 @@ Feature: 6thstreet.com - Search results Page
 				|SearchTerm|
 				|Shoes|
 		
-		@Smoke 
+		@Sanity 
 		Scenario: TS_Search_04 - Registered User of 6thstreet.com UAE site should be able to navigate to level1 page 
 			And Home page is displayed 
 			And user click first level Category 
