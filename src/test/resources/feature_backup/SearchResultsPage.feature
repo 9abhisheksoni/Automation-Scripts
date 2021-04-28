@@ -1,11 +1,6 @@
 Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP                       
 
-<<<<<<< HEAD
-
 		@Sanity @Regression
-=======
-		@Smoke @Regression
->>>>>>> branch 'development' of https://github.com/6thstreetdotcom/Automation-Scripts.git
 		Scenario Outline: TS_Search_01 - Verify whether user is able to filter the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -94,7 +89,6 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 			 
 		Examples: 
 				|SearchTerm|
-<<<<<<< HEAD
 				|Shoes|
 		
 		@CategotyMonitoring 
@@ -118,6 +112,4 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 		Scenario:  TS_Search_12 - Verify product count in catalog 
 			And user enters product name as "@" in search text box and click search icon 
 			Then verify whether products count is as expected
-=======
 				|Shoes|
->>>>>>> branch 'development' of https://github.com/6thstreetdotcom/Automation-Scripts.git
