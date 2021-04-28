@@ -1,4 +1,3 @@
-
 package commonHelper;
 
 import static org.testng.Assert.fail;
@@ -133,8 +132,6 @@ public class CommonMethods extends CucumberRunner {
 	/** This method Moves the mouse to the middle of the element **/
 	public void mouseHoverOn(WebElement webElement) {
 		Actions action = new Actions(browserFactory.getDriver());
-		WebDriverWait wait = new WebDriverWait(browserFactory.getDriver(), time);
-		wait.until(ExpectedConditions.visibilityOf(webElement));
 		action.moveToElement(webElement).build().perform();
 		log.info("cursor movement to specified element");
 	}

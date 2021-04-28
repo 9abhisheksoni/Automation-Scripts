@@ -100,6 +100,9 @@ public class SearchPage extends CucumberRunner {
 
 	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon')]")
 	private WebElement iconWishlist;
+	
+	@FindBy(xpath = "//div[contains(@class,'WishlistIcon-Icon') and contains(@class,'Icon_black')]")
+	private WebElement iconWishlistHiglighted;
 
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[contains(@class,'GenderButton-Button_isCurrentGender')]/..")
 	private WebElement lblFirstLevelActive;
@@ -107,7 +110,7 @@ public class SearchPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='HeaderMainSection']//button[not(contains(@class,'GenderButton-Button_isCurrentGender')) and contains(@class,'GenderButton-Button')]")
 	private WebElement lblFirstLevelInActive;
 
-	@FindBy(xpath = "//div[@class='HeaderBottomBar']//div[@class='MenuCategory']")
+	@FindBy(xpath = "//div[contains(@class,'HeaderBottomBar')]//div[@class='MenuCategory-CategoryLink-Label']/..")
 	private WebElement lblSecondLevelCategory;
 
 	@FindBy(xpath = "//div[@class='DynamicContent']//div[contains(@class,'Menu')]//div[contains(@class,'Content')]/a")
@@ -171,8 +174,9 @@ public class SearchPage extends CucumberRunner {
 
 	public void clickSecondCategoryFilter() {
 		commonMethods.click(drpdwnCategoryGroupFilter);
-		commonMethods.moveToElementAndClick(chkCategoryGroupSecondFilter);
-		waitHelper.staticWait(3000);
+		waitHelper.staticWait(1500);
+		commonMethods.click(chkCategoryGroupSecondFilter);
+		waitHelper.staticWait(1500);
 		Assert.assertTrue("Filter Not Selected", commonMethods.isSelected(chkCategoryGroupSecondFilter));
 		log.info("clicked second category filter");
 	}
@@ -234,6 +238,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void verifyWishlistSuccessDisplay() {
+		waitHelper.waitForElementVisible(iconWishlistHiglighted);
 		Assert.assertTrue(commonMethods.getAttribute(iconWishlist, "class").contains("Icon_black"));
 		log.info("product wishlisted successfully");
 	}
@@ -244,12 +249,14 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickOnSecondCategory() {
-		commonMethods.click(lblSecondLevelCategory);
+		waitHelper.waitForElementVisible(lblSecondLevelCategory);
+		commonMethods.moveToElementAndClick(lblSecondLevelCategory);
 		log.info("Clicked second level category");
 	}
 
 	public void clickOnThirdCategory() {
-		commonMethods.mouseHover(lblSecondLevelCategory);
+		waitHelper.staticWait(3000);
+		jsHelper.mousehover(lblSecondLevelCategory);
 		waitHelper.waitForElementVisible(lblThirdLevelCategory);
 		commonMethods.moveToElementAndClick(lblThirdLevelCategory);
 		log.info("Clicked third level category");
@@ -337,6 +344,7 @@ public class SearchPage extends CucumberRunner {
 	}
 
 	public void clickFirstValidInResult() {
+		waitHelper.staticWait(2000);
 		int index = 0;
 		if (this.getPriceFromText(commonMethods.getText(lblprice)) > 0) {
 			commonMethods.moveToElementAndClick(lnkProduct);

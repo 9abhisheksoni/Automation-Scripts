@@ -120,4 +120,11 @@ public class JavaScriptHelper extends CucumberRunner {
 		log.info("Getting Scroll height of active window");
 		return Integer.parseInt(exe.executeScript("return document.body.scrollHeight").toString());
 	}
+
+	public void mousehover(WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) browserFactory.getDriver();
+		log.info("MouseHover Using JS");
+		String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover',true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
+		js.executeScript(mouseOverScript, element);
+	}
 }

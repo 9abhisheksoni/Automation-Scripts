@@ -14,9 +14,9 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 			
 			Examples: 
 				|SearchTerm|
-				|Dress|
+				|Shirts|
 		
-		@Smoke	@Regression 
+		@Smoke	@Regression
 		Scenario Outline: TS_Search_02 - Verify whether user is able to sort the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And user reads number of products on page 
@@ -27,9 +27,9 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 			
 			Examples: 
 				|SearchTerm|
-				|Wallet|
+				|Shoes|
 		
-		@Smoke @Regression
+		@Smoke @Regression 
 		Scenario Outline: TS_Search_03 - Registered User of 6thstreet.com should be able to add product to wishlist 
 			When User clicks on login link 
 			When User enters "validuser" login details in the login popup  
@@ -44,13 +44,13 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 				|SearchTerm|
 				|Shoes|
 		
-		@Smoke @Regression @run
+		@Smoke @Regression 
 		Scenario: TS_Search_04 - Registered User of 6thstreet.com UAE site should be able to navigate to different levels of category 
 			And Home page is displayed 
 			And user click first level Category 
 			Then first level category should be displayed 
-		#	And user click second level Category 
-		#	Then second level category should be displayed 
+			And user click second level Category 
+			Then second level category should be displayed 
 			And user click third level Category 
 			Then third level category should be displayed 
 
@@ -83,7 +83,7 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 				|SearchTerm|
 				|Shoes|
 		
-		@Smoke @Regression		
+		@Smoke @Regression	
 		Scenario Outline: TS_Search_08 - Verify whether user is able to click on valid PDP link 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
 			And click on first valid product in search result
@@ -92,18 +92,18 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 				|SearchTerm|
 				|Shoes|
 		
-		@catrun
-		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
-			And User Verifies Product CategoryLinks Navigation 
-		
-		@catrun
-		Scenario: TS_Search_10 - Verify whether brand level3 category navigation have valid links 
-			And User Verifies Brand CategoryLinks Navigation 
-			
-		Scenario: TS_Search_11 - List the broken price products
-			And user enters product name as "@" in search text box and click search icon 
-			And user reads number of products on page 
-			And user sort by low to high price 
-			Then products should be sorted with low to high price 
-			And scroll two lazy loads
-			Then broken price products are collected
+#		@catrun 
+#		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
+#			And User Verifies Product CategoryLinks Navigation 
+#		 
+#		@catrun 
+#		Scenario: TS_Search_10 - Verify whether brand level3 category navigation have valid links 
+#			And User Verifies Brand CategoryLinks Navigation 
+#			
+#		Scenario: TS_Search_11 - List the broken price products
+#			And user enters product name as "@" in search text box and click search icon 
+#			And user reads number of products on page 
+#			And user sort by low to high price 
+#			Then products should be sorted with low to high price 
+#			And scroll two lazy loads
+#			Then broken price products are collected

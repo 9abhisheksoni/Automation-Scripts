@@ -11,7 +11,7 @@ public class URLConnection {
 
 	HttpURLConnection huc = null;
 	private Logger log = Logger.getLogger(URLConnection.class.getName());
-
+	
 	private void getConnection(String url) {
 		try {
 			huc = (HttpURLConnection) (new URL(url).openConnection());
