@@ -5,84 +5,84 @@
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KSAEN">
 		<parameter name="country" value="KSA" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="BHEN">
 		<parameter name="country" value="BH" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="OMEN">
 		<parameter name="country" value="OM" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KWEN">
 		<parameter name="country" value="KW" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="QAEN">
 		<parameter name="country" value="QA" />
 		<parameter name="language" value="EN" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="UAEAR">
 		<parameter name="country" value="UAE" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KSAAR">
 		<parameter name="country" value="KSA" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="BHAR">
 		<parameter name="country" value="BH" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="OMAR">
 		<parameter name="country" value="OM" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="KWAR">
 		<parameter name="country" value="KW" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 	<test name="QAAR">
 		<parameter name="country" value="QA" />
 		<parameter name="language" value="AR" />
 		<classes>
-			<class name="testRunner.CucumberRunner" />
+			<class name="testRunner.CatalogProductCount" />
 		</classes>
 	</test> <!--Test -->
 </suite> <!-- Suite -->
