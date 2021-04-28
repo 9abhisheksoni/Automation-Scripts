@@ -396,10 +396,9 @@ public class SearchPage extends CucumberRunner {
 	
 	public void verifyPLPIsDisplayed(String productCount) {	
 		waitHelper.staticWait(10000);
-		//System.out.println("Product displayed in PLP: " + lnksProduct.size());
-		
+		log.info("Product displayed in PLP: " + lnksProduct.size());
 		productCount = productCount.replaceAll(",$", "");
-		System.out.println("The number of products displayed "+productCount);
+		log.info("The number of products displayed "+productCount);
 		try {
 			
 			if (getProductsCount() >= Integer.parseInt(productCount)) {
@@ -408,10 +407,6 @@ public class SearchPage extends CucumberRunner {
 				log.info("PLP displayed < "+Integer.parseInt(productCount)+" items");
 			}
 			
-			//System.out.println("Comparing products "+Integer.parseInt(productCount));
-			//Assert.assertTrue(lnksProduct.size() > Integer.parseInt(productCount));
-			//softAssert.assertTrue(lnksProduct.size() > Integer.parseInt(productCount));
-			//getProductsCount();
 			log.info("PLP displayed > "+Integer.parseInt(productCount)+" items");
 		} catch (Exception e) {
 			log.info("PLP displayed < "+Integer.parseInt(productCount)+" items");

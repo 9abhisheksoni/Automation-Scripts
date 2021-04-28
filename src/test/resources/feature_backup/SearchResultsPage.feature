@@ -1,6 +1,5 @@
 Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP                       
 
-
 		@Smoke @Regression
 		Scenario Outline: TS_Search_01 - Verify whether user is able to filter the products 
 			And user enters product name as "<SearchTerm>" in search text box and click search icon 
@@ -91,19 +90,3 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 		Examples: 
 				|SearchTerm|
 				|Shoes|
-		
-#		@catrun 
-#		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
-#			And User Verifies Product CategoryLinks Navigation 
-#		 
-#		@catrun 
-#		Scenario: TS_Search_10 - Verify whether brand level3 category navigation have valid links 
-#			And User Verifies Brand CategoryLinks Navigation 
-#			
-#		Scenario: TS_Search_11 - List the broken price products
-#			And user enters product name as "@" in search text box and click search icon 
-#			And user reads number of products on page 
-#			And user sort by low to high price 
-#			Then products should be sorted with low to high price 
-#			And scroll two lazy loads
-#			Then broken price products are collected

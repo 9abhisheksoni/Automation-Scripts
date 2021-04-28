@@ -538,7 +538,7 @@ public class LoginPage extends CucumberRunner {
 		if(genericHelper.isDisplayed(lblMyAccount)) {
 			if(genericHelper.isDisplayed(lblStoreCredit)) {
 				storeCreditValue = stringUtility.getPriceValue(commonMethods.getText(lblStoreCreditAmount));
-				System.out.println("storeCreditValue" +storeCreditValue);
+				log.info("storeCreditValue" +storeCreditValue);
 			}
 		}
 		log.info("obtained Store Credit Value: "+storeCreditValue);

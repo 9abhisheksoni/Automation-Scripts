@@ -306,8 +306,8 @@ public class GenericHelper extends CucumberRunner {
 		while (it.hasNext()) {
 			browserFactory.getDriver().switchTo().window(it.next());
 			String currenturl = browserFactory.getDriver().getCurrentUrl();
-			System.out.println("============currenturl====: "+currenturl);
-			System.out.println("=======url==========: "+url);
+			log.info("============currenturl====: "+currenturl);
+			log.info("=======url==========: "+url);
 			boolean baseUrlPresent = currenturl.contains(url);
 			boolean adminUrlPresent = currenturl.contains("admin");
 			if (baseUrlPresent && !adminUrlPresent) {
@@ -325,9 +325,9 @@ public class GenericHelper extends CucumberRunner {
 	
 	public void switchToBaseWindow() {
 		log.info("close All Windows Except Parent");
-		System.out.println("=======country========"+browserFactory.getCountry());
-		System.out.println("=======Language========"+browserFactory.getLanguage());
-		System.out.println("=======Environment========"+browserFactory.getEnvironment());
+		log.info("=======country========"+browserFactory.getCountry());
+		log.info("=======Language========"+browserFactory.getLanguage());
+		log.info("=======Environment========"+browserFactory.getEnvironment());
 		String baseurl = new Config().getSiteURL(browserFactory.getCountry(), browserFactory.getLanguage(), browserFactory.getEnvironment());;
 		String mainwindow = this.getWindowOfUrl(baseurl);
 		browserFactory.getDriver().switchTo().window(mainwindow);

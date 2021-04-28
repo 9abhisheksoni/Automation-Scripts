@@ -96,7 +96,7 @@ public class FooterLinksRedirectPage extends CucumberRunner {
 			String childWindow = iterate.next();
 			if (!parentWindow.equals(childWindow)) {
 				genericHelper.switchToWindow(childWindow);
-				System.out.println(">>>>>>>>>>>>>>>>>>Switched to child window>>>>>>>>>>>>>>");
+				log.info(">>>>>>>>>>>>>>>>>>Switched to child window>>>>>>>>>>>>>>");
 			}
 		}
 	}

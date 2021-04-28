@@ -18,9 +18,9 @@ public class URLConnection {
 			huc = (HttpURLConnection) (new URL(url).openConnection());
 			huc.setRequestMethod("HEAD");
 			huc.connect();
-			System.out.println(huc.getContent().toString());
+			log.info(huc.getContent().toString());
 		} catch (Exception e) {
-			System.out.println("Error occured during connection request");
+			log.info("Error occured during connection request");
 		}
 	}
 
@@ -29,10 +29,10 @@ public class URLConnection {
 		int respCode = 200;
 		try {
 			respCode = huc.getResponseCode();
-			System.out.println(huc.getContent());
-			System.out.println("Resonse Code " + respCode);
+			log.info(huc.getContent());
+			log.info("Resonse Code " + respCode);
 		} catch (Exception e) {
-			System.out.println("Error occured during connection request");
+			log.info("Error occured during connection request");
 		}
 
 		return respCode;
@@ -65,7 +65,7 @@ public class URLConnection {
 		if (responseCode >= 200 && responseCode <= 299) {
 			result = true;
 		}
-		System.out.println("The link broken state is: " + result);
+		log.info("The link broken state is: " + result);
 		return result;
 
 	}
