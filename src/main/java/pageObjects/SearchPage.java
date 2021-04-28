@@ -389,6 +389,7 @@ public class SearchPage extends CucumberRunner {
 	 */
 	public void verifyPLPIsDisplayed() {
 		try {
+			waitHelper.waitForElementVisible(lnkProduct);
 			Assert.assertTrue(lnksProduct.size() > 0);
 			log.info("PLP is displayed");
 		} catch (Exception e) {
@@ -525,6 +526,7 @@ public class SearchPage extends CucumberRunner {
 	}
 	
 	public void verifyProductCounts() {
+		this.verifyPLPIsDisplayed();
 		int productDisplayed = this.getProductsCount();
 		int productExpected = new Config().getProductCountOnActiveLocale(browserFactory.getCountry());
 		Assert.assertTrue(productDisplayed >= productExpected);
