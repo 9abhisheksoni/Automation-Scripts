@@ -92,18 +92,23 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 				|SearchTerm|
 				|Shoes|
 		
-#		@catrun 
-#		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
-#			And User Verifies Product CategoryLinks Navigation 
-#		 
-#		@catrun 
-#		Scenario: TS_Search_10 - Verify whether brand level3 category navigation have valid links 
-#			And User Verifies Brand CategoryLinks Navigation 
-#			
-#		Scenario: TS_Search_11 - List the broken price products
-#			And user enters product name as "@" in search text box and click search icon 
-#			And user reads number of products on page 
-#			And user sort by low to high price 
-#			Then products should be sorted with low to high price 
-#			And scroll two lazy loads
-#			Then broken price products are collected
+		@catrun 
+		Scenario: TS_Search_09 - Verify whether product level3 category navigation have valid links 
+			And User Verifies Product CategoryLinks Navigation 
+		 
+		@catrun 
+		Scenario: TS_Search_10 - Verify whether brand level3 category navigation have valid links 
+			And User Verifies Brand CategoryLinks Navigation 
+			
+		Scenario: TS_Search_11 - List the broken price products
+			And user enters product name as "@" in search text box and click search icon 
+			And user reads number of products on page 
+			And user sort by low to high price 
+			Then products should be sorted with low to high price 
+			And scroll two lazy loads
+			Then broken price products are collected
+			
+		@productcount	
+		Scenario:  TS_Search_12 - Verify product count in catalog 
+			And user enters product name as "@" in search text box and click search icon 
+			Then verify whether products count is as expected

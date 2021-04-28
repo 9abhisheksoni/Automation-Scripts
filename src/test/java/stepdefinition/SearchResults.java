@@ -161,4 +161,9 @@ public class SearchResults {
 	public void scroll_two_lazy_loads() {
 		searchPage.loadMoreProducts();
 	}
+	
+	 @Then("^verify whether products count is as expected$")
+	 public void verify_whether_products_count_is_as_expected() throws Throwable {
+		 searchPage.verifyProductCounts();
+	 }
 }
