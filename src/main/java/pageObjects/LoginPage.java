@@ -385,7 +385,7 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clearSavedAddress() {
-		waitHelper.waitForSpinnerInvisibility();
+		waitHelper.staticWait(10000);
 		commonMethods.moveToElementAndClick(lblCustomerName);
 		commonMethods.moveToElementAndClick(lnkDeliveryAddress);
 		this.deleteAllSavedAddress();
@@ -423,9 +423,9 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void deleteAllSavedAddress() {
+		waitHelper.staticWait(10000);
 		int removeAddressCount = iconRemoveAddress.size();
 		for (int i = 0; i < removeAddressCount; i++) {
-			waitHelper.waitForElementToBeClickable(iconRemoveAddress.get(0));
 			commonMethods.click(iconRemoveAddress.get(0));
 			commonMethods.click(btnConfirmDelete);
 			log.info("Address deleted");

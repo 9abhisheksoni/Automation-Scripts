@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-	<test name="BH-EN : Smoke">
-		<parameter name="country" value="BH" />
+	<test name="KSA-EN : Smoke">
+		<parameter name="country" value="KSA" />
 		<parameter name="language" value="EN" />
 		<classes>
 			<class name="testRunner.CucumberRunner" />

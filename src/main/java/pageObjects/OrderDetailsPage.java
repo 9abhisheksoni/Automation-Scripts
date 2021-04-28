@@ -41,7 +41,7 @@ public class OrderDetailsPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='MyAccountOrderView-Heading']/button")
 	private WebElement btnRetunAnItem;
 	
-	@FindBy(xpath = "//div[@class='MyAccountOrderView-Status']/p[1]/span")
+	@FindBy(xpath = "(//div[@class='MyAccountOrderView-Status']/p[1]/span) | (//div[@class='MyAccountOrderView-StatusFailed']//p[1])")
 	private WebElement lblOrderStatus;
 	
 	@FindBy(xpath = "//p[@class='MyAccountOrderView-StatusDate']/span")
@@ -96,10 +96,12 @@ public class OrderDetailsPage extends CucumberRunner {
 			orderStatus = "Processing";
 		} else if (orderStatusContent.contains("Complete".toUpperCase())){
 			orderStatus = "Complete";
-		} else if (orderStatusContent.contains("Canceled".toUpperCase())){
-			orderStatus = "Canceled";
+		} else if (orderStatusContent.contains("Cancelled".toUpperCase())){
+			orderStatus = "Cancelled";
 		} else if (orderStatusContent.contains("Closed".toUpperCase())){
 			orderStatus = "Closed";
+		} else if (orderStatusContent.contains("Pending".toUpperCase())){
+			orderStatus = "Pending";
 		}
 		else {
 			genericHelper.throwUserException("no appropriate status found");

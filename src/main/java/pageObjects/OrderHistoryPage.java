@@ -60,6 +60,7 @@ public class OrderHistoryPage extends CucumberRunner {
 	public void verifyOrderHistoryPage() {
 		waitHelper.waitForElementVisible(lblOrderHistory);
 		log.info("Order History page is displayed");
+		waitHelper.staticWait(10000);
 	}
 
 	public String getOrderStatus() {

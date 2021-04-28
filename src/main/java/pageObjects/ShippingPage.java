@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
@@ -123,6 +124,11 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void selectArea(String country) {
+//		commonMethods.click(drpdwnArea);
+//		EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(browserFactory.getDriver());
+//		eventFiringWebDriver.executeScript(
+//				"document.querySelector('div[role=\"button\"] > ul[class*=\"isExpanded\"]').scrollTop=1500");
+
 		commonMethods.SelectJSUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
