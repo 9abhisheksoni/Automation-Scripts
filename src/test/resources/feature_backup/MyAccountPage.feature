@@ -6,7 +6,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		Then Create an account using valid details
 		Then user login is successfull
 	
-	@Smoke @Regression 
+	@Sanity @Regression 
 	Scenario: TS_LoginLogout_02 - Registered User of 6thstreet.com site should be able to logout 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -15,7 +15,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 		When User Logsout 
 		Then Logout is successfull
 		
-	@Smoke @Regression 
+	@Sanity @Regression 
 	Scenario Outline: TS_Wishlist_04 - Registered User of 6thstreet.com should be able to add product to wishlist 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -32,7 +32,7 @@ Feature: 6thStreet.com -  wishlist, address, create acc, Order History and login
 			|SearchTerm|
 			|Shoes|		
 				
-		@Smoke @Regression	
+		@Sanity @Regression	
 		Scenario: TS_MyAccountAddress_05 - Registered User of 6thstreet.com site should be able to update the address
 			When User clicks on login link 
 			When User enters "validuser" login details in the login popup 

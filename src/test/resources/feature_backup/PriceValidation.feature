@@ -1,5 +1,6 @@
 Feature: 6thstreet.com - validate the price in pdp,plp,wishlist,search,minicart and cart 
 
+@PriceValidation
 Scenario Outline: TS_Price_01: Given the SKU, base_price and the special_price, then they should be same in all the places of the application 
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup 
@@ -42,7 +43,7 @@ Scenario Outline: TS_Price_01: Given the SKU, base_price and the special_price, 
 		|Product|Base_Price|Special_Price|
 		|FM3288-BLACK/WHITE|360|270|
 		
-
+@PriceValidation
 Scenario Outline: TS_Price_02: Given the SKU, then the application should fetch the base_price and special_price from the PLP and compare in all places
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup
@@ -86,7 +87,7 @@ Scenario Outline: TS_Price_02: Given the SKU, then the application should fetch 
 		|19866-0029-WLRUS-MLT|
 
 
-		
+@PriceValidation		
 Scenario Outline: TS_Price_03: The script should filter the items based on the keyword provided and fetch the price from the first item in the plp
 		When User clicks on login link 
 		When User enters "validuser" login details in the login popup

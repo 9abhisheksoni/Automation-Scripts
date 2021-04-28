@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Registered User Place Order Scenarios
 
-@Smoke @CreditCardPayment @RegisteredUser
+@Sanity @CreditCardPayment @RegisteredUser
 	Scenario Outline: TS_RegisteredCheckoutUAT_01 - Registered User of 6thstreet.com site should be able to add multiple products into cart 
 		When User clicks on login link 
 		When User enters valid login details "<username>" username and "<password>" password in the login popup from feature
@@ -81,7 +81,7 @@ Feature: 6thstreet.com - Registered User Place Order Scenarios
 		|qauae1@yopmail.com|6Thstreet!|
 		|ashwinbmsit@gmail.com|Modex123|
 
-@Smoke
+@Sanity
 Scenario Outline: TS_RegisteredCheckoutUAT_02 - Registered User of 6thstreet.com site should be able to place order for multiple products 
 		When User clicks on login link 
 		When User enters valid login details "uatvaliduser" username and "uatvaliduser" password in the login popup 
@@ -110,7 +110,7 @@ Scenario Outline: TS_RegisteredCheckoutUAT_02 - Registered User of 6thstreet.com
 		|Product                   |CountrySize|Size|Qty|
 		|000NM1129E-White|EU|M|
 		
-@Smoke
+@Sanity
 Scenario Outline: TS_AddToCart_03 - Registered User of UAT 6thstreet.com site should be able to Add 10 unique items to Cart and abandon
 	When User clicks on login link 
 	When User enters valid login details "<username>" username and "<password>" password in the login popup from feature

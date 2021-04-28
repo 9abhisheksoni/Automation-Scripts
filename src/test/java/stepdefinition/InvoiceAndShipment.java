@@ -1,12 +1,12 @@
 package stepdefinition;
 
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import base.Config;
 import commonHelper.GenericHelper;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import jdk.internal.org.jline.utils.Log;
 import pageObjects.LoginPage;
 import pageObjects.MagentoDashboardPage;
 import pageObjects.MagentoOrdersDetailPage;
@@ -26,6 +26,7 @@ public class InvoiceAndShipment {
 	GenericHelper genericHelper = new GenericHelper();
 	Config config = new Config();
 	MagentoRmaPage magentoRmaPage = new MagentoRmaPage();
+	private Logger log = Logger.getLogger(InvoiceAndShipment.class.getName());
 
 	@When("^user clicks on sales module$")
 	public void user_clicks_on_sales_module() {
@@ -92,7 +93,7 @@ public class InvoiceAndShipment {
 		} else if (captureType.equalsIgnoreCase("Not Capture")) {
 			magentoOrderDetailsPage.notCapture();
 		} else {
-			Log.info("Payment capture type is undefined");
+			log.info("Payment capture type is undefined");
 		}
 	}
 

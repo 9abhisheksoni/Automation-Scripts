@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="BH_EN_Banner">
+		<parameter name="country" value="BH" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesBannerVerificationBH" />
+		</classes>
+	</test> <!--Test -->
+	<test name="BH_AR_Banner">
+		<parameter name="country" value="BH" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesBannerVerificationBH" />
+		</classes>
+	</test>
+	<test name="OM_EN_Banner">
+		<parameter name="country" value="OM" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesBannerVerificationBH" />
+		</classes>
+	</test> <!--Test -->
+	<test name="OM_AR_Banner">
+		<parameter name="country" value="OM" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesBannerVerificationBH" />
+		</classes>
+	</test> <!--Test -->
+</suite> <!-- Suite -->

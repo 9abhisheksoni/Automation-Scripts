@@ -14,6 +14,8 @@ import org.testng.asserts.SoftAssert;
 
 import com.google.common.collect.Ordering;
 
+import base.Config;
+import commonHelper.BrowserFactory;
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
 import commonHelper.JavaScriptHelper;
@@ -521,4 +523,12 @@ public class SearchPage extends CucumberRunner {
 		jsHelper.scrollDownVertically();
 		jsHelper.scrollDownVertically();		
 	}
+	
+	public void verifyProductCounts() {
+		int productDisplayed = this.getProductsCount();
+		int productExpected = new Config().getProductCountOnActiveLocale(browserFactory.getCountry());
+		Assert.assertTrue(productDisplayed >= productExpected);
+		log.info("Verified Product Count");
+	}
+
 }

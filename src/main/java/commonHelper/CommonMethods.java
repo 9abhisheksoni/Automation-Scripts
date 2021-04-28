@@ -1,4 +1,3 @@
-
 package commonHelper;
 
 import static org.testng.Assert.fail;

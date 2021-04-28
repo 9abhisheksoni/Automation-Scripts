@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="UAE-EN : UserJourny">
+		<parameter name="country" value="UAE" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KSA-EN : UserJourny">
+		<parameter name="country" value="KSA" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> 
+	<test name="QA-EN : UserJourny">
+		<parameter name="country" value="QA" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KW-EN : UserJourny">
+		<parameter name="country" value="KW" />
+		<parameter name="language" value="EN" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+	<test name="UAE-AR : UserJourny">
+		<parameter name="country" value="UAE" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KSA-AR : UserJourny">
+		<parameter name="country" value="KSA" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> 
+	<test name="QA-AR : UserJourny">
+		<parameter name="country" value="QA" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+	<test name="KW-AR : UserJourny">
+		<parameter name="country" value="KW" />
+		<parameter name="language" value="AR" />
+		<classes>
+			<class name="testRunner.ProdSitesMonitoringScripts" />
+		</classes>
+	</test> <!--Test -->
+</suite> <!-- Suite -->

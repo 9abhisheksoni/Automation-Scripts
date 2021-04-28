@@ -112,6 +112,7 @@ public class LoginPage extends CucumberRunner {
 	@FindBy(xpath = "//a[@class=' MyAccountSignedInOverlay-LinkDelivery']")
 	private WebElement lnkDeliveryAddress;
 
+
 	@FindBy(xpath = "//img[contains(@class,'MyAccountAddressTable-Icon_trash')]")
 	private List<WebElement> iconRemoveAddress;
 
@@ -385,8 +386,9 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void clearSavedAddress() {
-		commonMethods.click(lblCustomerName);
-		commonMethods.click(lnkDeliveryAddress);
+		waitHelper.staticWait(10000);
+		commonMethods.moveToElementAndClick(lblCustomerName);
+		commonMethods.moveToElementAndClick(lnkDeliveryAddress);
 		this.deleteAllSavedAddress();
 	}
 
@@ -422,9 +424,10 @@ public class LoginPage extends CucumberRunner {
 	}
 
 	public void deleteAllSavedAddress() {
+		waitHelper.staticWait(10000);
 		int removeAddressCount = iconRemoveAddress.size();
 		for (int i = 0; i < removeAddressCount; i++) {
-			commonMethods.moveToElementAndClick(iconRemoveAddress.get(0));
+			commonMethods.click(iconRemoveAddress.get(0));
 			commonMethods.click(btnConfirmDelete);
 			log.info("Address deleted");
 		}

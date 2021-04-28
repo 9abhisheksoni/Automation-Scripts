@@ -1,7 +1,7 @@
 	Feature: 6thstreet.com - Guest User Place Order Scenarios
 	
 	
-	@Smoke
+	@Sanity
 	Scenario Outline: TS_GuestCheckout_05 - Guest User of 6thstreet.com site should be able to place order using TabbyPayInInstallments 
 		When Launch Admin Magento URL "<MagentotURL>"
 		When User enters magento valid login details "magentouser" username and "magentouser" password in the login popup 

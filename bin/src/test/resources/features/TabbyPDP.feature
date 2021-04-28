@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Tabby Widget on PDP
 
-  @TabbyPayInInstallments @RegisteredUser @Smoke
+  @TabbyPayInInstallments @RegisteredUser @Sanity
   Scenario Outline: TS_TabbyRMA_01 - User of 6thstreet.com site should be able to Review Tabby Widget on PDP
 	And Home page is displayed 
 	And user enters product name as "<Product>" in search text box and click search icon 

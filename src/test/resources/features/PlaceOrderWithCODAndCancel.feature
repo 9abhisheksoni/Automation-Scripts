@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Guest User Place Order via COD and Admin Cancels the order
 
-	@Smoke @CODPayment @GuestUser
+	@Sanity @CODPayment @GuestUser
 	Scenario Outline: TS_GuestCheckout_01 - Guest User of 6thstreet.com site should be able to place order using cod 
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -36,7 +36,7 @@ Feature: 6thstreet.com - Guest User Place Order via COD and Admin Cancels the or
 		|LCW-8S7179Z4-LCW-TURQUOIS |EU|10Y|1|
 		
 		
-	@Smoke @CODPayment @GuestUser @TabbyTest
+	@Sanity @CODPayment @GuestUser @TabbyTest
 	Scenario Outline: TS_RegisteredCheckout_02 - Registered User of 6thstreet.com site should be able to place order using cod
 	When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

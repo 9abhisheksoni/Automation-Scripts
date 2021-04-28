@@ -50,9 +50,13 @@ public class WaitHelper extends CucumberRunner {
 	 **/
 	public void waitForElementVisible(WebElement element) {
 		log.info("fluentwaitForvisibilityOfElement" + element);
-		WebDriverWait wait = getWait();
-		wait.until(ExpectedConditions.visibilityOf(element));
-		log.info("element found..." + element.getText());
+		try {
+			WebDriverWait wait = getWait();
+			wait.until(ExpectedConditions.visibilityOf(element));
+			log.info("element found..." + element.getText());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/** An expectation for checking the element to be invisible **/
@@ -104,11 +108,11 @@ public class WaitHelper extends CucumberRunner {
 	public void waitForSpinnerInvisibility() {
 		WebElement spinner = new ShippingPage().checkoutSpinner;
 		int count = 0;
-		while (new GenericHelper().isElementPresent(spinner) && count < 5) {
+		while (new GenericHelper().isElementPresent(spinner) && count < 3) {
 			try {
 				log.info("Waiting for spinner disappear");
 				this.waitForElementInVisiblity(spinner);
-				this.staticWait(10000);
+				this.staticWait(1500);
 				count++;
 			} catch (Exception e) {
 				log.info("spinner not displayed");

@@ -1,5 +1,18 @@
 Feature: 6thstreet.com - PDP select size 
 
+<<<<<<< HEAD
+		@Regression @Sanity
+		Scenario Outline: TS_PDP_01:User should be able add product with size 
+			And user enters product name as "<Product>" in search text box and click search icon 
+			And click on first valid product in search result 
+			And user selects Country and Size 
+			And user clicks on ADDTOBAG button 
+			Then mini cart should be displayed 
+			
+			Examples: 
+				|Product|
+				|shirt|
+=======
 @Regression 
 Scenario Outline: TS_PDP_01:User should be able add product with size 
 	And user enters product name as "<Product>" in search text box and click search icon 
@@ -11,7 +24,45 @@ Scenario Outline: TS_PDP_01:User should be able add product with size
 	Examples: 
 		|Product|
 		|shirt|
+>>>>>>> branch 'development' of https://github.com/6thstreetdotcom/Automation-Scripts.git
 		
+<<<<<<< HEAD
+		@Regression @Sanity
+		Scenario Outline: TS_PDP_02:User should be able add product without variations 
+			And user enters product name as "<Product>" in search text box and click search icon 
+			And click on first valid product in search result
+			And user clicks on ADDTOBAG button 
+			Then mini cart should be displayed 
+			
+			Examples: 
+				|Product|
+				|lipsstick|
+				
+			@Regression	@Sanity
+			Scenario Outline: TS_PDP_03:User should be able add product with color 
+				And user enters product name as "<Product>" in search text box and click search icon 
+				And click on first valid product in search result
+				And user selects color 
+				And user clicks on ADDTOBAG button 
+				Then mini cart should be displayed 
+				
+				Examples: 
+					|Product|
+					|NKAA2146-600-RED|
+					
+				@Regression @Sanity
+				Scenario Outline: TS_PDP_04:User should be able add any product 
+					And user enters product name as "<searchTerm>" in search text box and click search icon 
+					And click on first valid product in search result 
+					And user selects variation if available 
+					And user clicks on ADDTOBAG button 
+					Then mini cart should be displayed 
+					
+					Examples: 
+						|searchTerm|
+						|Shirts|
+						|lipsstick|
+=======
 @Regression 
 Scenario Outline: TS_PDP_02:User should be able add product without variations 
 	And user enters product name as "<Product>" in search text box and click search icon 
@@ -36,6 +87,7 @@ Scenario Outline: TS_PDP_04:User should be able add any product
 		|Shirts|
 		|lipsstick|
 		
+>>>>>>> branch 'development' of https://github.com/6thstreetdotcom/Automation-Scripts.git
 						
 @Regression @Tabby 
 Scenario Outline:

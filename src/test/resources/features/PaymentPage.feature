@@ -1,6 +1,6 @@
 Feature: 6thstreet.com - Various Payment options in Payment page
 
-    @Smoke @RegisteredUser 
+    @Sanity @RegisteredUser 
 	Scenario Outline: TS_RegisteredCheckout_01 - Verify the various payment options available in payment page for a Registered User of 6thstreet.com site 
 		When User clicks on login link 
 		When User enters valid login details "validuser" username and "validuser" password in the login popup 

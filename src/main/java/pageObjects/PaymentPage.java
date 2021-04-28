@@ -249,6 +249,7 @@ public class PaymentPage extends CucumberRunner {
 		genericHelper.switchToFrame(frameTabby);
 		commonMethods.clearAndSendKeys(txtTabbyPhone, phone);
 		commonMethods.clearAndSendKeys(txtTabbyEmail, email);
+		waitHelper.staticWait(3000);
 		if (commonMethods.getAttribute(chkTabbyTerms, "checked") == null) {
 			commonMethods.click(chkTabbyTerms);
 		}
@@ -261,8 +262,10 @@ public class PaymentPage extends CucumberRunner {
 		} else if (browserFactory.getCountry().equalsIgnoreCase("KSA")) {
 			commonMethods.clearAndSendKeys(txtTabbyFullName, json.getTabbyFullName());
 			commonMethods.clearAndSendKeys(txtTabbyID, json.getTabbyID());
+			if(genericHelper.isElementPresent(txtTabbyNationality)) {
 			commonMethods.clearAndSendKeys(txtTabbyNationality, json.getTabbyNationality());
 			commonMethods.click(drpdwnTabbyNationality);
+			}
 			commonMethods.clearAndSendKeys(txtTabbyDOB, json.getTabbyDOB());
 		}
 		commonMethods.click(btnTabbyBuyNow);

@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import commonHelper.CommonMethods;
 import commonHelper.GenericHelper;
@@ -63,7 +64,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='CheckoutShippingStep-DeliveryButton']/button")
 	private WebElement btnDeliverToAddress;
 
-	@FindBy(className = "//button[@class='MyAccountBtn button primary']")
+	@FindBy(xpath = "//button[contains(normalize-space(@class),'MyAccountBtn button primary')]")
 	private WebElement btnSaveAddress;
 
 	@FindBy(className = "CheckoutAddressBook-Wrapper")
@@ -87,7 +88,7 @@ public class ShippingPage extends CucumberRunner {
 	@FindBy(xpath = "//div[@class='price with-discount']/span")
 	private WebElement txtSpecialPrice;
 	
-	@FindBy(xpath = "//div[@id='checkout-loader' or @class='loading-mask' or @data-role='spinner']")
+	@FindBy(xpath = "//div[@class='Loader']//img[@class='Loader-Main']")
 	public	WebElement checkoutSpinner;
 
 	/**
@@ -123,6 +124,11 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void selectArea(String country) {
+//		commonMethods.click(drpdwnArea);
+//		EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(browserFactory.getDriver());
+//		eventFiringWebDriver.executeScript(
+//				"document.querySelector('div[role=\"button\"] > ul[class*=\"isExpanded\"]').scrollTop=1500");
+
 		commonMethods.SelectJSUsingValue(drpdwnArea, json.getArea(country));
 		log.info("Area is selected");
 	}
@@ -133,6 +139,7 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void clickDeliverToAddress() {
+		waitHelper.waitForSpinnerInvisibility();
 		commonMethods.click(btnDeliverToAddress);
 		log.info("Delivered to this adrress button is clicked");
 	}
@@ -204,9 +211,11 @@ public class ShippingPage extends CucumberRunner {
 	}
 
 	public void fillShippingForm() {
+		String country = browserFactory.getCountry().toLowerCase();
 		log.info("Enter address manually");
 		this.submitShippingAddress(browserFactory.getCountry().toLowerCase());
-		this.clickDeliverToAddress();
+		commonMethods.click(btnSaveAddress);
+		this.submitSavedAddress(country);
 	}
 
 	/*

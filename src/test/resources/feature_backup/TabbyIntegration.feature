@@ -10,7 +10,7 @@ Background: user logins to application and navigates till shipping address page
 		And User clears saved address
 		
 		
-	@TabbyPayInInstallments @Regression
+	@TabbyPayInInstallments @TabbyIntegration
 	Scenario Outline: TS_TabbyRMA_02 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayInInstallments  
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -51,7 +51,7 @@ Background: user logins to application and navigates till shipping address page
 		|Product|CountrySize|Size|Qty|
 		|5277134-TAN|EU|23|1|
 		
-	@TabbyPayLater @Regression 
+	@TabbyPayLater @TabbyIntegration 
 	Scenario Outline: TS_TabbyRMA_03 - Registered User of 6thstreet.com site should be able to cancel from backend for TabbyPayLater  
 		And user enters product name as "<Product>" in search text box and click search icon 
 		And user clicks on product tile in result 
@@ -95,7 +95,7 @@ Background: user logins to application and navigates till shipping address page
 			
 			
 
-  @TabbyPayInInstallments @Regression
+  @TabbyPayInInstallments @TabbyIntegration
   Scenario Outline: TS_TabbyRMA_04 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayInInstallments
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
@@ -187,7 +187,7 @@ Background: user logins to application and navigates till shipping address page
 		|5277134-TAN|EU|23|1|
 		
 	
-	@TabbyPayLater @Regression
+	@TabbyPayLater @TabbyIntegration
   Scenario Outline: TS_TabbyRMA_05 - Registered User of 6thstreet.com site should be able to perform RMA for TabbyPayLater
 	And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
@@ -278,7 +278,7 @@ Background: user logins to application and navigates till shipping address page
 		|Product |CountrySize|Size|Qty|
 		|DSW425728-230-NUDE|EU|41|1|
 		
-	@TabbyPayInInstallments @Regression 
+	@TabbyPayInInstallments @TabbyIntegration 
   Scenario Outline: TS_TabbyRMA_06 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayInInstallments
     And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 
@@ -379,7 +379,7 @@ Background: user logins to application and navigates till shipping address page
 		|Product|CountrySize|Size|Qty|
 		|5277134-TAN|EU|23|1|	
 	
-	@TabbyPayLater @Regression 
+	@TabbyPayLater @TabbyIntegration 
   Scenario Outline: TS_TabbyRMA_07 - Registered User of 6thstreet.com site should be able to create RMA from backend TabbyPayLater
     And user enters product name as "<Product>" in search text box and click search icon 
 	And user clicks on product tile in result 

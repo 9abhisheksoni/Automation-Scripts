@@ -81,10 +81,10 @@ Feature: 6thstreet.com - Acceptance Test Scenarios
 				|SearchTerm|
 				|Shoes|		
 				
-			
+	@Monitoring		
 	Scenario: TS_ProductLink_Test - All level 3 Category Should Be Working 
 		When User Verifies Product CategoryLinks Navigation
 		
-	@run-catTest	
+	@Monitoring	
 	Scenario: TS_BrandLink_Test - All level 3 Brand Should Be Working  
 		When User Verifies Brand CategoryLinks Navigation
