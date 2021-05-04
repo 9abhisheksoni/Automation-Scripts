@@ -154,7 +154,8 @@ public class SearchPage extends CucumberRunner {
 	/**
 	 * WebElement declaration ends here
 	 **/
-
+	//For a change
+	
 	public void clickProdcuctInSearchPage() {
 		commonMethods.click(lnkProduct);
 		log.info("clicked product on PLP");
