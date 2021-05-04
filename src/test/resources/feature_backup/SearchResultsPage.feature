@@ -108,7 +108,7 @@ Feature: 6thstreet.com - Filter and search in PLP and add product in  PDP
 			And scroll two lazy loads
 			Then broken price products are collected
 			
-		@ProductCount	
+		@ProductCount	@Test1
 		Scenario:  TS_Search_12 - Verify product count in catalog 
 			And user enters product name as "@" in search text box and click search icon 
 			Then verify whether products count is as expected
